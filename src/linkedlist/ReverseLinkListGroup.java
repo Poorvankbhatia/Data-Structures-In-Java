@@ -40,8 +40,37 @@ public class ReverseLinkListGroup {
         head = reverseGroups(head, 2);
 
         printList(head);
+        
+        System.out.println("Reversing List via recursion!");
 
+        head = reverseUsingRecursion(head);
+        
+        printList(head);
+        
+    }
+    
+    private static RGLLNode reverseUsingRecursion(RGLLNode head) {
+        
+        
+        if(head==null){
+            return null;
+        }
+        
+        RGLLNode first = head;
+        RGLLNode rest = head.link;
+        
+        if(rest==null) {
+            return first;
+        }
+        
+        rest = reverseUsingRecursion(rest);
+        
+        first.link.link = first;
+        
+        first.link = null;
 
+        return rest;
+        
     }
 
     private static RGLLNode reverseGroups(RGLLNode head, int k) {
