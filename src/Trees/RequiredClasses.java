@@ -60,6 +60,11 @@ class Input {
         return root;
 
     }
+
+    public static int maxOfTwoNo(int a ,int b) {
+
+        return a>b?a:b;
+    }
     
 }
 

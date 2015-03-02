@@ -9,7 +9,7 @@ public class TreeHeight {
         
     }
     
-    private static int height(Node root) {
+    public static int height(Node root) {
         
         if(root==null) {
             return 0;
@@ -21,7 +21,7 @@ public class TreeHeight {
     }
     
     private static int maxOfTwoNo(int a ,int b) {
-        
+
         return a>b?a:b;
     }
 }

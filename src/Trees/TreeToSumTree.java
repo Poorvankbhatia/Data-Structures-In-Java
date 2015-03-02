@@ -57,3 +57,9 @@ public class TreeToSumTree {
     }
     
 }
+
+/*
+ 
+ O(n^2), Worst case complexity is for a skewed tree such that nodes are in decreasing order from root to leaf.
+
+ */
