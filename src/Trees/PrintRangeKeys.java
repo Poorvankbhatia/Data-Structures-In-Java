@@ -39,6 +39,6 @@ public class PrintRangeKeys {
   
   1) If value of root’s key is greater than k1, then recursively call in left subtree.
 2) If value of root’s key is in range, then print the root’s key.
-3) If value of root’s key is smaller than k2, then recursively call in right subtree.   
+3) If value of root’s key is smaller than k2, then recursively call in right subtree.
 
  */
