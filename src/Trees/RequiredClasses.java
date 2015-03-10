@@ -40,6 +40,52 @@ class Tree {
         }
         return root;
     }
+    
+    public static Node search(int n,Node root) {
+        
+        if(root.info == n) {
+            return root;
+        }
+        
+        if(root.info < n) {
+            return search(n,root.right);
+        }
+        
+        if (root.info > n ) {
+            return search(n,root.left);
+        }
+        
+        return null;
+        
+    }
+
+    public static Node rightRotation(Node node) {
+
+        Node temp;
+        temp = node.left;
+
+        if(temp!=null) {
+            node.left = temp.right;
+            temp.right = node;
+        }
+
+        return temp;
+    }
+
+    public static Node leftRotation(Node node) {
+
+        Node temp;
+        temp = node.right;
+
+        if(temp!=null) {
+            node.right = temp.left;
+            temp.left = node;
+        }
+
+        return temp;
+
+    }
+    
 }
 
 class Input {
