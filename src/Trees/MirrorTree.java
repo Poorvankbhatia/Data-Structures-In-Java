@@ -1,21 +1,21 @@
 package Trees;
 
 public class MirrorTree {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         System.out.println("Inorder traversal before ");
         traversal.in_Order(root);
         System.out.println("\nInorder traversal after ");
         root = mirror(root);
         traversal.in_Order(root);
-        
+
     }
-    
+
     private static Node mirror(Node root) {
-        
-        if(root!=null) {
+
+        if (root != null) {
 
             root.left = mirror(root.left);
             root.right = mirror(root.right);
@@ -26,7 +26,7 @@ public class MirrorTree {
             return root;
         }
         return null;
-        
+
     }
-    
+
 }

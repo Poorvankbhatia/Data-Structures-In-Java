@@ -1,75 +1,71 @@
 package Trees;
 
 public class SumTree {
-    
+
     public static void main(String[] args) {
-       
+
         Node root = new Node(26);
         root.left = new Node(10);
         root.left.left = new Node(4);
         root.left.right = new Node(6);
         root.right = new Node(3);
         root.right.right = new Node(3);
-        
+
         System.out.println(isSumTree(root));
-        
+
     }
-    
+
     public static boolean isSumTree(Node root) {
-        
-        if(root == null || isLeaf(root)) {
+
+        if (root == null || isLeaf(root)) {
             return true;
         }
-        
-        if( isSumTree(root.left) && isSumTree(root.right)) {
-            
-            int ls,rs;
-            
-            if(root.left == null) {
+
+        if (isSumTree(root.left) && isSumTree(root.right)) {
+
+            int ls, rs;
+
+            if (root.left == null) {
                 ls = 0;
-            }
-            else if(isLeaf(root.left)) {
+            } else if (isLeaf(root.left)) {
                 ls = root.left.info;
-            }
-            else {
-                ls = 2 *(root.left.info);
+            } else {
+                ls = 2 * (root.left.info);
             }
 
-            if(root.right == null) {
+            if (root.right == null) {
                 rs = 0;
-            }
-            else if(isLeaf(root.right)) {
+            } else if (isLeaf(root.right)) {
                 rs = root.right.info;
+            } else {
+                rs = 2 * (root.right.info);
             }
-            else {
-                rs = 2 *(root.right.info);
-            }
-            
-            if(root.info == ls + rs) {
+
+            if (root.info == ls + rs) {
                 return true;
             }
-            
-            
+
+
         }
 
         return false;
-        
+
     }
-    
+
     private static boolean isLeaf(Node node) {
-        
-        if(node==null) {
+
+        if (node == null) {
             return false;
         }
-        
-        if(node.left==null && node.right == null) {
+
+        if (node.left == null && node.right == null) {
             return true;
         }
-        
+
         return false;
-        
+
     }
-    
+
 }
 
 /*

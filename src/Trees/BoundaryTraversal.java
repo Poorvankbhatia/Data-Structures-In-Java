@@ -1,7 +1,7 @@
 package Trees;
 
 public class BoundaryTraversal {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(10);
@@ -14,60 +14,58 @@ public class BoundaryTraversal {
         leftBoundary(root.left);
         printLeaves(root);
         rightBoundary(root.right);
-        
+
     }
-    
-    
+
+
     //print only left part
     public static void leftBoundary(Node root) {
-        
-        if(root!=null) {
-            
-            if(root.left!=null) {
+
+        if (root != null) {
+
+            if (root.left != null) {
                 System.out.print(root.info + " ");
                 leftBoundary(root.left);
-            }
-            else if(root.right!=null) {
+            } else if (root.right != null) {
                 System.out.print(root.info + " ");
                 leftBoundary(root.right);
-            } 
-            
+            }
+
         }
     }
-    
+
     public static void printLeaves(Node root) {
-        
-        if(root!=null) {
-            
+
+        if (root != null) {
+
             printLeaves(root.left);
-            
-            if(root.right==null && root.left==null) {
+
+            if (root.right == null && root.left == null) {
                 System.out.print(root.info + " ");
             }
-            
+
             printLeaves(root.right);
-            
+
         }
-        
+
     }
-    
+
     public static void rightBoundary(Node root) {
-        
-        if(root!=null) {
-            
-            if(root.right!=null) {
+
+        if (root != null) {
+
+            if (root.right != null) {
                 rightBoundary(root.right);
                 System.out.print(root.info + " ");
-            }
-            else if(root.left!=null) {
+            } else if (root.left != null) {
                 rightBoundary(root.left);
                 System.out.print(root.info + " ");
             }
-            
+
         }
-        
+
     }
-    
+
 }
 
 /*

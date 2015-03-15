@@ -8,48 +8,48 @@ Given Inorder Traversal of a Special Binary Tree in which key of every node is g
 package Trees;
 
 public class SpecialBT1 {
-    
+
     public static void main(String[] args) {
-        
-        int[] inOrder = new int[]{5,10,40,30,28};
-        traversal.pre_Order(constructTree(inOrder,0,4));
+
+        int[] inOrder = new int[]{5, 10, 40, 30, 28};
+        traversal.pre_Order(constructTree(inOrder, 0, 4));
 
 
     }
-    
-    private static Node constructTree(int[] inOrder , int start , int end) {
-        
-        if(start > end) {
+
+    private static Node constructTree(int[] inOrder, int start, int end) {
+
+        if (start > end) {
             return null;
         }
-        
-        int index = maxIndex(inOrder,start,end);
+
+        int index = maxIndex(inOrder, start, end);
         Node root = new Node(inOrder[index]);
-        
-        root.left = constructTree(inOrder,start,index-1);
-        root.right = constructTree(inOrder,index+1,end);
-        
+
+        root.left = constructTree(inOrder, start, index - 1);
+        root.right = constructTree(inOrder, index + 1, end);
+
         return root;
-        
-        
+
+
     }
-    
-    private static int maxIndex(int[] arr,int start,int end) {
-        
+
+    private static int maxIndex(int[] arr, int start, int end) {
+
         int max = Integer.MIN_VALUE;
-        int index =start;
-        
-        for (int i=start;i<=end;i++) {
-            if(arr[i]>max) {
-                 max = arr[i];
-                 index = i;
+        int index = start;
+
+        for (int i = start; i <= end; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                index = i;
             }
         }
-        
+
         return index;
-        
+
     }
-    
+
 }
 
 

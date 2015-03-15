@@ -7,44 +7,44 @@ package Trees;
 class traversal {
 
     public static void pre_Order(Node node) {
-       
-        if(node == null) {
+
+        if (node == null) {
             return;
         }
         System.out.print(node.info + " ");
         pre_Order(node.left);
         pre_Order(node.right);
-        
+
     }
-    
+
     public static void post_Order(Node node) {
-        
-        if(node == null) {
+
+        if (node == null) {
             return;
         }
         post_Order(node.left);
         post_Order(node.right);
         System.out.print(node.info + " ");
-        
+
     }
-    
+
     public static void in_Order(Node node) {
-        
+
         if (node == null) {
             return;
         }
         in_Order(node.left);
         System.out.print(node.info + " ");
         in_Order(node.right);
-        
+
     }
-    
+
 }
 
 public class TraversalsRecursive {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         System.out.println("InOrder is :");
         traversal.in_Order(root);
@@ -53,7 +53,7 @@ public class TraversalsRecursive {
         System.out.println("\nPostOrder is :");
         traversal.post_Order(root);
     }
-    
+
 }
 
 

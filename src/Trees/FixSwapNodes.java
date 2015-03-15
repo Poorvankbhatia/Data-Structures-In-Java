@@ -1,9 +1,9 @@
 package Trees;
 
 public class FixSwapNodes {
-    
-    private static Node previous=null,first=null,middle = null,last=null;
-    
+
+    private static Node previous = null, first = null, middle = null, last = null;
+
     public static void main(String[] args) {
 
         Node root = new Node(10);
@@ -16,66 +16,63 @@ public class FixSwapNodes {
         traversal.in_Order(root);
         System.out.println("\nIn Order after ");
         traversal.in_Order(correctBST(root));
-        
+
     }
-    
+
     private static Node correctBST(Node root) {
-        
+
         correctBSTUtil(root);
-            
-        if(last!=null) {
+
+        if (last != null) {
             swapNodes(first, last);
+        } else {
+            swapNodes(first, middle);
         }
-        else {
-            swapNodes(first,middle);
-        }
-        
+
         return root;
     }
-    
+
     private static Node correctBSTUtil(Node root) {
-        
-        if(root!=null) {
-            
+
+        if (root != null) {
+
             Node newPrevious = correctBSTUtil(root.left);
-            
-            previous = newPrevious!=null?newPrevious:previous;
-            
-            if(previous!=null && root.info < previous.info) {
-                
-                if(first==null) {
-                    first = previous ;
+
+            previous = newPrevious != null ? newPrevious : previous;
+
+            if (previous != null && root.info < previous.info) {
+
+                if (first == null) {
+                    first = previous;
                     middle = root;
-                }
-                
-                else {
+                } else {
                     last = root;
                 }
-                
+
             }
             previous = root;
-            
+
             newPrevious = correctBSTUtil(root.right);
-            
-            return newPrevious!=null?newPrevious:previous;
+
+            return newPrevious != null ? newPrevious : previous;
 
         }
-        
+
         return root;
     }
-    
-    private static void swapNodes(Node a , Node b) {
-        
-        int tmp=0;
-        
-        if(a!=null && b!=null) {
+
+    private static void swapNodes(Node a, Node b) {
+
+        int tmp = 0;
+
+        if (a != null && b != null) {
             tmp = a.info;
             a.info = b.info;
             b.info = tmp;
         }
-        
+
     }
-    
+
 }
 
 /*

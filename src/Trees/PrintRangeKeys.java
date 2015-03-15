@@ -1,35 +1,35 @@
 package Trees;
 
 public class PrintRangeKeys {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         System.out.println("Range keys are - ");
-        printKeys(10,22,root);
-        
+        printKeys(10, 22, root);
+
     }
-    
-    private static void printKeys(int k1,int k2,Node root) {
-        
-        if(root == null) {
+
+    private static void printKeys(int k1, int k2, Node root) {
+
+        if (root == null) {
             return;
         }
-        
-        if(root.info > k1) {
-            printKeys(k1,k2,root.left);
+
+        if (root.info > k1) {
+            printKeys(k1, k2, root.left);
         }
-        
-        if(root.info >=k1 && root.info <= k2) {
+
+        if (root.info >= k1 && root.info <= k2) {
             System.out.println(root.info);
         }
-        
-        if(root.info < k2) {
-            printKeys( k1, k2 , root.right);
+
+        if (root.info < k2) {
+            printKeys(k1, k2, root.right);
         }
-        
+
     }
-    
+
 }
 
 

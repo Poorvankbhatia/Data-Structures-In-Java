@@ -3,35 +3,35 @@ package Trees;
 import java.util.Scanner;
 
 public class BSTOneNode {
-    
+
     public static void main(String[] args) {
-        
-        int[] preOrder = new int[5]; 
+
+        int[] preOrder = new int[5];
         System.out.print("Enter preorder array ");
         Scanner sc = new Scanner(System.in);
-        for (int i=0;i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             preOrder[i] = sc.nextInt();
         }
         System.out.print("Every child has one node " + isOnlyChild(preOrder));
-        
+
     }
-    
+
     private static boolean isOnlyChild(int[] preOrder) {
-        
-        for (int i=0;i<preOrder.length-1;i++) {
-            
-            int nextDiff= preOrder[i] - preOrder[i+1];
-            int lastDiff = preOrder[i]-preOrder[preOrder.length-1];
-            
-            if(nextDiff*lastDiff < 0) {
+
+        for (int i = 0; i < preOrder.length - 1; i++) {
+
+            int nextDiff = preOrder[i] - preOrder[i + 1];
+            int lastDiff = preOrder[i] - preOrder[preOrder.length - 1];
+
+            if (nextDiff * lastDiff < 0) {
                 return false;
             }
-            
+
         }
         return true;
-        
+
     }
-    
+
 }
 
 /*

@@ -1,36 +1,35 @@
 package Trees;
 
 public class ChildrenSumProperty {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        if(fulfillsSumProperty(root)) {
+        if (fulfillsSumProperty(root)) {
             System.out.print("children Sum Property exists");
-        }
-        else {
+        } else {
             System.out.println("Nope");
         }
-        
+
     }
-    
+
     private static boolean fulfillsSumProperty(Node root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return true;
         }
-        
-        int leftValue=0,rightValue=0;
-        
-        if(root.left!=null) {
+
+        int leftValue = 0, rightValue = 0;
+
+        if (root.left != null) {
             leftValue = root.left.info;
         }
-        if(root.right!=null) {
+        if (root.right != null) {
             rightValue = root.right.info;
         }
-        
-        return ((root.info==leftValue+rightValue) && fulfillsSumProperty(root.left) && fulfillsSumProperty(root.right));
-        
+
+        return ((root.info == leftValue + rightValue) && fulfillsSumProperty(root.left) && fulfillsSumProperty(root.right));
+
     }
-    
+
 }

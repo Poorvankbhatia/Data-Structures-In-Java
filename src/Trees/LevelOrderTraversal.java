@@ -1,49 +1,47 @@
 package Trees;
 
 public class LevelOrderTraversal {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         int height = treeHeight(root);
         System.out.println("height of tree - " + height);
-        for (int d=1;d<=height;d++) {
-            traversal(root,d);
+        for (int d = 1; d <= height; d++) {
+            traversal(root, d);
         }
-        
+
     }
-    
-    private static void traversal(Node root,int level) {
-        
-        if(root!=null) {
-            if(level == 1) {
+
+    private static void traversal(Node root, int level) {
+
+        if (root != null) {
+            if (level == 1) {
                 System.out.print(root.info + " ");
-            }
-            else {
-                traversal(root.left,level-1);
-                traversal(root.right,level-1);
+            } else {
+                traversal(root.left, level - 1);
+                traversal(root.right, level - 1);
             }
         }
-        
+
     }
-    
+
     private static int treeHeight(Node root) {
-        
-        if(root.left == null && root.right == null) {
+
+        if (root.left == null && root.right == null) {
             return 1;
+        } else {
+            return maxTwoNo(treeHeight(root.left), treeHeight(root.right)) + 1;
         }
-        else {
-            return maxTwoNo(treeHeight(root.left),treeHeight(root.right)) + 1;
-        }
-        
+
     }
-    
-    private static int maxTwoNo(int a , int b) {
-        
-        return a>b?a:b;
-        
+
+    private static int maxTwoNo(int a, int b) {
+
+        return a > b ? a : b;
+
     }
-    
+
 }
 
 /*

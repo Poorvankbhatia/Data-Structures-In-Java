@@ -1,36 +1,35 @@
 package Trees;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class VerticalSum {
-    
-    private static HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+
+    private static HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
 
     public static void main(String[] args) {
-        
-        Node root = Input.treeInput();
-        sum(root,0);
-        System.out.println(hashMap);
-        
-    }
-    
-    private static void sum(Node root,int hd) {
-        
-        if(root == null) {
-            return ;
-        }
-        
-        sum(root.left,hd-1);
-        
-        int prevKey = (hashMap.get(hd)==null ? 0 : hashMap.get(hd));
-        
-        hashMap.put(hd,prevKey + root.info);
 
-        sum(root.right,hd+1);
-        
+        Node root = Input.treeInput();
+        sum(root, 0);
+        System.out.println(hashMap);
+
     }
-    
+
+    private static void sum(Node root, int hd) {
+
+        if (root == null) {
+            return;
+        }
+
+        sum(root.left, hd - 1);
+
+        int prevKey = (hashMap.get(hd) == null ? 0 : hashMap.get(hd));
+
+        hashMap.put(hd, prevKey + root.info);
+
+        sum(root.right, hd + 1);
+
+    }
+
 }
 
 /*
