@@ -119,7 +119,7 @@ public class BottomView {
             
             hd = current.hd;
 
-            // Put the dequeued tree node to TreeMap having key
+            // Put the de queued tree node to TreeMap having key
             // as horizontal distance. Every time we find a node
             // having same horizontal distance we need to replace
             // the data in the map.
