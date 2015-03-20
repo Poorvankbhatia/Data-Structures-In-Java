@@ -10,31 +10,31 @@ package Trees;
 
 import java.util.LinkedList;
 
-class TrieNode {
+class ReverseTrieNode {
 
     char content;
     int count = 0;
     boolean isLeaf;
     String url;
-    LinkedList<TrieNode> childList;
+    LinkedList<ReverseTrieNode> childList;
 
 
-    public TrieNode(char ch) {
+    public ReverseTrieNode(char ch) {
 
         content = ch;
         count = 0;
-        childList = new LinkedList<TrieNode>();
+        childList = new LinkedList<ReverseTrieNode>();
         url = "";
         isLeaf = false;
     }
 
     //Method which returns a sub node with content as character
 
-    public TrieNode subNode(char ch) {
+    public ReverseTrieNode subNode(char ch) {
 
         if (this.childList != null) {
 
-            for (TrieNode node : childList) {
+            for (ReverseTrieNode node : childList) {
                 if (node.content == ch) {
                     return node;
                 }
@@ -48,13 +48,13 @@ class TrieNode {
 }
 
 
-class Trie {
+class ReverseTrie {
 
-    public TrieNode root;
+    public ReverseTrieNode root;
 
-    public Trie() {
+    public ReverseTrie() {
 
-        root = new TrieNode(' ');
+        root = new ReverseTrieNode(' ');
 
     }
 
@@ -65,17 +65,17 @@ class Trie {
             System.out.println("Already present DNS with domain name - " + searchResult);
             return;
         } else {
-            TrieNode current = root;
+            ReverseTrieNode current = root;
 
             for (char ch : ipString.toCharArray()) {
 
                 try {
-                    TrieNode subNode = current.subNode(ch);
+                    ReverseTrieNode subNode = current.subNode(ch);
 
                     if (subNode != null) {
                         current = subNode;
                     } else {
-                        current.childList.add(new TrieNode(ch));
+                        current.childList.add(new ReverseTrieNode(ch));
                         current = current.subNode(ch);
                     }
                     current.count++;
@@ -94,11 +94,11 @@ class Trie {
 
     public String search(String ipString) {
 
-        TrieNode current =root;
+        ReverseTrieNode current =root;
         
         for (char ch : ipString.toCharArray()) {
             
-            TrieNode subNode = current.subNode(ch);
+            ReverseTrieNode subNode = current.subNode(ch);
             
             if(subNode==null) {
                 return null;
@@ -125,13 +125,13 @@ public class ReverseDNSLookUp {
     public static void main(String[] args) {
 
 
-        Trie lookUPTrie = new Trie();
-        lookUPTrie.insert("107.108.11.123","www.samsung.com");
-        lookUPTrie.insert("107.109.123.255","www.samsung.net");
-        lookUPTrie.insert("74.125.200.106","www.google.in");
+        ReverseTrie lookUPReverseTrie = new ReverseTrie();
+        lookUPReverseTrie.insert("107.108.11.123","www.samsung.com");
+        lookUPReverseTrie.insert("107.109.123.255","www.samsung.net");
+        lookUPReverseTrie.insert("74.125.200.106","www.google.in");
         
-        System.out.println("domain for 107.109.123.255  is " + lookUPTrie.search("107.109.123.255"));
-        System.out.println("domain for 107.109.123.245  is " + lookUPTrie.search("107.109.123.245"));
+        System.out.println("domain for 107.109.123.255  is " + lookUPReverseTrie.search("107.109.123.255"));
+        System.out.println("domain for 107.109.123.245  is " + lookUPReverseTrie.search("107.109.123.245"));
         
     }
 
