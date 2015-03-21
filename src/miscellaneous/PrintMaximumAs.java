@@ -19,44 +19,43 @@ output is M (No. of As that you can produce).
 package miscellaneous;
 
 public class PrintMaximumAs {
-    
+
     public static void main(String[] args) {
 
-       for (int i=0;i<20;i++) {
-           
-           System.out.println("Maximum number of A's - with " + i + " keystrokes is - " + noOfAs(i));
-           
-       }
-        
-        
+        for (int i = 0; i < 20; i++) {
+
+            System.out.println("Maximum number of A's - with " + i + " keystrokes is - " + noOfAs(i));
+
+        }
+
     }
-    
+
     private static int noOfAs(int input) {
-        
-        if(input<=6) {
+
+        if (input <= 6) {
             return input;
         }
-        
-        int max =0 ;
+
+        int max = 0;
         
         /*
         The above function computes the same subproblems again and again.
          Recomputations of same subproblems can be avoided by storing the solutions to subproblems and solving
           problems in bottom up manner.
          */
-        
-        for (int i = input-3;i>=1;i--) {
-            
-            int currentNo = (input-i-1)*noOfAs(i);
-            if(currentNo>max) {
+
+        for (int i = input - 3; i >= 1; i--) {
+
+            int currentNo = (input - i - 1) * noOfAs(i);
+            if (currentNo > max) {
                 max = currentNo;
             }
-            
+
         }
-        
+
         return max;
     }
-    
+
 }
 
 /*
