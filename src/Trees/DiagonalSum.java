@@ -8,15 +8,15 @@ import java.util.Scanner;
 class customNode1 {
 
     public int info;
-    public customNode2 left;
-    public customNode2 right;
+    public customNode1 left;
+    public customNode1 right;
     public int vd;
 
     public customNode1(int info, int vd) {
         this(info, null, null,vd);
     }
 
-    public customNode1(int info, customNode2 left, customNode2 right, int vd) {
+    public customNode1(int info, customNode1 left, customNode1 right, int vd) {
         this.info = info;
         this.left = left;
         this.right = right;
@@ -27,13 +27,13 @@ class customNode1 {
 
 class customTree1 {
 
-    public customNode2 root;
+    public customNode1 root;
 
     public customTree1() {
         root = null;
     }
 
-    public static customNode2 search(int n, customNode2 root) {
+    public static customNode1 search(int n, customNode1 root) {
 
         if (root.info == n) {
             return root;
@@ -51,9 +51,9 @@ class customTree1 {
 
     }
 
-    public customNode2 customInsert(int info, customNode2 root) {
+    public customNode1 customInsert(int info, customNode1 root) {
         if (root == null) {
-            root = new customNode2(info,0);
+            root = new customNode1(info,0);
         } else if (info < root.info) {
             root.left = customInsert(info, root.left);
         } else if (info > root.info) {
@@ -68,12 +68,12 @@ class customTree1 {
 
 class customInput1 {
 
-    public static customNode2 treeInput() {
+    public static customNode1 treeInput() {
 
         System.out.println("Creating binary tree\n");
         System.out.println("Enter nodes(6) : ");
-        customNode2 root = null;
-        customTree2 tree = new customTree2();
+        customNode1 root = null;
+        customTree1 tree = new customTree1();
 
         for (int i = 0; i <= 5; i++) {
             root = tree.customInsert(Integer.parseInt((new Scanner(System.in)).nextLine()), root);
@@ -94,23 +94,23 @@ public class DiagonalSum {
     
     public static void main(String[] args) {
         
-        customNode2 root = customInput2.treeInput();
+        customNode1 root = customInput1.treeInput();
         fillDiagonalMap(root);
         System.out.println(map);
         
     }
     
-    public static void fillDiagonalMap(customNode2 root) {
+    public static void fillDiagonalMap(customNode1 root) {
 
-        Queue<customNode2> queue = new LinkedList<customNode2>();
+        Queue<customNode1> queue = new LinkedList<customNode1>();
         
         queue.add(root);
         
         while (!queue.isEmpty()) {
             
-            customNode2 current =  queue.remove();
+            customNode1 current =  queue.remove();
             
-            int vd = current.hd;
+            int vd = current.vd;
             
             while (current!=null) {
                 int prevSum = (map.get(vd)==null) ? 0 : map.get(vd);
@@ -121,7 +121,7 @@ public class DiagonalSum {
                 // it to the queue for future processing.
                 
                 if(current.left!=null) {
-                    current.left.hd = vd + 1;
+                    current.left.vd = vd + 1;
                     queue.add(current.left);
                 }
                 
