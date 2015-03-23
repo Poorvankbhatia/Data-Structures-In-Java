@@ -26,8 +26,7 @@ public class DigitsAfterDecimal {
             
             System.out.println("digit number " + i + " is = " + (10*rem)/n);
             
-            rem = (rem*10)%7;
-            
+            rem = (rem*10)%n;
         }
         
     }
