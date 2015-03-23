@@ -11,7 +11,12 @@ public class NextRightNode {
     public static void main(String[] args) {
         
         Node root = Input.treeInput();
-        System.out.println("Next root is - " + nextRight(root,25).info);
+        if( nextRight(root,25)!=null) {
+            System.out.println("Next root is - " + nextRight(root,25).info);
+        }
+        else {
+            System.out.println("null");
+        }
         
     }
     
