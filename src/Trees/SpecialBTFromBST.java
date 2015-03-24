@@ -8,37 +8,37 @@ Given a Binary Search Tree (BST), convert it to a Binary Tree such that every ke
 package Trees;
 
 public class SpecialBTFromBST {
-    
+
     private static int sum = 0;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         root = conversion(root);
         traversal.in_Order(root);
-        
+
     }
-    
+
     private static Node conversion(Node root) {
-        
-        
-        if(root == null) {
+
+
+        if (root == null) {
             return root;
         }
-        
+
         conversion(root.right);
-        
+
         sum += root.info;
-        
+
         root.info = sum;
-        
+
         conversion(root.left);
-        
+
         return root;
-        
-        
+
+
     }
-    
+
 }
 
 /*

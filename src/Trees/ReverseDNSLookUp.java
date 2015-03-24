@@ -79,7 +79,7 @@ class ReverseTrie {
                         current = current.subNode(ch);
                     }
                     current.count++;
-                    
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -94,22 +94,21 @@ class ReverseTrie {
 
     public String search(String ipString) {
 
-        ReverseTrieNode current =root;
-        
+        ReverseTrieNode current = root;
+
         for (char ch : ipString.toCharArray()) {
-            
+
             ReverseTrieNode subNode = current.subNode(ch);
-            
-            if(subNode==null) {
+
+            if (subNode == null) {
                 return null;
+            } else {
+                current = subNode;
             }
-            else {
-                current =subNode;
-            }
-            
+
         }
-        
-        if(current.isLeaf) {
+
+        if (current.isLeaf) {
             return current.url;
         } else {
             return null;
@@ -126,13 +125,13 @@ public class ReverseDNSLookUp {
 
 
         ReverseTrie lookUPReverseTrie = new ReverseTrie();
-        lookUPReverseTrie.insert("107.108.11.123","www.samsung.com");
-        lookUPReverseTrie.insert("107.109.123.255","www.samsung.net");
-        lookUPReverseTrie.insert("74.125.200.106","www.google.in");
-        
+        lookUPReverseTrie.insert("107.108.11.123", "www.samsung.com");
+        lookUPReverseTrie.insert("107.109.123.255", "www.samsung.net");
+        lookUPReverseTrie.insert("74.125.200.106", "www.google.in");
+
         System.out.println("domain for 107.109.123.255  is " + lookUPReverseTrie.search("107.109.123.255"));
         System.out.println("domain for 107.109.123.245  is " + lookUPReverseTrie.search("107.109.123.245"));
-        
+
     }
 
 }

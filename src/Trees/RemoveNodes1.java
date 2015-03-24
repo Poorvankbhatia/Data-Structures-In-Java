@@ -12,35 +12,35 @@ then X is not deleted from Binary Tree. In other words a node is deleted if all 
 package Trees;
 
 public class RemoveNodes1 {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         System.out.println("inorder before ");
         traversal.in_Order(root);
         System.out.println("\ninorder after ");
-        remove(root,0,2);
+        remove(root, 0, 2);
         traversal.in_Order(root);
-        
+
     }
-    
-    private static Node remove(Node root,int level,int k) {
-        
-        if(root == null) {
+
+    private static Node remove(Node root, int level, int k) {
+
+        if (root == null) {
             return null;
         }
-        
-        root.left = remove(root.left,level+1,k);
-        root.right = remove(root.right,level+1,k);
-        
-        if(root.left==null && root.right==null && level < k) {
+
+        root.left = remove(root.left, level + 1, k);
+        root.right = remove(root.right, level + 1, k);
+
+        if (root.left == null && root.right == null && level < k) {
             root = null;
         }
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 /*

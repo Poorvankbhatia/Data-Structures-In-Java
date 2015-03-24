@@ -1,35 +1,35 @@
 package Trees;
 
 public class LeftView {
-    
+
     private static int max = 0;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        printLV(root,1);
-        
+        printLV(root, 1);
+
     }
-    
-    private static void printLV(Node root,int level) {
-        
-        if(root == null) {
+
+    private static void printLV(Node root, int level) {
+
+        if (root == null) {
             return;
         }
-        
-        if(level > max) {
+
+        if (level > max) {
             System.out.print(root.info + " ");
             max = level;
         }
 
         //Just changing the order of below statements changes left to right view
-        
+
         printLV(root.left, level + 1);
-        printLV(root.right,level+1);
-        
+        printLV(root.right, level + 1);
+
     }
-    
-    
+
+
 }
 
 /*

@@ -7,44 +7,44 @@
 package Trees;
 
 public class PreorderBST {
-    
+
     private static int min = Integer.MIN_VALUE;
     private static int max = Integer.MAX_VALUE;
     private static int index = 0;
-    
+
     public static void main(String[] args) {
-        
+
         int[] preOrder = new int[]{10, 5, 1, 7, 40, 50};
-        traversal.in_Order(constructTree(preOrder,preOrder.length,preOrder[0],min,max));
-        
-        
+        traversal.in_Order(constructTree(preOrder, preOrder.length, preOrder[0], min, max));
+
+
     }
-    
-    private static Node constructTree(int[] preOrder,int size,int key,int min,int max) {
-        
-        if(index>=size) {
+
+    private static Node constructTree(int[] preOrder, int size, int key, int min, int max) {
+
+        if (index >= size) {
             return null;
         }
-        
+
         Node root = null;
-        
-        if(key>min && key<max) {
-            
+
+        if (key > min && key < max) {
+
             root = new Node(key);
             index++;
-            
-            if(index<size) {
-                root.left = constructTree(preOrder,size,preOrder[index],min,root.info);
-                root.right = constructTree(preOrder,size,preOrder[index],root.info,max);
+
+            if (index < size) {
+                root.left = constructTree(preOrder, size, preOrder[index], min, root.info);
+                root.right = constructTree(preOrder, size, preOrder[index], root.info, max);
             }
-            
+
         }
-        
-        
+
+
         return root;
-        
+
     }
-    
+
 }
 
  /*

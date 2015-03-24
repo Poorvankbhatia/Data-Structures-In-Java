@@ -26,67 +26,67 @@ public class FindPossibleInterpretations {
     private static final String[] alphabet = {"", "a", "b", "c", "d", "e",
             "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
             "s", "t", "u", "v", "w", "x", "v", "z"};
-    
+
     public static void main(String[] args) {
-        
-        int[] arr = new int[]{1,2,1};
+
+        int[] arr = new int[]{1, 2, 1};
         printLeaves(createTree(0, "", arr));
-        
+
     }
-    
-    private static StringNode createTree(int data,String parent,int[] arr) {
-        
-        if(data>26)  {
+
+    private static StringNode createTree(int data, String parent, int[] arr) {
+
+        if (data > 26) {
             return null;
         }
-        
+
         String dataString = parent + alphabet[data];
-        
+
         StringNode root = new StringNode(dataString);
-        
-        if(arr.length != 0) {
-            
+
+        if (arr.length != 0) {
+
             data = arr[0];
-            
-            int[] newArray = Arrays.copyOfRange(arr,1,arr.length);
-            
-            root.left = createTree(data,dataString,newArray);
-            
-            if(arr.length>1) {
-                
-                data = arr[0]*10 +arr[1];
+
+            int[] newArray = Arrays.copyOfRange(arr, 1, arr.length);
+
+            root.left = createTree(data, dataString, newArray);
+
+            if (arr.length > 1) {
+
+                data = arr[0] * 10 + arr[1];
 
                 // new array will be from index 2 to end as we 
                 // are consuming first two index with this node
-                
-                newArray = Arrays.copyOfRange(arr,2,arr.length);
 
-                root.right = createTree(data,dataString,newArray);
-                
+                newArray = Arrays.copyOfRange(arr, 2, arr.length);
+
+                root.right = createTree(data, dataString, newArray);
+
             }
-            
+
         }
-        
+
         return root;
-        
+
     }
-    
+
     private static void printLeaves(StringNode root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return;
         }
-        
-        if(root.left ==null && root.right == null) {
-            System.out.println(root.info +" ");
+
+        if (root.left == null && root.right == null) {
+            System.out.println(root.info + " ");
         }
-        
+
         printLeaves(root.left);
         printLeaves(root.right);
-        
+
     }
-    
-    
+
+
 }
 
 //Complexity is O(2^n) 

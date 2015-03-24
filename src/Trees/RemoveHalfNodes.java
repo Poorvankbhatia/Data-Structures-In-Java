@@ -1,4 +1,3 @@
-
 /*
 
 Given A binary Tree, how do you remove all the half nodes (which has only one child)? 
@@ -19,42 +18,42 @@ public class RemoveHalfNodes {
         traversal.in_Order(root);
         System.out.println("\nAfter removal -");
         traversal.in_Order(fullTree(root));
-        
+
     }
-    
+
     private static Node fullTree(Node root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return null;
         }
-        
+
         root.left = fullTree(root.left);
         root.right = fullTree(root.right);
-        
-        if(root.left == null && root.right == null) {
+
+        if (root.left == null && root.right == null) {
             return root;
         }
-        
-        if(root.left == null) {
-            
+
+        if (root.left == null) {
+
             Node current = root.right;
             root = null;
             return current;
-            
+
         }
 
-        if(root.right == null) {
+        if (root.right == null) {
 
             Node current = root.left;
             root = null;
             return current;
 
         }
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 /*

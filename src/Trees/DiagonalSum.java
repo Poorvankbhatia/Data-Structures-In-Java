@@ -18,7 +18,7 @@ class customNode1 {
     public int vd;
 
     public customNode1(int info, int vd) {
-        this(info, null, null,vd);
+        this(info, null, null, vd);
     }
 
     public customNode1(int info, customNode1 left, customNode1 right, int vd) {
@@ -58,7 +58,7 @@ class customTree1 {
 
     public customNode1 customInsert(int info, customNode1 root) {
         if (root == null) {
-            root = new customNode1(info,0);
+            root = new customNode1(info, 0);
         } else if (info < root.info) {
             root.left = customInsert(info, root.left);
         } else if (info > root.info) {
@@ -68,7 +68,7 @@ class customTree1 {
         }
         return root;
     }
-    
+
 }
 
 class customInput1 {
@@ -94,51 +94,51 @@ class customInput1 {
 
 
 public class DiagonalSum {
-    
-    private static HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
-    
+
+    private static HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
     public static void main(String[] args) {
-        
+
         customNode1 root = customInput1.treeInput();
         fillDiagonalMap(root);
         System.out.println(map);
-        
+
     }
-    
+
     public static void fillDiagonalMap(customNode1 root) {
 
         Queue<customNode1> queue = new LinkedList<customNode1>();
-        
+
         queue.add(root);
-        
+
         while (!queue.isEmpty()) {
-            
-            customNode1 current =  queue.remove();
-            
+
+            customNode1 current = queue.remove();
+
             int vd = current.vd;
-            
-            while (current!=null) {
-                int prevSum = (map.get(vd)==null) ? 0 : map.get(vd);
-                map.put(vd,prevSum + current.info);
+
+            while (current != null) {
+                int prevSum = (map.get(vd) == null) ? 0 : map.get(vd);
+                map.put(vd, prevSum + current.info);
 
 
                 // If for any node the left child is not null add
                 // it to the queue for future processing.
-                
-                if(current.left!=null) {
+
+                if (current.left != null) {
                     current.left.vd = vd + 1;
                     queue.add(current.left);
                 }
-                
-                current = current.right; 
-                
+
+                current = current.right;
+
             }
-            
+
         }
-        
-        
+
+
     }
-    
+
 }
 
 /*

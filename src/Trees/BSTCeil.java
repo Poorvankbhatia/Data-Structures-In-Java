@@ -1,58 +1,58 @@
 package Trees;
 
 public class BSTCeil {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        for(int i=0;i<10;i++) {
-            System.out.println("key - " + i + " ceil " + ceil(root,i) + " floor " + floor(root,i));
+        for (int i = 0; i < 10; i++) {
+            System.out.println("key - " + i + " ceil " + ceil(root, i) + " floor " + floor(root, i));
         }
         //System.out.println(floor(root,6));
-        
+
     }
-    
-    private static int ceil(Node root,int key) {
-        
-        if(root == null) {
+
+    private static int ceil(Node root, int key) {
+
+        if (root == null) {
             return -1;
         }
-        
-        if(root.info == key) {
+
+        if (root.info == key) {
             return root.info;
         }
-        
-        if(root.info < key) {
-            return ceil(root.right,key);
+
+        if (root.info < key) {
+            return ceil(root.right, key);
         }
-        
-        
-        int ceil = ceil(root.left,key);
-        
+
+
+        int ceil = ceil(root.left, key);
+
         return (ceil >= key) ? ceil : root.info;
-        
-        
+
+
     }
-    
-    private static int floor(Node root,int key) {
-        
-        if(root == null) {
+
+    private static int floor(Node root, int key) {
+
+        if (root == null) {
             return -1;
         }
-        
-        if(root.info == key) {
+
+        if (root.info == key) {
             return root.info;
         }
-        
-        if(root.info > key) {
-            return floor(root.left,key);
+
+        if (root.info > key) {
+            return floor(root.left, key);
         }
-        
-        int floor = floor(root.right,key);
-        return (floor>=root.info) ? floor : root.info;
-        
+
+        int floor = floor(root.right, key);
+        return (floor >= root.info) ? floor : root.info;
+
     }
-    
+
 }
 
 /*

@@ -54,7 +54,7 @@ class customTree2 {
 
     public customNode2 customInsert(int info, customNode2 root) {
         if (root == null) {
-            root = new customNode2(info,0);
+            root = new customNode2(info, 0);
         } else if (info < root.info) {
             root.left = customInsert(info, root.left);
         } else if (info > root.info) {
@@ -89,57 +89,57 @@ class customInput2 {
 }
 
 public class BottomView {
-    
-    private static HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
-    
+
+    private static HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
     public static void main(String[] args) {
-        
+
         customNode2 root = customInput2.treeInput();
         bottom(root);
         System.out.println(map);
-        
+
     }
-    
-    
+
+
     private static void bottom(customNode2 root) {
-        
-        if(root==null){
+
+        if (root == null) {
             return;
         }
 
         Queue<customNode2> queue = new LinkedList<customNode2>();
-        
+
         int hd = root.hd;
-        
+
         queue.add(root);
-        
+
         while (!queue.isEmpty()) {
-            
+
             customNode2 current = queue.remove();
-            
+
             hd = current.hd;
 
             // Put the de queued tree node to TreeMap having key
             // as horizontal distance. Every time we find a node
             // having same horizontal distance we need to replace
             // the data in the map.
-            map.put(hd,current.info);
-            
-            if(current.left!=null) {
-                current.left.hd = hd -1;
+            map.put(hd, current.info);
+
+            if (current.left != null) {
+                current.left.hd = hd - 1;
                 queue.add(current.left);
             }
 
-            if(current.right!=null) {
-                current.right.hd = hd +1;
+            if (current.right != null) {
+                current.right.hd = hd + 1;
                 queue.add(current.right);
             }
-            
+
         }
-        
-        
+
+
     }
-    
+
 }
 
 /*
