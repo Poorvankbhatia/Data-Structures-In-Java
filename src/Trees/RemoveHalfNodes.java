@@ -15,9 +15,9 @@ public class RemoveHalfNodes {
     public static void main(String[] args) {
 
         Node root = Input.treeInput();
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\nAfter removal -");
-        traversal.in_Order(fullTree(root));
+        Traversal.in_Order(fullTree(root));
 
     }
 

@@ -13,9 +13,9 @@ public class FixSwapNodes {
         root.left.right = new Node(20);
 
         System.out.println("In Order before ");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\nIn Order after ");
-        traversal.in_Order(correctBST(root));
+        Traversal.in_Order(correctBST(root));
 
     }
 

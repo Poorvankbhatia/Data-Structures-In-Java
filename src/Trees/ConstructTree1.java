@@ -23,7 +23,7 @@ public class ConstructTree1 {
 
 
         System.out.println("Post order is");
-        traversal.post_Order(construct(0, 6, inOrder, preOrder));
+        Traversal.post_Order(construct(0, 6, inOrder, preOrder));
 
 
     }

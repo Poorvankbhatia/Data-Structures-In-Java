@@ -15,7 +15,7 @@ public class PreorderBST {
     public static void main(String[] args) {
 
         int[] preOrder = new int[]{10, 5, 1, 7, 40, 50};
-        traversal.in_Order(constructTree(preOrder, preOrder.length, preOrder[0], min, max));
+        Traversal.in_Order(constructTree(preOrder, preOrder.length, preOrder[0], min, max));
 
 
     }

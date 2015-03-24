@@ -17,10 +17,10 @@ public class RemoveNodes1 {
 
         Node root = Input.treeInput();
         System.out.println("inorder before ");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\ninorder after ");
         remove(root, 0, 2);
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
 
     }
 

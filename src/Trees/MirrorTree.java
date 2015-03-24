@@ -6,10 +6,10 @@ public class MirrorTree {
 
         Node root = Input.treeInput();
         System.out.println("Inorder traversal before ");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\nInorder traversal after ");
         root = mirror(root);
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
 
     }
 

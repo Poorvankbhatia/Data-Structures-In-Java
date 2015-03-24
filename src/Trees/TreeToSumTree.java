@@ -6,9 +6,9 @@ public class TreeToSumTree {
 
         Node root = Input.treeInput();
         System.out.print("Before conversion\n");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.print("\nAfter conversion\n");
-        traversal.in_Order(convertToSumTree(root));
+        Traversal.in_Order(convertToSumTree(root));
 
 
     }

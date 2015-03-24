@@ -15,7 +15,7 @@ public class SpecialBTFromBST {
 
         Node root = Input.treeInput();
         root = conversion(root);
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
 
     }
 

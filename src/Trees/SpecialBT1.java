@@ -12,7 +12,7 @@ public class SpecialBT1 {
     public static void main(String[] args) {
 
         int[] inOrder = new int[]{5, 10, 40, 30, 28};
-        traversal.pre_Order(constructTree(inOrder, 0, 4));
+        Traversal.pre_Order(constructTree(inOrder, 0, 4));
 
 
     }

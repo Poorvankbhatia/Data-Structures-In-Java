@@ -16,7 +16,7 @@ public class ArrayToBST {
             arr[i] = sc.nextInt();
         }
 
-        traversal.pre_Order(createTree(arr, 0, n - 1));
+        Traversal.pre_Order(createTree(arr, 0, n - 1));
 
 
     }

@@ -19,7 +19,7 @@ public class PreorderSpecialTree {
         int[] pre = new int[]{10, 30, 20, 5, 15};
         char[] preLN = new char[]{'N', 'N', 'L', 'L', 'L'};
         Node root = constructTree(new Node(0), pre, preLN);
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
 
     }
 

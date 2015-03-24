@@ -4,7 +4,7 @@
 package Trees;
 
 
-class traversal {
+class Traversal {
 
     public static void pre_Order(Node node) {
 
@@ -47,11 +47,11 @@ public class TraversalsRecursive {
 
         Node root = Input.treeInput();
         System.out.println("InOrder is :");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\nPreOrder is :");
-        traversal.pre_Order(root);
+        Traversal.pre_Order(root);
         System.out.println("\nPostOrder is :");
-        traversal.post_Order(root);
+        Traversal.post_Order(root);
     }
 
 }

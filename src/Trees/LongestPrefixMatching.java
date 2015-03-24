@@ -108,7 +108,7 @@ class PrefixTrie {
 
     }
 
-    
+
     public String longestPrefixMatching(String word) {
 
         int maxLen = 0;

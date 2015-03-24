@@ -21,9 +21,9 @@ public class BinaryTreeToBST {
         index = 0;
 
         System.out.println("In Order before ");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("\nIn Order after ");
-        traversal.in_Order(arrayToBST(root));
+        Traversal.in_Order(arrayToBST(root));
 
 
     }

@@ -6,9 +6,9 @@ public class DoubleTree {
 
         Node root = Input.treeInput();
         System.out.println("In order before - ");
-        traversal.in_Order(root);
+        Traversal.in_Order(root);
         System.out.println("In order after - ");
-        traversal.in_Order(conversionDT(root));
+        Traversal.in_Order(conversionDT(root));
 
 
     }

@@ -5,10 +5,10 @@ public class ConvertToSumTree {
     public static void main(String[] args) {
 
         Node root = Input.treeInput();
-        traversal.pre_Order(root);
+        Traversal.pre_Order(root);
         convert(root);
         System.out.println();
-        traversal.pre_Order(root);
+        Traversal.pre_Order(root);
 
     }
 
