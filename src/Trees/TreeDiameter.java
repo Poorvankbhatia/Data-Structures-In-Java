@@ -1,6 +1,10 @@
 package Trees;
 
 
+import Trees.Input;
+import Trees.Node;
+import Trees.TreeHeight;
+
 class Height {
 
     public int value;

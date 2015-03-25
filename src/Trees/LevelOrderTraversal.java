@@ -46,7 +46,8 @@ public class LevelOrderTraversal {
 
 /*
 
-Time Complexity: O(n^2) in worst case. For a skewed tree, printGivenLevel() takes O(n) time where n is the number of nodes 
+Time Complexity: O(n^2) in worst case. 
+For a skewed tree, printGivenLevel() takes O(n) time where n is the number of nodes 
 in the skewed tree. So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
 
  */
