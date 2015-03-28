@@ -48,6 +48,7 @@ public class StringUsingSpaces {
         
         if(i == n) {
             
+            buffer[j]=' ';
             System.out.println(Arrays.toString(buffer));
             return;
             
@@ -72,5 +73,8 @@ The idea is to use recursion and create a buffer that one by one contains all ou
  our updated string can have maximum length of n + (n-1) i.e. 2n-1. So we create buffer size of 2n 
  (one extra character for string termination).
 We leave 1st character as it is, starting from the 2nd character, we can either fill a space or a character.
+
+Since number of Gaps are n-1, there are total 2^(n-1) patters each having length ranging from n to 2n-1.
+ Thus overall complexity would be O(n*(2^n)).
 
  */
