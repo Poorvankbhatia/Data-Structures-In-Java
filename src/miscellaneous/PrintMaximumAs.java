@@ -1,6 +1,7 @@
 //Also have a  Dynamic programming approach
 
 /*
+How to print maximum number of A’s using given four keys
 
 Imagine you have a special keyboard with the following keys: 
 Key 1:  Prints 'A' on screen

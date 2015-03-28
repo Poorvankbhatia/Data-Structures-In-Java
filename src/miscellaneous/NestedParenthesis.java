@@ -18,45 +18,44 @@ import java.util.Scanner;
  * Created by poorvank on 3/26/15.
  */
 public class NestedParenthesis {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter the string");
         Scanner sc = new Scanner(System.in);
         String line = sc.nextLine();
-        
+
         int max = 0;
         int current_max = 0;
-        
+
         for (char ch : line.toCharArray()) {
-            
-            if(ch=='(') {
-                
+
+            if (ch == '(') {
+
                 current_max++;
-                if(current_max>max) {
+                if (current_max > max) {
                     max = current_max;
                 }
-                
-            }
-            else if(ch == ')') {
-                
-                if(current_max<=0) {
+
+            } else if (ch == ')') {
+
+                if (current_max <= 0) {
                     System.out.println(-1);
                     break;
                 }
                 current_max--;
-                
+
             }
         }
-        
-        if(current_max!=0) {
+
+        if (current_max != 0) {
             System.out.println(-1);
         }
         System.out.println("Maximum number of braces - " + max);
-        
-        
+
+
     }
-    
+
 }
 
 
