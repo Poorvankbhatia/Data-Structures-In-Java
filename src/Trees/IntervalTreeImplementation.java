@@ -13,127 +13,121 @@ package Trees;
  */
 
 class Interval {
-    
+
     public int high;
     public int low;
-    
-    public Interval(int low,int high) {
-    
+
+    public Interval(int low, int high) {
+
         this.high = high;
-        this.low =low;
-    
+        this.low = low;
+
     }
-    
+
     @Override
     public String toString() {
         return ("Interval overlap found is - {" + this.low + "," + this.high + "}");
     }
-    
+
 }
 
 class IntervalNode {
-    
+
     public Interval interval;
     public int max;
     public IntervalNode left;
     public IntervalNode right;
-    
+
     public IntervalNode(Interval i) {
-        
+
         this.interval = i;
         max = i.high;
         left = null;
         right = null;
-        
+
     }
-    
+
 }
 
 class IntervalTree {
-    
+
     public IntervalNode root;
-    
+
     public IntervalTree() {
         root = null;
     }
-    
-    public IntervalNode insert (IntervalNode node , Interval i) {
-        
-        if(node == null) {
+
+    public IntervalNode insert(IntervalNode node, Interval i) {
+
+        if (node == null) {
             return new IntervalNode(i);
+        } else if (i.low < node.interval.low) {
+            node.left = insert(node.left, i);
+        } else if (i.low > node.interval.low) {
+            node.right = insert(node.right, i);
         }
-        
-        else if(i.low < node.interval.low) {
-            node.left = insert(node.left,i);
-        }
-        
-        else if(i.low > node.interval.low) {
-            node.right = insert(node.right,i);
-        }
-        
-        if(node.max < i.high) {
+
+        if (node.max < i.high) {
             node.max = i.high;
         }
-        
+
         return node;
     }
-    
-    private boolean doOverlap(Interval i1,Interval i2) {
-        
-        if(i1.low <= i2.high && i1.high >= i2.low) {
+
+    private boolean doOverlap(Interval i1, Interval i2) {
+
+        if (i1.low <= i2.high && i1.high >= i2.low) {
             return true;
         }
-        
+
         return false;
-        
+
     }
-    
-    public Interval search(IntervalNode node,Interval i) {
-        
-        if(node==null) {
+
+    public Interval search(IntervalNode node, Interval i) {
+
+        if (node == null) {
             return null;
         }
-        
-        if(doOverlap(i,node.interval)) {
+
+        if (doOverlap(i, node.interval)) {
             return node.interval;
         }
 
         // If left child of root is present and max of left child is
         // greater than or equal to given interval, then i may
         // overlap with an interval is left subtree
-        
-        else if (node.left!=null && i.high <= node.left.max) {
-            return search(node.left,i);
-        }
-        
-        else {
-            return search(node.right,i);
+
+        else if (node.left != null && i.high <= node.left.max) {
+            return search(node.left, i);
+        } else {
+            return search(node.right, i);
         }
 
-        
+
     }
-    
+
 }
- 
+
 
 public class IntervalTreeImplementation {
-    
+
     public static void main(String[] args) {
 
-        Interval intervals[] = new Interval[]{new Interval(15,20), new Interval(10, 30), new Interval(17, 19), new Interval(5, 20),
+        Interval intervals[] = new Interval[]{new Interval(15, 20), new Interval(10, 30), new Interval(17, 19), new Interval(5, 20),
                 new Interval(12, 15), new Interval(30, 40)};
-        
+
         IntervalTree tree = new IntervalTree();
-        
+
         for (Interval i : intervals) {
-            tree.root = tree.insert(tree.root,i);
+            tree.root = tree.insert(tree.root, i);
         }
-        
-        Interval find = new Interval(6,7);
-        System.out.println(tree.search(tree.root,find).toString());
-        
+
+        Interval find = new Interval(6, 7);
+        System.out.println(tree.search(tree.root, find).toString());
+
     }
-    
+
 }
 
 

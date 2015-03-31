@@ -4,36 +4,36 @@ package Trees;
  * Created by poorvank on 3/25/15.
  */
 public class LowestCommonAncestor1 {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        System.out.println("lca of 6 and 11 is - " + LCA1(root,6,11).info);
-        
+        System.out.println("lca of 6 and 11 is - " + LCA1(root, 6, 11).info);
+
     }
-    
-    private static Node LCA1(Node root,int k1,int k2) {
-        
-        if(root == null) {
+
+    private static Node LCA1(Node root, int k1, int k2) {
+
+        if (root == null) {
             return null;
         }
-        
-        if(root.info == k1 || root.info == k2) {
+
+        if (root.info == k1 || root.info == k2) {
             return root;
         }
-        
-        root.left = LCA1(root.left,k1,k2);
-        root.right = LCA1(root.right,k1,k2);
-        
-        if(root.right!=null && root.left!=null) {
+
+        root.left = LCA1(root.left, k1, k2);
+        root.right = LCA1(root.right, k1, k2);
+
+        if (root.right != null && root.left != null) {
             return root;
         }
-        
-        return root.left!=null ? root.left:root.right;
-        
+
+        return root.left != null ? root.left : root.right;
+
     }
-    
-    
+
+
 }
 
 

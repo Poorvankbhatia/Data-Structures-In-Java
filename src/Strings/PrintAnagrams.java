@@ -1,7 +1,8 @@
 /*
 
 Given a sequence of words, print all anagrams together 
-Given an array of words, print all anagrams together. For example, if the given array is {“cat”, “dog”, “tac”, “god”, “act”}, 
+Given an array of words, print all anagrams together. 
+For example, if the given array is {“cat”, “dog”, “tac”, “god”, “act”}, 
 then output may be “cat tac act dog god”.
 
 TRIE SOLUTION ALSO available
