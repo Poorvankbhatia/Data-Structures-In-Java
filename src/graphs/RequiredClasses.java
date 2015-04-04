@@ -91,6 +91,54 @@ class Input {
 
 }
 
+
+class Stack {
+
+    public final int MAX = 100;
+    public int top = -1;
+    public Vertex[] stack = new Vertex[MAX];
+
+    public void push(Vertex a) {
+
+        top++;
+        if (isFull()) {
+            System.out.println("Stack OverFlow");
+        }
+        stack[top] = a;
+
+    }
+
+    public boolean isFull() {
+
+        if (top == MAX - 1) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean isEmpty() {
+
+        if (top == -1) {
+            return true;
+        }
+        return false;
+    }
+
+    public Vertex pop() {
+
+        if (!isEmpty()) {
+            Vertex a = stack[top];
+            top--;
+            return a;
+        }
+        System.out.println("Stack Underflow");
+        return null;
+
+    }
+
+}
+
 /*
 
 nextInt() does not consume the '\n', so the next call to nextLine() consumes it

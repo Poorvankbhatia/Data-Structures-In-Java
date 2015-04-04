@@ -5,6 +5,26 @@ Given a number of friends who have to give or take some amount of money from one
 Design an algorithm by which the total cash flow among all the friends is minimized.
 
 
+Minimum cash flow is different from minimum transactions. We are calculating cash flow here
+
+example of transactions -: consider this
+A, B, C, D, E
+A(1000), B(700), C(-700), D(-500), E(-500)
+http://stackoverflow.com/questions/877728/what-algorithm-to-use-to-determine-minimum-number-of-actions-required-to-get-the
+
+example of cashFlow -: consider this
+Total cash flow : 700
+a,b-200
+a,c-200
+b,c-100
+b,d-100
+c,d-100
+
+
+After ALgo : 
+a,c-200
+a,d-200
+ 
  */
 
 package Greedy_programs;
