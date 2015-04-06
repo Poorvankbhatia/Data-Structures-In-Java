@@ -39,3 +39,9 @@ Let the array be array[]. An entry array[i] represents the linked list of vertic
  adjacent to the ith vertex. This representation can also be used to represent a weighted graph. 
  The weights of edges can be stored in nodes of linked lists. Following is adjacency list representation 
  of the above graph.
+ 
+ 
+ Pros: Saves space O(|V|+|E|) . In the worst case,
+  there can be C(V, 2) number of edges in a graph thus consuming O(V^2) space. Adding a vertex is easier.
+ 
+ Cons: Queries like whether there is an edge from vertex u to vertex v are not efficient and can be done O(V).
