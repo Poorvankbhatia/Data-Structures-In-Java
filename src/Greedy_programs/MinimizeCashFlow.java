@@ -37,19 +37,19 @@ import java.util.Scanner;
  */
 
 public class MinimizeCashFlow {
-    
+
     private static int maxCreditIndex;
     private static int maxDebitIndex;
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter number of friends");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int[][] cashGraph = new int[n][n];
 
-        for (int i=0;i<n;i++) {
-            for (int j=0;j<n;j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 System.out.println("Enter amount " + i + " has to pay " + j);
                 int amount = scanner.nextInt();
                 cashGraph[i][j] = amount;
@@ -61,64 +61,63 @@ public class MinimizeCashFlow {
 //                { 0, 0, 317},
 //                { 0, 0, 0},
 //        };
-        
+
         netAmountPaid(cashGraph);
-        
+
     }
-    
-    
+
+
     private static void netAmountPaid(int[][] cashGraph) {
-        
-        int[] amount = new  int[cashGraph.length];
-        
-        for (int i=0;i<amount.length ; i++) {
-            for (int p =0;p<amount.length;p++) {
+
+        int[] amount = new int[cashGraph.length];
+
+        for (int i = 0; i < amount.length; i++) {
+            for (int p = 0; p < amount.length; p++) {
                 amount[p] += cashGraph[i][p] - cashGraph[p][i];
             }
         }
-        
+
         System.out.println(Arrays.toString(amount));
-        
+
         cashFlowRec(amount);
     }
-    
-    private static int minOf2(int a ,int b) {
-        
-        return Math.abs(a)>Math.abs(b)?Math.abs(b):Math.abs(a);
-        
+
+    private static int minOf2(int a, int b) {
+
+        return Math.abs(a) > Math.abs(b) ? Math.abs(b) : Math.abs(a);
+
     }
-    
+
     private static void cashFlowRec(int[] amount) {
-        
+
         maxMinArray(amount);
-        
-        if(amount[maxCreditIndex] == 0 && amount[maxDebitIndex] == 0) {
+
+        if (amount[maxCreditIndex] == 0 && amount[maxDebitIndex] == 0) {
             return;
         }
-        
-        int min = minOf2(amount[maxCreditIndex],amount[maxDebitIndex]);
-        
-        amount[maxCreditIndex] -=min;
-        amount[maxDebitIndex] +=min;
-        
+
+        int min = minOf2(amount[maxCreditIndex], amount[maxDebitIndex]);
+
+        amount[maxCreditIndex] -= min;
+        amount[maxDebitIndex] += min;
+
         System.out.println("person~" + maxDebitIndex + " pays " + Math.abs(min) + " Rs/- to person~" + maxCreditIndex);
-        
+
         cashFlowRec(amount);
     }
-    
+
     private static void maxMinArray(int[] amount) {
 
-        for (int i=1;i<amount.length;i++) {
-            if(amount[i] > amount[maxCreditIndex]) {
+        for (int i = 1; i < amount.length; i++) {
+            if (amount[i] > amount[maxCreditIndex]) {
                 maxCreditIndex = i;
-            }
-            else if(amount[i] < amount[maxDebitIndex]) {
+            } else if (amount[i] < amount[maxDebitIndex]) {
                 maxDebitIndex = i;
             }
         }
-        
+
     }
-    
+
 }
 
 

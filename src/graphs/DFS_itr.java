@@ -27,7 +27,7 @@ public class DFS_itr {
 
         while (!stack.isEmpty()) {
 
-            Vertex popped = (Vertex)stack.pop();
+            Vertex popped = (Vertex) stack.pop();
 
             if (!visited[popped.info]) {
 

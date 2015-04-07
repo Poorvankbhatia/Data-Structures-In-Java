@@ -17,46 +17,46 @@ package graphs;
  * Created by poorvank on 4/6/15.
  */
 public class CountPaths {
-    
-    
+
+
     public static void main(String[] args) {
 
-        int graph[][] = new int[][]{ {0, 1, 1, 1},
-            {0, 0, 0, 1},
-            {0, 0, 0, 1},
-            {0, 0, 0, 0}
+        int graph[][] = new int[][]{{0, 1, 1, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 0}
         };
-        
-        System.out.println(countWalks(0,3,2,graph));
-        
+
+        System.out.println(countWalks(0, 3, 2, graph));
+
     }
-    
-    private static int countWalks(int source,int destination,int edgeCount,int[][] graph) {
-        
-        if(edgeCount<0) {
+
+    private static int countWalks(int source, int destination, int edgeCount, int[][] graph) {
+
+        if (edgeCount < 0) {
             return 0;
         }
-        
+
         //Reach the destination immediately after source
-        if(source==destination && edgeCount==0) {
+        if (source == destination && edgeCount == 0) {
             return 1;
         }
         //Reduce an iteration step. If only one count is left, check if current source has its immediate neighbour as destination
-        if(edgeCount == 1 && graph[source][destination]==1) {
+        if (edgeCount == 1 && graph[source][destination] == 1) {
             return 1;
         }
-        
+
         int count = 0;
-        
-        for (int i=0;i<4;i++) {
-            if(graph[source][i]==1) {
-                count += countWalks(i,destination,edgeCount-1,graph);
+
+        for (int i = 0; i < 4; i++) {
+            if (graph[source][i] == 1) {
+                count += countWalks(i, destination, edgeCount - 1, graph);
             }
         }
-        
+
         return count;
     }
-    
+
 }
 
 

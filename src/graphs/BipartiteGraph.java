@@ -17,51 +17,50 @@ import java.util.Queue;
  * Created by poorvank on 4/5/15.
  */
 public class BipartiteGraph {
-    
+
     public static void main(String[] args) {
-        
+
         Vertex[] vArray = Input.graphInput();
-        if(isBipartite(vArray,0)) {
+        if (isBipartite(vArray, 0)) {
             System.out.println("Bipartite");
         } else {
             System.out.println("Nope");
         }
-        
+
     }
-    
-    private static boolean isBipartite(Vertex[] vArray,int v) {
-        
+
+    private static boolean isBipartite(Vertex[] vArray, int v) {
+
         int[] colorArray = new int[vArray.length];
-        for (int i=0;i<vArray.length ; i++) {
+        for (int i = 0; i < vArray.length; i++) {
             colorArray[i] = -1;
         }
-        
+
         colorArray[v] = 1;
         Queue<Integer> queue = new LinkedList<>();
         queue.add(v);
-        
+
         while (!queue.isEmpty()) {
-            
+
             int vertex = queue.remove();
-            
+
             for (int i : vArray[vertex].adjacentVertices) {
-                
-                if(colorArray[i] == -1) {
+
+                if (colorArray[i] == -1) {
                     queue.add(i);
-                    colorArray[i] = 1-colorArray[vertex];
-                }
-                else if(colorArray[i] == colorArray[vertex]) {
+                    colorArray[i] = 1 - colorArray[vertex];
+                } else if (colorArray[i] == colorArray[vertex]) {
                     return false;
                 }
-                
+
             }
-            
+
         }
-        
+
         return true;
-        
+
     }
-    
+
 }
 
 

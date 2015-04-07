@@ -16,7 +16,7 @@ public class ShortestPathDAG {
         boolean[] visited = new boolean[vArray.length];
 
 
-        topologicalSort(vArray,visited);
+        topologicalSort(vArray, visited);
     }
 
     public static void topologicalSort(DirectedVertex[] vArray, boolean[] visited) {
@@ -31,7 +31,7 @@ public class ShortestPathDAG {
             }
         }
 
-        System.out.println("Enter source : " );
+        System.out.println("Enter source : ");
         int source = new Scanner(System.in).nextInt();
         shortestPath(vArray, visited, stack, source);
 
@@ -68,7 +68,7 @@ public class ShortestPathDAG {
             if (dist[u.info] != INF) {
 
                 for (DirectedVertex i : u.adjacentVertices) {
-                    
+
                     if (dist[i.info] > dist[u.info] + i.weight) {
 
                         dist[i.info] = dist[u.info] + i.weight;

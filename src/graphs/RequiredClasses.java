@@ -25,23 +25,23 @@ class Vertex {
 
 
 class DirectedVertex {
-    
+
     public int info;
     public int weight;
-    
+
     public List<DirectedVertex> adjacentVertices;
 
     public DirectedVertex(int info) {
-        this(info,0);
+        this(info, 0);
     }
-    
-    public DirectedVertex(int info , int weight) {
+
+    public DirectedVertex(int info, int weight) {
         this.info = info;
         adjacentVertices = new ArrayList<>();
         this.weight = weight;
     }
-    
-    
+
+
 }
 
 
@@ -74,10 +74,10 @@ class Graph {
         vertexArray[v1].adjacentVertices.add(v2);
     }
 
-    public void addEdge(int v1, int v2 ,int w) {
+    public void addEdge(int v1, int v2, int w) {
 
-        directedVertexArray[v1].adjacentVertices.add(new DirectedVertex(v2,w));
-        System.out.println("vertex  " + v1 + " to vertex " + v2 + " with weight " + directedVertexArray[v1].adjacentVertices.get(0).weight)  ;
+        directedVertexArray[v1].adjacentVertices.add(new DirectedVertex(v2, w));
+        System.out.println("vertex  " + v1 + " to vertex " + v2 + " with weight " + directedVertexArray[v1].adjacentVertices.get(0).weight);
     }
 
 }
@@ -121,7 +121,7 @@ class Input {
 
     public static DirectedVertex[] directedGraphInput() {
 
-        int a = 0, b = 0,c=0;
+        int a = 0, b = 0, c = 0;
         System.out.println("Enter number of vertices ");
         Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();
@@ -135,15 +135,15 @@ class Input {
             }
             String[] inputSplit = input.split(",");
             if (inputSplit.length == 3) {
-               // for (String c : input.split(",")) {
-                    a = Integer.parseInt(inputSplit[0]);
-                    b = Integer.parseInt(inputSplit[1]);
-                    c = Integer.parseInt(inputSplit[2]); 
-                    while (a >= count || b >= count) {
-                        System.out.println("Wrong Input");
-                        continue;
-                    }
-               // }
+                // for (String c : input.split(",")) {
+                a = Integer.parseInt(inputSplit[0]);
+                b = Integer.parseInt(inputSplit[1]);
+                c = Integer.parseInt(inputSplit[2]);
+                while (a >= count || b >= count) {
+                    System.out.println("Wrong Input");
+                    continue;
+                }
+                // }
                 graph.addEdge(a, b, c);
             } else {
                 System.out.println("Wrong Input");

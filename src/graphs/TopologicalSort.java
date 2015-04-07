@@ -21,48 +21,48 @@ package graphs;
  * Created by poorvank on 4/7/15.
  */
 public class TopologicalSort {
-    
+
     public static void main(String[] args) {
-        
+
         Vertex[] vArray = Input.graphInput();
         boolean[] visited = new boolean[vArray.length];
-        
-        sort(vArray,visited);
-        
-        
+
+        sort(vArray, visited);
+
+
     }
-    
-    
-    private static void sort(Vertex[] vArray,boolean[] visited) {
-        
+
+
+    private static void sort(Vertex[] vArray, boolean[] visited) {
+
         Stack stack = new Stack();
 
-        for (int i=0;i<vArray.length;i++) {
-            if(!visited[i]) {
-                sortUtil(vArray,visited,stack,i);
+        for (int i = 0; i < vArray.length; i++) {
+            if (!visited[i]) {
+                sortUtil(vArray, visited, stack, i);
             }
         }
-        
+
         while (!stack.isEmpty()) {
-            System.out.print(" " + ((Vertex)stack.pop()).info);
+            System.out.print(" " + ((Vertex) stack.pop()).info);
         }
-        
+
     }
-    
-    
-    private static void sortUtil(Vertex[] vArray,boolean[] visited,Stack stack,int i) {
-        
+
+
+    private static void sortUtil(Vertex[] vArray, boolean[] visited, Stack stack, int i) {
+
         visited[i] = true;
-        
+
         for (int v : vArray[i].adjacentVertices) {
-            if(!visited[v]) {
-                sortUtil(vArray,visited,stack,v);
+            if (!visited[v]) {
+                sortUtil(vArray, visited, stack, v);
             }
         }
-        
+
         stack.push(vArray[i]);
     }
-    
+
 }
 
 
