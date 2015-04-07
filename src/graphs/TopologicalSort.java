@@ -44,7 +44,7 @@ public class TopologicalSort {
         }
         
         while (!stack.isEmpty()) {
-            System.out.print(" " + stack.pop().info);
+            System.out.print(" " + ((Vertex)stack.pop()).info);
         }
         
     }
