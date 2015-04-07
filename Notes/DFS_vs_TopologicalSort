@@ -7,3 +7,14 @@ So Topological sorting is different from DFS.
 For example, a DFS of the above graph is “5 2 3 1 0 4″, but it is not a topological sorting
 
 See images/TopologicalSort.png
+
+
+
+
+Time Complexity: The above algorithm is simply DFS with an extra stack. So time complexity is same as DFS which is O(V+E).
+
+Applications:
+Topological Sorting is mainly used for scheduling jobs from the given dependencies among jobs. In computer science,
+applications of this type arise in instruction scheduling, ordering of formula cell evaluation when recomputing formula
+values in spreadsheets, logic synthesis, determining the order of compilation tasks to perform in makefiles,
+data serialization, and resolving symbol dependencies in linkers [2].
