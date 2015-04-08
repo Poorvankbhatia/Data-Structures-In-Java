@@ -158,4 +158,10 @@ For example, if the alphabet size is 5, then there can be 5 characters in words.
 
 3) Print topological sorting of the above created graph
 
+Time Complexity: The first step to create a graph takes O(n + alhpa) time where n is number of given words and 
+alpha is number of characters in given alphabet.
+ The second step is also topological sorting. Note that there would be alpha vertices and at-most (n-1) edges
+  in the graph. The time complexity of topological sorting is O(V+E) which is O(n + aplha) here. 
+  So overall time complexity is O(n + aplha) + O(n + aplha) which is O(n + aplha).
+
  */
