@@ -15,45 +15,45 @@ import java.util.List;
  */
 
 class EUNode {
-    
+
     int info;
     List<Integer> adjacentVertices;
-    
+
     public EUNode(int info) {
         this.info = info;
         adjacentVertices = new ArrayList<>();
     }
-    
+
 }
 
 class EUGraph {
-    
+
     int vCount;
     List<EUNode> nodeList;
-    
+
     public EUGraph(int vCount) {
-        
+
         this.vCount = vCount;
         nodeList = new ArrayList<>();
-        
-        for (int i=0;i<vCount;i++) {
+
+        for (int i = 0; i < vCount; i++) {
             nodeList.add(new EUNode(i));
         }
-        
+
     }
-    
-    public void addEdge(int a,int b) {
-        
+
+    public void addEdge(int a, int b) {
+
         //Undirected Graph
         nodeList.get(a).adjacentVertices.add(b);
         nodeList.get(b).adjacentVertices.add(a);
-        
+
     }
-    
+
 }
 
 public class EulerianUndirected {
-    
+
     public static void main(String[] args) {
 
         EUGraph g1 = new EUGraph(5);
@@ -94,81 +94,78 @@ public class EulerianUndirected {
         // with zero degree
         EUGraph g5 = new EUGraph(3);
         isEulerian(g5);
-        
+
     }
-    
+
     private static void isEulerian(EUGraph graph) {
-        
-        if(isConnected(graph)) {
-            
+
+        if (isConnected(graph)) {
+
             int odd = 0;
-            
-            for (int i=0;i<graph.vCount;i++) {
-                if(graph.nodeList.get(i).adjacentVertices.size()%2!=0) {
+
+            for (int i = 0; i < graph.vCount; i++) {
+                if (graph.nodeList.get(i).adjacentVertices.size() % 2 != 0) {
                     odd++;
                 }
             }
-            
-            if(odd > 2) {
+
+            if (odd > 2) {
                 System.out.println("Not eulerian");
-            }
-            else
-            {
-                if(odd==0) {
+            } else {
+                if (odd == 0) {
                     System.out.println("Eulerian");
-                }
-                else {
+                } else {
                     System.out.println("Semi Eulerian");
                 }
             }
         }
-        
-        
+
+
     }
-    
+
     private static boolean isConnected(EUGraph graph) {
-        
-        int i =0;
+
+        int i = 0;
         for (EUNode node : graph.nodeList) {
-            if(node.adjacentVertices.size()>0) {
+            if (node.adjacentVertices.size() > 0) {
                 break;
             }
             i++;
         }
-        
+
         //If there are no edges in the graph
-        if(i==graph.vCount) {
+        if (i == graph.vCount) {
             return true;
         }
-        
+
         boolean[] visited = new boolean[graph.vCount];
-        
-        dfsUtil(i,graph,visited);
-        
-        for (int j=0;j<graph.vCount;j++) {
-            
-            if(!visited[i] && graph.nodeList.get(i).adjacentVertices.size()>0) {
+
+        dfsUtil(i, graph, visited);
+
+        for (int j = 0; j < graph.vCount; j++) {
+
+            if (!visited[i] && graph.nodeList.get(i).adjacentVertices.size() > 0) {
                 return false;
             }
-            
+
         }
         return true;
-        
-        
+
+
     }
-    
-    private static void dfsUtil(int i,EUGraph graph,boolean[] visited) {
-        
+
+    private static void dfsUtil(int i, EUGraph graph, boolean[] visited) {
+
         visited[i] = true;
-        
-        for (int v : graph.nodeList.get(i).adjacentVertices){
-            if(!visited[v]) {
-                dfsUtil(v,graph,visited);
+
+        for (int v : graph.nodeList.get(i).adjacentVertices) {
+            if (!visited[v]) {
+                dfsUtil(v, graph, visited);
             }
         }
-        
+
     }
-    
+
 }
 
 
