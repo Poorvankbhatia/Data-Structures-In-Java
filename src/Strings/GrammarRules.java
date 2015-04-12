@@ -1,5 +1,3 @@
-
-
 /*
 
 STATE DIAGRAM
@@ -25,80 +23,74 @@ import java.util.Scanner;
  * Created by poorvank on 3/28/15.
  */
 public class GrammarRules {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter String ");
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
-        if(isValid(line)) {
+        if (isValid(line)) {
             System.out.println("Valid");
         } else {
             System.out.println("Nope");
         }
-        
+
     }
-    
+
     private static boolean isValid(String sentence) {
-        
-        if(Character.isLowerCase(sentence.charAt(0))) {
+
+        if (Character.isLowerCase(sentence.charAt(0))) {
             return true;
         }
-        
-        if(sentence.charAt(sentence.length()-1)!='.') {
+
+        if (sentence.charAt(sentence.length() - 1) != '.') {
             return false;
         }
-        
-        int index = 1;
-        int currentState = 0,previousState = 0;
-        
-        while (index<sentence.length()) {
-            
-            if(Character.isUpperCase(sentence.charAt(index))) {
-                currentState = 0;
-            }
 
-            else if(sentence.charAt(index)==' '){
+        int index = 1;
+        int currentState = 0, previousState = 0;
+
+        while (index < sentence.length()) {
+
+            if (Character.isUpperCase(sentence.charAt(index))) {
+                currentState = 0;
+            } else if (sentence.charAt(index) == ' ') {
                 currentState = 1;
-            }
-            
-            else if(Character.isLowerCase(sentence.charAt(index))) {
+            } else if (Character.isLowerCase(sentence.charAt(index))) {
                 currentState = 2;
-            }
-            
-            else if(sentence.charAt(index) == '.') {
+            } else if (sentence.charAt(index) == '.') {
                 currentState = 3;
             }
-            
+
             //Only small characters can be repeated in a sentence
-            
-            if(previousState == currentState && currentState!=2) {
+
+            if (previousState == currentState && currentState != 2) {
                 return false;
             }
-            
-            
+
+
             // eg - I lovE cinema
-            if(previousState==2 && currentState==0) {
+            if (previousState == 2 && currentState == 0) {
                 return false;
             }
-            
-            if(currentState == 3 && previousState!=1) {
-                if(index+1 == sentence.length()) {
+
+            if (currentState == 3 && previousState != 1) {
+                if (index + 1 == sentence.length()) {
                     return true;
                 }
             }
-            
-            
+
+
             index++;
-            
+
             previousState = currentState;
-            
+
         }
-        
+
         return false;
-        
+
     }
-    
+
 }
 
 
