@@ -10,27 +10,27 @@ package miscellaneous;
 import java.util.Scanner;
 
 public class DigitsAfterDecimal {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter the number : ");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        
+
         System.out.println("Enter number of digits after decimal : ");
         int k = sc.nextInt();
-        
+
         int rem = 1;
-        
-        for (int i=1;i<=k;i++) {
-            
-            System.out.println("digit number " + i + " is = " + (10*rem)/n);
-            
-            rem = (rem*10)%n;
+
+        for (int i = 1; i <= k; i++) {
+
+            System.out.println("digit number " + i + " is = " + (10 * rem) / n);
+
+            rem = (rem * 10) % n;
         }
-        
+
     }
-    
+
 }
 
 /*

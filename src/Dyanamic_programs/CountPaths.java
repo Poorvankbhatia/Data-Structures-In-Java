@@ -1,4 +1,3 @@
-
 /*
 
 Count all possible walks from a source to a destination with exactly k edges
@@ -16,52 +15,52 @@ package Dyanamic_programs;
  * Created by poorvank on 4/6/15.
  */
 public class CountPaths {
-    
+
     public static void main(String[] args) {
 
-        int graph[][] = new int[][]{ {0, 1, 1, 1},
+        int graph[][] = new int[][]{{0, 1, 1, 1},
                 {0, 0, 0, 1},
                 {0, 0, 0, 1},
                 {0, 0, 0, 0}
         };
 
-        System.out.println(countWalks(0,3,2,graph));
-        
+        System.out.println(countWalks(0, 3, 2, graph));
+
     }
-    
-    private static int countWalks(int source,int destination,int edgeCount,int[][] graph) {
-        
-        int[][][] count = new int[4][4][edgeCount+1];
-        
-        for (int e = 0;e<=edgeCount;e++) {
-            for (int i=0;i<4;i++) {
-                for (int j=0;j<4;j++) {
-                    
-                    if(i==j && e ==0) {
+
+    private static int countWalks(int source, int destination, int edgeCount, int[][] graph) {
+
+        int[][][] count = new int[4][4][edgeCount + 1];
+
+        for (int e = 0; e <= edgeCount; e++) {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+
+                    if (i == j && e == 0) {
                         count[i][j][e] = 1;
                     }
-                    if(e==1 && graph[i][j]==1) {
-                        count[i][j][e]=1;
+                    if (e == 1 && graph[i][j] == 1) {
+                        count[i][j][e] = 1;
                     }
-                    
-                    if(e>1) {
-                        
-                        for (int a=0;a<4;a++) {
-                            if(graph[i][a]==1) {
-                                count[i][j][e] += count[a][j][e-1];
+
+                    if (e > 1) {
+
+                        for (int a = 0; a < 4; a++) {
+                            if (graph[i][a] == 1) {
+                                count[i][j][e] += count[a][j][e - 1];
                             }
                         }
-                        
+
                     }
-                    
+
                 }
             }
         }
-        
+
         return count[source][destination][edgeCount];
-        
+
     }
-    
+
 }
 
 /*
