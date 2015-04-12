@@ -1,5 +1,3 @@
-
-
 /*
 
 Given two strings, find if first string is a subsequence of second
@@ -17,40 +15,40 @@ import java.util.Scanner;
  * Created by poorvank on 3/29/15.
  */
 public class Subsequence {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter String to be checked ");
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
         System.out.println("Enter String to be checked in ");
         String str2 = sc.nextLine();
-        
-        if(isPart(str1,str2)){
+
+        if (isPart(str1, str2)) {
             System.out.println("Yes");
         } else {
             System.out.println("No");
         }
-        
-        
+
+
     }
-    
-    private static boolean isPart(String str1,String str2) {
-        
-        int i=0,j=0;
-        
-        while (i<str2.length() && j<str1.length()) {
-            if(str1.charAt(j)==str2.charAt(i)) {
+
+    private static boolean isPart(String str1, String str2) {
+
+        int i = 0, j = 0;
+
+        while (i < str2.length() && j < str1.length()) {
+            if (str1.charAt(j) == str2.charAt(i)) {
                 j++;
             }
             i++;
         }
 
-        
-        return (j==str1.length());
-        
+
+        return (j == str1.length());
+
     }
-    
+
 }
 
 

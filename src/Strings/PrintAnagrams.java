@@ -18,45 +18,45 @@ import java.util.Map;
  * Created by poorvank on 3/30/15.
  */
 public class PrintAnagrams {
-    
+
     public static void main(String[] args) {
-        
-        String[] array = new String[]{"art","tar","top","pot","neat","rat","tape","nate","peat","random"};
+
+        String[] array = new String[]{"art", "tar", "top", "pot", "neat", "rat", "tape", "nate", "peat", "random"};
         String[] sortedArray = sortAlphabetsInWord(array);
-        HashMap<String,String> anagramMap = new HashMap<>();
+        HashMap<String, String> anagramMap = new HashMap<>();
         int i = 0;
         for (String s : sortedArray) {
-            
-            if(anagramMap.containsKey(s)) {
-                anagramMap.put(s,anagramMap.get(s)+","+array[i]);
+
+            if (anagramMap.containsKey(s)) {
+                anagramMap.put(s, anagramMap.get(s) + "," + array[i]);
             } else {
-                anagramMap.put(sortedArray[i],array[i]);
+                anagramMap.put(sortedArray[i], array[i]);
             }
             i++;
         }
-        
+
         System.out.println("Following are the pairs of anagrams : ");
         for (Map.Entry entry : anagramMap.entrySet()) {
             System.out.println(entry.getValue());
         }
-        
+
     }
-    
+
     private static String[] sortAlphabetsInWord(String[] array) {
-        
+
         String[] sortedArray = new String[array.length];
-        int i=0;
+        int i = 0;
         for (String s : array) {
             char[] arrayElement = s.toCharArray();
             Arrays.sort(arrayElement);
             sortedArray[i] = new String(arrayElement);
             i++;
         }
-        
+
         return sortedArray;
-        
+
     }
-    
+
 }
 
 

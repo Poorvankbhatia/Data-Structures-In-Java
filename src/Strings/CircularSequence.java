@@ -18,55 +18,50 @@ import java.util.Scanner;
  * Created by poorvank on 3/26/15.
  */
 public class CircularSequence {
-    
-    private  final static int  NORTH = 0;
-    private  final static int  EAST = 1;
-    private  final static int  SOUTH = 2;
-    private  final static int  WEST = 3;
-    
-    
+
+    private final static int NORTH = 0;
+    private final static int EAST = 1;
+    private final static int SOUTH = 2;
+    private final static int WEST = 3;
+
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter sequence to be determined :");
         Scanner sc = new Scanner(System.in);
-        
+
         String line = sc.nextLine();
-        int x=0,y=0,dir = NORTH;
-        
+        int x = 0, y = 0, dir = NORTH;
+
         for (char ch : line.toCharArray()) {
             //Logic!!!
-            if(ch=='L') {
-                dir = (dir+3)%4;
-            }
-            else if(ch == 'R') {
-                dir = (dir+1)%4;
-            }
-            else { //ch == 'G'
-                if(dir == NORTH) {
+            if (ch == 'L') {
+                dir = (dir + 3) % 4;
+            } else if (ch == 'R') {
+                dir = (dir + 1) % 4;
+            } else { //ch == 'G'
+                if (dir == NORTH) {
                     y++;
-                }
-                else if(dir == EAST) {
+                } else if (dir == EAST) {
                     x++;
-                }
-                else if(dir == SOUTH) {
+                } else if (dir == SOUTH) {
                     y--;
-                }
-                else {
+                } else {
                     x--;
                 }
-                
+
             }
-            
+
         }
-        
-        if(x==0 && y==0) {
+
+        if (x == 0 && y == 0) {
             System.out.println("Yup, Circular");
         } else {
             System.out.println("Nope");
         }
-        
+
     }
-    
+
 }
 
 

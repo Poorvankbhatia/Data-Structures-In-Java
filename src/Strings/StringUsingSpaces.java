@@ -14,7 +14,6 @@ Output: ABC
 
 package Strings;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -22,47 +21,46 @@ import java.util.Scanner;
  * Created by poorvank on 3/27/15.
  */
 public class StringUsingSpaces {
-    
+
     public static void main(String[] args) {
 
         System.out.println("Enter string ");
         Scanner scanner = new Scanner(System.in);
-        String line  = scanner.nextLine();
+        String line = scanner.nextLine();
         printSpaceString(line);
-        
+
     }
-    
+
     private static void printSpaceString(String line) {
-        
-        char[] buffer = new char[line.length()*2];
-        
+
+        char[] buffer = new char[line.length() * 2];
+
         buffer[0] = line.charAt(0);
-        
-        spaceStringHelper(buffer,1,1,line,line.length());
-        
-        
-        
+
+        spaceStringHelper(buffer, 1, 1, line, line.length());
+
+
     }
-    
-    private static void spaceStringHelper(char[] buffer,int i ,int j,String line,int n) {
-        
-        if(i == n) {
-            
-            buffer[j]=' ';
+
+    private static void spaceStringHelper(char[] buffer, int i, int j, String line, int n) {
+
+        if (i == n) {
+
+            buffer[j] = ' ';
             System.out.println(Arrays.toString(buffer));
             return;
-            
+
         }
-        
+
         buffer[j] = line.charAt(i);
-        spaceStringHelper(buffer,i+1,j+1,line,n);
-        
+        spaceStringHelper(buffer, i + 1, j + 1, line, n);
+
         buffer[j] = ' ';
-        buffer[j+1] = line.charAt(i);
-        spaceStringHelper(buffer,i+1,j+2,line,n);
-        
+        buffer[j + 1] = line.charAt(i);
+        spaceStringHelper(buffer, i + 1, j + 2, line, n);
+
     }
-    
+
 }
 
 
