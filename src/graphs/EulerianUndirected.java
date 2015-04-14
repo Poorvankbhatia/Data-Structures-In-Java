@@ -170,7 +170,6 @@ public class EulerianUndirected {
 
 
 /*
-
 How to find whether a given graph is Eulerian or not?
 The problem is same as following question. “Is it possible to draw a given graph without lifting pencil from the paper
  and without tracing any of the edges more than once”.
@@ -199,6 +198,4 @@ How does this work?
 In Eulerian path, each time we visit a vertex v, we walk through two unvisited edges with one end point as v. 
 Therefore, all middle vertices in Eulerian Path must have even degree. For Eulerian Cycle, any vertex can be middle vertex,
 therefore all vertices must have even degree.
-
-
- */
+*/

@@ -18,7 +18,6 @@ public class ArrayToBST {
 
         Traversal.pre_Order(createTree(arr, 0, n - 1));
 
-
     }
 
     private static Node createTree(int[] arr, int start, int end) {
