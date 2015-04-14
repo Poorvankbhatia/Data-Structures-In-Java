@@ -18,9 +18,9 @@ we get a tree as output. And if we start from 3 or 4, we get a forest. To find a
   vertices according to their finish times, we make sure that the finish time of a vertex that connects to other SCCs 
   (other that its own SCC), will always be greater than finish time of vertices in the other SCC (See this for proof).
    For example, in DFS of above example graph, finish time of 0 is always greater than 3 and 4 (irrespective of the 
-   sequence of vertices considered for DFS). And finish time of 3 is always greater than 4. DFS doesn’t guarantee about 
+   sequence of vertices considered for DFS). And finish time of 3 is always greater than 4. DFS doesn’t guarantee about
    other vertices, for example finish times of 1 and 2 may be smaller or greater than 3 and 4 depending upon the sequence 
-   of vertices considered for DFS. So to use this property, we do DFS traversal of complete graph and push every finished
+of vertices considered for DFS. So to use this property, we do DFS traversal of complete graph and push every finished
     vertex to a stack. In stack, 3 always appears after 4, and 0 appear after both 3 and 4.
 In the next step, we reverse the graph. Consider the graph of SCCs. In the reversed graph, the edges that connect two
  components are reversed. So the SCC {0, 1, 2} becomes sink and the SCC {4} becomes source. As discussed above, in stack,
@@ -29,11 +29,13 @@ In the next step, we reverse the graph. Consider the graph of SCCs. In the rever
   
   
   
-Time Complexity: The above algorithm calls DFS, fins reverse of the graph and again calls DFS. DFS takes O(V+E) for a graph represented using adjacency list. Reversing a graph also takes O(V+E) time. For reversing the graph, we simple traverse all adjacency lists.
+Time Complexity: The above algorithm calls DFS, fins reverse of the graph and again calls DFS. DFS takes O(V+E) for a graph
+ represented using adjacency list. Reversing a graph also takes O(V+E) time. For reversing the graph, we simple traverse 
+ all adjacency lists.
 
-The above algorithm is asymptotically best algorithm, but there are other algorithms like Tarjan’s algorithm and path-based which have same time complexity but find SCCs using single DFS. The Tarjan’s algorithm is discussed in the following post.
-
-
+The above algorithm is asymptotically best algorithm, but there are other algorithms like Tarjan’s algorithm and
+ path-based which have same time complexity but find SCCs using single DFS. 
+ 
 Applications:
 SCC algorithms can be used as a first step in many graph algorithms that work only on strongly connected graph.
 In social networks, 
