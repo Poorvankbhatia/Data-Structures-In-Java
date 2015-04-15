@@ -1,0 +1,32 @@
+DFS(analysis):
+
+Setting/getting a vertex/edge label takes O(1) time
+Each vertex is labeled twice
+once as UNEXPLORED
+once as VISITED
+Each edge is labeled twice
+once as UNEXPLORED
+once as DISCOVERY or BACK
+Method incidentEdges is called once for each vertex
+DFS runs in O(n + m) time provided the graph is represented by the adjacency list structure
+Recall that Σv deg(v) = 2m
+BFS(analysis):
+
+Setting/getting a vertex/edge label takes O(1) time
+Each vertex is labeled twice
+once as UNEXPLORED
+once as VISITED
+Each edge is labeled twice
+once as UNEXPLORED
+once as DISCOVERY or CROSS
+Each vertex is inserted once into a sequence Li
+Method incidentEdges is called once for each vertex
+BFS runs in O(n + m) time provided the graph is represented by the adjacency list structure
+Recall that Σv deg(v) = 2m
+
+
+v1 + (incident edges) + v2 + (incident edges) + .... + vn + (incident edges)
+can be rewritten as
+
+(v1 + v2 + ... + vn) + [(incident_edges v1) + (incident_edges v2) + ... + (incident_edges vn)]
+and the first group is O(N) while the other is O(E).
