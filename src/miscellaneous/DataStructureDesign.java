@@ -26,72 +26,72 @@ import java.util.Random;
  */
 
 class EfficientDS {
-    
-    HashMap<Integer,Integer> map = new HashMap<>();
+
+    HashMap<Integer, Integer> map = new HashMap<>();
     ArrayList<Integer> arrayList = new ArrayList<>();
-    
-    
+
+
     //Addition
     public void add(int x) {
-        
-        if(map.get(x)!=null) {
+
+        if (map.get(x) != null) {
             System.out.println("Already present at position - " + map.get(x));
             return;
         }
-        
-        int size  = arrayList.size();
+
+        int size = arrayList.size();
         arrayList.add(x);
-        
-        map.put(x,size);
-        
+
+        map.put(x, size);
+
     }
-    
+
     //Removal
     public void remove(int x) {
-        
-        if(map.get(x)==null) {
+
+        if (map.get(x) == null) {
             System.out.println("Not present");
         } else {
             int pos = map.get(x);
             map.remove(x);
-            
-            int lastElement = arrayList.get(arrayList.size()-1);
-            Collections.swap(arrayList,pos,arrayList.size()-1);
-            
-            arrayList.remove(arrayList.size()-1);
-            
-            map.put(lastElement,pos);
+
+            int lastElement = arrayList.get(arrayList.size() - 1);
+            Collections.swap(arrayList, pos, arrayList.size() - 1);
+
+            arrayList.remove(arrayList.size() - 1);
+
+            map.put(lastElement, pos);
         }
-        
+
     }
-    
+
     public void search(int x) {
-        
-        if(map.get(x)!=null) {
+
+        if (map.get(x) != null) {
             System.out.println("present at position - " + map.get(x));
         } else {
             System.out.println("Not present");
         }
     }
-    
+
     public void getRandom() {
 
-        if(arrayList.size()==0) {
+        if (arrayList.size() == 0) {
             System.out.println("No element present");
             return;
         }
-        
+
         Random random = new Random();
-        
+
         int index = random.nextInt(arrayList.size());
-        
+
         System.out.println("A random number is - " + arrayList.get(index));
-        
+
     }
 }
 
 public class DataStructureDesign {
-    
+
     public static void main(String[] args) {
 
         EfficientDS ds = new EfficientDS();
@@ -104,9 +104,9 @@ public class DataStructureDesign {
         ds.add(50);
         ds.search(50);
         ds.getRandom();
-        
+
     }
-    
+
 }
 
 

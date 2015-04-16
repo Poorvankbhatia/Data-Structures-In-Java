@@ -32,18 +32,18 @@ package miscellaneous;
  * Created by poorvank on 4/14/15.
  */
 public class ComputerSimulation {
-    
+
     public static void main(String[] args) {
 
         System.out.println(runCustomerSimulation(2, "ABBAJJKZKZ"));
         System.out.println(runCustomerSimulation(3, "GACCBDDBAGEE"));
         System.out.println(runCustomerSimulation(3, "GACCBGDDBAEE"));
         System.out.println(runCustomerSimulation(1, "ABCBCA"));
-                
-        
+
+
     }
-    
-    public static int runCustomerSimulation(int noOfComputers,String string) {
+
+    public static int runCustomerSimulation(int noOfComputers, String string) {
         
         /*
         
@@ -52,47 +52,43 @@ public class ComputerSimulation {
            2 - entered and got a computer
            
          */
-        
-        int[] seen=new int[26];
+
+        int[] seen = new int[26];
         int occupiedCount = 0;
-        
+
         int result = 0;
-        
-        for (int i=0;i<string.length();i++) {
-            
+
+        for (int i = 0; i < string.length(); i++) {
+
             int pos = string.charAt(i) - 'A';
-            
+
             //Entered First time
-            if(seen[pos] == 0) {
-                
+            if (seen[pos] == 0) {
+
                 seen[pos] = 1;
-                
-                if(occupiedCount<noOfComputers) {
+
+                if (occupiedCount < noOfComputers) {
                     occupiedCount++;
                     seen[pos] = 2;
-                }
-                
-                else {
+                } else {
                     result++;
                 }
-                
-            } 
-            else {
-                
-                if(seen[pos]==2) {
+
+            } else {
+
+                if (seen[pos] == 2) {
                     occupiedCount--;
                 }
                 seen[pos] = 0;
             }
-            
-            
-            
+
+
         }
 
         return result;
-        
+
     }
-    
+
 }
 
 
