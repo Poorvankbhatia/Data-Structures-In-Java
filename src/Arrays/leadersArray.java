@@ -12,24 +12,24 @@ package Arrays;
  * Created by poorvank on 4/16/15.
  */
 public class leadersArray {
-    
+
     public static void main(String[] args) {
-        
+
         int[] leaderArray = new int[]{16, 17, 4, 3, 5, 2};
-        
+
         int max = Integer.MIN_VALUE;
-        
+
         System.out.println("Leaders are as follows ");
-        
-        for (int i=leaderArray.length-1;i>=0;i--) {
-            
-            if(max < leaderArray[i]) {
+
+        for (int i = leaderArray.length - 1; i >= 0; i--) {
+
+            if (max < leaderArray[i]) {
                 max = leaderArray[i];
                 System.out.print(max + " ");
             }
-            
+
         }
-        
+
     }
 }
 

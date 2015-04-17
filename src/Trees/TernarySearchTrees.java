@@ -24,143 +24,136 @@ import java.util.ArrayList;
  */
 
 class TSTNode {
-    
+
     public char data;
     public boolean isLeaf;
     public TSTNode left;
     public TSTNode right;
     public TSTNode middle;
-    
+
     public TSTNode(char data) {
-        
+
         this.data = data;
         isLeaf = false;
         left = null;
         right = null;
         middle = null;
-        
+
     }
-    
+
 }
 
 
 class TSTree {
-    
+
     public TSTNode root;
     public ArrayList<TSTNode> al;
-    
+
     public TSTree() {
-        
+
         root = null;
         al = new ArrayList<>();
     }
-    
+
     public boolean isEmpty() {
-        
-        return root==null;
+
+        return root == null;
     }
-    
+
     public void insert(String word) {
-        
-        root = insert(root,word.toCharArray(),0);
-        
+
+        root = insert(root, word.toCharArray(), 0);
+
     }
-    
-    public TSTNode insert(TSTNode node,char[] word,int pos) {
-        
-        if(node==null) {
+
+    public TSTNode insert(TSTNode node, char[] word, int pos) {
+
+        if (node == null) {
             node = new TSTNode(word[pos]);
         }
-        if(word[pos] > node.data) {
-            node.right = insert(node.right,word,pos);
-        }
-        else if(word[pos] < node.data) {
-            node.left = insert(node.left,word,pos);
-        }
-        else {
-            if(pos < word.length-1) {
-                node.middle = insert(node.middle,word,pos+1);
-            }
-            else {
+        if (word[pos] > node.data) {
+            node.right = insert(node.right, word, pos);
+        } else if (word[pos] < node.data) {
+            node.left = insert(node.left, word, pos);
+        } else {
+            if (pos < word.length - 1) {
+                node.middle = insert(node.middle, word, pos + 1);
+            } else {
                 node.isLeaf = true;
             }
         }
         return node;
     }
-    
-    public void delete(String word) {
-        
-        delete(root,word.toCharArray(),0);
-        
-    }
-    
-    public void delete(TSTNode node,char[] word,int pos) {
 
-        if(node == null) {
+    public void delete(String word) {
+
+        delete(root, word.toCharArray(), 0);
+
+    }
+
+    public void delete(TSTNode node, char[] word, int pos) {
+
+        if (node == null) {
             return;
         }
-        
-        if(word[pos] > node.data) {
-            delete(node.right,word,pos);
-        }
-        else if(word[pos] < node.data) {
-            delete(node.left,word,pos);
-        }
-        else {
-            if(node.isLeaf && pos==word.length-1) {
+
+        if (word[pos] > node.data) {
+            delete(node.right, word, pos);
+        } else if (word[pos] < node.data) {
+            delete(node.left, word, pos);
+        } else {
+            if (node.isLeaf && pos == word.length - 1) {
                 node.isLeaf = false;
             }
-            if(pos < word.length - 1) {
-                delete(node.middle,word,pos+1);
+            if (pos < word.length - 1) {
+                delete(node.middle, word, pos + 1);
             }
         }
-        
+
     }
-    
+
     public boolean search(String word) {
-        return search(root,word.toCharArray(),0);
+        return search(root, word.toCharArray(), 0);
     }
-    
-    public boolean search(TSTNode node,char[] word,int pos) {
-        
+
+    public boolean search(TSTNode node, char[] word, int pos) {
+
         if (node == null) {
             return false;
         }
-        if(word[pos] > node.data) {
-            return search(node.right,word,pos);
-        }
-        else if(word[pos] < node.data) {
-            return search(node.left,word,pos);
-        }
-        else {
-            if(pos == word.length-1) {
+        if (word[pos] > node.data) {
+            return search(node.right, word, pos);
+        } else if (word[pos] < node.data) {
+            return search(node.left, word, pos);
+        } else {
+            if (pos == word.length - 1) {
                 return node.isLeaf;
             }
-            return search(node.middle,word,pos+1);
+            return search(node.middle, word, pos + 1);
         }
-        
+
     }
-    
-    
+
+
 }
 
 public class TernarySearchTrees {
-    
+
     public static void main(String[] args) {
-        
+
         TSTree tree = new TSTree();
         tree.insert("cat");
         tree.insert("cats");
         tree.insert("bug");
         tree.insert("up");
-        
+
         System.out.println("Is bug present - " + tree.search("bug"));
-        
+
         tree.delete("bug");
 
         System.out.println("Is bug present - " + tree.search("bug"));
     }
-    
+
 }
 
 
