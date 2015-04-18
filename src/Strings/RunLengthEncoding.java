@@ -7,7 +7,7 @@ For example, if the input string is “wwwwaaadexxxxxx”, then the function sho
 
  */
 
-package Interviews;
+package Strings;
 
 import java.util.HashMap;
 import java.util.Map;

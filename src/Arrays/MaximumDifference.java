@@ -1,4 +1,4 @@
-package Interviews;
+package Arrays;
 
 /**
  * Created by poorvank on 4/16/15.

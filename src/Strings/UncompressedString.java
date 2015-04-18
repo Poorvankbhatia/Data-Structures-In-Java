@@ -18,7 +18,7 @@ output: c
 
  */
 
-package Interviews;
+package Strings;
 
 /**
  * Created by poorvank on 3/31/15.

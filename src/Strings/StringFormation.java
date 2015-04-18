@@ -31,7 +31,7 @@ d
 
  */
 
-package Interviews;
+package Strings;
 
 /**
  * Created by poorvank on 4/16/15.
