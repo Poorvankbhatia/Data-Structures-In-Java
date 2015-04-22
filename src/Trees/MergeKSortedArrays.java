@@ -160,4 +160,7 @@ We can merge arrays in O(nk*Logk) time using Min Heap. Following is detailed alg
      If the array doesn’t have any more elements, then replace root with infinite. 
      After replacing the root, heapify the tree.
 
+
+The main step is 3rd step, the loop runs n*k times. In every iteration of loop, 
+we call heapify which takes O(Logk) time. Therefore, the time complexity is O(nk Logk).
  */
