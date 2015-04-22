@@ -92,6 +92,7 @@ public class KLargestElements {
 ……a) If the element is greater than the root then make it root and call heapify for MH
 ……b) Else ignore it.
 // The step 2 is O((n-k)*logk)
+because every large element is at root position should come down till leaf
 
 3) Finally, MH has k largest elements and root of the MH is the kth largest element.
 
