@@ -30,3 +30,5 @@ public class MirrorTree {
     }
 
 }
+
+//Inorder traversal of mirror tree would be reverse
