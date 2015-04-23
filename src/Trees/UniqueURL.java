@@ -217,7 +217,19 @@ public class UniqueURL {
                 "abc.facebook.com",
                 "abc.yahoo.com",
                 "abc.facebook.com",
-                "abc.google.com"};
+                "abc.google.com","abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.yahoo.com",
+                "abc.facebook.com",
+                "abc.ll.com"};
         
         UTrie uTrie = new UTrie();
         
