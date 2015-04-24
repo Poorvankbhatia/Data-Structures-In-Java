@@ -93,7 +93,7 @@ class MinHeap {
         int right = (2*i) + 2;
         MinHeapNode num = minHeapNodes[i];
         
-        while (right<=minHeapNodes.length) {
+        while (right<=minHeapNodes.length-1) {
 
             if(num.element <= minHeapNodes[right].element && num.element <= minHeapNodes[left].element) {
                 minHeapNodes[i] = num;
