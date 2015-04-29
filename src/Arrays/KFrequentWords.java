@@ -100,8 +100,15 @@ Then just traverse the array from the end, and collect the k words.
 
 
 We can use Trie and Min Heap to get the k most frequent words efficiently. The idea is to use Trie for searching 
-existing words adding new words efficiently. Trie also stores count of occurrences of words. A Min Heap of size k is used to keep track of k most frequent words at any point of time(Use of Min Heap is same as we used it to find k largest elements in this post).
-Trie and Min Heap are linked with each other by storing an additional field in Trie ‘indexMinHeap’ and a pointer ‘trNode’ in Min Heap. The value of ‘indexMinHeap’ is maintained as -1 for the words which are currently not in Min Heap (or currently not among the top k frequent words). For the words which are present in Min Heap, ‘indexMinHeap’ contains, index of the word in Min Heap. The pointer ‘trNode’ in Min Heap points to the leaf dllNode corresponding to the word in Trie.
+existing words adding new words efficiently. 
+Trie also stores count of occurrences of words. 
+A Min Heap of size k is used to keep track of k most frequent words at any point of time
+
+Trie and Min Heap are linked with each other by storing an additional field in Trie 
+‘indexMinHeap’ and a pointer ‘trNode’ in Min Heap. The value of ‘indexMinHeap’ is maintained as -1 
+for the words which are currently not in Min Heap (or currently not among the top k frequent words). 
+For the words which are present in Min Heap, ‘indexMinHeap’ contains, index of the word in Min Heap. 
+The pointer ‘trNode’ in Min Heap points to the leaf dllNode corresponding to the word in Trie.
 
 Following is the complete process to print k most frequent words from a file.
 

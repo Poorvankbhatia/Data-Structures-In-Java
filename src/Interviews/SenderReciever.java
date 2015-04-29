@@ -52,42 +52,42 @@ import java.util.Arrays;
  * Created by poorvank on 4/27/15.
  */
 public class SenderReciever {
-    
+
     public static void main(String[] args) {
-        
-        int[] encryptedArray = new int[]{0,1,2,3,2,1,0};
-        decryptUtil(encryptedArray,0);
-        decryptUtil(encryptedArray,1);
-        
+
+        int[] encryptedArray = new int[]{0, 1, 2, 3, 2, 1, 0};
+        decryptUtil(encryptedArray, 0);
+        decryptUtil(encryptedArray, 1);
+
     }
-    
-    
-    private static void decryptUtil(int[] encryptedArray,int first) {
-        
+
+
+    private static void decryptUtil(int[] encryptedArray, int first) {
+
         int[] decryptedArray = new int[encryptedArray.length];
-        
+
         decryptedArray[0] = first;
-        
+
         int second = 0;
-        
-        for (int i=1;i<encryptedArray.length;i++) {
-            
+
+        for (int i = 1; i < encryptedArray.length; i++) {
+
             decryptedArray[i] = encryptedArray[i] - first - second;
-            
-            if(decryptedArray[i]!=0 && decryptedArray[i]!=1) {
+
+            if (decryptedArray[i] != 0 && decryptedArray[i] != 1) {
                 System.out.println("NONE");
                 return;
             }
-            
+
             second = first;
             first = decryptedArray[i];
-            
+
         }
-        
+
         System.out.println(Arrays.toString(decryptedArray));
-        
+
     }
-    
+
 }
 
 

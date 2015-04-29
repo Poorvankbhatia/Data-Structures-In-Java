@@ -51,7 +51,6 @@ So total salary is 2 + 1 + 1 +1 = 5.
 package Interviews;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -59,7 +58,7 @@ import java.util.Scanner;
  * Created by poorvank on 4/26/15.
  */
 
-class ENode{
+class ENode {
 
     public int info;
     public List<Integer> childList;
@@ -81,13 +80,13 @@ class EGraph {
         count = n;
         array = new ENode[n];
 
-        for (int i=0;i<n;i++) {
+        for (int i = 0; i < n; i++) {
             array[i] = new ENode(i);
         }
 
     }
 
-    public void addEdge(int a,int b) {
+    public void addEdge(int a, int b) {
 
         System.out.println("Creating edge between " + a + " - " + b);
 
@@ -99,15 +98,15 @@ class EGraph {
 
         int[] salaryArray = new int[count];
 
-        for (int i=0;i<count;i++) {
-            if(salaryArray[i]==0) {
-                fillSalarySum(salaryArray,i);
+        for (int i = 0; i < count; i++) {
+            if (salaryArray[i] == 0) {
+                fillSalarySum(salaryArray, i);
             }
         }
 
         int sum = 0;
-        
-        for (int i=0;i<salaryArray.length;i++) {
+
+        for (int i = 0; i < salaryArray.length; i++) {
             sum += salaryArray[i];
         }
 
@@ -115,16 +114,16 @@ class EGraph {
 
     }
 
-    private void fillSalarySum(int[] salaryArray,int i) {
+    private void fillSalarySum(int[] salaryArray, int i) {
 
-        if(array[i].childList.size() == 0) {
+        if (array[i].childList.size() == 0) {
             salaryArray[i] = 1;
             return;
         }
 
         for (Integer nbr : array[i].childList) {
-            if(salaryArray[nbr]==0) {
-                fillSalarySum(salaryArray,nbr);
+            if (salaryArray[nbr] == 0) {
+                fillSalarySum(salaryArray, nbr);
             }
             salaryArray[i] += salaryArray[nbr];
         }
@@ -144,9 +143,9 @@ public class BossEmployee {
         EGraph graph = new EGraph(numberOfNodes);
 
         sc.nextLine();
-        for (int i=0;i<numberOfNodes;i++) {
+        for (int i = 0; i < numberOfNodes; i++) {
             String str = sc.nextLine();
-            processInput(str,i,graph);
+            processInput(str, i, graph);
         }
 
         System.out.println("Salary sum is- " + graph.salarySum());
@@ -154,11 +153,11 @@ public class BossEmployee {
 
     }
 
-    private static void processInput(String str,int currentNode,EGraph graph) {
+    private static void processInput(String str, int currentNode, EGraph graph) {
 
-        for (int i=0;i<str.length();i++) {
-            if(str.charAt(i) == 'Y') {
-                graph.addEdge(currentNode,i);
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'Y') {
+                graph.addEdge(currentNode, i);
             }
         }
 
