@@ -23,125 +23,119 @@ import java.util.Arrays;
  */
 
 class MinHeapNode {
-    
+
     int element;
     int arrayIndex;
     int nextIndex;
-    
+
 }
 
 
 class MinHeap {
-    
+
     int heapSize;
     MinHeapNode[] minHeapNodes;
-    
+
     public MinHeap(int k) {
-        
+
         heapSize = k;
         minHeapNodes = new MinHeapNode[heapSize];
-        
+
     }
-    
-    public int[] mergeKArrays(int[][] arr,int k,int n) {
-        
-        int[] output = new int[n*k];
-        
-        for (int i=0;i<k;i++) {
-            
+
+    public int[] mergeKArrays(int[][] arr, int k, int n) {
+
+        int[] output = new int[n * k];
+
+        for (int i = 0; i < k; i++) {
+
             minHeapNodes[i] = new MinHeapNode();
             minHeapNodes[i].element = arr[i][0];// Store the first element
             minHeapNodes[i].arrayIndex = i;// index of array
             minHeapNodes[i].nextIndex = 1;// Index of next element to be stored from array
-            
+
         }
 
         minHeap(minHeapNodes);
 
-        
-        for (int count = 0;count<(n*k);count++) {
+
+        for (int count = 0; count < (n * k); count++) {
 
             MinHeapNode minHeapNode = minHeapNodes[0];
             output[count] = minHeapNode.element;
 
-            if(minHeapNode.nextIndex < n) {
+            if (minHeapNode.nextIndex < n) {
                 minHeapNode.element = arr[minHeapNode.arrayIndex][minHeapNode.nextIndex];
-                minHeapNode.nextIndex +=1;
-            }
-            else {
+                minHeapNode.nextIndex += 1;
+            } else {
                 minHeapNode.element = Integer.MAX_VALUE;
             }
 
             minHeap(minHeapNodes);
         }
-        
+
         return output;
-        
+
     }
-    
+
     public void minHeap(MinHeapNode[] minHeapNodes) {
-        
-        for (int i = minHeapNodes.length/2;i>=0;i--)  {
-            restoreDown(minHeapNodes,i);
+
+        for (int i = minHeapNodes.length / 2; i >= 0; i--) {
+            restoreDown(minHeapNodes, i);
         }
-        
+
     }
-    
-    private void restoreDown(MinHeapNode[] minHeapNodes,int i) {
 
-        int left = (2*i) + 1;
-        int right = (2*i) + 2;
+    private void restoreDown(MinHeapNode[] minHeapNodes, int i) {
+
+        int left = (2 * i) + 1;
+        int right = (2 * i) + 2;
         MinHeapNode num = minHeapNodes[i];
-        
-        while (right<=minHeapNodes.length-1) {
 
-            if(num.element <= minHeapNodes[right].element && num.element <= minHeapNodes[left].element) {
+        while (right <= minHeapNodes.length - 1) {
+
+            if (num.element <= minHeapNodes[right].element && num.element <= minHeapNodes[left].element) {
                 minHeapNodes[i] = num;
                 return;
-            }
-            else if(minHeapNodes[right].element < minHeapNodes[left].element) {
+            } else if (minHeapNodes[right].element < minHeapNodes[left].element) {
                 minHeapNodes[i] = minHeapNodes[right];
                 i = right;
-            }
-            else {
+            } else {
                 minHeapNodes[i] = minHeapNodes[left];
                 i = left;
             }
-            
-            left = (2*i) + 1;
-            right = (2*i) + 2;
-            
+
+            left = (2 * i) + 1;
+            right = (2 * i) + 2;
+
         }
-        
-        if(left == minHeapNodes.length-1 && minHeapNodes[left].element < num.element) {
+
+        if (left == minHeapNodes.length - 1 && minHeapNodes[left].element < num.element) {
             minHeapNodes[i] = minHeapNodes[left];
             i = left;
         }
 
         minHeapNodes[i] = num;
     }
-    
+
 }
 
 
-
-
-
 public class MergeKSortedArrays {
-    
+
     public static void main(String[] args) {
-        
+
         int[][] arr = new int[][]{{2, 6, 12, 34},
                 {1, 9, 20, 1000},
                 {23, 34, 90, 2000}};
-        
+
         int k = arr.length;
         int n = arr[0].length;
-        
+
         MinHeap minHeap = new MinHeap(k);
         System.out.println(Arrays.toString(minHeap.mergeKArrays(arr, k, n)));
     }
-    
+
 }
 
 

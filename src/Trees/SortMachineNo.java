@@ -22,7 +22,6 @@ package Trees;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by poorvank on 4/23/15.
@@ -50,7 +49,7 @@ class MachineMinHeap {
 
         int finalSize = 0;
 
-        for (int i=0;i<heapArray.length;i++) {
+        for (int i = 0; i < heapArray.length; i++) {
             heapArray[i] = new MachineHeapNode();
             heapArray[i].element = mainList.get(i).get(0);
             heapArray[i].listIndex = i;
@@ -59,7 +58,7 @@ class MachineMinHeap {
 
         minHeap(heapArray);
 
-        for (int i=0;i<finalSize;i++) {
+        for (int i = 0; i < finalSize; i++) {
 
             MachineHeapNode machineHeapNode = heapArray[0];
             list.add(machineHeapNode.element);
@@ -68,7 +67,7 @@ class MachineMinHeap {
 
             mainList.get(listIndex).removeFirst();
 
-            if (mainList.get(listIndex).size()>0) {
+            if (mainList.get(listIndex).size() > 0) {
                 heapArray[0].element = mainList.get(listIndex).get(0);
             } else {
                 heapArray[0].element = Integer.MAX_VALUE;
@@ -85,39 +84,37 @@ class MachineMinHeap {
 
     private void minHeap(MachineHeapNode[] heapArray) {
 
-        for (int i=heapArray.length/2;i>=0;i--) {
+        for (int i = heapArray.length / 2; i >= 0; i--) {
             restoreUp(heapArray, i);
         }
 
     }
 
-    private void restoreUp(MachineHeapNode[] heapArray,int i) {
+    private void restoreUp(MachineHeapNode[] heapArray, int i) {
 
-        int leftChild = 2*i+1;
-        int rightChild = 2*i+2;
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
         MachineHeapNode node = heapArray[i];
 
-        while (rightChild<heapArray.length) {
+        while (rightChild < heapArray.length) {
 
-            if(heapArray[rightChild].element > node.element && heapArray[leftChild].element > node.element) {
+            if (heapArray[rightChild].element > node.element && heapArray[leftChild].element > node.element) {
                 heapArray[i] = node;
                 return;
-            }
-            else if(heapArray[rightChild].element<heapArray[leftChild].element) {
+            } else if (heapArray[rightChild].element < heapArray[leftChild].element) {
                 heapArray[i] = heapArray[rightChild];
                 i = rightChild;
-            }
-            else {
+            } else {
                 heapArray[i] = heapArray[leftChild];
                 i = leftChild;
             }
 
-            rightChild = 2*i+1;
-            leftChild = 2*i+2;
+            rightChild = 2 * i + 1;
+            leftChild = 2 * i + 2;
 
         }
 
-        if(leftChild==heapArray.length-1 && heapArray[leftChild].element<node.element) {
+        if (leftChild == heapArray.length - 1 && heapArray[leftChild].element < node.element) {
             heapArray[i] = heapArray[leftChild];
             i = leftChild;
         }

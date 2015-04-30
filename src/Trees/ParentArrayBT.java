@@ -40,51 +40,51 @@ package Trees;
  * Created by poorvank on 4/20/15.
  */
 public class ParentArrayBT {
-    
+
     public static void main(String[] args) {
 
         int parent[] = {1, 5, 5, 2, 2, -1, 3};
         System.out.println("height of the tree - " + height(parent));
-        
+
     }
-    
+
     private static int height(int[] parent) {
 
         int[] depth = new int[parent.length];
-        
-        for (int i=0;i<parent.length;i++) {
+
+        for (int i = 0; i < parent.length; i++) {
             fillDepthArray(depth, i, parent);
         }
-        
+
         int height = depth[0];
-        
-        for (int i=1;i<depth.length;i++) {
-            if(height<depth[i]) {
+
+        for (int i = 1; i < depth.length; i++) {
+            if (height < depth[i]) {
                 height = depth[i];
             }
         }
-        
+
         return height;
-        
+
     }
-    
-    private static void fillDepthArray(int[] depth,int i,int[] parent) {
-        
-        if(depth[i]!=0) {
+
+    private static void fillDepthArray(int[] depth, int i, int[] parent) {
+
+        if (depth[i] != 0) {
             return;
         }
-        if(parent[i] == -1) {
+        if (parent[i] == -1) {
             depth[i] = 1;
             return;
         }
-        if(depth[parent[i]]==0) {
-            fillDepthArray(depth,parent[i],parent);
+        if (depth[parent[i]] == 0) {
+            fillDepthArray(depth, parent[i], parent);
         }
-        
+
         depth[i] = depth[parent[i]] + 1;
-        
+
     }
-    
+
 }
 
 

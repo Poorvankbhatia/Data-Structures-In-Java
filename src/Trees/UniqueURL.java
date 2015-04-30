@@ -14,60 +14,59 @@ import java.util.LinkedList;
  */
 
 class DLLNode {
-    
+
     public String url;
     public DLLNode next;
     public DLLNode previous;
-    
+
     public DLLNode(String url) {
-        
+
         this.url = url;
         next = null;
         previous = null;
-        
+
     }
-    
+
 }
 
 class DLList {
-    
+
     public DLLNode head;
-    
+
     public DLList() {
         head = null;
     }
-    
+
     public DLLNode addToList(String url) {
-        
-        if(head==null) {
+
+        if (head == null) {
             head = new DLLNode(url);
-        }
-        else {
+        } else {
             DLLNode temp;
             temp = head;
             head = new DLLNode(url);
             head.next = temp;
             temp.previous = head;
         }
-        
+
         return head;
-        
+
     }
-    
+
     public void deleteFromList(DLLNode node) {
-        
-        if(node.previous!=null && node.next!=null) {
+
+        if (node.previous != null && node.next != null) {
             node.previous.next = node.next;
             node.next.previous = node.previous;
             return;
         }
         //When the last Node is to be deleted
-        else if(node.previous!=null) {
+        else if (node.previous != null) {
             node.previous.next = null;
             return;
         }
         //will only happen when the first node is to be deleted
-        else if(node.next!=null) {
+        else if (node.next != null) {
             head = node.next;
             node.next.previous = null;
             return;
@@ -77,139 +76,138 @@ class DLList {
             head = null;
         }
     }
-    
+
     public void printList() {
-        
+
         DLLNode temp = head;
-        while (temp!=null) {
+        while (temp != null) {
             System.out.print(temp.url + " ");
             temp = temp.next;
         }
-        
+
     }
-    
+
 }
 
-class UTrieNode{
-    
+class UTrieNode {
+
+    public LinkedList<UTrieNode> childList;
+    public DLLNode dllNode;
     char content;
     boolean isLeaf;
     int count;
-    public LinkedList<UTrieNode> childList;
-    public DLLNode dllNode;
-    
+
     public UTrieNode(char content) {
-        
+
         this.content = content;
         isLeaf = false;
         count = 0;
         childList = new LinkedList<>();
         dllNode = null;
-        
+
     }
-    
+
     public UTrieNode subNode(char c) {
-        
-        if(childList!=null) {
-            
+
+        if (childList != null) {
+
             for (UTrieNode uTrieNode : childList) {
-                
-                if(uTrieNode.content==c) {
+
+                if (uTrieNode.content == c) {
                     return uTrieNode;
                 }
-                
+
             }
-            
+
         }
-        
+
         return null;
     }
-    
+
 }
 
 class UTrie {
-    
+
     public UTrieNode root;
     DLList list = new DLList();
-    
+
     public UTrie() {
-        
+
         root = new UTrieNode(' ');
-        
+
     }
-    
+
     public void insert(String url) {
         UTrieNode node;
-        if((node = search(url))!=null) {
+        if ((node = search(url)) != null) {
             System.out.println("Already present - " + url);
-            if(node.dllNode ==null) {
+            if (node.dllNode == null) {
                 System.out.println("dllNode is null");
             } else {
                 System.out.println("dllNode is present");
                 list.deleteFromList(node.dllNode);
                 node.dllNode = null;
             }
-        }
-        else {
-            
+        } else {
+
             System.out.println("Creating new Trie for " + url);
-            
+
             UTrieNode current = root;
-            
+
             for (char ch : url.toCharArray()) {
 
                 UTrieNode subNode = current.subNode(ch);
-                
-                if(subNode==null) {
+
+                if (subNode == null) {
                     current.childList.add(new UTrieNode(ch));
                     current = current.subNode(ch);
                 } else {
                     current = subNode;
                 }
-                
+
                 current.count++;
-                
+
             }
-            
+
             current.isLeaf = true;
             current.dllNode = list.addToList(url);
-            
+
         }
         list.printList();
         System.out.println("\n");
-        
+
     }
-    
+
     public UTrieNode search(String url) {
-        
+
         UTrieNode current = root;
-        
+
         for (char ch : url.toCharArray()) {
-            
+
             UTrieNode subNode = current.subNode(ch);
-            
-            if(subNode==null) {
+
+            if (subNode == null) {
                 return null;
             } else {
                 current = subNode;
             }
-            
+
         }
-        
-        if(current.isLeaf) {
+
+        if (current.isLeaf) {
             return current;
         } else {
             return null;
         }
-        
+
     }
-    
+
 }
 
 public class UniqueURL {
-    
+
     public static void main(String[] args) {
-        
+
         String[] urls = new String[]{"abc.google.com",
                 "abc.facebook.com",
                 "abc.amazon.com",
@@ -217,7 +215,7 @@ public class UniqueURL {
                 "abc.facebook.com",
                 "abc.yahoo.com",
                 "abc.facebook.com",
-                "abc.google.com","abc.yahoo.com",
+                "abc.google.com", "abc.yahoo.com",
                 "abc.facebook.com",
                 "abc.yahoo.com",
                 "abc.facebook.com",
@@ -230,19 +228,19 @@ public class UniqueURL {
                 "abc.yahoo.com",
                 "abc.facebook.com",
                 "abc.ll.com"};
-        
+
         UTrie uTrie = new UTrie();
-        
+
         for (String url : urls) {
             uTrie.insert(url);
         }
 
         System.out.println("\nFinal unique list is -: ");
         uTrie.list.printList();
-        
+
     }
-    
-    
+
+
 }
 
 

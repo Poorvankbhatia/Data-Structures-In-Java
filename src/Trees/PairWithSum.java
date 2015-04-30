@@ -13,38 +13,37 @@ package Trees;
  * Created by poorvank on 4/28/15.
  */
 public class PairWithSum {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        sumPair(90,root);
-        
+        sumPair(90, root);
+
     }
-    
-    private static void sumPair(int sum,Node root) {
-        
-        boolean done1 = false,done2 = false;
-        Node current1 = root,current2 = root;
-        int val1=0,val2=0;
-        
+
+    private static void sumPair(int sum, Node root) {
+
+        boolean done1 = false, done2 = false;
+        Node current1 = root, current2 = root;
+        int val1 = 0, val2 = 0;
+
         Stack stack1 = new Stack();
         Stack stack2 = new Stack();
-        
+
         while (true) {
-            
+
             while (!done1) {
-                
-                if (current1!=null) {
+
+                if (current1 != null) {
                     stack1.push(current1);
                     current1 = current1.left;
-                }
-                else {
+                } else {
                     /*
                        if it is empty then it makes done1 = 1 it takes out from the loop.
                        if we did not check isEmpty() condition,
                        it always try to pop element from stack and in Empty case it will throw RTE.
                      */
-                    if(stack1.isEmpty()) {
+                    if (stack1.isEmpty()) {
                         done1 = true;
                     } else {
                         current1 = stack1.pop();
@@ -53,17 +52,16 @@ public class PairWithSum {
                         done1 = true;
                     }
                 }
-                
+
             }
 
             while (!done2) {
 
-                if (current2!=null) {
+                if (current2 != null) {
                     stack2.push(current2);
                     current2 = current2.right;
-                }
-                else {
-                    if(stack2.isEmpty()) {
+                } else {
+                    if (stack2.isEmpty()) {
                         done2 = true;
                     } else {
                         current2 = stack2.pop();
@@ -74,30 +72,26 @@ public class PairWithSum {
                 }
 
             }
-            
-            if((val1!=val2) && val1 + val2 == sum) {
+
+            if ((val1 != val2) && val1 + val2 == sum) {
                 System.out.println("Found sum pair - " + val1 + " " + val2);
                 break;
-            }
-            
-            else if(val1 + val2 > sum) {
+            } else if (val1 + val2 > sum) {
                 done2 = false;
-            }
-
-            else if(val1 + val2 < sum) {
+            } else if (val1 + val2 < sum) {
                 done1 = false;
             }
-            
-            if(val1 >= val2) {
-                System.out.println("No pair found" );
+
+            if (val1 >= val2) {
+                System.out.println("No pair found");
                 break;
             }
-            
+
         }
-        
-        
+
+
     }
-    
+
 }
 
 

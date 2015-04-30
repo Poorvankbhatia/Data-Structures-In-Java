@@ -17,71 +17,69 @@ import java.util.Arrays;
  * Created by poorvank on 4/22/15.
  */
 public class KLargestElements {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{1, 23, 12, 9, 30, 2, 50};
         int k = 3;
         int[] dst = new int[k];
 
-        System.arraycopy(arr,0,dst,0,k);
+        System.arraycopy(arr, 0, dst, 0, k);
         createMinHeap(dst);
 
         System.out.println(Arrays.toString(dst));
-        
-        for (int i=k;i<arr.length;i++) {
-            if(arr[i] > dst[0]) {
+
+        for (int i = k; i < arr.length; i++) {
+            if (arr[i] > dst[0]) {
                 dst[0] = arr[i];
                 createMinHeap(dst);
             }
         }
 
         System.out.println(Arrays.toString(dst));
-        
+
     }
-    
+
     private static void createMinHeap(int[] arr) {
-        
-        for (int i = arr.length/2;i>=0;i--) {
+
+        for (int i = arr.length / 2; i >= 0; i--) {
             restoreDown(arr, i);
         }
-        
+
     }
-    
-    private static void restoreDown(int[] arr,int i) {
-        
-        int left = (2*i) + 1;
-        int right = (2*i) + 2;
+
+    private static void restoreDown(int[] arr, int i) {
+
+        int left = (2 * i) + 1;
+        int right = (2 * i) + 2;
         int num = arr[i];
-        
+
         while (right <= arr.length) {
-            
-            if(num <= arr[right] && num <= arr[left]) {
+
+            if (num <= arr[right] && num <= arr[left]) {
                 arr[i] = num;
                 return;
-            }
-            else if( arr[right] < arr[left]) {
+            } else if (arr[right] < arr[left]) {
                 arr[i] = arr[right];
                 i = right;
-            }
-            else {
+            } else {
                 arr[i] = arr[left];
                 i = left;
             }
 
-            left = (2*i) + 1;
-            right = (2*i) + 2;
+            left = (2 * i) + 1;
+            right = (2 * i) + 2;
         }
-        
-        if(left == arr.length-1 && arr[left] < num) {
+
+        if (left == arr.length - 1 && arr[left] < num) {
             arr[i] = arr[left];
             i = left;
         }
-        
+
         arr[i] = num;
-        
+
     }
-    
+
 }
 
 
