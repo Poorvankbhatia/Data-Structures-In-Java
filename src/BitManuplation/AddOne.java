@@ -6,33 +6,33 @@ import java.util.Scanner;
  * Created by poorvank on 5/2/15.
  */
 public class AddOne {
-    
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number ");
         int n = scanner.nextInt();
-        
-        System.out.println("next number of  - " + n + " is - "   + result(n));
-        
+
+        System.out.println("next number of  - " + n + " is - " + result(n));
+
     }
-    
+
     private static int result(int n) {
-        
+
         int m = 1;
-        
-        while ((n & m) !=0) {
-            
-            n = n^m;
+
+        while ((n & m) != 0) {
+
+            n = n ^ m;
             m = m << 1;
-            
+
         }
-        
-        n = n^m;
+
+        n = n ^ m;
         return n;
-        
+
     }
-    
+
 }
 
 

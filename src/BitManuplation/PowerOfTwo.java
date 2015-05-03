@@ -12,22 +12,21 @@ import java.util.Scanner;
  * Created by poorvank on 5/1/15.
  */
 public class PowerOfTwo {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println("Enter number");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        
-        if((n & (n-1))==0) {
+
+        if ((n & (n - 1)) == 0) {
             System.out.println("Yes");
-        }
-        else {
+        } else {
             System.out.println("Nope");
         }
-        
+
     }
-    
+
 }
 /*
 

@@ -6,53 +6,53 @@ import java.util.Scanner;
  * Created by poorvank on 5/2/15.
  */
 public class MultipleOfThree {
-    
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number");
         int num = scanner.nextInt();
-        
+
         System.out.println("Is a multiple of three - " + isMultiple(num));
     }
-    
+
     private static boolean isMultiple(int n) {
-        
-        if(n<0) {
-          n = Math.abs(n);   
+
+        if (n < 0) {
+            n = Math.abs(n);
         }
-        if(n==0) {
+        if (n == 0) {
             return true;
-        } 
-        if(n==1) {
+        }
+        if (n == 1) {
             return false;
         }
-        
-        int oddCount=0,evenCount=0;
-        
-        while (n>0) {
-            
+
+        int oddCount = 0, evenCount = 0;
+
+        while (n > 0) {
+
             //If odd bit is set we increment odd count
-            if((n&1)!=0) {
+            if ((n & 1) != 0) {
                 oddCount++;
             }
             n = n >> 1;
-            
+
             //If even bit is set we increment even count
-            if((n & 1)!=0) {
+            if ((n & 1) != 0) {
                 evenCount++;
             }
-            n = n>>1;
-            
+            n = n >> 1;
+
         }
-        
-        if(Math.abs(oddCount-evenCount)%3==0) {
+
+        if (Math.abs(oddCount - evenCount) % 3 == 0) {
             return true;
         }
         return false;
-        
+
     }
-    
+
 }
 
 

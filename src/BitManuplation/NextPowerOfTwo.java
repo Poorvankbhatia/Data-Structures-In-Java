@@ -6,15 +6,15 @@ import java.util.Scanner;
  * Created by poorvank on 5/1/15.
  */
 public class NextPowerOfTwo {
-    
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number ");
         int n = scanner.nextInt();
-        
+
         System.out.println("Method 1 - " + method1(n));
-        
+
     }
     
     /* If n is a power of 2 then return n
@@ -31,14 +31,14 @@ public class NextPowerOfTwo {
     */
 
     private static int method1(int n) {
-        
-        if(n!=0 && ((n & (n-1))==0)) {
+
+        if (n != 0 && ((n & (n - 1)) == 0)) {
             return n;
         }
-        int count =0;
-        while (n!=0) {
+        int count = 0;
+        while (n != 0) {
             n = n >> 1;
-            count = count+1;
+            count = count + 1;
         }
         
         
@@ -51,11 +51,11 @@ public class NextPowerOfTwo {
          }
         
          */
-        
+
         return 1 << count;
-        
+
     }
-    
+
 }
 
 

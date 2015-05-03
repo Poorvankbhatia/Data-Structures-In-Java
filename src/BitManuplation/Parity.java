@@ -12,34 +12,34 @@ import java.util.Scanner;
  * Created by poorvank on 5/2/15.
  */
 public class Parity {
-    
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number");
-        
+
         int num = scanner.nextInt();
-        System.out.println("Parity is - " + (getParity(num)?"odd":"even"));
-        
-        
+        System.out.println("Parity is - " + (getParity(num) ? "odd" : "even"));
+
+
     }
-    
-    
+
+
     private static boolean getParity(int n) {
-        
+
         boolean parity = false;
-        
-        while (n>0) {
-            
+
+        while (n > 0) {
+
             parity = !parity;
-            n = (n & n-1);
-            
+            n = (n & n - 1);
+
         }
-        
+
         return parity;
-        
+
     }
-    
+
 }
 
 
