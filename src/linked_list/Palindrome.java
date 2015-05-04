@@ -8,54 +8,53 @@ package linked_list;
 
 
 public class Palindrome {
-    
+
     public static void main(String[] args) {
-        
+
         LLNode head = Input.listInput();
         System.out.println("\nIs palindrome " + isPalindrome(head));
         LinkedList.printList(head);
     }
-    
+
     private static boolean isPalindrome(LLNode head) {
-        
-        LLNode slowPtr=head,fastPtr=head,midNode=null,prevSlowPtr=null,tmp=head;
+
+        LLNode slowPtr = head, fastPtr = head, midNode = null, prevSlowPtr = null, tmp = head;
         boolean flag = false;
-        
-        while (fastPtr!=null && fastPtr.link!=null) {
-            
+
+        while (fastPtr != null && fastPtr.link != null) {
+
             fastPtr = fastPtr.link.link;
             prevSlowPtr = slowPtr;
             slowPtr = slowPtr.link;
-            
+
         }
-        
+
         //Odd number of nodes
-        if(fastPtr!=null) {
+        if (fastPtr != null) {
             midNode = slowPtr;
             slowPtr = slowPtr.link;
         }
-        
+
         prevSlowPtr.link = null;
 
         slowPtr = LinkedList.reverse(slowPtr);
-        
-        flag = LinkedList.compare(tmp,slowPtr);
+
+        flag = LinkedList.compare(tmp, slowPtr);
 
         slowPtr = LinkedList.reverse(slowPtr);
 
-        if(midNode!=null) {
+        if (midNode != null) {
             prevSlowPtr.link = midNode;
             midNode.link = slowPtr;
-        }
-        else {
+        } else {
             prevSlowPtr.link = slowPtr;
         }
-        
+
         return flag;
-        
-        
+
+
     }
-    
+
 }
 
 
