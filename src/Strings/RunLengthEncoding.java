@@ -17,7 +17,7 @@ import java.util.Scanner;
  * Created by poorvank on 4/16/15.
  */
 public class RunLengthEncoding {
-    
+
     public static void main(String[] args) {
 
         System.out.println("Enter String to run length encoded");
@@ -26,64 +26,64 @@ public class RunLengthEncoding {
 
         System.out.println("Run length encoding via map method - " + encodingUsingMap(input));
         System.out.println("Run length encoding without map method - " + encodingWithoutMap(input));
-        
+
     }
-    
-    
+
+
     //In hashmap method order is not maintained
     private static String encodingUsingMap(String input) {
 
-        HashMap<Character,Integer> hashMap = new HashMap<>();
-        
-        for (int i=0;i<input.length();i++) {
-            
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < input.length(); i++) {
+
             Character character = input.charAt(i);
-            
-            if(hashMap.containsKey(character)) {
-                hashMap.put(character,hashMap.get(character)+1);
+
+            if (hashMap.containsKey(character)) {
+                hashMap.put(character, hashMap.get(character) + 1);
             } else {
-                hashMap.put(character,1);
+                hashMap.put(character, 1);
             }
 
-            
+
         }
-        
+
         String string = "";
-        
-        for (Map.Entry<Character,Integer> entry : hashMap.entrySet()) {
-            
+
+        for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
+
             string = string + entry.getKey() + entry.getValue();
-            
+
         }
-        
+
         return string;
-        
+
     }
-    
+
     private static String encodingWithoutMap(String input) {
-        
+
         String string = "";
-        
-        for (int i = 0;i<input.length();i++) {
-            
+
+        for (int i = 0; i < input.length(); i++) {
+
             string = string + input.charAt(i);
-            int count =1;
-            
-            while (i+1<input.length() && input.charAt(i)==input.charAt(i+1)) {
-                
+            int count = 1;
+
+            while (i + 1 < input.length() && input.charAt(i) == input.charAt(i + 1)) {
+
                 count++;
                 i++;
-                
+
             }
-            
+
             string = string + count;
-            
+
         }
-        
+
         return string;
-        
+
     }
-    
+
 }
 
 /*

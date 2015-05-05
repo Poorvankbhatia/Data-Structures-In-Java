@@ -24,28 +24,28 @@ package Strings;
  * Created by poorvank on 3/31/15.
  */
 public class UncompressedString {
-    
+
     public static void main(String[] args) {
-        
+
         kthCharacter("abc3", 9);
         kthCharacter("abc3z2pq3", 7);
         kthCharacter("abc3z2pq3", 22);
         kthCharacter("abc3z2pq3", 30);
-        
+
     }
-    
-    private static void kthCharacter(String str,int n) {
-        
-        int previousLength = 0,currentLength = 0,i=0;
-        
+
+    private static void kthCharacter(String str, int n) {
+
+        int previousLength = 0, currentLength = 0, i = 0;
+
         while (currentLength < n) {
-            
+
             previousLength = currentLength;
-            
-            if(Character.isAlphabetic(str.charAt(i))) {
-                currentLength ++;
+
+            if (Character.isAlphabetic(str.charAt(i))) {
+                currentLength++;
             } else {
-                currentLength = currentLength*(Character.getNumericValue(str.charAt(i)));
+                currentLength = currentLength * (Character.getNumericValue(str.charAt(i)));
             }
             i++;
         }
@@ -56,14 +56,14 @@ public class UncompressedString {
             it simply means that that string till pl is repeated by the number found
             so simply search in that prefix :)
          */
-        
-        if(currentLength > n) {
-            int tmp = n%previousLength;
-            if(tmp==0) {
+
+        if (currentLength > n) {
+            int tmp = n % previousLength;
+            if (tmp == 0) {
                 tmp = previousLength;
             }
-          //  System.out.println("cl - " + currentLength + " pl - " + previousLength + " tmp -  " + tmp );
-            kthCharacter(str,tmp);
+            //  System.out.println("cl - " + currentLength + " pl - " + previousLength + " tmp -  " + tmp );
+            kthCharacter(str, tmp);
         }
         
         /*
@@ -72,8 +72,8 @@ public class UncompressedString {
  {                                   number at the last of the prefix : print answer
         
          */
-        if(currentLength == n && Character.isAlphabetic(str.charAt(i-1))) {
-            System.out.println(str.charAt(i-1));
+        if (currentLength == n && Character.isAlphabetic(str.charAt(i - 1))) {
+            System.out.println(str.charAt(i - 1));
         } 
         /*
         
@@ -81,11 +81,11 @@ public class UncompressedString {
  {                                              at the last simply print the character before the number
         
          */
-        else if(currentLength == n && !Character.isAlphabetic(str.charAt(i-1))) {
-            System.out.println(str.charAt(i-2));
+        else if (currentLength == n && !Character.isAlphabetic(str.charAt(i - 1))) {
+            System.out.println(str.charAt(i - 2));
         }
-        
-        
+
+
     }
-    
+
 }
