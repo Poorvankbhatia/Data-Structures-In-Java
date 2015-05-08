@@ -14,63 +14,60 @@ package Trees;
  * Created by poorvank on 5/7/15.
  */
 public class InorderSuccessor {
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
-        if(successor(root,root.right)!=null)
-        System.out.println("successor is - " + successor(root,root.right).info);
-        else 
-        System.out.println("No successor");
-        
+        if (successor(root, root.right) != null)
+            System.out.println("successor is - " + successor(root, root.right).info);
+        else
+            System.out.println("No successor");
+
     }
-    
-    private static Node successor(Node root,Node n) {
-        
-        
-        
-        if(n.right!=null) {
+
+    private static Node successor(Node root, Node n) {
+
+
+        if (n.right != null) {
             return minValue(n.right);
         }
-        
+
         Node successor = null;
-        
-        while (root!=null) {
-            
-            if(n.info < root.info) {
+
+        while (root != null) {
+
+            if (n.info < root.info) {
                 successor = root;
                 root = root.left;
-            }
-            else if(n.info > root.info) {
+            } else if (n.info > root.info) {
                 root = root.right;
-            }
-            else {
+            } else {
                 break;
             }
-            
+
         }
-        
+
         return successor;
-        
+
     }
-    
+
     private static Node minValue(Node root) {
-        
-        if(root!=null) {
-            
+
+        if (root != null) {
+
             Node current = root;
-            
-            while (current.left!=null) {
+
+            while (current.left != null) {
                 current = current.left;
             }
-            
+
             return current;
         }
-        
+
         return null;
-        
+
     }
-    
+
 }
 
 
