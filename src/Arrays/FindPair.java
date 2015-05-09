@@ -20,43 +20,41 @@ import java.util.Arrays;
  * Created by poorvank on 4/21/15.
  */
 public class FindPair {
-    
+
     public static void main(String[] args) {
 
         int[] arr = new int[]{5, 20, 3, 2, 50, 80};
         int diff = 78;
-        
-        pairPresent(arr,diff);
-        
+
+        pairPresent(arr, diff);
+
         arr = new int[]{90, 70, 20, 80, 50};
         diff = 45;
 
-        pairPresent(arr,diff);
+        pairPresent(arr, diff);
     }
-    
-    private static boolean pairPresent(int[] arr,int diff) {
+
+    private static boolean pairPresent(int[] arr, int diff) {
 
         Arrays.sort(arr);
-        
-        int i=0,j=1;
-        
-        while (i<arr.length && j<arr.length) {
-            
-            if(arr[j] - arr[i] == diff) {
+
+        int i = 0, j = 1;
+
+        while (i < arr.length && j < arr.length) {
+
+            if (arr[j] - arr[i] == diff) {
                 System.out.println("Found pair - " + arr[i] + " " + arr[j]);
                 return true;
-            }
-            else if(arr[j] - arr[i] > diff) {
+            } else if (arr[j] - arr[i] > diff) {
                 i++;
-            }
-            else {
+            } else {
                 j++;
             }
         }
-        
+
         System.out.println("No pair found");
         return false;
-        
+
     }
 }
 

@@ -8,71 +8,69 @@ This is an variation of the standard problem: “Counting number of connected co
 
 package Arrays;
 
-import java.util.Arrays;
-
 /**
  * Created by poorvank on 4/25/15.
  */
 public class CountIslands {
-    
+
     public static void main(String[] args) {
-        
+
         int[][] array = new int[][]{{1, 1, 0, 0, 0},
                 {0, 1, 0, 0, 1},
                 {1, 0, 0, 1, 1},
                 {0, 0, 0, 0, 0},
                 {1, 0, 1, 0, 1}
         };
-        
+
         int arraySize = array.length;
         int elementSize = array[0].length;
-     
-        
-        System.out.println(count(array,arraySize,elementSize));
-        
+
+
+        System.out.println(count(array, arraySize, elementSize));
+
     }
-    
-    
-    private static int count(int[][] array,int m,int n) {
-        
+
+
+    private static int count(int[][] array, int m, int n) {
+
         boolean[][] visited = new boolean[m][n];
-        
-        int count=0;
-        
-        for (int i=0;i<m;i++) {
-            for (int j=0;j<n;j++) {
-                if(array[i][j]!=0 && !visited[i][j]) {
+
+        int count = 0;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (array[i][j] != 0 && !visited[i][j]) {
                     dfs(array, visited, i, j);
                     count++;
                 }
             }
         }
-        
+
         return count;
     }
-    
-    
-    private static void dfs(int[][] array,boolean[][] visited,int row,int col) {
-        
+
+
+    private static void dfs(int[][] array, boolean[][] visited, int row, int col) {
+
         visited[row][col] = true;
-        
-        int[] rowNbr = new int[]{-1,-1,-1,0,0,1,1,1};
-        int[] colNbr = new int[]{-1,0,1,-1,1,-1,0,1};
-        
-        for (int k=0;k<8;k++) {
-            if(isSafe(row+rowNbr[k],col+colNbr[k],visited,array)) {
-                dfs(array,visited,row+rowNbr[k],col+colNbr[k]);
+
+        int[] rowNbr = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] colNbr = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
+
+        for (int k = 0; k < 8; k++) {
+            if (isSafe(row + rowNbr[k], col + colNbr[k], visited, array)) {
+                dfs(array, visited, row + rowNbr[k], col + colNbr[k]);
             }
         }
-        
+
     }
-    
-    private static boolean isSafe(int row,int col,boolean[][] visited,int[][] array) {
-        
-        return ((row<visited.length && row>=0) && (col>=0 && col<visited[0].length) && !visited[row][col] && (array[row][col]!=0));
-        
+
+    private static boolean isSafe(int row, int col, boolean[][] visited, int[][] array) {
+
+        return ((row < visited.length && row >= 0) && (col >= 0 && col < visited[0].length) && !visited[row][col] && (array[row][col] != 0));
+
     }
-    
+
 }
 
 

@@ -17,45 +17,45 @@ import java.util.HashSet;
  * Created by poorvank on 4/24/15.
  */
 public class LongestConsecutiveSequence {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{100, 4, 200, 1, 3, 2};
 
         HashSet<Integer> hashSet = new HashSet<>();
-        
+
         for (int a : arr) {
             hashSet.add(a);
         }
-        
+
         int max = 1;
-        
+
         for (int a : arr) {
-            
-            int right = a+1;
-            int left = a-1;
+
+            int right = a + 1;
+            int left = a - 1;
             int count = 1;
-            
+
             while (hashSet.contains(right)) {
                 hashSet.remove(right);
                 count++;
                 right++;
             }
-            
+
             while (hashSet.contains(left)) {
                 hashSet.remove(left);
                 count++;
                 left--;
             }
-            
-            max = Math.max(count,max);
+
+            max = Math.max(count, max);
         }
-        
+
         System.out.println(max);
-        
+
     }
-    
-    
+
+
 }
 
 

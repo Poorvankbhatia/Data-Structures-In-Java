@@ -17,64 +17,64 @@ import java.util.ArrayList;
  */
 
 class Interval {
-    
-    public  int sell;
-    public  int buy;
-    
+
+    public int sell;
+    public int buy;
+
 }
 
 public class StockBuyAndSell {
-    
+
     public static void main(String[] args) {
 
         int price[] = new int[]{100, 180, 260, 310, 40, 535, 695};
 
         ArrayList<Interval> arrayList = new ArrayList<>();
-        
-        int i=0;
+
+        int i = 0;
         boolean flag = false;
-        
+
         while (i < price.length) {
-            
+
             int count = 0;
             int minElement = price[i];
-            
+
             Interval interval = new Interval();
-            
+
             //Finding Local Minimum
-            while (i < price.length - 1 && (price[i] >= price[i+1]) ) {
+            while (i < price.length - 1 && (price[i] >= price[i + 1])) {
                 i++;
             }
-            
-            
-            if(i==price.length-1) {
-                if(!flag) {
+
+
+            if (i == price.length - 1) {
+                if (!flag) {
                     System.out.println("There is no day when buying the stock will make profit");
                 }
                 break;
             }
 
             flag = true;
-            
+
             interval.buy = i++;
-            
+
             //Finding local maximum
-            while (i < price.length && (price[i] >= price[i-1])) {
+            while (i < price.length && (price[i] >= price[i - 1])) {
                 i++;
             }
 
             interval.sell = --i;
-            
+
             arrayList.add(interval);
-            
+
         }
-        
+
         for (Interval interval : arrayList) {
-            System.out.println("Buy at - " + interval.buy  + "  and sell at " + interval.sell);
+            System.out.println("Buy at - " + interval.buy + "  and sell at " + interval.sell);
         }
-        
+
     }
-    
+
 }
 
 

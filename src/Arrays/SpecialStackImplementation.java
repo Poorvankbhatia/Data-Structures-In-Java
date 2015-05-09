@@ -14,81 +14,81 @@ package Arrays;
  * Created by poorvank on 4/20/15.
  */
 
-class SpecialStack{
-    
+class SpecialStack {
+
     private static final int MAX = 10;
-    int[] stack = new int[MAX];
     public int topStack = -1;
+    public int topAStack = -1;
+    int[] stack = new int[MAX];
     //Auxiliary Stack
     int[] auxiliaryStack = new int[MAX];
-    public int topAStack = -1;
-    
+
     public void push(int a) {
-        
-        if(topStack == MAX-1) {
+
+        if (topStack == MAX - 1) {
             System.out.println("Stack overflow");
             return;
         }
         topStack++;
         stack[topStack] = a;
-        if(topAStack == -1 || (auxiliaryStack[topAStack] > a)) {
-           topAStack++;
-           auxiliaryStack[topAStack] = a;
+        if (topAStack == -1 || (auxiliaryStack[topAStack] > a)) {
+            topAStack++;
+            auxiliaryStack[topAStack] = a;
         }
-        
+
     }
-    
+
     public int pop() {
-        
-        if(topStack == -1) {
+
+        if (topStack == -1) {
             System.out.println("Stack underflow");
             return -1;
         }
         int a = topStack--;
-        if(a==auxiliaryStack[topAStack]) {
+        if (a == auxiliaryStack[topAStack]) {
             topAStack--;
         }
         return a;
-        
+
     }
-    
+
     public int peek() {
-        
-        if(topStack==-1) {
+
+        if (topStack == -1) {
             System.out.println("Stack underflow");
             return -1;
         }
         return stack[topStack];
     }
-    
+
     public int getMin() {
-        
-        if(topAStack==-1) {
+
+        if (topAStack == -1) {
             System.out.println("Stack underflow");
             return -1;
         }
         return auxiliaryStack[topAStack];
-        
+
     }
-    
-    
+
+
 }
 
 public class SpecialStackImplementation {
-    
+
     public static void main(String[] args) {
-        
+
         SpecialStack specialStack = new SpecialStack();
         specialStack.push(18);
         specialStack.push(19);
-        System.out.println("minimum is - "+ specialStack.getMin());
+        System.out.println("minimum is - " + specialStack.getMin());
         specialStack.push(29);
         specialStack.push(15);
         specialStack.push(16);
-        System.out.println("minimum is - "+ specialStack.getMin());
-        
+        System.out.println("minimum is - " + specialStack.getMin());
+
     }
-    
+
 }
 
 

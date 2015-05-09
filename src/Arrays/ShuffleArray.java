@@ -14,26 +14,26 @@ import java.util.Random;
  * Created by poorvank on 4/15/15.
  */
 public class ShuffleArray {
-    
+
     public static void main(String[] args) {
-        
-        int[] arr = new int[]{2,3,1,4,6,9,5};
+
+        int[] arr = new int[]{2, 3, 1, 4, 6, 9, 5};
 
         Random random = new Random();
-        
-        for (int i=arr.length-1;i>=0;i--) {
-            
-            int randomIndex = i!=0?random.nextInt(i):0;
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+
+            int randomIndex = i != 0 ? random.nextInt(i) : 0;
             int temp = arr[i];
             arr[i] = arr[randomIndex];
             arr[randomIndex] = temp;
-                    
+
         }
-        
+
         System.out.println(Arrays.toString(arr));
-        
+
     }
-    
+
 }
 
 

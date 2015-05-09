@@ -15,31 +15,31 @@ import java.util.Arrays;
  * Created by poorvank on 4/16/15.
  */
 public class NextGreatest {
-    
+
     public static void main(String[] args) {
-        
+
         int[] array = new int[]{16, 17, 4, 3, 5, 2};
-        
-        int max = array[array.length-1];
-        
-        array[array.length-1] = -1;
-        
-        for (int i =array.length-2;i>=0;i--) {
+
+        int max = array[array.length - 1];
+
+        array[array.length - 1] = -1;
+
+        for (int i = array.length - 2; i >= 0; i--) {
 
             int a = array[i];
-            
+
             array[i] = max;
-            
-            if(max < a) {
+
+            if (max < a) {
                 max = a;
             }
-            
+
         }
-        
+
         System.out.println(Arrays.toString(array));
-        
+
     }
-    
+
 }
 
 /*
