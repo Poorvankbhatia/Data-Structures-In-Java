@@ -70,8 +70,10 @@ public class SumTree {
 
 /*
 
-The Method 1 uses sum() to get the sum of nodes in left and right subtrees. The method 2 uses following rules to get the sum directly.
+The Method 1 uses sum() to get the sum of nodes in left and right subtrees. 
+The method 2 uses following rules to get the sum directly.
 1) If the node is a leaf node then sum of subtree rooted with this node is equal to value of this node.
-2) If the node is not a leaf node then sum of subtree rooted with this node is twice the value of this node (Assuming that the tree rooted with this node is SumTree).
+2) If the node is not a leaf node then sum of subtree rooted with this node is twice the value of 
+this node (Assuming that the tree rooted with this node is SumTree).
 
  */
