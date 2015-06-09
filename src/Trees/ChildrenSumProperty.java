@@ -15,7 +15,7 @@ public class ChildrenSumProperty {
 
     private static boolean fulfillsSumProperty(Node root) {
 
-        if (root == null) {
+        if (root == null || (root.left==null && root.right==null)) {
             return true;
         }
 
@@ -33,3 +33,9 @@ public class ChildrenSumProperty {
     }
 
 }
+
+/*
+
+O(n), we are doing a complete traversal of the tree.
+
+ */
