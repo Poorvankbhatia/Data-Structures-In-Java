@@ -37,6 +37,12 @@ public class IdenticalTrees2 {
             return true;
         }
         
+        
+        /* Return false if any of the following is true
+      a) If the parent element is leaf in one array, but non-leaf in other.
+      b) The elements satisfying constraints are not same. We either search
+         for left child or right child of the parent element (decinded by min
+         and max values). The child found must be same in both arrays */
         if(((k==n)^(j==n)) || a[j]!=b[k]) {
             return false;
         }
@@ -45,3 +51,16 @@ public class IdenticalTrees2 {
     }
     
 }
+
+
+/*
+
+According to BST property, elements of left subtree must be smaller and elements of right subtree must be greater than root.
+Two arrays represent sane BST if for every element x, the elements in left and right subtrees of x appear after it 
+in both arrays. 
+And same is true for roots of left and right subtrees.
+The idea is to check of if next smaller and greater elements are same in both arrays. Same properties are 
+recursively checked for left and right subtrees. The idea looks simple, but implementation requires checking all 
+conditions for all elements. Following is an interesting recursive implementation of the idea.
+
+ */
