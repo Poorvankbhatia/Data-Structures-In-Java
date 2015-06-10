@@ -9,7 +9,8 @@ create the copy of 2 and insert it between 2 & 3.. Continue in this fashion, add
 
      original->next->arbitrary = original->arbitrary->next;  /*TRAVERSE 
 TWO NODES*/
-This works because original->next is nothing but copy of original and Original->arbitrary->next is nothing but copy of arbitrary.
+This works because original->next is nothing but copy of original and Original->arbitrary->next is nothing but copy
+ of arbitrary.
 3) Now restore the original and copy linked lists in this fashion in a single loop.
 
      original->next = original->next->next;
@@ -18,5 +19,3 @@ This works because original->next is nothing but copy of original and Original->
 
 Time Complexity: O(n)
 Auxiliary Space: O(1)
-
-Refer Following Post for Hashing based Implementation.
