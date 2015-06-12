@@ -1,3 +1,9 @@
+/*
+
+Ceil Value Node: Node with smallest data larger than or equal to key value.
+
+ */
+
 package Trees;
 
 public class BSTCeil {
