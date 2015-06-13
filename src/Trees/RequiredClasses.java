@@ -120,6 +120,12 @@ class Stack {
     int MAX = 100;
     public Node[] stack = new Node[MAX];
 
+    public Node peek() {
+        
+        return stack[top];
+        
+    }
+    
     public void push(Node a) {
 
         top++;
