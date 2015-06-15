@@ -66,7 +66,8 @@ public class ClosestLeaf {
         
         ancestors[index] = root;
         
-        return Math.min((findLeafDistance(root.left,ancestors,index+1,key)) , (findLeafDistance(root.right,ancestors,index+1,key)));
+        return Math.min((findLeafDistance(root.left,ancestors,index+1,key)) , 
+                (findLeafDistance(root.right,ancestors,index+1,key)));
         
         
         

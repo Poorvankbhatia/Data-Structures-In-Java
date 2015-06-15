@@ -20,7 +20,7 @@ public class RootToLeaf {
             list.add(root.info);
         }
 
-        if ((root.left == null && root.right == null) || root == null) {
+        if (root == null || (root.left == null && root.right == null)) {
             System.out.println(list);
             return;
         }

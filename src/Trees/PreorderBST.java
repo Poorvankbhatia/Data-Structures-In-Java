@@ -48,8 +48,7 @@ public class PreorderBST {
 }
 
  /*
- 
- The idea used here is inspired from method 3 of this post. 
+
  The trick is to set a range {min .. max} for every node. 
  Initialize the range as {INT_MIN .. INT_MAX}. 
  The first node will definitely be in range, so create root node. 

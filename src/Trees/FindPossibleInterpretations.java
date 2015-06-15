@@ -29,7 +29,7 @@ public class FindPossibleInterpretations {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{1, 2, 1};
+        int[] arr = new int[]{1, 2, 1, 3, 4};
         printLeaves(createTree(0, "", arr));
 
     }

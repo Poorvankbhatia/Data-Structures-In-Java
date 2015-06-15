@@ -147,7 +147,8 @@ public class BottomView {
 
 The following are steps to print Bottom View of Bianry Tree.
 1. We put tree nodes in a queue for the level order traversal.
-2. Start with the horizontal distance(hd) 0 of the root node, keep on adding left child to queue along with the horizontal
+2. Start with the horizontal distance(hd) 0 of the root node, keep on adding left child to queue 
+along with the horizontal
  distance as hd-1 and right child as hd+1.
 3. Also, use a TreeMap which stores key value pair sorted on key.
 4. Every time, we encounter a new horizontal distance or an existing horizontal distance put the node data for 

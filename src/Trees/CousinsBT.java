@@ -76,8 +76,10 @@ public class CousinsBT {
         
         return ((root.left==n1 && root.right==n2) || (root.right==n1 && root.left==n2)
                 || isSibling(root.left,n1,n2) || (isSibling(root.right,n1,n2)));
-        
+
     }
+    
+    
     
     
     

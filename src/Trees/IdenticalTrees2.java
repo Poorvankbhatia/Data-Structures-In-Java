@@ -18,21 +18,23 @@ public class IdenticalTrees2 {
         }
         
     }
+
+
     
     private static boolean isIdentical(int[] a,int[] b,int n,int i1,int i2,int min,int max) {
-        
+
         int j,k;
-        
+
         for (j=i1;j<n;j++) {
             if(a[j]<max && a[j]>min)
                 break;
         }
-        
+
         for (k=i2;k<n;k++) {
             if(b[k]<max && b[k]>min)
                break;
         }
-       
+
         if(k==n && j==n) {
             return true;
         }
@@ -46,7 +48,7 @@ public class IdenticalTrees2 {
         if(((k==n)^(j==n)) || a[j]!=b[k]) {
             return false;
         }
-       
+
         return ((isIdentical(a,b,n,j+1,k+1,a[j],max)) && (isIdentical(a,b,n,j+1,k+1,min,a[j])));
     }
     
@@ -55,8 +57,9 @@ public class IdenticalTrees2 {
 
 /*
 
-According to BST property, elements of left subtree must be smaller and elements of right subtree must be greater than root.
-Two arrays represent sane BST if for every element x, the elements in left and right subtrees of x appear after it 
+According to BST property, elements of left subtree must be smaller and 
+elements of right subtree must be greater than root.
+Two arrays represent same BST if for every element x, the elements in left and right subtrees of x appear after it
 in both arrays. 
 And same is true for roots of left and right subtrees.
 The idea is to check of if next smaller and greater elements are same in both arrays. Same properties are 

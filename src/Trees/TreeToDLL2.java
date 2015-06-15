@@ -20,7 +20,7 @@ public class TreeToDLL2 {
 
         while (head!=null) {
             System.out.print(head.info + " ");
-            head = head.right;
+                head = head.right;
         }
         
         
