@@ -13,6 +13,7 @@ public class array {
         int[] result = twoSum(new int[]{5, 3, 8, 3}, 6);
 
         System.out.println(Arrays.toString(result));
+
     }
 
     private static int[] twoSum(int[] nums, int target) {
