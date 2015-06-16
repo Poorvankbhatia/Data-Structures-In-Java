@@ -39,10 +39,10 @@ public class CloneBT {
         root.left.right.random = root.right;
         System.out.println("Before ");
         printInOrder(root);
-        cloneTree(root);
         CloneNode newRoot = cloneTree(root);
         System.out.println("\nAfter ");
-        cloneTree(newRoot);
+        printInOrder(root);
+        System.out.println();
         printInOrder(newRoot);
         
     }
@@ -73,7 +73,7 @@ public class CloneBT {
         if(root==null) {
             return;
         }
-        map.get(root).random = root.random;
+        map.get(root).random =map.get(root.random);
         copyRandom(root.left,map);
         copyRandom(root.right,map);
     }
