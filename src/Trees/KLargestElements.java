@@ -1,6 +1,6 @@
 /*
 
-k largest(or smallest) elements in an array | added Min Heap method
+k largest(or smallest) elements in an array
 Question: Write an efficient program for printing k largest elements in an array. 
 Elements in array can be in any order.
 
