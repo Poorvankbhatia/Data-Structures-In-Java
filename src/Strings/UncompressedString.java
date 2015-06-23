@@ -53,7 +53,7 @@ public class UncompressedString {
         
         /*
             previouslength is the repeated window substring hence modulo n%previouslength.. to reduce search space
-            it simply means that that string till pl is repeated by the number found
+            it simply means that that string till previousLength is repeated by the number found
             so simply search in that prefix :)
          */
 

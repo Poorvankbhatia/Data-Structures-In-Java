@@ -69,7 +69,8 @@ public class DuplicateElementsKDistance {
 
 /*
 
-We can solve this problem in Θ(n) time using Hashing. The idea is to one by add elements to hash. We also remove elements which are at more than k distance from current element. Following is detailed algorithm.
+We can solve this problem in Θ(n) time using Hashing. The idea is to one by add elements to hash. 
+We also remove elements which are at more than k distance from current element. Following is detailed algorithm.
 
 1) Create an empty hashtable.
 2) Traverse all elements from left from right. Let the current element be ‘arr[i]’
