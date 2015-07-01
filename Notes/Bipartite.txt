@@ -18,7 +18,7 @@ extracted element and insert (enqueue) each neighbor into the FIFO queue.
 
 If there are no coloring conflicts, the graph is bipartite. If you end up coloring a node with two different colors, 
 than it’s not bipartite.
-This approach would  only work for connected graphs. However, you can apply the same algorithm on 
+This approach would  only work for connected graphs. However, you can apply the same algorithm on
 each connected component to make it work for any graph.
 
 Modified BFS approach :
@@ -71,6 +71,6 @@ problem can be solved by running any of those algorithms on the given instance o
 2. Link Prediction:
 
 One of the most interesting challenges associated with social media is predicting which user is 
-expected to comment on which blog. This can be  formulated as a link prediction problem in bipartite graphs. 
+expected to comment on which blog. This can be  formulated as a link prediction problem in bipartite graphs.
 Recently, sparse matrix factorization became popular for link prediction. 
 Therefore, we can apply matrix factorization to predict which user is expected to comment which blog.

@@ -4,9 +4,9 @@ Graph is a data structure that consists of following two components:
 The pair is ordered because (u, v) is not same as (v, u) in case of directed graph(di-graph). 
 The pair of form (u, v) indicates that there is an edge from vertex u to vertex v. The edges may contain weight/value/cost.
 
-Graphs are used to represent many real life applications: Graphs are used to represent networks. 
+graphs are used to represent many real life applications: graphs are used to represent networks.
 The networks may include paths in a city or telephone network or circuit network. 
-Graphs are also used in social networks like linkedIn, facebook. For example, 
+graphs are also used in social networks like linkedIn, facebook. For example,
 in facebook, each person is represented with a vertex(or node).
  Each node is a structure and contains information like person id, name, gender and locale. 
  This can be easily viewed by http://graph.facebook.com/poorvank where poorvank is the profile name.

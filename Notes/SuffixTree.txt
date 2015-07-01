@@ -66,4 +66,4 @@ we just need to take an example to check validity of it.
 
 Applications of Suffix Tree
 Suffix tree can be used for a wide range of problems. Following are some famous problems where 
-Suffix Trees provide optimal time complexity solution.
+Suffix trees provide optimal time complexity solution.

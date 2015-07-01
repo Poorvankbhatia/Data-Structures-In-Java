@@ -4,7 +4,7 @@ Its lengths are not even—they are jagged. Here we create a jagged array of two
 And:
 The first subarray has two elements. The second one has three String elements. We loop over all these values.
 
-Strings
+strings
 Java program that uses jagged array
 
 public class Program {
