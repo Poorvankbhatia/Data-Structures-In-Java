@@ -3,7 +3,7 @@
 See Images
  */
 
-package Trees;
+package trees;
 
 import java.util.HashMap;
 import java.util.LinkedList;

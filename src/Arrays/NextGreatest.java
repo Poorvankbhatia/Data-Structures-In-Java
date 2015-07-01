@@ -7,7 +7,7 @@ if the array is {16, 17, 4, 3, 5, 2}, then it should be modified to {17, 5, 5, 5
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 

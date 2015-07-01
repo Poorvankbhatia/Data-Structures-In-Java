@@ -48,7 +48,7 @@ So total salary is 2 + 1 + 1 +1 = 5.
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +138,7 @@ public class BossEmployee {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number of input Strings : ");
+        System.out.println("Enter number of input strings : ");
         int numberOfNodes = sc.nextInt();
         EGraph graph = new EGraph(numberOfNodes);
 

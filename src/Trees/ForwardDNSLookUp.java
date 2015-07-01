@@ -1,4 +1,4 @@
-package Trees;
+package trees;
 
 import java.util.LinkedList;
 

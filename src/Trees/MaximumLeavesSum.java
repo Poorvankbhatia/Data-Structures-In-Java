@@ -6,7 +6,7 @@ Find the maximum possible sum from one leaf node to another.
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/12/15.

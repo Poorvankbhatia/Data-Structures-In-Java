@@ -7,7 +7,7 @@ in individual strings is preserved
 
  */
 
-package Strings;
+package strings;
 
 /**
  * Created by poorvank on 5/26/15.

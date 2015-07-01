@@ -112,7 +112,7 @@ public class NumberOfEmployees {
 
  1. Create a reverse map with Manager->DirectReportingEmployee 
     combination. Off-course employee will be multiple so Value 
-    in Map is List of Strings.
+    in Map is List of strings.
         "C" --> "A", "B",
         "E" --> "D" 
         "F" --> "C", "E", "F"

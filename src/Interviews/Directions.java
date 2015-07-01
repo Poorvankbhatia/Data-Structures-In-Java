@@ -11,7 +11,7 @@ output –EESS
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.HashMap;
 import java.util.Scanner;

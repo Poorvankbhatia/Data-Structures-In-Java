@@ -1,4 +1,4 @@
-package Dyanamic_programs;
+package dyanamicprograms;
 
 import java.util.Scanner;
 

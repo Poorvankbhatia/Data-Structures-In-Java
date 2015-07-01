@@ -11,7 +11,7 @@ the list in way that all nodes at first level should come first, then nodes of s
 
  */
 
-package linked_list;
+package linkedlist;
 
 /**
  * Created by poorvank on 6/18/15.

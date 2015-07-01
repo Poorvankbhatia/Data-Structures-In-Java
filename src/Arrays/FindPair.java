@@ -12,7 +12,7 @@ Output: No Such Pair
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 

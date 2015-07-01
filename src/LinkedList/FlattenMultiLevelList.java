@@ -22,7 +22,7 @@ for the above input list, output list should be 5->7->8->10->19->20->22->28->30-
 
  */
 
-package linked_list;
+package linkedlist;
 
 /**
  * Created by poorvank on 6/18/15.

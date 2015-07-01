@@ -10,7 +10,7 @@ TRIE SOLUTION
  */
 
 
-package Trees;
+package trees;
 
 import java.util.Arrays;
 import java.util.LinkedList;

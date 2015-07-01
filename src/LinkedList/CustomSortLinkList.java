@@ -5,7 +5,7 @@ Given a linked list of 0s, 1s and 2s, sort it.
 
  */
 
-package linked_list;
+package linkedlist;
 
 /**
  * Created by poorvank on 5/7/15.

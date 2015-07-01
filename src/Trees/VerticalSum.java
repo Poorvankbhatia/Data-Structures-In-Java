@@ -22,7 +22,7 @@ So expected output is 4, 2, 12, 3 and 7
 
  */
 
-package Trees;
+package trees;
 
 import java.util.HashMap;
 

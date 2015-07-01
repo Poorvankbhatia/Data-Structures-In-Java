@@ -4,7 +4,7 @@ Check if all leaves are at same level
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/9/15.

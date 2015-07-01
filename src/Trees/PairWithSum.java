@@ -7,7 +7,7 @@ Any modification to Binary Search Tree is not allowed. Note that height of a Bal
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 4/28/15.

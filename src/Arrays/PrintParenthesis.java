@@ -11,7 +11,7 @@ for n=2
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/16/15.

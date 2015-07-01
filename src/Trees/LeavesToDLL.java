@@ -27,7 +27,7 @@ Modified Tree:
   4           6
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/10/15.

@@ -19,7 +19,7 @@ Say two nodes are 7 and 5, result is FALSE.
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/9/15.

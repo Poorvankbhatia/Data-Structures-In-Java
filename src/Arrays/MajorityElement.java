@@ -5,7 +5,7 @@ Majority Element: A majority element in an array A[] of size n is
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/2/15.

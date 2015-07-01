@@ -7,7 +7,7 @@ Given two strings str1 and str2, find if str1 is a subsequence of str2.
 
  */
 
-package Strings;
+package strings;
 
 import java.util.Scanner;
 

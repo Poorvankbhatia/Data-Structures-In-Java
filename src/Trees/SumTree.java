@@ -6,7 +6,7 @@ An empty tree is SumTree and sum of an empty tree can be considered as 0. A leaf
 
  */
 
-package Trees;
+package trees;
 
 public class SumTree {
 

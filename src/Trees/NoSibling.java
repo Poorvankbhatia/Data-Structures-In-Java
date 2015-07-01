@@ -5,7 +5,7 @@ Given a Binary Tree, print all nodes that don’t have a sibling (a sibling is a
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/16/15.

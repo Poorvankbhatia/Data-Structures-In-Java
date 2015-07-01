@@ -22,7 +22,7 @@ Answer = 632 + 6357 + 6354 + 654 = 13997
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/15/15.

@@ -9,7 +9,7 @@ elements i.e., k = 3 then your program should print 50, 30 and 23.
 
  */
 
-package Trees;
+package trees;
 
 import java.util.Arrays;
 

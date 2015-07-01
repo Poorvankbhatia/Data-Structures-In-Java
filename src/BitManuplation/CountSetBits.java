@@ -4,7 +4,7 @@ Count number of set bits in an integer
 
  */
 
-package BitManuplation;
+package bitmanuplation;
 
 import java.util.Scanner;
 

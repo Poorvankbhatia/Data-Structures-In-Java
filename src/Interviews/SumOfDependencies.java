@@ -5,7 +5,7 @@ If there is an edge from u to v then u depends on v. Find out the sum of depende
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.ArrayList;
 import java.util.List;

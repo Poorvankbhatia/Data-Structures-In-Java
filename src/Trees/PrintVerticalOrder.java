@@ -21,7 +21,7 @@ The output of print this tree vertically will be:
 
  */
 
-package Trees;
+package trees;
 
 import java.util.ArrayList;
 import java.util.List;

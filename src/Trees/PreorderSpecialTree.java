@@ -8,7 +8,7 @@ The value ‘L’ in ‘preLN[]’ indicates that the corresponding node in Bina
 
  */
 
-package Trees;
+package trees;
 
 public class PreorderSpecialTree {
 

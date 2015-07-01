@@ -7,7 +7,7 @@ Return false if no such path can be found.
 
  */
 
-package Trees;
+package trees;
 
 import java.util.Scanner;
 

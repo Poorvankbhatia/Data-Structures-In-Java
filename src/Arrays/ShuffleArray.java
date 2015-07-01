@@ -5,7 +5,7 @@ This question is also asked as “shuffle a deck of cards” or “randomize a g
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 import java.util.Random;

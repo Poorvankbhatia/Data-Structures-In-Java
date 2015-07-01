@@ -30,7 +30,7 @@ so total —4
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.Scanner;
 

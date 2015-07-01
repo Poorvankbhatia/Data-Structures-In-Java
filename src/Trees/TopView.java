@@ -1,4 +1,4 @@
-package Trees;
+package trees;
 
 import java.util.HashSet;
 import java.util.LinkedList;

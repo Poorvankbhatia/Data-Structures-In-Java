@@ -6,7 +6,7 @@ Conversely, there is no node in a full binary tree, which has one child node.
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/22/15.

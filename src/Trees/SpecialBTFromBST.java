@@ -5,7 +5,7 @@ Given a Binary Search Tree (BST), convert it to a Binary Tree such that every ke
 
  */
 
-package Trees;
+package trees;
 
 public class SpecialBTFromBST {
 

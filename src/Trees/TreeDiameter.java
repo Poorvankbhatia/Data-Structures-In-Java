@@ -1,4 +1,4 @@
-package Trees;
+package trees;
 
 
 class Height {

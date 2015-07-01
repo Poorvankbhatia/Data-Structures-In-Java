@@ -9,7 +9,7 @@ then X is not deleted from Binary Tree. In other words a node is deleted if all 
  */
 
 
-package Trees;
+package trees;
 
 public class RemoveNodes1 {
 

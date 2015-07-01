@@ -7,7 +7,7 @@ at a time (take it as one iteration).
 
  */
 
-package Trees;
+package trees;
 
 import java.util.ArrayList;
 import java.util.Arrays;

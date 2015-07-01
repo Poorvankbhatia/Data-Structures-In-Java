@@ -1,4 +1,4 @@
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 3/24/15.

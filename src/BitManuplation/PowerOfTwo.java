@@ -4,7 +4,7 @@ Check if a number is a power of 2 or not
 
  */
 
-package BitManuplation;
+package bitmanuplation;
 
 import java.util.Scanner;
 

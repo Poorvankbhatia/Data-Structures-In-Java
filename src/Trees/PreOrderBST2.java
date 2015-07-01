@@ -12,7 +12,7 @@ For example, if the given traversal is {10, 5, 1, 7, 40, 50}, then the output sh
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/13/15.

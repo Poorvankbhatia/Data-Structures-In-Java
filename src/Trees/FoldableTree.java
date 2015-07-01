@@ -38,7 +38,7 @@ Consider the below trees:
 
  */
 
-package Trees;
+package trees;
 
 public class FoldableTree {
 

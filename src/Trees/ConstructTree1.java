@@ -1,5 +1,5 @@
 //Construct a tree from in order and pre order
-package Trees;
+package trees;
 
 import java.util.Scanner;
 

@@ -6,7 +6,7 @@ Given root of binary search tree and K as input, find K-th smallest element in B
 
 
  */
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/22/15.

@@ -44,7 +44,7 @@ P[3] = S[3] + S[2] + S[1], S[3] = 2, not a binary character so NONE.
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.Arrays;
 

@@ -8,7 +8,7 @@ then output may be “cat tac act dog god”.
 TRIE SOLUTION ALSO available
  */
 
-package Strings;
+package strings;
 
 import java.util.Arrays;
 import java.util.HashMap;

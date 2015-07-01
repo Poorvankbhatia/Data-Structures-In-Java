@@ -1,7 +1,7 @@
 /*
   Traversals in a recursive manner
  */
-package Trees;
+package trees;
 
 
 class Traversal {

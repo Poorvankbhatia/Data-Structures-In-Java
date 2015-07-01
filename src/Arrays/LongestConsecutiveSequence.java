@@ -9,7 +9,7 @@ Your algorithm should run in O(n) complexity.
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.HashSet;
 

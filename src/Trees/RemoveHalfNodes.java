@@ -5,7 +5,7 @@ Note leaves should not be touched as they have both children as NULL.
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 3/24/15.

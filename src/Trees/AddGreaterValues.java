@@ -19,7 +19,7 @@ The above tree should be modified to following
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/8/15.

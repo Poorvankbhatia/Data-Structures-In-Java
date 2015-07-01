@@ -1,4 +1,4 @@
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/8/15.

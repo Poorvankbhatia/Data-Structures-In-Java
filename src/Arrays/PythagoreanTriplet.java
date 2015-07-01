@@ -1,7 +1,6 @@
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * Created by poorvank on 6/5/15.

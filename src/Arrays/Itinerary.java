@@ -19,7 +19,7 @@ Topological sorting can also be done
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.HashMap;
 import java.util.Map;

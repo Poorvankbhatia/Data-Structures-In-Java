@@ -5,7 +5,7 @@ Given a dictionary of words and an input string, find the longest prefix of the 
 
  */
 
-package Trees;
+package trees;
 
 import java.util.LinkedList;
 

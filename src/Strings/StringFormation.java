@@ -31,7 +31,7 @@ d
 
  */
 
-package Strings;
+package strings;
 
 /**
  * Created by poorvank on 4/16/15.

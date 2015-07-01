@@ -36,7 +36,7 @@ For the above tree the output should be 5, 10, 4, 14, 25.
 
  */
 
-package Trees;
+package trees;
 
 
 import java.util.HashMap;

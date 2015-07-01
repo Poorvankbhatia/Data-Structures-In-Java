@@ -8,7 +8,7 @@ like arrays, list, .. etc.
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 4/20/15.

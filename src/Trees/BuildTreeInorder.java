@@ -17,7 +17,7 @@ Output: root of following tree
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/10/15.

@@ -11,7 +11,7 @@ then the span values for corresponding 7 days are {1, 1, 1, 2, 1, 4, 6}
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 import java.util.Stack;

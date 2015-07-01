@@ -15,7 +15,7 @@ Simple binary search
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/22/15.

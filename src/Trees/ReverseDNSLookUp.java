@@ -5,7 +5,7 @@ Reverse DNS look up is using an internet IP address to find a domain name. For e
 
  */
 
-package Trees;
+package trees;
 
 
 import java.util.LinkedList;

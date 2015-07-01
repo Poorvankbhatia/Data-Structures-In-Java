@@ -1,6 +1,6 @@
 //Function to check if a singly linked list is palindrome
 
-package linked_list;
+package linkedlist;
 
 /**
  * Created by poorvank on 4/28/15.

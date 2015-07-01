@@ -34,7 +34,7 @@ The given array represents following Binary Tree
  */
 
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 4/20/15.

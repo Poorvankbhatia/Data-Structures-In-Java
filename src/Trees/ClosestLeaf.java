@@ -21,7 +21,7 @@ Closest leaf to 'B' is 'B' itself, so distance is 0 for 'B'
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/12/15.
@@ -44,7 +44,7 @@ public class ClosestLeaf {
     }
     
     private static int findLeafDistance(Node root,Node[] ancestors,int index,int key) {
-        
+
         //If(key is not found)
         if(root==null) {
             return Integer.MAX_VALUE;

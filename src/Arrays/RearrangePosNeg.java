@@ -10,7 +10,7 @@ For example, if the input array is [-1, 2, -3, 4, 5, 6, -7, 8, 9], then the outp
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 

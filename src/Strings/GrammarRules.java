@@ -15,7 +15,7 @@ A simple sentence if syntactically correct if it fulfills given rules. The follo
 
  */
 
-package Strings;
+package strings;
 
 import java.util.Scanner;
 

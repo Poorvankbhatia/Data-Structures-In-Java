@@ -8,7 +8,7 @@ If the given array of prices is sorted in decreasing order, then profit cannot b
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.ArrayList;
 

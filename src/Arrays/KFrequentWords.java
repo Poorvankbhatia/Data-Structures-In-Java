@@ -7,7 +7,7 @@ The data structure should be dynamic so that new words can be added.
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.HashMap;

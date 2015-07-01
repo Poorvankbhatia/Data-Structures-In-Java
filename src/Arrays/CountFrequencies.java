@@ -24,7 +24,7 @@ Output: Below are frequencies of all elements
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/24/15.

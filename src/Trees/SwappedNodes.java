@@ -20,7 +20,7 @@ Following is the output tree
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 5/6/15.

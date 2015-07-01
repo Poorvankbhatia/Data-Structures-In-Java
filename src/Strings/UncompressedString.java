@@ -18,7 +18,7 @@ output: c
 
  */
 
-package Strings;
+package strings;
 
 /**
  * Created by poorvank on 3/31/15.

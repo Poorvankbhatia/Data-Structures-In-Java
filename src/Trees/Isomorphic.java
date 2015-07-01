@@ -6,7 +6,7 @@ Any number of nodes at any level can have their children swapped. Two empty tree
 
  */
 
-package Trees;
+package trees;
 
 public class Isomorphic {
 

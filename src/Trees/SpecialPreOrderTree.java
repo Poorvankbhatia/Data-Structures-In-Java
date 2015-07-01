@@ -9,7 +9,7 @@ node is non-leaf node. Write a function to construct the tree from the given two
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/10/15.

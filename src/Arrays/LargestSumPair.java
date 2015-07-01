@@ -4,7 +4,7 @@ Given an unsorted array, find the largest pair sum in it. For example, the large
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 5/25/15.

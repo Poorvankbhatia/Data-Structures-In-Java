@@ -16,7 +16,7 @@ Input          Output
 
  */
 
-package Strings;
+package strings;
 
 import java.util.Scanner;
 

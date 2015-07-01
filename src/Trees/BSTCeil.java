@@ -4,7 +4,7 @@ Ceil Value Node: Node with smallest data larger than or equal to key value.
 
  */
 
-package Trees;
+package trees;
 
 public class BSTCeil {
 

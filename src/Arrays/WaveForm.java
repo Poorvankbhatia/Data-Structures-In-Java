@@ -26,7 +26,7 @@ Examples:
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 

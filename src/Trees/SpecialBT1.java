@@ -5,7 +5,7 @@ Given Inorder Traversal of a Special Binary Tree in which key of every node is g
 
  */
 
-package Trees;
+package trees;
 
 public class SpecialBT1 {
 

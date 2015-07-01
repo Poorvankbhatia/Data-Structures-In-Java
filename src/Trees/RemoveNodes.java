@@ -51,7 +51,7 @@ For input k = 45, the tree should be changed to following.
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/23/15.

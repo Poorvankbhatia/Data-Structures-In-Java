@@ -6,7 +6,7 @@ Then doing some arithmetic to calculate the position of each object in the outpu
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.Arrays;
 

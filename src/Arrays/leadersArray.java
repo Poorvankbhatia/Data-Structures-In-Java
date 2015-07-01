@@ -6,7 +6,7 @@ And the rightmost element is always a leader. For example int the array {16, 17,
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 4/16/15.

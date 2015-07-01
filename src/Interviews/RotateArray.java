@@ -4,7 +4,7 @@ You have to rotate an n*n array right by 90 degree.
 
  */
 
-package Interviews;
+package interviews;
 
 import java.util.Arrays;
 

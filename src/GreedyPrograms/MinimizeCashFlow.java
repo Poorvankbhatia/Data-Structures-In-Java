@@ -27,7 +27,7 @@ a,d-200
  
  */
 
-package Greedy_programs;
+package greedyprograms;
 
 import java.util.Arrays;
 import java.util.Scanner;

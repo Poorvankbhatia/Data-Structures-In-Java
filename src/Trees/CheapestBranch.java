@@ -4,7 +4,7 @@ Return branch with minimum sum
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/25/15.

@@ -4,7 +4,7 @@ Difference between sums of odd level and even level nodes of a Binary Tree
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 6/6/15.

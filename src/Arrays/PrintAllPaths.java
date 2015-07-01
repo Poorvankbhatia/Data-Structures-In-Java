@@ -6,11 +6,10 @@ a mXn matrix with the constraints that from each cell you can either move only t
 
  */
 
-package Arrays;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Created by poorvank on 5/28/15.

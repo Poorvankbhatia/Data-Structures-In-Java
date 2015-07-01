@@ -8,7 +8,7 @@ smallest key greater than the key of input node. So, it is sometimes important t
 
  */
 
-package Trees;
+package trees;
 
 /**
  * Created by poorvank on 5/7/15.

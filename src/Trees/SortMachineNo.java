@@ -18,7 +18,7 @@ A Min Heap can be used to print all numbers in sorted order.
 
  */
 
-package Trees;
+package trees;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

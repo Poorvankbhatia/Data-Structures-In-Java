@@ -15,7 +15,7 @@ Output: (2,0)
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/23/15.

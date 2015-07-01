@@ -32,7 +32,7 @@ should be changed to following
 
  */
 
-package Arrays;
+package arrays;
 
 /**
  * Created by poorvank on 6/18/15.
