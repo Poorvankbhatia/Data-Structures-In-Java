@@ -1,9 +1,0 @@
-An Eulerian circuit is a traversal of all the edges of a simple graph once and only once, 
-staring at one vertex and ending at the same vertex. You can repeat vertices as many times as you want, 
-but you can never repeat an edge once it is traversed.
-
-The degree of a vertex is the number of edges incident with that vertex.
-
-So let G be a graph that has an Eulerian circuit. Every time we arrive at a vertex during our traversal of G, 
-we enter via one edge and exit via another. Thus there must be an even number of edges at every vertex. 
-Therefore, every vertex of G has even degree.
