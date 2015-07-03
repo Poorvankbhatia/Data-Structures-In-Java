@@ -15,7 +15,7 @@ public class ChildrenSumProperty {
 
     private static boolean fulfillsSumProperty(Node root) {
 
-        if (root == null || (root.left==null && root.right==null)) {
+        if (root == null || (root.left == null && root.right == null)) {
             return true;
         }
 

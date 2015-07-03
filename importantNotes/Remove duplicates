@@ -1,0 +1,30 @@
+
+Remove duplicated from a string in O(n) without using hash.
+
+
+Sort the source array. Find consecutive elements that are equal
+To remove duplicates, you can copy elements from later in the array over elements earlier in the array 
+also in linear time. Simply keep a pointer to the new logical end of the container, and copy the next 
+distinct element to that new logical end at each step
+
+
+You do a sort of bucket sort.
+
+make an array containing every single char
+make an array containing a count for it's corresponding char
+The only reason we're using 2 arrays like this is because you specifically disallowed hash maps. 
+You can represent this structure however you please. If you're allowed to convert chars to int, you need only use 1 array.
+
+Since we're assuming a limited number of possible characters, Each array will be constant size, or O(1)
+
+Iterate over your string, and increment the count for each char you find. If count is already greater than 0 
+you've found a duplicate.
+searching your char array for a particular char takes O(1) time, because there is a limited number of chars.
+
+you will do this search n times for a net run-time of O(n)
+
+If arrays are no good, than you can make a linked list to hold only values that you've found. It will still be
+ constant because the size of the linked list is still bound by the number of possible characters.
+
+If you do it that way, you'll more or less be doing the exact same thing, except it cosmetically look less like
+a bucket-sort strategy.

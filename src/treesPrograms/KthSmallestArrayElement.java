@@ -22,72 +22,70 @@ package treesPrograms;
  * Created by poorvank on 7/3/15.
  */
 public class KthSmallestArrayElement {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{7, 10, 4, 3, 20, 15};
         int k = 5;
-        
-        System.out.println(KthElement(arr,k));
-        
+
+        System.out.println(KthElement(arr, k));
+
     }
-    
-    private static int KthElement(int[] arr,int k) {
-        
+
+    private static int KthElement(int[] arr, int k) {
+
         buildMinHeap(arr);
-        
-        for (int i=1;i<k;i++) {
-            extractMin(arr,i);
+
+        for (int i = 1; i < k; i++) {
+            extractMin(arr, i);
         }
-        
+
         return arr[0];
-        
+
     }
-    
-    private static void extractMin(int[] arr,int index) {
-        
+
+    private static void extractMin(int[] arr, int index) {
+
         int root = arr[0];
-        
-        if(arr.length > 1) {
-            arr[0] = arr[arr.length-1];
-            restoreDown(arr,0,arr.length-index);
+
+        if (arr.length > 1) {
+            arr[0] = arr[arr.length - 1];
+            restoreDown(arr, 0, arr.length - index);
         }
-        
-        
+
+
     }
-    
+
     private static void buildMinHeap(int[] arr) {
-        
-        for (int i=arr.length/2;i>=0;i--) {
-            restoreDown(arr,i,arr.length);
+
+        for (int i = arr.length / 2; i >= 0; i--) {
+            restoreDown(arr, i, arr.length);
         }
-        
+
     }
-    
-    private static void restoreDown(int[] arr,int i,int length) {
-        
-        int leftChild = (2*i)+1;
-        int rightChild = (2*i)+2;
+
+    private static void restoreDown(int[] arr, int i, int length) {
+
+        int leftChild = (2 * i) + 1;
+        int rightChild = (2 * i) + 2;
         int num = arr[i];
-        
-        while (rightChild<=length-1) {
-            
-            if(num <= arr[leftChild] && num <= arr[rightChild]) {
+
+        while (rightChild <= length - 1) {
+
+            if (num <= arr[leftChild] && num <= arr[rightChild]) {
                 arr[i] = num;
                 return;
-            }
-            else if(arr[leftChild] < arr[rightChild]) {
+            } else if (arr[leftChild] < arr[rightChild]) {
                 arr[i] = arr[leftChild];
-                i=leftChild;
-            }
-            else if(arr[rightChild] < arr[leftChild]) {
+                i = leftChild;
+            } else if (arr[rightChild] < arr[leftChild]) {
                 arr[i] = arr[rightChild];
                 i = rightChild;
             }
-            
-            leftChild = (2*i)+1;
-            rightChild = (2*i) +2;
-            
+
+            leftChild = (2 * i) + 1;
+            rightChild = (2 * i) + 2;
+
         }
         
          /*
@@ -95,16 +93,16 @@ public class KthSmallestArrayElement {
         When odd nodes all nodes will have 2 || 0 children
         In case of even nodes there is only 1 node with 1 left child
          */
-        
-        if(leftChild==length-1 && arr[leftChild] < num) {
+
+        if (leftChild == length - 1 && arr[leftChild] < num) {
             arr[i] = arr[leftChild];
             i = leftChild;
         }
-        
+
         arr[i] = num;
-        
+
     }
-    
+
 }
 
 

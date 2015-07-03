@@ -37,7 +37,7 @@ public class CheapestBranch {
         int r = sumBranch(root.right);
         int l = sumBranch(root.left);
 
-        return root.info + Math.min(l,r);
+        return root.info + Math.min(l, r);
     }
 
 }

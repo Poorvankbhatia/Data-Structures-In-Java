@@ -11,7 +11,7 @@ package treesPrograms;
  * Created by poorvank on 6/16/15.
  */
 public class NoSibling {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -22,32 +22,28 @@ public class NoSibling {
 
 
         printNodes(root);
-        
+
     }
-    
+
     private static void printNodes(Node root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return;
         }
-        
-        if(root.left!=null && root.right!=null) {
+
+        if (root.left != null && root.right != null) {
             printNodes(root.right);
             printNodes(root.left);
-        }
-        
-        else if(root.right!=null) {
+        } else if (root.right != null) {
             System.out.println(root.right.info);
             printNodes(root.right);
-        }
-
-        else if(root.left!=null) {
+        } else if (root.left != null) {
             System.out.println(root.left.info);
             printNodes(root.left);
         }
-        
+
     }
-    
+
 }
 
 

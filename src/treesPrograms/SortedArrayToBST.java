@@ -27,30 +27,30 @@ package treesPrograms;
  * Created by poorvank on 6/16/15.
  */
 public class SortedArrayToBST {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
-        Traversal.in_Order(convert(arr,0,arr.length-1));
-        
+        Traversal.in_Order(convert(arr, 0, arr.length - 1));
+
     }
-    
-    private static Node convert(int[] arr,int start,int end) {
-        
-        if(start>end) {
+
+    private static Node convert(int[] arr, int start, int end) {
+
+        if (start > end) {
             return null;
         }
-        
-        int mid = (start+end)/2;
-        
+
+        int mid = (start + end) / 2;
+
         Node root = new Node(arr[mid]);
-        root.left = convert(arr,start,mid-1);
-        root.right = convert(arr,mid+1,end);
-        
+        root.left = convert(arr, start, mid - 1);
+        root.right = convert(arr, mid + 1, end);
+
         return root;
-        
+
     }
-    
+
 }
 
 

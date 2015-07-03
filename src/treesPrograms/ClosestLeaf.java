@@ -27,65 +27,64 @@ package treesPrograms;
  * Created by poorvank on 6/12/15.
  */
 public class ClosestLeaf {
-    
+
     private static int leafNode = 0;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = new Node(12);
         root.left = new Node(5);
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
         Node[] ancestors = new Node[100];
-        
-        System.out.println(findLeafDistance(root,ancestors,0,12));
-        
+
+        System.out.println(findLeafDistance(root, ancestors, 0, 12));
+
     }
-    
-    private static int findLeafDistance(Node root,Node[] ancestors,int index,int key) {
+
+    private static int findLeafDistance(Node root, Node[] ancestors, int index, int key) {
 
         //If(key is not found)
-        if(root==null) {
+        if (root == null) {
             return Integer.MAX_VALUE;
         }
-        
-        
-        if(root.info == key) {
-        
+
+
+        if (root.info == key) {
+
             int result = findClosestDown(root);
 
-            for (int i = index-1 ;i>=0 ;i--) {
+            for (int i = index - 1; i >= 0; i--) {
                 result = Math.min(result, (index - i) + findClosestDown(ancestors[i]));
             }
 
             return result;
-            
+
         }
 
-        
+
         ancestors[index] = root;
-        
-        return Math.min((findLeafDistance(root.left,ancestors,index+1,key)) , 
-                (findLeafDistance(root.right,ancestors,index+1,key)));
-        
-        
-        
+
+        return Math.min((findLeafDistance(root.left, ancestors, index + 1, key)),
+                (findLeafDistance(root.right, ancestors, index + 1, key)));
+
+
     }
-    
+
     private static int findClosestDown(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return Integer.MAX_VALUE;
         }
-        if(root.left == null && root.right==null) {
+        if (root.left == null && root.right == null) {
             return 0;
         }
-        
-        return 1+Math.min(findClosestDown(root.left),findClosestDown(root.right));
-        
+
+        return 1 + Math.min(findClosestDown(root.left), findClosestDown(root.right));
+
     }
-    
+
 }
 
 

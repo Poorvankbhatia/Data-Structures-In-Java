@@ -15,41 +15,41 @@ package treesPrograms;
  * Created by poorvank on 6/10/15.
  */
 public class SpecialPreOrderTree {
-    
+
     private static int index = 0;
-    
+
     public static void main(String[] args) {
-        
+
         int[] pre = new int[]{10, 30, 20, 5, 15};
         char[] preLN = new char[]{'N', 'N', 'L', 'L', 'L'};
-        System.out.println("Inorder is - " );
-        Traversal.in_Order(constructTree(pre,preLN,pre.length));
+        System.out.println("Inorder is - ");
+        Traversal.in_Order(constructTree(pre, preLN, pre.length));
 //        System.out.println(index);
     }
-    
-    private static Node constructTree(int[] pre,char[] preLN,int n) {
-        
-        
+
+    private static Node constructTree(int[] pre, char[] preLN, int n) {
+
+
         //Otherwise the first 'N' is not recognised
         int i = index;
-        
-        if(index==n) {
+
+        if (index == n) {
             return null;
         }
-        
+
         Node root = new Node(pre[index]);
-       // System.out.println(index);
+        // System.out.println(index);
         index++;
 
-        if(preLN[i]=='N') {
-            
-            root.left = constructTree(pre,preLN,n);
-            root.right = constructTree(pre,preLN,n);
-            
+        if (preLN[i] == 'N') {
+
+            root.left = constructTree(pre, preLN, n);
+            root.right = constructTree(pre, preLN, n);
+
         }
-        
+
         return root;
-        
+
     }
-    
+
 }

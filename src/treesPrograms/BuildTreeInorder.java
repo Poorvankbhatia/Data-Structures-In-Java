@@ -23,51 +23,51 @@ package treesPrograms;
  * Created by poorvank on 6/10/15.
  */
 public class BuildTreeInorder {
-    
+
     public static void main(String[] args) {
-        
+
         int[] inorder = new int[]{5, 10, 40, 30, 28};
-        Traversal.in_Order(buildTree(inorder,0,inorder.length-1));
-        
+        Traversal.in_Order(buildTree(inorder, 0, inorder.length - 1));
+
     }
-    
-    private static Node buildTree(int[] inorder,int start,int end) {
-        
-        if(start>end) {
+
+    private static Node buildTree(int[] inorder, int start, int end) {
+
+        if (start > end) {
             return null;
         }
-        
-        int i = maxIndex(inorder,start,end);
-        
+
+        int i = maxIndex(inorder, start, end);
+
         Node root = new Node(inorder[i]);
-        
-        if(start == end) {
+
+        if (start == end) {
             return root;
         }
-        
-        root.left = buildTree(inorder,start,i-1);
-        root.right = buildTree(inorder,i+1,end);
-        
-        
+
+        root.left = buildTree(inorder, start, i - 1);
+        root.right = buildTree(inorder, i + 1, end);
+
+
         return root;
     }
-    
-    private static int maxIndex(int[] arr,int start,int end) {
-        
+
+    private static int maxIndex(int[] arr, int start, int end) {
+
         int max = start;
-        
-        for (int i = start+1;i<=end;i++) {
-            
-            if(arr[i] > arr[max]) {
+
+        for (int i = start + 1; i <= end; i++) {
+
+            if (arr[i] > arr[max]) {
                 max = i;
             }
-            
+
         }
-        
+
         return max;
-        
+
     }
-    
+
 }
 
 

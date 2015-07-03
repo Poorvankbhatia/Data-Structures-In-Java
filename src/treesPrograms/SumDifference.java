@@ -10,24 +10,24 @@ package treesPrograms;
  * Created by poorvank on 6/6/15.
  */
 public class SumDifference {
-    
+
     public static void main(String[] args) {
-            
-        Node root =Input.treeInput();
+
+        Node root = Input.treeInput();
         System.out.println(difference(root));
-        
+
     }
-    
+
     public static int difference(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return 0;
         }
-        
-        return root.info-(difference(root.left) + difference(root.right));
-        
+
+        return root.info - (difference(root.left) + difference(root.right));
+
     }
-    
+
 }
 
 

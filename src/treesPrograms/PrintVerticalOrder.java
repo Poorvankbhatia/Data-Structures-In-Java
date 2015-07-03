@@ -32,7 +32,7 @@ import java.util.TreeMap;
  * Created by poorvank on 6/19/15.
  */
 public class PrintVerticalOrder {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -40,49 +40,48 @@ public class PrintVerticalOrder {
         root.left.right = new Node(3);
         root.right = new Node(4);
         root.right.left = new Node(6);
-        
+
         order(root);
-        
+
     }
-    
+
     private static void order(Node root) {
 
-        Map<Integer,List<Node>>  map = new TreeMap<>();
-        fillMap(root,map,0);
-        
+        Map<Integer, List<Node>> map = new TreeMap<>();
+        fillMap(root, map, 0);
+
         //System.out.print(map.toString());
-        
-        for (Map.Entry<Integer,List<Node>> entry : map.entrySet()) {
-            
-            for (int i=0;i<entry.getValue().size();i++) {
+
+        for (Map.Entry<Integer, List<Node>> entry : map.entrySet()) {
+
+            for (int i = 0; i < entry.getValue().size(); i++) {
                 System.out.print(entry.getValue().get(i).info + " ");
             }
-            
+
             System.out.println();
         }
-        
+
     }
-    
-    private static void fillMap(Node root,Map<Integer,List<Node>> map,int hd) {
-        
-        if(root==null) {
+
+    private static void fillMap(Node root, Map<Integer, List<Node>> map, int hd) {
+
+        if (root == null) {
             return;
         }
-        
-        if(map.containsKey(hd)) {
+
+        if (map.containsKey(hd)) {
             map.get(hd).add(root);
-        }
-        else {
+        } else {
             List<Node> list = new ArrayList<>();
             list.add(root);
-            map.put(hd,list);            
+            map.put(hd, list);
         }
-        
-        fillMap(root.left,map,hd+1);
-        fillMap(root.right,map,hd-1);
-        
+
+        fillMap(root.left, map, hd + 1);
+        fillMap(root.right, map, hd - 1);
+
     }
-    
+
 }
 
 

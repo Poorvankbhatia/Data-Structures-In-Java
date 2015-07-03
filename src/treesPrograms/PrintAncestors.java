@@ -3,7 +3,7 @@ package treesPrograms;
 public class PrintAncestors {
 
     private static int immediateAncestor = -1;
-    
+
     public static void main(String[] args) {
 
         Node root = Input.treeInput();
@@ -13,7 +13,7 @@ public class PrintAncestors {
 
 
         System.out.println("\nimmediate ancestor - " + immediateAncestor);
-        
+
     }
 
     private static boolean ancestor(Node root, int target) {
@@ -27,7 +27,7 @@ public class PrintAncestors {
         }
 
         if (ancestor(root.left, target) || ancestor(root.right, target)) {
-            if(immediateAncestor==-1) {
+            if (immediateAncestor == -1) {
                 immediateAncestor = root.info;
             }
             System.out.print(root.info + " ");

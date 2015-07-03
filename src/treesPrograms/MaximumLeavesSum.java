@@ -12,9 +12,9 @@ package treesPrograms;
  * Created by poorvank on 6/12/15.
  */
 public class MaximumLeavesSum {
-    
+
     private static int result = 0;
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -22,32 +22,32 @@ public class MaximumLeavesSum {
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        
+
         maxSum(root);
-        
+
         System.out.println(result);
-        
+
     }
-    
+
     private static int maxSum(Node root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return 0;
         }
-        
+
         int left = maxSum(root.left);
         int right = maxSum(root.right);
-        
+
         int currentSum = left + right + root.info;
-        
-        if(result<currentSum) {
+
+        if (result < currentSum) {
             result = currentSum;
         }
-        
-        return Math.max(left,right)+root.info;
-        
+
+        return Math.max(left, right) + root.info;
+
     }
-    
+
 }
 
 

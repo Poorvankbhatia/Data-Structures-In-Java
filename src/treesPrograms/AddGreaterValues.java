@@ -25,20 +25,20 @@ package treesPrograms;
  * Created by poorvank on 6/8/15.
  */
 public class AddGreaterValues {
-    
+
     private static int sum = 0;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = Input.treeInput();
         root = new AddGreaterValues().reverseInorder(root);
         Traversal.in_Order(root);
-        
+
     }
-    
+
     private Node reverseInorder(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return null;
         }
         reverseInorder(root.right);
@@ -46,9 +46,9 @@ public class AddGreaterValues {
         root.info = sum;
         reverseInorder(root.left);
         return root;
-        
+
     }
-    
+
 }
 
 

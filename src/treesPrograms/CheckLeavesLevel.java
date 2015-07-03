@@ -10,43 +10,43 @@ package treesPrograms;
  * Created by poorvank on 6/9/15.
  */
 public class CheckLeavesLevel {
-    
+
     private static int leafLevel = 0;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = new Node(12);
         root.left = new Node(5);
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        
-        System.out.println(checkSameLevel(root,0));
-        
+
+        System.out.println(checkSameLevel(root, 0));
+
     }
-    
-    
-    private static boolean checkSameLevel(Node root,int level) {
-        
-        if(root==null) {
-            return true; 
+
+
+    private static boolean checkSameLevel(Node root, int level) {
+
+        if (root == null) {
+            return true;
         }
-        
-        if(root.left==null && root.right==null) {
-            
-            if(leafLevel==0) {
+
+        if (root.left == null && root.right == null) {
+
+            if (leafLevel == 0) {
                 leafLevel = level;
                 return true;
             }
-            
-            return (level==leafLevel);
-            
+
+            return (level == leafLevel);
+
         }
-        
-        return checkSameLevel(root.left,level+1) && checkSameLevel(root.right,level+1);
-        
+
+        return checkSameLevel(root.left, level + 1) && checkSameLevel(root.right, level + 1);
+
     }
-    
+
 }
 
 

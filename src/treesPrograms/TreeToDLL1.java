@@ -4,7 +4,7 @@ package treesPrograms;
  * Created by poorvank on 6/11/15.
  */
 public class TreeToDLL1 {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -12,68 +12,68 @@ public class TreeToDLL1 {
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        
+
         root = convert(root);
-        
-        while (root.left!=null) {
+
+        while (root.left != null) {
             root = root.left;
         }
-        
+
         System.out.println("After conversion : \n");
 
         //convert returns root node of the converted
         // DLL.  We need pointer to the leftmost node which is
         // head of the constructed DLL, so move to the leftmost node
-        while (root!=null) {
+        while (root != null) {
             System.out.print(root.info + " ");
             root = root.right;
         }
-        
+
     }
-    
+
     private static Node convert(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return null;
         }
 
 
         // Convert the left subtree and link to root
-        if(root.left!=null) {
-            
+        if (root.left != null) {
+
             Node l = convert(root.left);
 
             // Find inorder predecessor. After this loop, left
             // will point to the inorder predecessor
-            while (l.right!=null) 
+            while (l.right != null)
                 l = l.right;
-            
+
             l.right = root;
-            
+
             root.left = l;
-            
+
         }
-        
-        if(root.right!=null) {
-            
+
+        if (root.right != null) {
+
             Node r = convert(root.right);
 
             // Find inorder successor. After this loop, right
             // will point to the inorder successor
-            while (r.left!=null) {
+            while (r.left != null) {
                 r = r.left;
             }
-            
+
             root.right = r;
-            
+
             r.left = root;
-            
+
         }
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 

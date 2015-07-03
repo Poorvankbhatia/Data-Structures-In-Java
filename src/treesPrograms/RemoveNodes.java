@@ -57,7 +57,7 @@ package treesPrograms;
  * Created by poorvank on 6/23/15.
  */
 public class RemoveNodes {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -67,39 +67,39 @@ public class RemoveNodes {
         root.right = new Node(14);
         root.right.right = new Node(23);
         root.right.left = new Node(16);
-        
+
         System.out.println("Before removal");
         Traversal.in_Order(root);
-        
-        root = remove(root,21);
+
+        root = remove(root, 21);
 
         System.out.println("\nAfter removal");
         Traversal.in_Order(root);
-        
-        
+
+
     }
-    
-    private static Node remove(Node root,int sum) {
-        
-        if(root==null) {
+
+    private static Node remove(Node root, int sum) {
+
+        if (root == null) {
             return null;
         }
-        
-        root.left = remove(root.left , sum-root.info);
-        root.right = remove(root.right , sum-root.info);
-        
-        if(root.left== null && root.right==null) {
-            
-            if(root.info<sum) {
+
+        root.left = remove(root.left, sum - root.info);
+        root.right = remove(root.right, sum - root.info);
+
+        if (root.left == null && root.right == null) {
+
+            if (root.info < sum) {
                 return null;
             }
-            
+
         }
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 /*

@@ -7,7 +7,7 @@ import java.util.Queue;
  * Created by poorvank on 6/22/15.
  */
 public class ReverseLevelOrderTraversal {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -15,40 +15,40 @@ public class ReverseLevelOrderTraversal {
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        
+
         printReverseLevelOrder(root);
-        
-        
+
+
     }
-    
+
     private static void printReverseLevelOrder(Node root) {
-        
+
         Stack stack = new Stack();
         Queue<Node> queue = new LinkedList<>();
-        
+
         queue.add(root);
-        
+
         while (!queue.isEmpty()) {
-            
+
             Node a = queue.remove();
             stack.push(a);
-            
-            if(a.right!=null) {
+
+            if (a.right != null) {
                 queue.add(a.right);
             }
-            
-            if(a.left!=null) {
+
+            if (a.left != null) {
                 queue.add(a.left);
             }
-            
+
         }
-        
+
         while (!stack.isEmpty()) {
             System.out.print(stack.pop().info + " ");
         }
-        
+
     }
-    
+
 }
 
 

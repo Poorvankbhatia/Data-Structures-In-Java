@@ -4,10 +4,10 @@ package treesPrograms;
  * Created by poorvank on 6/11/15.
  */
 public class TreeToDLL2 {
-    
+
     private static Node head = null;
     private static Node prev = null;
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -18,36 +18,35 @@ public class TreeToDLL2 {
 
         convert(root);
 
-        while (head!=null) {
+        while (head != null) {
             System.out.print(head.info + " ");
-                head = head.right;
+            head = head.right;
         }
-        
-        
+
+
     }
-    
+
     private static void convert(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return;
         }
-        
+
         convert(root.left);
-        
-        if(prev==null) {
+
+        if (prev == null) {
             head = root;
-        }
-        else {
+        } else {
             root.left = prev;
             prev.right = root;
         }
-        
+
         prev = root;
-        
+
         convert(root.right);
-        
+
     }
-    
+
 }
 
 /*

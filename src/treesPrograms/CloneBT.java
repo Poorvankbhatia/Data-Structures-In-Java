@@ -7,28 +7,29 @@ import java.util.HashMap;
  */
 
 class CloneNode {
-    
+
     int info;
     CloneNode left;
     CloneNode right;
     CloneNode random;
-    
+
     public CloneNode(int info) {
-        this(info,null,null,null);
+        this(info, null, null, null);
     }
-    public CloneNode(int info,CloneNode left,CloneNode right,CloneNode random) {
+
+    public CloneNode(int info, CloneNode left, CloneNode right, CloneNode random) {
         this.info = info;
         this.left = left;
         this.right = right;
         this.random = random;
     }
-    
+
 }
 
 public class CloneBT {
-    
+
     public static void main(String[] args) {
-      
+
         CloneNode root = new CloneNode(1);
         root.left = new CloneNode(3);
         root.right = new CloneNode(5);
@@ -44,56 +45,56 @@ public class CloneBT {
         printInOrder(root);
         System.out.println();
         printInOrder(newRoot);
-        
+
     }
-    
+
     private static CloneNode cloneTree(CloneNode root) {
 
-        HashMap<CloneNode,CloneNode> map = new HashMap<>();
-        CloneNode newRoot = copyLeftRight(root,map);
-        copyRandom(root,map);
+        HashMap<CloneNode, CloneNode> map = new HashMap<>();
+        CloneNode newRoot = copyLeftRight(root, map);
+        copyRandom(root, map);
         return newRoot;
     }
-    
-    private static CloneNode copyLeftRight(CloneNode root,HashMap<CloneNode,CloneNode> map) {
-        
-        if(root==null) {
+
+    private static CloneNode copyLeftRight(CloneNode root, HashMap<CloneNode, CloneNode> map) {
+
+        if (root == null) {
             return null;
         }
         CloneNode newNode = new CloneNode(root.info);
-        map.put(root,newNode);
-        newNode.left = copyLeftRight(root.left,map);
-        newNode.right = copyLeftRight(root.right,map);
+        map.put(root, newNode);
+        newNode.left = copyLeftRight(root.left, map);
+        newNode.right = copyLeftRight(root.right, map);
         return newNode;
-        
+
     }
-    
-    private static void copyRandom(CloneNode root,HashMap<CloneNode,CloneNode> map) {
-        
-        if(root==null) {
+
+    private static void copyRandom(CloneNode root, HashMap<CloneNode, CloneNode> map) {
+
+        if (root == null) {
             return;
         }
-        map.get(root).random =map.get(root.random);
-        copyRandom(root.left,map);
-        copyRandom(root.right,map);
+        map.get(root).random = map.get(root.random);
+        copyRandom(root.left, map);
+        copyRandom(root.right, map);
     }
-    
+
     private static void printInOrder(CloneNode root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return;
         }
         printInOrder(root.left);
         System.out.print("[" + root.info + " ");
-        if(root.random==null){
+        if (root.random == null) {
             System.out.print("NULL] ");
         } else {
             System.out.print(root.random.info + "] ");
         }
-        
+
         printInOrder(root.right);
     }
-    
+
 }
 
 

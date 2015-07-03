@@ -24,7 +24,7 @@ package treesPrograms;
  * Created by poorvank on 7/3/15.
  */
 public class CountNodesRange {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(10);
@@ -33,35 +33,33 @@ public class CountNodesRange {
         root.right = new Node(50);
         root.right.right = new Node(100);
         root.right.left = new Node(40);
-        
-        System.out.println("\n"+countNodes(root,5,45));
-        
-        
-        
+
+        System.out.println("\n" + countNodes(root, 5, 45));
+
+
     }
-    
-    private static int countNodes(Node root,int low,int high) {
-        
-        if(root==null) {
+
+    private static int countNodes(Node root, int low, int high) {
+
+        if (root == null) {
             return 0;
         }
-        
-        if(root.info>=low && root.info<=high) {
+
+        if (root.info >= low && root.info <= high) {
             System.out.print(root.info + " ");
-            return 1+(countNodes(root.left,low,high)+countNodes(root.right,low,high));
+            return 1 + (countNodes(root.left, low, high) + countNodes(root.right, low, high));
         }
-        
-        if(root.info>high) {
-            return countNodes(root.left,low,high);
+
+        if (root.info > high) {
+            return countNodes(root.left, low, high);
+        } else if (root.info < low) {
+            return countNodes(root.right, low, high);
         }
-        else if(root.info < low) {
-            return countNodes(root.right,low,high);
-        }
-        
+
         return 0;
-        
+
     }
-    
+
 }
 
 

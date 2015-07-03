@@ -208,7 +208,7 @@ public class UniqueURL {
 
     public static void main(String[] args) {
 
-        String[] urls = new String[]{ "http://www.google.com/",
+        String[] urls = new String[]{"http://www.google.com/",
                 "http://www.yahoo.com/",
                 "http://www.amazon.com/",
                 "http://www.apache.com/",

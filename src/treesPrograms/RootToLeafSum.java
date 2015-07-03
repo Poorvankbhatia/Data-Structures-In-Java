@@ -28,7 +28,7 @@ package treesPrograms;
  * Created by poorvank on 6/15/15.
  */
 public class RootToLeafSum {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -36,30 +36,30 @@ public class RootToLeafSum {
         root.left.left = new Node(3);
         root.right = new Node(4);
         root.right.right = new Node(6);
-        
-        System.out.println(sum(root,0));
-        
-        
+
+        System.out.println(sum(root, 0));
+
+
     }
-    
-    private static int sum(Node root,int val) {
-        
-        if(root==null) {
+
+    private static int sum(Node root, int val) {
+
+        if (root == null) {
             return 0;
         }
-        
-        val = (val*10) + root.info;
-        
-        if(root.right==null && root.left==null) {
+
+        val = (val * 10) + root.info;
+
+        if (root.right == null && root.left == null) {
             System.out.println(val);
             return val;
         }
-        
-        return sum(root.left,val) + sum(root.right,val);
-        
-        
+
+        return sum(root.left, val) + sum(root.right, val);
+
+
     }
-    
+
 }
 
 

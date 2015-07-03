@@ -12,7 +12,7 @@ package treesPrograms;
  * Created by poorvank on 6/22/15.
  */
 public class KthSmallestElement {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -20,48 +20,47 @@ public class KthSmallestElement {
         root.left.left = new Node(3);
         root.right = new Node(35);
         root.right.right = new Node(46);
-        
+
         int k = 4;
-        System.out.print(smallestElement(root,2));
-        
+        System.out.print(smallestElement(root, 2));
+
     }
-    
-    private static int smallestElement(Node root,int k) {
-        
+
+    private static int smallestElement(Node root, int k) {
+
         Stack stack = new Stack();
         Node crawl = root;
-        
-        while (crawl!=null) {
+
+        while (crawl != null) {
             stack.push(crawl);
             crawl = crawl.left;
         }
-        
-        while (!stack.isEmpty() && (crawl=stack.pop())!=null) {
-            
-            if(k-1==0) {
+
+        while (!stack.isEmpty() && (crawl = stack.pop()) != null) {
+
+            if (k - 1 == 0) {
                 break;
+            } else {
+                k = k - 1;
             }
-            else {
-                k=k-1;
-            }
-            
-            if(crawl.right!=null) {
-                
+
+            if (crawl.right != null) {
+
                 crawl = crawl.right;
-                
-                while (crawl!=null) {
+
+                while (crawl != null) {
                     stack.push(crawl);
                     crawl = crawl.left;
                 }
-                
+
             }
-            
+
         }
 
         return crawl.info;
 
     }
-    
+
 }
 
 

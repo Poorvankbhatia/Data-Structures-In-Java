@@ -16,31 +16,31 @@ public class RootToLeaf {
         root.right = new Node(5);
         root.right.right = new Node(11);
         ArrayList<Integer> list = new ArrayList<Integer>();
-        path(root, list,0);
-        System.out.println("Final list is - " + finalList.toString() +  " and minimum sum is " + maxSum);
+        path(root, list, 0);
+        System.out.println("Final list is - " + finalList.toString() + " and minimum sum is " + maxSum);
 
     }
 
-    private static void path(Node root, ArrayList<Integer> list,int s) {
+    private static void path(Node root, ArrayList<Integer> list, int s) {
 
-        if(root==null) {
+        if (root == null) {
             return;
         } else {
             list.add(root.info);
-            s = s+root.info;
+            s = s + root.info;
         }
 
         if ((root.left == null && root.right == null)) {
             System.out.println(list);
-            if(maxSum>s) {
+            if (maxSum > s) {
                 maxSum = s;
                 finalList = new ArrayList<>(list);
             }
             return;
         }
 
-        path(root.left, new ArrayList<Integer>(list),s);
-        path(root.right, new ArrayList<Integer>(list),s);
+        path(root.left, new ArrayList<Integer>(list), s);
+        path(root.right, new ArrayList<Integer>(list), s);
 
     }
 

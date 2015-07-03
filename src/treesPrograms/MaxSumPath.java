@@ -17,7 +17,7 @@ public class MaxSumPath {
         if (root == null) {
             return root;
         }
-        
+
         int current_sum = rSum + root.info;
 
         if (root.right == null && root.left == null) {

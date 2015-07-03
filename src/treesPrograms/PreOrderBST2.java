@@ -18,48 +18,47 @@ package treesPrograms;
  * Created by poorvank on 6/13/15.
  */
 public class PreOrderBST2 {
-    
+
     public static void main(String[] args) {
-        
+
         int[] pre = new int[]{10, 5, 1, 7, 40, 50};
         Traversal.in_Order(constructTree(pre));
-        
+
     }
-    
+
     private static Node constructTree(int[] pre) {
-        
+
         Node root = new Node(pre[0]);
-        
+
         Stack stack = new Stack();
-        
+
         stack.push(root);
-        
-        for (int i=1;i<pre.length;i++) {
-            
+
+        for (int i = 1; i < pre.length; i++) {
+
             Node temp = null;
-            
-            
+
+
             while (!stack.isEmpty() && pre[i] > stack.peek().info) {
                 temp = stack.pop();
             }
-            
-            if(temp==null) {
-                
+
+            if (temp == null) {
+
                 stack.peek().left = new Node(pre[i]);
                 stack.push(stack.peek().left);
-                
-            }
-            else {
+
+            } else {
                 temp.right = new Node(pre[i]);
                 stack.push(temp.right);
             }
-            
+
         }
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 /*

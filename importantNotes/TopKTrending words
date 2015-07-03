@@ -1,0 +1,25 @@
+There is a big file of words which is dynamically changing. We are continuously adding some words into it.
+ How would you keep track of top 10 trending words at each moment?
+
+If it's top 10 trending words then you should use a max-heap along with a hash-table.
+
+When a new word is added to the file then:
+
+Create a new element x with x.key=word and x.count=1.
+Add x to the hash-table. O(1).
+Add x to the max-heap. O(lgn).
+When an existing word is added to the file then:
+
+Find x in the hash-table. O(1).
+Update x.count to x.count++.
+When there is a need to retrieve the top 10 trending words then:
+
+Extract 10 times from the max-heap. 10*O(lgn)=O(10*lgn)=O(lgn).
+As you can see, all the needed operations are done in at most O(lgn).
+
+You have to use a MinHeap, not MaxHeap. So, if you have k items in the heap, the peek of the heap is the smallest; 
+and everyone else (k - 1) is larger than the peek. 
+Now, if a new word with count > peek comes in, we want to extract the min (O(logk)) 
+and insert the new item (O(logk)).If new item has count smaller than peek, 
+that means it is smaller than any other item in the heap (as it's a Min Heap). 
+We just discard that word as that will not be a part of top k. 

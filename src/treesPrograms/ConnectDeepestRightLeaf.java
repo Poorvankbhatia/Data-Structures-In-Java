@@ -11,25 +11,26 @@ package treesPrograms;
  */
 
 class ListNode {
-    
+
     int info;
     ListNode next;
-    
+
     public ListNode(int n) {
-        this(n,null);
+        this(n, null);
     }
-    public ListNode(int n,ListNode l) {
+
+    public ListNode(int n, ListNode l) {
         info = n;
         next = l;
     }
-    
+
 }
 
 public class ConnectDeepestRightLeaf {
-    
+
     private static ListNode head = null;
     private static int max = 0;
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -38,48 +39,46 @@ public class ConnectDeepestRightLeaf {
         root.left.right = new Node(7);
         root.right = new Node(4);
         root.right.right = new Node(6);
-        
-        findRightLeaf(root,0,true);
+
+        findRightLeaf(root, 0, true);
 
         ListNode current = head;
-        while (current!=null) {
+        while (current != null) {
             System.out.print(current.info + " ");
             current = current.next;
         }
-        
-        
+
+
     }
-    
-    private static void findRightLeaf(Node root,int level,boolean isRight) {
-        
-        if(root==null) {
+
+    private static void findRightLeaf(Node root, int level, boolean isRight) {
+
+        if (root == null) {
             return;
         }
-        
-        if((root.left==null && root.right==null) && isRight) {
-            
-            if(max<level) {
+
+        if ((root.left == null && root.right == null) && isRight) {
+
+            if (max < level) {
                 max = level;
                 head = new ListNode(root.info);
-            }
-            else if(level==max) {
-                if(head!=null) {
+            } else if (level == max) {
+                if (head != null) {
                     ListNode node = new ListNode(root.info);
                     head.next = node;
-                    node.next=null;
-                }
-                else {
+                    node.next = null;
+                } else {
                     head = new ListNode(root.info);
                 }
             }
-            
+
         }
 
-        findRightLeaf(root.left,level+1,false);
-        findRightLeaf(root.right,level+1,true);
-        
+        findRightLeaf(root.left, level + 1, false);
+        findRightLeaf(root.right, level + 1, true);
+
     }
-    
+
 }
 
 

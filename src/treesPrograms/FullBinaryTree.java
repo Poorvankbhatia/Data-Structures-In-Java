@@ -12,7 +12,7 @@ package treesPrograms;
  * Created by poorvank on 6/22/15.
  */
 public class FullBinaryTree {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -20,25 +20,25 @@ public class FullBinaryTree {
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        
+
         System.out.print(checkFullBT(root));
-        
+
     }
-    
+
     private static boolean checkFullBT(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return true;
         }
-        
-        if(root.left==null && root.right==null) {
+
+        if (root.left == null && root.right == null) {
             return true;
         }
-        
-        return ((root.left!=null && root.right!=null) && (checkFullBT(root.left) && checkFullBT(root.right)));
-        
+
+        return ((root.left != null && root.right != null) && (checkFullBT(root.left) && checkFullBT(root.right)));
+
     }
-    
+
 }
 
 

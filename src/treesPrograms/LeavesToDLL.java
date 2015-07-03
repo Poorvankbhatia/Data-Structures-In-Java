@@ -37,62 +37,62 @@ public class LeavesToDLL {
 
 
     private static Node head = null;
-    
+
     public static void main(String[] args) {
-        
+
         Node root = new Node(1);
         root.left = new Node(3);
         root.right = new Node(5);
         root.left.left = new Node(2);
         root.left.right = new Node(9);
-        
+
         System.out.println("Inorder before ");
         Traversal.in_Order(root);
         System.out.println("\nInorder after ");
         Traversal.in_Order(convert(root));
         System.out.println("\nList is : ");
         printList(head);
-        
+
     }
-    
+
     private static void printList(Node head) {
-        
+
         Node current = head;
-        
-        while (current!=null) {
+
+        while (current != null) {
             System.out.print(current.info + " ");
             current = current.right;
         }
-        
+
     }
-    
+
     private static Node convert(Node root) {
-        
-        if(root == null) {
+
+        if (root == null) {
             return null;
         }
-        
-        if(root.left==null && root.right==null) {
-            
-            root.right=head;
-            
-            if(head!=null) {
+
+        if (root.left == null && root.right == null) {
+
+            root.right = head;
+
+            if (head != null) {
                 head.left = root;
             }
-            
+
             head = root;
-            
+
             return null;
-            
+
         }
 
         root.right = convert(root.right);
         root.left = convert(root.left);
-        
+
         return root;
-        
+
     }
-    
+
 }
 
 
