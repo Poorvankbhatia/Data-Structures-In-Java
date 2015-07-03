@@ -2,7 +2,7 @@
    Revise and practice again
  */
 
-package dyanamicprograms;
+package dyanamicPrograms;
 
 import java.util.Arrays;
 

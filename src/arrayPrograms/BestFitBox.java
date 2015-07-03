@@ -21,54 +21,50 @@ package arrayPrograms;
  * Created by poorvank on 6/22/15.
  */
 public class BestFitBox {
-    
+
     public static void main(String[] args) {
-        
-        int[] boxes = new int[]{2, 7, 9, 11 ,13 ,16};
+
+        int[] boxes = new int[]{2, 7, 9, 11, 13, 16};
         int n = 6;
         int box = 7;
-        
-        System.out.println(aptBox(boxes,0,n-1,box,n));
-        
-        
+
+        System.out.println(aptBox(boxes, 0, n - 1, box, n));
+
+
     }
-    
-    private static int aptBox(int[] arr,int low,int high,int box,int n) {
-        
-        if(box<=arr[low]) {
+
+    private static int aptBox(int[] arr, int low, int high, int box, int n) {
+
+        if (box <= arr[low]) {
             return arr[low];
         }
-        
-        if(box>arr[high]) {
+
+        if (box > arr[high]) {
             return -1;
         }
-        
-        int mid = (low+high)/2;
-        
-        if(box==arr[mid]) {
+
+        int mid = (low + high) / 2;
+
+        if (box == arr[mid]) {
             return arr[mid];
-        }
-        else if(arr[mid]<box) {
+        } else if (arr[mid] < box) {
 
-            if(mid+1<=high && box<=arr[mid+1]) {
-                return arr[mid+1];
+            if (mid + 1 <= high && box <= arr[mid + 1]) {
+                return arr[mid + 1];
+            } else {
+                return aptBox(arr, mid + 1, high, box, n);
             }
-            else {
-                return aptBox(arr,mid+1,high,box,n);
-            }
-            
-        }
-        else {
 
-            if(mid-1>=low && box>arr[mid-1]) {
+        } else {
+
+            if (mid - 1 >= low && box > arr[mid - 1]) {
                 return arr[mid];
+            } else {
+                return aptBox(arr, low, mid - 1, box, n);
             }
-            else {
-                return aptBox(arr,low,mid-1,box,n);
-            }
-            
+
         }
-        
+
     }
-    
+
 }

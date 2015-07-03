@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by poorvank on 6/5/15.
  */
 public class PythagoreanTriplet {
-    
+
     public static void main(String[] args) {
 
         int[] array = new int[]{3, 1, 4, 6, 5};
@@ -14,8 +14,8 @@ public class PythagoreanTriplet {
         method1(array);
 
     }
-    
-    
+
+
     //Method uses sorting so index is not maintained
     private static void method1(int[] array) {
 
@@ -24,22 +24,22 @@ public class PythagoreanTriplet {
         int n = array.length;
         int[] squareArray = new int[n];
 
-        for (int i=0;i<squareArray.length;i++) {
-            squareArray[i] = array[i]*array[i];
+        for (int i = 0; i < squareArray.length; i++) {
+            squareArray[i] = array[i] * array[i];
         }
 
-        for (int i=n-1;i>=2;i--) {
+        for (int i = n - 1; i >= 2; i--) {
 
             int left = 0;
-            int right = i-1;
+            int right = i - 1;
 
-            while (left<right) {
-                if(squareArray[left]+squareArray[right]==squareArray[i]){
+            while (left < right) {
+                if (squareArray[left] + squareArray[right] == squareArray[i]) {
                     System.out.println(array[left] + " " + array[right] + " " + array[i]);
                     return;
                 }
 
-                if(squareArray[left]+squareArray[right]<squareArray[i])
+                if (squareArray[left] + squareArray[right] < squareArray[i])
                     left++;
                 else
                     right--;
@@ -48,12 +48,10 @@ public class PythagoreanTriplet {
         }
 
         System.out.println("No triplet found");
-        
+
     }
-    
-    
-    
-    
+
+
 }
 
 

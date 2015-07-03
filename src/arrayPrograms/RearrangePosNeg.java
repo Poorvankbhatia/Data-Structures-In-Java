@@ -18,47 +18,47 @@ import java.util.Arrays;
  * Created by poorvank on 6/22/15.
  */
 public class RearrangePosNeg {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{-1, 2, -3, 4, 5, 6, -7, 8, 9};
-        
+
         int n = arr.length;
-        
-        int i=-1;
-        
-        for (int j=0;j<n;j++) {
-            
-            if(arr[j]<0) {
-                
+
+        int i = -1;
+
+        for (int j = 0; j < n; j++) {
+
+            if (arr[j] < 0) {
+
                 i++;
-                swap(i,j,arr);
-                
+                swap(i, j, arr);
+
             }
-            
+
         }
-        
-        int pos = i+1;
+
+        int pos = i + 1;
         int neg = 0;
-        
-        while (pos < n && neg<pos && arr[neg]<0) {
-            swap(pos,neg,arr);
+
+        while (pos < n && neg < pos && arr[neg] < 0) {
+            swap(pos, neg, arr);
             pos++;
-            neg +=2;
+            neg += 2;
         }
-        
+
         System.out.println(Arrays.toString(arr));
-        
+
     }
-    
-    private static void swap(int i,int j,int[] arr) {
-        
+
+    private static void swap(int i, int j, int[] arr) {
+
         int a = arr[i];
         arr[i] = arr[j];
         arr[j] = a;
-        
+
     }
-    
+
 }
 
 /*

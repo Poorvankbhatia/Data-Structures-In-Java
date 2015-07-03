@@ -30,63 +30,61 @@ package arrayPrograms;
  * Created by poorvank on 6/24/15.
  */
 public class CountFrequencies {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{1, 3, 5, 7, 9, 1, 3, 5, 7, 9, 1};
-        printFrequencies(arr,arr.length);
-        
+        printFrequencies(arr, arr.length);
+
     }
-    
-    private static void printFrequencies(int[] arr,int n) {
-        
-        int i=0;
-        
-        while (i<n) {
-            
-            if(arr[i]<=0) {
+
+    private static void printFrequencies(int[] arr, int n) {
+
+        int i = 0;
+
+        while (i < n) {
+
+            if (arr[i] <= 0) {
                 i++;
                 continue;
             }
-            
-            int elementIndex = arr[i]-1;
-            
-            if(arr[elementIndex]>0) {
-                
+
+            int elementIndex = arr[i] - 1;
+
+            if (arr[elementIndex] > 0) {
+
                 arr[i] = arr[elementIndex];
 
 
                 // After storing arr[elementIndex], change it
                 // to store initial count of 'arr[i]'
                 arr[elementIndex] = -1;
-                
-            }
-            else {
-                
+
+            } else {
+
                 arr[elementIndex]--;
 
                 // And initialize arr[i] as 0 means the element
                 // 'i+1' is not seen so far
                 arr[i] = 0;
                 i++;
-                
+
             }
-            
-            
-            
+
+
         }
-        
+
         System.out.println("The frequencies are  : ");
-        
-        for (i=0;i<n;i++) {
-            
-            System.out.println(i+1 + " -> " + Math.abs(arr[i]));
-            
+
+        for (i = 0; i < n; i++) {
+
+            System.out.println(i + 1 + " -> " + Math.abs(arr[i]));
+
         }
-        
-        
+
+
     }
-    
+
 }
 
 /*

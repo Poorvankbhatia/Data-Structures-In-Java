@@ -15,13 +15,13 @@ package arrayPrograms;
  * Created by poorvank on 6/18/15.
  */
 public class MaxDifference {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{2, 3, 10, 6, 4, 8, 1};
-        
+
         int minElement = arr[0];
-        int maxDifference = arr[1]-arr[0];
+        int maxDifference = arr[1] - arr[0];
         
         /*
         
@@ -31,19 +31,19 @@ public class MaxDifference {
         2) Minimum number visited so far (min_element).
         
          */
-        for (int i=1;i<arr.length;i++) {
-            
-            if(maxDifference < arr[i]-minElement) {
-                maxDifference = arr[i]-minElement;
+        for (int i = 1; i < arr.length; i++) {
+
+            if (maxDifference < arr[i] - minElement) {
+                maxDifference = arr[i] - minElement;
             }
-            if(minElement>arr[i]) {
+            if (minElement > arr[i]) {
                 minElement = arr[i];
             }
-            
+
         }
-        
+
         System.out.println(maxDifference);
-        
+
     }
-    
+
 }

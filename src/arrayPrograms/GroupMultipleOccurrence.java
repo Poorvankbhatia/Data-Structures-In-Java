@@ -6,44 +6,42 @@ import java.util.HashMap;
  * Created by poorvank on 6/5/15.
  */
 public class GroupMultipleOccurrence {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{4, 6, 9, 2, 3, 4, 9, 6, 10, 4};
 
-        HashMap<Integer,Integer> countMap = new HashMap<>();
-        
-        for (int i=0;i<arr.length;i++) {
-            
-            if(countMap.containsKey(arr[i])) {
-                countMap.put(arr[i],countMap.get(arr[i])+1);
+        HashMap<Integer, Integer> countMap = new HashMap<>();
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (countMap.containsKey(arr[i])) {
+                countMap.put(arr[i], countMap.get(arr[i]) + 1);
+            } else {
+                countMap.put(arr[i], 1);
             }
-            else {
-                countMap.put(arr[i],1);
-            }
-            
+
         }
-        
-        for (int i=0;i<arr.length;i++) {
-            
+
+        for (int i = 0; i < arr.length; i++) {
+
             Integer count = countMap.get(arr[i]);
-            
-            if(count!=null) {
-                for (int j=0;j<count;j++) {
+
+            if (count != null) {
+                for (int j = 0; j < count; j++) {
                     System.out.print(arr[i] + " ");
                 }
 
                 //Remove so that it is not encountered 2nd time
                 countMap.remove(arr[i]);
-                
+
             }
 
         }
-        
+
     }
-    
-    
-    
+
+
 }
 
 

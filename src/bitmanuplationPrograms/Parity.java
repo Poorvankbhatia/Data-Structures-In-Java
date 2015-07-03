@@ -4,7 +4,7 @@ Write a C program to find the parity of an unsigned integer
 
  */
 
-package bitmanuplationPrograms;
+package bitManuplationPrograms;
 
 import java.util.Scanner;
 

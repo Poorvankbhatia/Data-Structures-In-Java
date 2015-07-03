@@ -34,43 +34,43 @@ package arrayPrograms;
  * Created by poorvank on 6/8/15.
  */
 public class CountIslandRowCol {
-    
+
     public static void main(String[] args) {
-        
+
         char[][] island = new char[][]{{'O', 'O', 'O'},
-                                       {'X', 'X', 'O'},
-                                       {'X', 'X', 'O'},
-                                       {'O', 'O', 'X'},
-                                       {'O', 'O', 'X'},
-                                       {'X', 'X', 'O'}
+                {'X', 'X', 'O'},
+                {'X', 'X', 'O'},
+                {'O', 'O', 'X'},
+                {'O', 'O', 'X'},
+                {'X', 'X', 'O'}
         };
-        
+
         System.out.println(count(island));
-        
+
     }
-    
+
     private static int count(char[][] islands) {
-        
+
         int c = 0;
         int row = islands.length;
         int col = islands[0].length;
-        
-        for (int i=0;i<row;i++) {
-            for (int j=0;j<col;j++) {
-                
-               if(islands[i][j]=='X') {
-                   if((i==0 || islands[i-1][j]=='O') && (j==0 || islands[i][j-1]=='O')) {
-                       c++;
-                   }
-               }
-                
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                if (islands[i][j] == 'X') {
+                    if ((i == 0 || islands[i - 1][j] == 'O') && (j == 0 || islands[i][j - 1] == 'O')) {
+                        c++;
+                    }
+                }
+
             }
         }
-        
+
         return c;
-        
+
     }
-    
+
 }
 
 /*

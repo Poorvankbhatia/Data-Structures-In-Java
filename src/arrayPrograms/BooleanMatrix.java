@@ -38,14 +38,14 @@ package arrayPrograms;
  * Created by poorvank on 6/18/15.
  */
 public class BooleanMatrix {
-    
+
     public static void main(String[] args) {
-        
+
         int[][] a = new int[][]{{1, 0, 0, 1},
-                                {0, 0, 1, 0},
-                                {0, 0, 0, 0}};
-        
-        
+                {0, 0, 1, 0},
+                {0, 0, 0, 0}};
+
+
         int row = a.length;
         int col = a[0].length;
         
@@ -60,42 +60,42 @@ check the values of row[i] and col[j]. If any of the two values (row[i] or col[j
          */
         int[] rowArr = new int[row];
         int[] colArr = new int[col];
-        
-        for (int i =0;i<row;i++) {
-            for (int j=0;j<col;j++) {
-               
-                if(a[i][j]==1) {
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                if (a[i][j] == 1) {
                     rowArr[i] = 1;
                     colArr[j] = 1;
                 }
-                
+
             }
         }
-        
-        for (int i=0;i<row;i++) {
-            for (int j=0;j<col;j++) {
-                
-                if(rowArr[i]==1 || colArr[j]==1) {
-                    a[i][j]=1;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                if (rowArr[i] == 1 || colArr[j] == 1) {
+                    a[i][j] = 1;
                 }
-                
+
             }
         }
-        
+
         System.out.println("Matrix is : ");
 
-        for (int i=0;i<row;i++) {
-            for (int j=0;j<col;j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
 
-               System.out.print(a[i][j] + " ");
+                System.out.print(a[i][j] + " ");
 
             }
             System.out.println();
         }
-        
-        
+
+
     }
-    
+
 }
 
 

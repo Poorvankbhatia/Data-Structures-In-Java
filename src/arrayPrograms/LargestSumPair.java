@@ -10,30 +10,29 @@ package arrayPrograms;
  * Created by poorvank on 5/25/15.
  */
 public class LargestSumPair {
-    
+
     public static void main(String[] args) {
-        
+
         int[] array = new int[]{12, 34, 10, 6, 40};
-        
-        int first = Math.max(array[0],array[1]);
-        int second = Math.min(array[0],array[1]);
-        
-        for (int i=2;i<array.length;i++) {
-            
-            if(array[i] > first) {
+
+        int first = Math.max(array[0], array[1]);
+        int second = Math.min(array[0], array[1]);
+
+        for (int i = 2; i < array.length; i++) {
+
+            if (array[i] > first) {
                 second = first;
                 first = array[i];
-            }
-            else if(array[i]>second) {
+            } else if (array[i] > second) {
                 second = array[i];
             }
-            
+
         }
-        
-        System.out.println("Maximum sum = " + (first+second));
-        
+
+        System.out.println("Maximum sum = " + (first + second));
+
     }
-    
+
 }
 
 /*

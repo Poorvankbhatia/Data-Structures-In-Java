@@ -15,52 +15,52 @@ import java.util.List;
  * Created by poorvank on 5/28/15.
  */
 public class PrintAllPaths {
-    
+
     public static void main(String[] args) {
-        
-        int[][] matrix = new int[][]{{1,2,3},
-                                     {4,5,6},
-                                     {7,8,9}};
-        printPaths(matrix,matrix.length,matrix[0].length,0,0,new ArrayList<Integer>());
-        
+
+        int[][] matrix = new int[][]{{1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}};
+        printPaths(matrix, matrix.length, matrix[0].length, 0, 0, new ArrayList<Integer>());
+
     }
-    
-    private static void printPaths(int[][] matrix,int row,int col,int i,int j,List<Integer> path) {
-        
+
+    private static void printPaths(int[][] matrix, int row, int col, int i, int j, List<Integer> path) {
+
         //Reached last row move left
-        if(i==row-1) {
-            
-            for (int k=j;k<col;k++) {
+        if (i == row - 1) {
+
+            for (int k = j; k < col; k++) {
                 path.add(matrix[i][k]);
             }
-            
+
             System.out.println(path.toString());
             return;
         }
-        
-        //Reached last column move right
-        if(j==col-1) {
 
-            for (int k=i;k<row;k++) {
+        //Reached last column move right
+        if (j == col - 1) {
+
+            for (int k = i; k < row; k++) {
                 path.add(matrix[k][j]);
             }
 
             System.out.println(path.toString());
             return;
-            
+
         }
 
         path.add(matrix[i][j]);
-        
-        printPaths(matrix,row,col,i+1,j,new ArrayList<Integer>(path));
 
-        printPaths(matrix,row,col,i,j+1,new ArrayList<Integer>(path));
+        printPaths(matrix, row, col, i + 1, j, new ArrayList<Integer>(path));
+
+        printPaths(matrix, row, col, i, j + 1, new ArrayList<Integer>(path));
 
         //To Print diagonal  paths
         //printPaths(matrix,row,col,i+1,j+1,new ArrayList<Integer>(path));
-        
+
     }
-    
+
 }
 
 /*

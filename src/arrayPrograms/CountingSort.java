@@ -14,37 +14,37 @@ import java.util.Arrays;
  * Created by poorvank on 7/1/15.
  */
 public class CountingSort {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{1, 4, 1, 2, 7, 5, 2};
         int[] output = new int[arr.length];
-        int[] count = new int[arr.length+1];
-        
+        int[] count = new int[arr.length + 1];
+
         System.out.println(Arrays.toString(arr));
-        
-        for (int i=0;i<arr.length;i++) {
+
+        for (int i = 0; i < arr.length; i++) {
             count[arr[i]]++;
         }
-        
-        
-        for (int i =1 ;i<count.length;i++) {
-            count[i] += count[i-1];
+
+
+        for (int i = 1; i < count.length; i++) {
+            count[i] += count[i - 1];
         }
-        
-        for (int i=0;i<arr.length;i++) {
-            output[count[arr[i]]-1] = arr[i];
+
+        for (int i = 0; i < arr.length; i++) {
+            output[count[arr[i]] - 1] = arr[i];
             count[arr[i]]--;
         }
-        
-        for (int i =0;i<output.length;i++) {
+
+        for (int i = 0; i < output.length; i++) {
             arr[i] = output[i];
         }
 
         System.out.println(Arrays.toString(arr));
-        
+
     }
-    
+
 }
 
 /*

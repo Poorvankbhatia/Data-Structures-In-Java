@@ -20,34 +20,34 @@ import java.util.Stack;
  * Created by poorvank on 6/18/15.
  */
 public class StockSpanProblem {
-    
+
     public static void main(String[] args) {
-        
+
         int[] price = new int[]{10, 4, 5, 90, 120, 80};
-        
+
         int[] s = new int[price.length];
         s[0] = 1;
 
         Stack<Integer> stack = new Stack<>();
-        
+
         stack.push(0);
-        
-        for (int i=1;i<price.length;i++) {
-            
-            while (!stack.isEmpty() && price[i]>price[stack.peek()]) {
+
+        for (int i = 1; i < price.length; i++) {
+
+            while (!stack.isEmpty() && price[i] > price[stack.peek()]) {
                 stack.pop();
             }
-            
-            s[i] = (stack.isEmpty()) ? (i+1) : (i-stack.peek());
-            
+
+            s[i] = (stack.isEmpty()) ? (i + 1) : (i - stack.peek());
+
             stack.push(i);
-            
+
         }
-        
+
         System.out.println(Arrays.toString(s));
-        
+
     }
-    
+
 }
 
 

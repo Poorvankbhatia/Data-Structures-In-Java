@@ -17,50 +17,49 @@ package arrayPrograms;
  * Created by poorvank on 6/16/15.
  */
 public class PrintParenthesis {
-    
+
     private static char[] par = new char[100];
-    
+
     public static void main(String[] args) {
-        
-        int n=4;
-        print(0,0,n,0);
-        
+
+        int n = 4;
+        print(0, 0, n, 0);
+
     }
-    
-    private static void print(int start,int end,int n,int pos) {
-        
-        if(end == n) {
+
+    private static void print(int start, int end, int n, int pos) {
+
+        if (end == n) {
             printArray(par);
             return;
-        }
-        else {
-            
-            if(start>end) {
-                par[pos]='}';
-                print(start,end+1,n,pos+1);
+        } else {
+
+            if (start > end) {
+                par[pos] = '}';
+                print(start, end + 1, n, pos + 1);
             }
-            if(start<n) {
-                par[pos]='{';
-                print(start+1,end,n,pos+1);
+            if (start < n) {
+                par[pos] = '{';
+                print(start + 1, end, n, pos + 1);
             }
-            
+
         }
-        
+
     }
-    
+
     private static void printArray(char[] arr) {
-        
+
         StringBuilder sb = new StringBuilder();
-        
+
         for (char c : arr) {
             sb.append(c);
         }
-        
+
         System.out.println(sb.toString());
         System.out.println();
-        
+
     }
-    
+
 }
 
 /*

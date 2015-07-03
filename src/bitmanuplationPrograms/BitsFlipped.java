@@ -4,7 +4,7 @@ Count number of bits to be flipped to convert A to B
 
  */
 
-package bitmanuplationPrograms;
+package bitManuplationPrograms;
 
 import java.util.Scanner;
 

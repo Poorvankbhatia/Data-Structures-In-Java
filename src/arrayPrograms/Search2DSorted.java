@@ -12,42 +12,40 @@ package arrayPrograms;
  * Created by poorvank on 6/23/15.
  */
 public class Search2DSorted {
-    
+
     public static void main(String[] args) {
-        
+
         int mat[][] = new int[][]{{10, 20, 30, 40},
-                                   {15, 25, 35, 45},
-                                   {27, 29, 37, 48},
-                                   {32, 33, 39, 50}};
-        
-        
-        findNo(mat,39,4);
-        
+                {15, 25, 35, 45},
+                {27, 29, 37, 48},
+                {32, 33, 39, 50}};
+
+
+        findNo(mat, 39, 4);
+
     }
-    
-    private static void findNo(int[][] matrix,int no,int n) {
-        
-        int i=0,j=n-1;
-        
-        while (i<n && j>=0) {
-            
-            if(matrix[i][j]==no) {
+
+    private static void findNo(int[][] matrix, int no, int n) {
+
+        int i = 0, j = n - 1;
+
+        while (i < n && j >= 0) {
+
+            if (matrix[i][j] == no) {
                 System.out.println("Found number at : " + i + " , " + j);
                 return;
-            }
-            else if(matrix[i][j] < no) {
+            } else if (matrix[i][j] < no) {
                 i++;
-            }
-            else {
+            } else {
                 j--;
             }
-            
+
         }
-        
+
         System.out.print("Not found");
-        
+
     }
-    
+
 }
 
 

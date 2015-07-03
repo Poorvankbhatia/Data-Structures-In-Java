@@ -34,38 +34,37 @@ import java.util.Arrays;
  * Created by poorvank on 6/8/15.
  */
 public class WaveForm {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{10, 90, 49, 2, 1, 5, 23};
-        
-        
-        
-        for (int i =0;i<arr.length;i=i+2) {
-            
-            if(i>0 && arr[i-1]>arr[i]) {
-                swap(i-1,i,arr);
+
+
+        for (int i = 0; i < arr.length; i = i + 2) {
+
+            if (i > 0 && arr[i - 1] > arr[i]) {
+                swap(i - 1, i, arr);
             }
-            
-            if(i<arr.length-1 && arr[i]<arr[i+1]) {
-                swap(i,i+1,arr);
+
+            if (i < arr.length - 1 && arr[i] < arr[i + 1]) {
+                swap(i, i + 1, arr);
             }
-            
+
         }
-        
-        
+
+
         System.out.println(Arrays.toString(arr));
-        
+
     }
-    
-    private static void swap(int a,int b,int[] arr) {
-        
+
+    private static void swap(int a, int b, int[] arr) {
+
         int t = arr[a];
         arr[a] = arr[b];
         arr[b] = t;
-        
+
     }
-    
+
 }
 
 

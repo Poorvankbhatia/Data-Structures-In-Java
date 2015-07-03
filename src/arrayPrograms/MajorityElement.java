@@ -11,56 +11,55 @@ package arrayPrograms;
  * Created by poorvank on 6/2/15.
  */
 public class MajorityElement {
-    
+
     public static void main(String[] args) {
-        
-        int[] array= new int[]{2, 2, 3, 5, 2, 2, 6};
+
+        int[] array = new int[]{2, 2, 3, 5, 2, 2, 6};
         System.out.println(returnElement(array));
-        
+
     }
-    
+
     private static int returnElement(int[] array) {
-        
-        int majIndex = 0,count = 0;
-        
-        for (int i=1;i<array.length;i++) {
-            
-            if(array[i]==array[majIndex]) {
+
+        int majIndex = 0, count = 0;
+
+        for (int i = 1; i < array.length; i++) {
+
+            if (array[i] == array[majIndex]) {
                 count++;
-            }
-            else {
+            } else {
                 count--;
             }
-            if(count==0) {
+            if (count == 0) {
                 majIndex = i;
-                count=1;
+                count = 1;
             }
-            
+
         }
-        
-        if(checkMajority(array,array[majIndex]))
-          return array[majIndex];
+
+        if (checkMajority(array, array[majIndex]))
+            return array[majIndex];
         else
-          return -1;
-        
+            return -1;
+
     }
-    
-    private static boolean checkMajority(int[] array,int n) {
-        
+
+    private static boolean checkMajority(int[] array, int n) {
+
         int count = 0;
-        for (int i=0;i<array.length;i++) {
-            if(array[i]==n) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == n) {
                 count++;
             }
         }
-        
-        if(count>n/2) {
+
+        if (count > n / 2) {
             return true;
         } else {
             return false;
         }
     }
-    
+
 }
 
 

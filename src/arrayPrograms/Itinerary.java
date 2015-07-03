@@ -28,50 +28,50 @@ import java.util.Map;
  * Created by poorvank on 6/22/15.
  */
 public class Itinerary {
-    
+
     public static void main(String[] args) {
 
-        Map<String,String> map = new HashMap<>();
-        map.put("chennai","banagalore");
-        map.put("bombay","delhi");
-        map.put("goa","chennai");
-        map.put("delhi","goa");
-        
+        Map<String, String> map = new HashMap<>();
+        map.put("chennai", "banagalore");
+        map.put("bombay", "delhi");
+        map.put("goa", "chennai");
+        map.put("delhi", "goa");
+
         printRoute(map);
-        
+
     }
-    
-    private static void printRoute(Map<String,String> map) {
-        
-        Map<String,String> reverseMap = new HashMap<>();
-        
-        for (Map.Entry<String,String> entry : map.entrySet()) {
-            reverseMap.put(entry.getValue(),entry.getKey());
+
+    private static void printRoute(Map<String, String> map) {
+
+        Map<String, String> reverseMap = new HashMap<>();
+
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            reverseMap.put(entry.getValue(), entry.getKey());
         }
-        
+
         String start = "";
-        
-        for (Map.Entry<String,String> entry : map.entrySet()) {
-            
-            if(!reverseMap.containsKey(entry.getKey())) {
+
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+
+            if (!reverseMap.containsKey(entry.getKey())) {
                 start = entry.getKey();
                 break;
             }
-            
+
         }
-        
+
         String end = map.get(start);
-        
-        while (end!=null) {
+
+        while (end != null) {
 
             System.out.println(start + " -> " + end);
             start = end;
             end = map.get(end);
-            
+
         }
-        
+
     }
-    
+
 }
 
 
