@@ -86,6 +86,11 @@ class MinHeap {
 
     }
 
+    /**
+     *
+     * @param minHeapNodes
+     * @param i
+     */
     private void restoreDown(MinHeapNode[] minHeapNodes, int i) {
 
         int left = (2 * i) + 1;
