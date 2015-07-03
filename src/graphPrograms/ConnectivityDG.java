@@ -4,7 +4,7 @@ Given a directed graph, find out whether the graph is strongly connected or not.
  A directed graph is strongly connected if there is a path between any two pair of vertices. 
  */
 
-package graphs;
+package graphPrograms;
 
 import java.util.ArrayList;
 import java.util.List;

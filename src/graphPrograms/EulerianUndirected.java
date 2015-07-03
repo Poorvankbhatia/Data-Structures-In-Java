@@ -5,7 +5,7 @@ Eulerian Circuit is an Eulerian Path which starts and ends on the same vertex.
 
  */
 
-package graphs;
+package graphPrograms;
 
 import java.util.ArrayList;
 import java.util.List;

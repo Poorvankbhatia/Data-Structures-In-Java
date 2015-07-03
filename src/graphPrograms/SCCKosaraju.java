@@ -5,7 +5,7 @@ A directed graph is strongly connected if there is a path between all pairs of v
 
  */
 
-package graphs;
+package graphPrograms;
 
 /**
  * Created by poorvank on 4/9/15.

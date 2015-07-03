@@ -15,7 +15,7 @@ Output: Order of characters is 'c', 'a', 'b'
 
  */
 
-package graphs;
+package graphPrograms;
 
 import java.util.ArrayList;
 import java.util.List;

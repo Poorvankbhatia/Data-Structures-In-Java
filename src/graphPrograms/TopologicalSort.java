@@ -15,7 +15,7 @@ for 6 vertices and edges as
 
  */
 
-package graphs;
+package graphPrograms;
 
 /**
  * Created by poorvank on 4/7/15.

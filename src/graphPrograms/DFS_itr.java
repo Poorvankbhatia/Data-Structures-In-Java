@@ -1,4 +1,4 @@
-package graphs;
+package graphPrograms;
 
 /**
  * Created by poorvank on 4/2/15.
