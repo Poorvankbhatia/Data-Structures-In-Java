@@ -28,9 +28,17 @@ public class KthSmallestArrayElement {
     public static void main(String[] args) {
 
         int[] arr = new int[]{7, 10, 4, 3, 20, 15};
-        int k = 6;
+        
+        int k = 1;
 
-        System.out.println(KthElement(arr, k));
+        
+        if(k>arr.length || k<=0) {
+            System.out.println("Not possible");
+        }
+        else {
+            System.out.println(KthElement(arr, k));
+        }
+
 
     }
 
@@ -39,7 +47,7 @@ public class KthSmallestArrayElement {
         buildMinHeap(arr);
 
         heapSize = arr.length;
-        for (int i = 0; i < k; i++) {
+        for (int i = 1; i < k; i++) {
             extractMin(arr);
             heapSize--;
         }
