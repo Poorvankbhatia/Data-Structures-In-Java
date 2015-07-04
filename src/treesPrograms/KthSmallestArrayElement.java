@@ -22,11 +22,13 @@ package treesPrograms;
  * Created by poorvank on 7/3/15.
  */
 public class KthSmallestArrayElement {
+    
+    private static int heapSize = 0;
 
     public static void main(String[] args) {
 
         int[] arr = new int[]{7, 10, 4, 3, 20, 15};
-        int k = 5;
+        int k = 6;
 
         System.out.println(KthElement(arr, k));
 
@@ -36,23 +38,24 @@ public class KthSmallestArrayElement {
 
         buildMinHeap(arr);
 
-        for (int i = 1; i < k; i++) {
-            extractMin(arr, i);
+        heapSize = arr.length;
+        for (int i = 0; i < k; i++) {
+            extractMin(arr);
+            heapSize--;
         }
 
         return arr[0];
 
     }
 
-    private static void extractMin(int[] arr, int index) {
+    private static void extractMin(int[] arr) {
 
         int root = arr[0];
 
         if (arr.length > 1) {
-            arr[0] = arr[arr.length - 1];
-            restoreDown(arr, 0, arr.length - index);
+            arr[0] = arr[heapSize - 1];
+            restoreDown(arr, 0, heapSize);
         }
-
 
     }
 
