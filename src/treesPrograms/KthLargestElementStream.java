@@ -70,7 +70,7 @@ class MinimumHeap {
                 }
 
                 //Check if the next element is >  root value. count at that time should be > k
-                if (x > heapList.get(0) && count>k) {
+                if (x > heapList.get(0) && count > k) {
                     replaceMin(x);
                 }
 
@@ -112,7 +112,7 @@ class MinimumHeap {
                 heapList.set(i, heapList.get(lIndex));
                 i = lIndex;
             }
-            
+
             rIndex = rightChild(i);
             lIndex = leftChild(i);
         }

@@ -10,7 +10,7 @@ package treesPrograms;
  * Created by poorvank on 7/3/15.
  */
 public class DeleteNodeBST {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -20,75 +20,75 @@ public class DeleteNodeBST {
         root.right = new Node(45);
         root.right.left = new Node(30);
         root.right.right = new Node(46);
-        
+
         System.out.println("Inorder before: ");
         Traversal.in_Order(root);
 
         System.out.println("\nInorder after: ");
         Traversal.in_Order(delete(root, 45));
-        
+
     }
-    
-    private static Node delete(Node root,int key) {
-        
-        if(root==null) {
+
+    private static Node delete(Node root, int key) {
+
+        if (root == null) {
             return root;
         }
-        
-        if(root.info < key) {
-            delete(root.right,key);
+
+        if (root.info < key) {
+            delete(root.right, key);
         }
-        
-        if(root.info > key) {
-            delete(root.left,key);
+
+        if (root.info > key) {
+            delete(root.left, key);
         }
-        
+
         //Found Key
         else {
-            
-            if(root.left==null && root.right==null) {
+
+            if (root.left == null && root.right == null) {
                 root = null;
                 return root;
             }
-            
-            if(root.left==null) {
+
+            if (root.left == null) {
                 Node temp = root.right;
                 root = null;
                 return temp;
             }
-            
-            if(root.right==null) {
+
+            if (root.right == null) {
                 Node temp = root.left;
                 root = null;
                 return temp;
             }
-            
+
             Node temp = getInorderSuccessor(root.right);
-            
+
             root.info = temp.info;
-            
-            root.right = delete(root.right,temp.info);
-            
+
+            root.right = delete(root.right, temp.info);
+
         }
-        
+
         return root;
-        
+
     }
-    
+
     private static Node getInorderSuccessor(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return root;
         }
-        
-        while (root.left!=null) {
+
+        while (root.left != null) {
             root = root.left;
         }
-        
+
         return root;
-        
-    } 
-    
+
+    }
+
 }
 
 
