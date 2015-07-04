@@ -22,20 +22,19 @@ package treesPrograms;
  * Created by poorvank on 7/3/15.
  */
 public class KthSmallestArrayElement {
-    
+
     private static int heapSize = 0;
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{7, 10, 4, 3, 20, 15};
-        
+        int[] arr = new int[]{4, 7, 10};
+
         int k = 1;
 
-        
-        if(k>arr.length || k<=0) {
+
+        if (k > arr.length || k <= 0) {
             System.out.println("Not possible");
-        }
-        else {
+        } else {
             System.out.println(KthElement(arr, k));
         }
 
