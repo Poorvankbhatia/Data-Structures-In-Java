@@ -1,0 +1,89 @@
+This is a classic combinatorial problem that manifests itself in many different ways.
+ These problems are essentially identical:
+
+Generating all possible ways to balance N pairs of parentheses (i.e. this problem)
+Generating all possible ways to apply a binary operator to N+1 factors
+Generating all full binary trees with N+1 leaves
+Many others...
+See also
+
+Wikipedia/Catalan number
+On-Line Encyclopedia of Integer Sequences/A000108
+A straightforward recursive solution
+
+Here's a simple recursive algorithm to solve this problem in Java:
+
+public class Parenthesis {
+    static void brackets(int openStock, int closeStock, String s) {
+        if (openStock == 0 && closeStock == 0) {
+            System.out.println(s);
+        }
+        if (openStock > 0) {
+            brackets(openStock-1, closeStock+1, s + "<");
+        }
+        if (closeStock > 0) {
+            brackets(openStock, closeStock-1, s + ">");
+        }
+    }
+    public static void main(String[] args) {
+        brackets(3, 0, "");
+    }
+}
+The above prints (as seen on ideone.com):
+
+<<<>>>
+<<><>>
+<<>><>
+<><<>>
+<><><>
+Essentially we keep track of how many open and close parentheses are "on stock" for us to use as we're
+ building the string recursively.
+
+If there's nothing on stock, the string is fully built and you can just print it out
+If there's an open parenthesis available on stock, try and add it on.
+Now you have one less open parenthesis, but one more close parenthesis to balance it out
+If there's a close parenthesis available on stock, try and add it on.
+Now you have one less close parenthesis
+Note that if you swap the order of the recursion such that you try to add a close parenthesis before you
+ try to add an open parenthesis, you simply get the same list of balanced parenthesis but in reverse order!
+ 
+
+An "optimized" variant
+
+The above solution is very straightforward and instructive, but can be optimized further.
+
+The most important optimization is in the string building aspect. Although it looks like a simple
+ string concatenation on the surface, the above solution actually has a "hidden" O(N^2) string building
+  component (because concatenating one character to an immutable String of length N is an O(N) operation).
+   Generally we optimize this by using a mutable StringBuilder instead, but for this particular case we can
+    also simply use a fixed-size char[] and an index variable.
+
+We can also optimize by simplifying the recursion tree. Instead of recursing "both ways" as in the original solution,
+ we can just recurse "one way", and do the "other way" iteratively.
+
+In the following, we've done both optimizations, using char[] and index instead of String,
+ and recursing only to add open parentheses, adding close parentheses iteratively: (see also on ideone.com)
+
+public class Parenthesis2 {
+    public static void main(String[] args) {
+        brackets(4);
+    }
+    static void brackets(final int N) {
+        brackets(N, 0, 0, new char[N * 2]);
+    }
+    static void brackets(int openStock, int closeStock, int index, char[] arr) {
+        while (closeStock >= 0) {
+            if (openStock > 0) {
+                arr[index] = '<';
+                brackets(openStock-1, closeStock+1, index+1, arr);
+            }
+            if (closeStock-- > 0) {
+                arr[index++] = '>';
+                if (index == arr.length) {
+                    System.out.println(arr);
+                }
+            }
+        }
+    }
+}
+The recursion logic is less obvious now, but the two optimization techniques are instructive
