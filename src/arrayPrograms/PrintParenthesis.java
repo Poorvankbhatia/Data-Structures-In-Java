@@ -64,6 +64,9 @@ public class PrintParenthesis {
 
 /*
 
+See this
+http://stackoverflow.com/questions/3172179/valid-permutation-of-parenthesis
+
 Keep track of counts of open and close brackets. Initialize these counts as 0. 
 Recursively call the _printParenthesis() function until open bracket count is less
  than the given n. If open bracket count becomes more than the close bracket count, 
