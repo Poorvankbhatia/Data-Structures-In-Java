@@ -12,75 +12,75 @@ import java.util.Arrays;
  * Created by poorvank on 7/5/15.
  */
 public class PancakeSorting {
-    
+
     public static void main(String[] args) {
-        
+
         int[] array = new int[]{23, 10, 20, 11, 12, 6, 7};
-        
+
         sort(array);
-        
+
         System.out.println(Arrays.toString(array));
-        
+
     }
-    
+
     private static void sort(int[] array) {
-        
+
         int n = array.length;
-        
-        for (int currentSize = n; currentSize > 1 ; --currentSize) {
-            
-            int maxIndex = findMax(array,currentSize);
+
+        for (int currentSize = n; currentSize > 1; --currentSize) {
+
+            int maxIndex = findMax(array, currentSize);
 
 
             // Move the maximum element to end of current array if it's not
             // already at the end
-            if(maxIndex!=currentSize-1) {
+            if (maxIndex != currentSize - 1) {
 
                 // To move at the end, first move maximum number to beginning
-                flip(array,maxIndex);
+                flip(array, maxIndex);
 
                 // Now move the maximum number to end by reversing current array
-                flip(array,currentSize-1);
-                
+                flip(array, currentSize - 1);
+
             }
-            
+
         }
-        
+
     }
-    
-    private static int findMax(int[] array,int n) {
-        
+
+    private static int findMax(int[] array, int n) {
+
         int maxIndex = 0;
-        
-        for (int i=1;i<n;i++) {
-            
-            if(array[maxIndex] < array[i]) {
+
+        for (int i = 1; i < n; i++) {
+
+            if (array[maxIndex] < array[i]) {
                 maxIndex = i;
             }
-            
+
         }
-        
+
         return maxIndex;
-        
+
     }
-    
-    private static void flip(int[] array,int i) {
-        
+
+    private static void flip(int[] array, int i) {
+
         int start = 0;
-        
-        while (start<i) {
-            
+
+        while (start < i) {
+
             int temp = array[start];
             array[start] = array[i];
             array[i] = temp;
             start++;
             i--;
-            
+
         }
-        
-        
+
+
     }
-    
+
 }
 
 
