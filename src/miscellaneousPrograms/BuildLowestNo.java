@@ -66,11 +66,11 @@ public class BuildLowestNo {
         // not changing the order of input digits
         String newStr = input.substring(minIndex + 1, input.length());
 
-        if(minIndex==0) {
+        if (minIndex == 0) {
             minIndex = 1;
         }
 
-        System.out.println(newStr + " " + (n-minIndex) + " "  +  sb.toString());
+        System.out.println(newStr + " " + (n - minIndex) + " " + sb.toString());
         //n = n - minindex because you have already removed 0 to min_index -1 numbers from the string.
         //Now remove n-min_index elements . if minindex is 2 u have already removed 2 elements
         lowestNo(newStr, sb, n - minIndex);

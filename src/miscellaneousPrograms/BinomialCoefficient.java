@@ -11,34 +11,34 @@ package miscellaneousPrograms;
  * Created by poorvank on 7/5/15.
  */
 public class BinomialCoefficient {
-    
+
     public static void main(String[] args) {
-        
-        int n = 8,k=2;
-        
-        System.out.println(calculateBinomialCoefficient(8,2));
-        
+
+        int n = 8, k = 2;
+
+        System.out.println(calculateBinomialCoefficient(8, 2));
+
     }
-    
-    private static int calculateBinomialCoefficient(int n,int k) {
-        
-        if(k<n-k) {
-            k = n-k;
+
+    private static int calculateBinomialCoefficient(int n, int k) {
+
+        if (k < n - k) {
+            k = n - k;
         }
-        
-        int res  = 1;
-        
-        for (int i=0;i<k;i++) {
-            
-            res *= (n-i);
-            res /= (i+1);
-            
+
+        int res = 1;
+
+        for (int i = 0; i < k; i++) {
+
+            res *= (n - i);
+            res /= (i + 1);
+
         }
-        
+
         return res;
-        
+
     }
-    
+
 }
 
 /*

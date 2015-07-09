@@ -38,73 +38,71 @@ import java.util.Map;
  * Created by poorvank on 5/10/15.
  */
 public class NumberOfEmployees {
-    
-    private static HashMap<String,Integer> result = new HashMap<>();
-    
+
+    private static HashMap<String, Integer> result = new HashMap<>();
+
     public static void main(String[] args) {
 
-        HashMap<String,String> mapDictionary = new HashMap<>();
-        mapDictionary.put("A","C");
-        mapDictionary.put("C","F");
-        mapDictionary.put("D","E");
-        mapDictionary.put("E","F");
-        mapDictionary.put("F","F");
-        mapDictionary.put("B","C");
-        
+        HashMap<String, String> mapDictionary = new HashMap<>();
+        mapDictionary.put("A", "C");
+        mapDictionary.put("C", "F");
+        mapDictionary.put("D", "E");
+        mapDictionary.put("E", "F");
+        mapDictionary.put("F", "F");
+        mapDictionary.put("B", "C");
+
         populateResult(mapDictionary);
         System.out.println(result.toString());
     }
-    
-    private static void populateResult(HashMap<String,String> mapDictionary) {
-        
-        HashMap<String,List<String>> managerEmpMap = new HashMap<>();
-        
-        for (Map.Entry<String,String> entrySet : mapDictionary.entrySet()) {
-            
+
+    private static void populateResult(HashMap<String, String> mapDictionary) {
+
+        HashMap<String, List<String>> managerEmpMap = new HashMap<>();
+
+        for (Map.Entry<String, String> entrySet : mapDictionary.entrySet()) {
+
             String employee = entrySet.getKey();
             String manager = entrySet.getValue();
-            
-            if(!employee.equals(manager)) {
+
+            if (!employee.equals(manager)) {
                 List<String> empList = managerEmpMap.get(manager);
-                
-                if(empList==null) {
+
+                if (empList == null) {
                     empList = new ArrayList<>();
                 }
-                
+
                 empList.add(employee);
-                
-                managerEmpMap.put(manager,empList);
+
+                managerEmpMap.put(manager, empList);
             }
-            
+
         }
-        
+
         for (String employee : mapDictionary.keySet()) {
-            populateResultUtil(employee,managerEmpMap);
+            populateResultUtil(employee, managerEmpMap);
         }
-        
+
     }
-    
-    private static int populateResultUtil(String manager,HashMap<String,List<String>> managerEmpMap) {
-        
+
+    private static int populateResultUtil(String manager, HashMap<String, List<String>> managerEmpMap) {
+
         int count = 0;
-        if(!managerEmpMap.containsKey(manager)) {
+        if (!managerEmpMap.containsKey(manager)) {
             result.put(manager, 0);
             return 0;
-        }
-        else if(result.containsKey(manager)) {
+        } else if (result.containsKey(manager)) {
             return result.get(manager);
-        }
-        else {
+        } else {
             count = managerEmpMap.get(manager).size();
             for (String emp : managerEmpMap.get(manager)) {
                 count += populateResultUtil(emp, managerEmpMap);
             }
-            result.put(manager,count);
+            result.put(manager, count);
         }
-        
+
         return count;
     }
-    
+
 }
 
 
