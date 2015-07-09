@@ -49,8 +49,8 @@ public class BuildTreeFromAncestor {
     }
 
     /**
-     *  The below function will set up the initial sum values for each row of the matrix.
-     *  *  The sum column, will represent total number of ancestors the value has.
+     * The below function will set up the initial sum values for each row of the matrix.
+     * *  The sum column, will represent total number of ancestors the value has.
      */
     private static void initializeSumZero() {
 
@@ -59,8 +59,8 @@ public class BuildTreeFromAncestor {
 
         for (int i = 0; i < n; i++) {
 
-            if(ancestorMatrix[i][n]!=-1)
-              ancestorMatrix[i][n] = 0;
+            if (ancestorMatrix[i][n] != -1)
+                ancestorMatrix[i][n] = 0;
 
         }
 
@@ -73,7 +73,7 @@ public class BuildTreeFromAncestor {
         }
 
         decrementParentCount(root.info);
-        
+
         initializeSumZero();
 
         calculateInitialSum();
