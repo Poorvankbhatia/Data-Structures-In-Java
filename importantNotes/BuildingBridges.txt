@@ -1,0 +1,17 @@
+Building Bridges: Consider a 2-D map with a horizontal river passing through its center. 
+There are n cities on the southern bank with x-coordinates a(1) … a(n) and n cities on the northern bank 
+with x-coordinates b(1) … b(n). You want to connect as many north-south pairs of cities as possible with 
+bridges such that no two bridges cross. When connecting cities, you can only connect city i on the northern bank 
+to city i on the southern bank.
+
+8     1     4     3     5     2     6     7  
+<---- Cities on the other bank of river---->
+--------------------------------------------
+  <--------------- River--------------->
+--------------------------------------------
+1     2     3     4     5     6     7     8
+<------- Cities on one bank of river------->
+
+Solved using LIS
+
+http://stackoverflow.com/questions/7288585/building-bridges-problem-how-to-apply-longest-increasing-subsequence
