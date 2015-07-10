@@ -96,4 +96,9 @@ total exits from total arrivals by that time.
 
 So maximum guests are three at time 5.
 
+Same as :
+
+http://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/
+
+
  */
