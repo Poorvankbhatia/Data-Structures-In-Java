@@ -1,5 +1,5 @@
 package arrays;
-import Stack.*;
+import stackImplementation.*;
 
 /**
  * Created by poorvank on 7/6/15.

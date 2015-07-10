@@ -1,4 +1,4 @@
-package Stack;
+package stackImplementation;
 
 /**
  * Created by poorvank on 7/6/15.
