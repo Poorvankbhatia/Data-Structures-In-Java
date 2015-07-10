@@ -1,0 +1,16 @@
+Integer.MIN_VALUE multiplied by -1 remains the same because
+
+of silent integer overflow: Integer.MIN_VALUE is -2^31 and Integer.MAX_VALUE is 2^31-1, 
+so -Integer.MIN_VALUE is 2^31, which is Integer.MAX_VALUE + 1, which by definition is too large for an integer.
+ So it overflows and becomes Integer.MIN_VALUE...
+
+You can also check that:
+
+System.out.println(Integer.MAX_VALUE + 1);
+prints the same thing.
+
+More technically, the result is defined by 
+
+If an integer addition overflows, then the result is the low-order bits of the mathematical sum as 
+represented in some sufficiently large two's-complement format. If overflow occurs, then the sign of
+ the result is not the same as the sign of the mathematical sum of the two operand values.
