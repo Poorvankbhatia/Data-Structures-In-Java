@@ -26,44 +26,43 @@ package arrays;
  * Created by poorvank on 7/10/15.
  */
 public class MinDistanceElements {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3};
-        
-        int x=3,y=6,n=arr.length;
+
+        int x = 3, y = 6, n = arr.length;
         int prev = 0;
         int minDistance = Integer.MAX_VALUE;
-        
-        for (int i = 0;i<n;i++) {
-            
-            if(arr[i]==x || arr[i]==y) {
+
+        for (int i = 0; i < n; i++) {
+
+            if (arr[i] == x || arr[i] == y) {
                 prev = i;
                 break;
             }
-            
+
         }
-        
-        for (int i=prev+1;i<n;i++) {
-            
-            if(arr[i]==x || arr[i]==y) {
-                
-                if(arr[prev] !=arr[i] && minDistance>i-prev) {
-                    minDistance = i-prev;
+
+        for (int i = prev + 1; i < n; i++) {
+
+            if (arr[i] == x || arr[i] == y) {
+
+                if (arr[prev] != arr[i] && minDistance > i - prev) {
+                    minDistance = i - prev;
+                    prev = i;
+                } else {
                     prev = i;
                 }
-                else {
-                    prev = i;
-                }
-                
+
             }
-            
+
         }
-        
-        System.out.println("Minimum distance between - " + x  + " and " +y + " is -> " + minDistance );
-        
+
+        System.out.println("Minimum distance between - " + x + " and " + y + " is -> " + minDistance);
+
     }
-    
+
 }
 
 

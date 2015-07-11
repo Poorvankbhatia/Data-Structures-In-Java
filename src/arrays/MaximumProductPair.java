@@ -20,15 +20,15 @@ package arrays;
  * Created by poorvank on 7/10/15.
  */
 public class MaximumProductPair {
-    
-    public static void main(String[] args) {
-        
-        int[] arr = new int[]{-1, -3, -4, 2, 0, -5};
-        
-        int pos1 = Integer.MIN_VALUE,pos2 = Integer.MIN_VALUE;
-        int neg1 = Integer.MIN_VALUE,neg2 = Integer.MIN_VALUE;
 
-        
+    public static void main(String[] args) {
+
+        int[] arr = new int[]{-1, -3, -4, 2, 0, -5};
+
+        int pos1 = Integer.MIN_VALUE, pos2 = Integer.MIN_VALUE;
+        int neg1 = Integer.MIN_VALUE, neg2 = Integer.MIN_VALUE;
+
+
         for (int anArr : arr) {
 
             if (anArr > pos1) {
@@ -54,10 +54,10 @@ public class MaximumProductPair {
 
         }
 
-        System.out.println((pos1*pos2)>(neg1*neg2) ? pos1+","+pos2 : neg1 + "," + neg2);
-        
+        System.out.println((pos1 * pos2) > (neg1 * neg2) ? pos1 + "," + pos2 : neg1 + "," + neg2);
+
     }
-    
+
 }
 
 

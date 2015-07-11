@@ -1,5 +1,7 @@
 package arrays;
-import stackImplementation.*;
+
+import stackImplementation.ArrayStack;
+import stackImplementation.Stack;
 
 /**
  * Created by poorvank on 7/6/15.
@@ -13,40 +15,40 @@ class ModQueue {
     public static void enqueue(int x) {
         stack1.push(x);
     }
-    
+
     public static int deQueue() {
-        
-        if(stack1.isEmpty() && stack2.isEmpty()) {
+
+        if (stack1.isEmpty() && stack2.isEmpty()) {
             System.out.println("Empty queue");
             return -1;
         }
-        
-        if(stack2.isEmpty()) {
-           
+
+        if (stack2.isEmpty()) {
+
             while (!stack1.isEmpty()) {
                 int x = stack1.pop();
                 stack2.push(x);
             }
 
         }
-        
+
         return stack2.pop();
     }
-    
+
 }
 
 public class QueueUsing2Stacks {
-    
+
     public static void main(String[] args) {
-        
+
         ModQueue.enqueue(1);
         ModQueue.enqueue(2);
         ModQueue.enqueue(3);
-        
+
         System.out.println(ModQueue.deQueue());
-        
+
     }
-    
+
 }
 
 
