@@ -1,4 +1,4 @@
-package treesPrograms;
+package treesPrograms.tries;
 
 
 import java.util.LinkedList;

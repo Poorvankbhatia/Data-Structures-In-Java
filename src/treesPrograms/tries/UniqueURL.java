@@ -5,7 +5,7 @@ Given a very long list of URLs, find the first URL which is unique ( occurred ex
 
  */
 
-package treesPrograms;
+package treesPrograms.tries;
 
 import java.util.LinkedList;
 
