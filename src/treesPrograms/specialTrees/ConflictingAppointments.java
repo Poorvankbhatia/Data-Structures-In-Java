@@ -13,7 +13,7 @@ Output: Following are conflicting intervals
 
  */
 
-package treesPrograms;
+package treesPrograms.specialTrees;
 
 /**
  * Created by poorvank on 3/31/15.

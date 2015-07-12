@@ -1,5 +1,8 @@
 package treesPrograms;
 
+import treesPrograms.Input;
+import treesPrograms.Node;
+
 public class LeftView {
 
     private static int max = 0;
