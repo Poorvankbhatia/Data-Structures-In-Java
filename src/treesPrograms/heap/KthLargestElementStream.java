@@ -14,7 +14,7 @@ Extra space allowed is O(k).
 
  */
 
-package treesPrograms;
+package treesPrograms.heap;
 
 import java.util.ArrayList;
 import java.util.List;

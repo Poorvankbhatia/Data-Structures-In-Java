@@ -1,4 +1,4 @@
-package treesPrograms;
+package treesPrograms.heap;
 
 import java.util.Arrays;
 
