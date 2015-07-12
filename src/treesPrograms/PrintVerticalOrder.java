@@ -86,8 +86,7 @@ public class PrintVerticalOrder {
 
 
 /*
-
-n this post, an efficient solution based on hash map is discussed. We need to check the Horizontal Distances
+ An efficient solution based on hash map is discussed. We need to check the Horizontal Distances
  from root for all nodes. If two nodes have the same Horizontal Distance (HD), then they are on same vertical line.
   The idea of HD is simple. HD for root is 0, a right edge (edge connecting to right subtree) is considered as +1
    horizontal distance and a left edge is considered as -1 horizontal distance. For example, in the above tree,
