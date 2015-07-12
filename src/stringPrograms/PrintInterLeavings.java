@@ -33,54 +33,52 @@ import java.util.List;
  * Created by poorvank on 5/26/15.
  */
 public class PrintInterLeavings {
-    
+
     public static void main(String[] args) {
-        
+
         String str1 = "ab";
         String str2 = "12";
-        
-        System.out.println(print(str1,str2).toString());
-        
-    } 
-    
-    private static List<String> print(String str1,String str2) {
-        
-        if(str1.length()==0) {
+
+        System.out.println(print(str1, str2).toString());
+
+    }
+
+    private static List<String> print(String str1, String str2) {
+
+        if (str1.length() == 0) {
             List<String> list = new ArrayList<>();
             list.add(str2);
             return list;
-        }
-        else if(str2.length()==0) {
+        } else if (str2.length() == 0) {
             List<String> list = new ArrayList<>();
             list.add(str1);
             return list;
-        }
-        else {
-            
+        } else {
+
             char c1 = str1.charAt(0);
-            List<String> list1 = multiply(c1,print(str1.substring(1),str2));
+            List<String> list1 = multiply(c1, print(str1.substring(1), str2));
             char c2 = str2.charAt(0);
-            List<String> list2 = multiply(c2,print(str1,str2.substring(1)));
+            List<String> list2 = multiply(c2, print(str1, str2.substring(1)));
             list1.addAll(list2);
             return list1;
         }
-        
-        
+
+
     }
-    
-    private static List<String> multiply(char c,List<String> list) {
-        
+
+    private static List<String> multiply(char c, List<String> list) {
+
         List<String> result = new ArrayList<>();
-        
+
         for (String s : list) {
             String res = Character.toString(c) + s;
             result.add(res);
         }
-        
+
         return result;
-        
+
     }
-    
+
 }
 
 /*

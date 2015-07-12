@@ -14,40 +14,40 @@ package dyanamicProgramming;
  * Created by poorvank on 5/22/15.
  */
 public class MaximumSumIncSubSeq {
-    
+
     public static void main(String[] args) {
-        
+
         int[] array = new int[]{10, 5, 4, 3};
         maxSequence(array);
     }
-    
-    
+
+
     private static void maxSequence(int[] array) {
-        
+
         int[] sumArray = new int[array.length];
-        
-        for (int i=0;i<sumArray.length;i++) {
+
+        for (int i = 0; i < sumArray.length; i++) {
             sumArray[i] = array[i];
         }
-        
-        for (int i=1;i<array.length;i++) {
-            for (int j=0;j<i;j++) {
-                if(array[i] > array[j] && sumArray[i]<sumArray[j] + array[i]) {
+
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (array[i] > array[j] && sumArray[i] < sumArray[j] + array[i]) {
                     sumArray[i] = sumArray[j] + array[i];
                 }
             }
         }
-        
+
         int max = 0;
-        
-        for (int i = 0;i<sumArray.length;i++) {
-            if ( max < sumArray[i] )
+
+        for (int i = 0; i < sumArray.length; i++) {
+            if (max < sumArray[i])
                 max = sumArray[i];
         }
-        
+
         System.out.println(max);
     }
-    
+
 }
 
 /*

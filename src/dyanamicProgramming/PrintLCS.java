@@ -6,70 +6,67 @@ import java.util.Arrays;
  * Created by poorvank on 5/29/15.
  */
 public class PrintLCS {
-    
+
     public static void main(String[] args) {
 
         String str1 = "AGGTAB";
         String str2 = "GXTXAYB";
-        
-        print(str1,str2);
-        
+
+        print(str1, str2);
+
     }
-    
-    private static void print(String str1,String str2) {
-        
+
+    private static void print(String str1, String str2) {
+
         int m = str1.length();
         int n = str2.length();
-        
-        int[][] count = new int[m+1][n+1];
-        
-        for (int i=0;i<=m;i++) {
-            
-            for (int j=0;j<=n;j++) {
-                
-                if(i==0 || j==0) {
+
+        int[][] count = new int[m + 1][n + 1];
+
+        for (int i = 0; i <= m; i++) {
+
+            for (int j = 0; j <= n; j++) {
+
+                if (i == 0 || j == 0) {
                     count[i][j] = 0;
                     continue;
                 }
-                
-                if(str1.charAt(i-1)==str2.charAt(j-1)){
-                    count[i][j] = 1 + count[i-1][j-1];
+
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    count[i][j] = 1 + count[i - 1][j - 1];
+                } else {
+                    count[i][j] = Math.max(count[i - 1][j], count[i][j - 1]);
                 }
-                else {
-                    count[i][j] = Math.max(count[i-1][j],count[i][j-1]);
-                }
-                
+
             }
-            
+
         }
-        
+
         int N = count[m][n];
-        
+
         char[] lcsArray = new char[N];
-        
-        int i =m,j=n;
-        
-        while (i>0 && j>0) {
-            
-            if(str1.charAt(i-1)==str2.charAt(j-1)) {
-                lcsArray[N-1] = str1.charAt(i-1);
+
+        int i = m, j = n;
+
+        while (i > 0 && j > 0) {
+
+            if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                lcsArray[N - 1] = str1.charAt(i - 1);
                 i--;
                 j--;
                 N--;
-            }
-            else if(count[i-1][j]>count[i][j-1]) {
+            } else if (count[i - 1][j] > count[i][j - 1]) {
                 i--;
-            }
-            else {
+            } else {
                 j--;
             }
-            
+
         }
-        
+
         System.out.println(Arrays.toString(lcsArray));
-        
+
     }
-    
+
 }
 
 

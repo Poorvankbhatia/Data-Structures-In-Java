@@ -13,42 +13,42 @@ package dyanamicProgramming;
  * Created by poorvank on 6/2/15.
  */
 public class MinimumDistance {
-    
+
     private static final int INF = Integer.MAX_VALUE;
-    
+
     public static void main(String[] args) {
-        
+
         int[][] cost = new int[][]{{0, 15, 80, 90},
                 {INF, 0, 40, 50},
                 {INF, INF, 0, 70},
                 {INF, INF, INF, 0}};
-        
-        
+
+
         System.out.println(distance(cost));
     }
-    
+
     private static int distance(int[][] cost) {
-        
+
         int n = cost[0].length;
-        
+
         int[] distance = new int[n];
-        
-        for (int i=0;i<n;i++) {
-           distance[i] = INF;   
+
+        for (int i = 0; i < n; i++) {
+            distance[i] = INF;
         }
         distance[0] = 0;
-        
-        for (int i=0;i<n;i++) {
-            for (int j= i+1;j<n;j++) {
-                if(distance[j] > distance[i] + cost[i][j]) {
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (distance[j] > distance[i] + cost[i][j]) {
                     distance[j] = distance[i] + cost[i][j];
                 }
             }
         }
-        
-        return distance[n-1];
+
+        return distance[n - 1];
     }
-    
+
 }
 
 

@@ -4,48 +4,47 @@ package dyanamicProgramming;
  * Created by poorvank on 5/28/15.
  */
 public class MinInsertionsPalindrome {
-    
+
     public static void main(String[] args) {
-        
+
         String str = "poorvank";
         countInsertions(str);
     }
-    
+
     private static void countInsertions(String str) {
-        
+
         String rev = new StringBuilder(str).reverse().toString();
-        
+
         int n = str.length();
-        
+
         int[][] count = new int[n][n];
-        
-        for (int i=0;i<n;i++) {
-            
-            for (int j=0;j<n;j++) {
-                
-                if(i==0 || j==0) {
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                if (i == 0 || j == 0) {
                     count[i][j] = 0;
                     continue;
                 }
-                
-                if(str.charAt(i)==rev.charAt(j)) {
-                    count[i][j] = 1 + count[i-1][j-1];
+
+                if (str.charAt(i) == rev.charAt(j)) {
+                    count[i][j] = 1 + count[i - 1][j - 1];
+                } else {
+                    count[i][j] = Math.max(count[i - 1][j], count[i][j - 1]);
                 }
-                else {
-                    count[i][j] = Math.max(count[i-1][j],count[i][j-1]);
-                }
-                
+
             }
-            
+
         }
-        
-        int lcsLength = count[n-1][n-1];
-        
-        System.out.println("Minimum number of insertions required = " + (n-lcsLength));
-        
+
+        int lcsLength = count[n - 1][n - 1];
+
+        System.out.println("Minimum number of insertions required = " + (n - lcsLength));
+
     }
-    
-    
+
+
 }
 
 

@@ -12,47 +12,47 @@ package dyanamicProgramming;
  * Created by poorvank on 5/20/15.
  */
 public class LongestIncreasingSubSequence {
-    
+
     public static void main(String[] args) {
-        int[] array = new int[]{23,10,22,5,33,8,9,21,50,41,60,80,99, 22,23,24,25,26,27};
+        int[] array = new int[]{23, 10, 22, 5, 33, 8, 9, 21, 50, 41, 60, 80, 99, 22, 23, 24, 25, 26, 27};
         printLIS(array);
     }
-    
+
     private static void printLIS(int[] array) {
-        
+
         int[] size = new int[array.length];
         String[] lisArray = new String[array.length];
-        
-        for (int i=0;i<array.length;i++) {
+
+        for (int i = 0; i < array.length; i++) {
             size[i] = 1;
             lisArray[i] = array[i] + " ";
         }
-        
+
         int maxLength = 0;
-        
-        for (int i=1;i<array.length;i++) {
-            for (int j=0;j<i;j++) {
-                if(array[i]>array[j] && size[j]+1>size[i]) {
+
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (array[i] > array[j] && size[j] + 1 > size[i]) {
                     size[i] = size[j] + 1;
                     lisArray[i] = lisArray[j] + " " + array[i];
-                    if(size[i] > maxLength) {
+                    if (size[i] > maxLength) {
                         maxLength = size[i];
                     }
                 }
             }
         }
-        
+
         System.out.println();
-        
-        
-        for (int i=0;i<array.length;i++) {
-            if(size[i] == maxLength) {
+
+
+        for (int i = 0; i < array.length; i++) {
+            if (size[i] == maxLength) {
                 System.out.println("Longest Increasing subsequence - " + lisArray[i] + " of length = " + maxLength);
             }
         }
-        
+
     }
-    
+
 }
 
 

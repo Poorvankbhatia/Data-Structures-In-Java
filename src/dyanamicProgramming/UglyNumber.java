@@ -13,52 +13,52 @@ package dyanamicProgramming;
  * Created by poorvank on 5/19/15.
  */
 public class UglyNumber {
-    
+
     public static void main(String[] args) {
-        
+
         System.out.println(DPMethod(150));
-        
+
     }
-    
+
     private static int DPMethod(int n) {
-        
+
         int[] ugly = new int[n];
-        
+
         ugly[0] = 1;
-        
-        int i2=0,i3=0,i5=0;
-        
-        for (int i=1;i<n;i++) {
-            
-            int m2 = (2*ugly[i2]);
-            int m3 = (3*ugly[i3]);
-            int m5 = (5*ugly[i5]);
-            
-            int nextUglyNo = min(m2,m3,m5);
-            
+
+        int i2 = 0, i3 = 0, i5 = 0;
+
+        for (int i = 1; i < n; i++) {
+
+            int m2 = (2 * ugly[i2]);
+            int m3 = (3 * ugly[i3]);
+            int m5 = (5 * ugly[i5]);
+
+            int nextUglyNo = min(m2, m3, m5);
+
             ugly[i] = nextUglyNo;
-            
-            if(nextUglyNo==m2) {
-                i2 +=1;
+
+            if (nextUglyNo == m2) {
+                i2 += 1;
             }
-            if(nextUglyNo==m3) {
-                i3 +=1;
+            if (nextUglyNo == m3) {
+                i3 += 1;
             }
-            if(nextUglyNo==m5) {
-                i5 +=1;
+            if (nextUglyNo == m5) {
+                i5 += 1;
             }
-            
+
         }
-        
-        return ugly[n-1];
+
+        return ugly[n - 1];
     }
-    
-    private static int min(int a,int b,int c) {
-        
-        return a<b?(c>a?a:c):(c>b?b:c);
-        
+
+    private static int min(int a, int b, int c) {
+
+        return a < b ? (c > a ? a : c) : (c > b ? b : c);
+
     }
-    
+
 }
 
 /*

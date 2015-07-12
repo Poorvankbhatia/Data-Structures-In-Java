@@ -15,21 +15,21 @@ import java.util.Scanner;
 
 
 class Pair {
-    
+
     public int a;
     public int b;
-    
-    public Pair(int a,int b) {
-        
+
+    public Pair(int a, int b) {
+
         this.a = a;
         this.b = b;
-        
+
     }
-    
+
 }
 
 public class ChainOfPairs {
-    
+
     public static void main(String[] args) {
 
         /*TreeMap<Integer,Integer> map = new TreeMap();
@@ -38,54 +38,54 @@ public class ChainOfPairs {
         map.put(15,28);
         map.put(27,40);
         map.put(50,90);*/
-        
+
         Pair[] array = new Pair[5];
         Scanner scanner = new Scanner(System.in);
-        for (int i=0;i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
-            array[i] = new Pair(a,b);
+            array[i] = new Pair(a, b);
         }
-        
+
         longestChainLength(array);
     }
-    
+
     private static void longestChainLength(Pair[] array) {
-        
+
         int[] size = new int[array.length];
         String[] lChain = new String[array.length];
-        
-        for (int i=0;i<array.length;i++) {
+
+        for (int i = 0; i < array.length; i++) {
             size[i] = 1;
-            lChain[i] = "{ " + array[i].a +  " , " + array[i].b + " }";
+            lChain[i] = "{ " + array[i].a + " , " + array[i].b + " }";
         }
 
         int maxLength = 0;
-        
-        for (int i=1;i<array.length;i++) {
-            for (int j=0;j<i;j++) {
-                if(size[j]+1 > size[i] && array[i].a>=array[j].b) {
+
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (size[j] + 1 > size[i] && array[i].a >= array[j].b) {
                     size[i] = size[j] + 1;
-                    lChain[i] = lChain[j] + "  " + "{ " + array[i].a +  " , " + array[i].b + " }";
-                    if(maxLength<size[i]) {
+                    lChain[i] = lChain[j] + "  " + "{ " + array[i].a + " , " + array[i].b + " }";
+                    if (maxLength < size[i]) {
                         maxLength = size[i];
                     }
                 }
             }
         }
-        
-        
-        for (int i=0;i<array.length;i++) {
-            if(size[i]==maxLength) {
+
+
+        for (int i = 0; i < array.length; i++) {
+            if (size[i] == maxLength) {
                 System.out.println("maxLength = " + maxLength + " set - " + lChain[i]);
             }
         }
-        
-        
+
+
         System.out.println("Size of chain is - " + maxLength);
-        
+
     }
-    
+
 }
 /*
 

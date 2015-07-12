@@ -22,37 +22,36 @@ import java.util.Arrays;
  * Created by poorvank on 6/3/15.
  */
 public class NumberOfStations {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arrival = new int[]{900, 940, 950, 1100, 1500, 1800};
         int[] departure = new int[]{910, 1200, 1120, 1130, 1900, 2000};
 
         Arrays.sort(arrival);
         Arrays.sort(departure);
-        
-        int i=0,j=0,result=0,platformNeeded = 0;
-        
+
+        int i = 0, j = 0, result = 0, platformNeeded = 0;
+
         int n = arrival.length;
-        
-        while (i<n && j<n) {
-            if(arrival[i]<departure[j]) {
+
+        while (i < n && j < n) {
+            if (arrival[i] < departure[j]) {
                 platformNeeded++;
-                if(result<platformNeeded) {
+                if (result < platformNeeded) {
                     result = platformNeeded;
                 }
                 i++;
-            }
-            else {
-                platformNeeded --;
+            } else {
+                platformNeeded--;
                 j++;
             }
         }
-        
+
         System.out.println(result);
-        
+
     }
-    
+
 }
 
 

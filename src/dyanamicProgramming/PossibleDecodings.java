@@ -25,69 +25,68 @@ package dyanamicProgramming;
  * Created by poorvank on 5/27/15.
  */
 public class PossibleDecodings {
-    
+
     public static void main(String[] args) {
-        
+
         String string = "152";
-       // System.out.println(recursiveCount(string,string.length()));
+        // System.out.println(recursiveCount(string,string.length()));
         DPMethod(string);
     }
-    
-    
-    private static int recursiveCount(String sequence,int n) {
-        
-        
-        if(n==0 || n==1) {
+
+
+    private static int recursiveCount(String sequence, int n) {
+
+
+        if (n == 0 || n == 1) {
             return 1;
         }
-        
+
         int count = 0;
-        
-        if(sequence.charAt(n-1)>'0') {
-           count = recursiveCount(sequence,n-1);    
+
+        if (sequence.charAt(n - 1) > '0') {
+            count = recursiveCount(sequence, n - 1);
         }
-        
+
         //Will only come when n>=2
         // If the last two digits form a number smaller than or equal to 26,
         // then consider last two digits and recur
-        if(sequence.charAt(n-2) < '2' || (sequence.charAt(n-2)=='2' && sequence.charAt(n-1) < '7')) {
-            count += recursiveCount(sequence,n-2);
+        if (sequence.charAt(n - 2) < '2' || (sequence.charAt(n - 2) == '2' && sequence.charAt(n - 1) < '7')) {
+            count += recursiveCount(sequence, n - 2);
         }
-        
+
         return count;
     }
-    
+
     private static void DPMethod(String sequence) {
-        
+
         //count indicates number of possible decodings for the ith character of the string
-        int[] count = new int[sequence.length()+1];
-        
+        int[] count = new int[sequence.length() + 1];
+
         count[0] = 1;
         count[1] = 1;
-        
-        for (int i=2;i<=sequence.length();i++) {
-            
-            count[i]=0;
-            
-            
-            
-            if(sequence.charAt(i-1)>'0') {
-                count[i] = count[i-1];
+
+        for (int i = 2; i <= sequence.length(); i++) {
+
+            count[i] = 0;
+
+
+            if (sequence.charAt(i - 1) > '0') {
+                count[i] = count[i - 1];
             }
 
-            System.out.println(sequence.charAt(i-2));
+            System.out.println(sequence.charAt(i - 2));
             //Dependent on previous input if the conditions apply
-            if(sequence.charAt(i-2) < '2' || (sequence.charAt(i-2)=='2' && sequence.charAt(i-1) < '7')) {
-                count[i]  += count[i-2];
+            if (sequence.charAt(i - 2) < '2' || (sequence.charAt(i - 2) == '2' && sequence.charAt(i - 1) < '7')) {
+                count[i] += count[i - 2];
             }
-            
+
         }
-        
+
         System.out.println(count[sequence.length()]);
-        
+
     }
-    
-    
+
+
 }
 
 

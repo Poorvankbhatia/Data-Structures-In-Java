@@ -23,65 +23,63 @@ package dyanamicProgramming;
  * Created by poorvank on 5/29/15.
  */
 public class LongestCommonSubSequence {
-    
+
     public static void main(String[] args) {
-        
+
         String str1 = "AGGTAB";
         String str2 = "GXTXAYB";
-        
-        System.out.println(recursive(str1,str2, str1.length(),str2.length()));
-        DPMethod(str1,str2);
-        
+
+        System.out.println(recursive(str1, str2, str1.length(), str2.length()));
+        DPMethod(str1, str2);
+
     }
-    
-    private static int recursive(String str1,String str2,int m,int n) {
-        
-        if(m==0 || n==0) {
+
+    private static int recursive(String str1, String str2, int m, int n) {
+
+        if (m == 0 || n == 0) {
             return 0;
         }
-        if(str1.charAt(m-1)==str2.charAt(n-1)) {
-            return recursive(str1,str2,m-1,n-1) + 1;
+        if (str1.charAt(m - 1) == str2.charAt(n - 1)) {
+            return recursive(str1, str2, m - 1, n - 1) + 1;
+        } else {
+            return Math.max(recursive(str1, str2, m - 1, n), recursive(str1, str2, m, n - 1));
         }
-        else {
-            return Math.max(recursive(str1,str2,m-1,n),recursive(str1,str2,m,n-1));
-        }
-        
+
     }
-    
-    private static void DPMethod(String str1,String str2) {
-        
+
+    private static void DPMethod(String str1, String str2) {
+
         int m = str1.length();
         int n = str2.length();
-        
-        int[][] count = new int[m+1][n+1];
-        
-        for (int i=0;i<=m;i++) {
+
+        int[][] count = new int[m + 1][n + 1];
+
+        for (int i = 0; i <= m; i++) {
             count[i][0] = 0;
         }
-        
-        for (int i=0;i<=n;i++) {
+
+        for (int i = 0; i <= n; i++) {
             count[0][i] = 0;
         }
-        
-        for (int i=1;i<=m;i++) {
-            
-            for (int j=1;j<=n;j++) {
-                
-                if(str1.charAt(i-1)==str2.charAt(j-1)) {
-                    count[i][j] = count[i-1][j-1]+1;
+
+        for (int i = 1; i <= m; i++) {
+
+            for (int j = 1; j <= n; j++) {
+
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    count[i][j] = count[i - 1][j - 1] + 1;
+                } else {
+                    count[i][j] = Math.max(count[i - 1][j], count[i][j - 1]);
                 }
-                else {
-                    count[i][j] = Math.max(count[i-1][j],count[i][j-1]);
-                }
-                
+
             }
-            
+
         }
-        
+
         System.out.println(count[m][n]);
-        
+
     }
-    
+
 }
 
 

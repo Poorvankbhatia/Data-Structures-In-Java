@@ -6,66 +6,63 @@ package dyanamicProgramming;
 public class LongestPalindromicSubSequence {
 
     public static void main(String[] args) {
-        
+
         String input = "BBABCBCAB";
-        
-        System.out.println("Length - " + lengthRec(input,0,input.length()-1));
+
+        System.out.println("Length - " + lengthRec(input, 0, input.length() - 1));
         lengthDP(input);
-        
+
     }
-    
-    private static int lengthRec(String input,int i,int j) {
-        
-        if(i==j) {
+
+    private static int lengthRec(String input, int i, int j) {
+
+        if (i == j) {
             return 1;
         }
-        if(input.charAt(i)==input.charAt(j) && i+1==j) {
+        if (input.charAt(i) == input.charAt(j) && i + 1 == j) {
             return 2;
         }
-        if(input.charAt(i)==input.charAt(j)) {
-            return lengthRec(input,i+1,j-1) + 2;
+        if (input.charAt(i) == input.charAt(j)) {
+            return lengthRec(input, i + 1, j - 1) + 2;
+        } else {
+            return Math.max(lengthRec(input, i, j - 1), lengthRec(input, i + 1, j));
         }
-        else {
-            return Math.max(lengthRec(input,i,j-1),lengthRec(input,i+1,j));
-        }
-        
-        
+
+
     }
-    
+
     private static void lengthDP(String input) {
-        
+
         int n = input.length();
         int cl;
         int[][] L = new int[n][n];
-        
-        for (int i =0;i<n;i++) {
+
+        for (int i = 0; i < n; i++) {
             L[i][i] = 1;
         }
-        
-        for (cl=2;cl<=n;cl++) {
-            
-            for (int i=0;i<n-cl+1;i++) {
-                
-                int j= i+cl-1;
-                
-                if(input.charAt(i)==input.charAt(j) && cl==2) {
+
+        for (cl = 2; cl <= n; cl++) {
+
+            for (int i = 0; i < n - cl + 1; i++) {
+
+                int j = i + cl - 1;
+
+                if (input.charAt(i) == input.charAt(j) && cl == 2) {
                     L[i][j] = 2;
-                }
-                else if(input.charAt(i)==input.charAt(j)) {
+                } else if (input.charAt(i) == input.charAt(j)) {
                     L[i][j] = L[i + 1][j - 1] + 2;
-                }
-                else
+                } else
                     L[i][j] = Math.max(L[i][j - 1], L[i + 1][j]);
-                
+
             }
-            
+
         }
-        
-        System.out.println(L[0][n-1]);
-        
-        
+
+        System.out.println(L[0][n - 1]);
+
+
     }
-    
+
 }
 
 

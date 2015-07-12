@@ -13,54 +13,52 @@ package stringPrograms;
  * Created by poorvank on 5/26/15.
  */
 public class CheckInterleaving {
-    
+
     public static void main(String[] args) {
-        
+
         String a = "AB";
         String b = "CD";
-        
+
         String check1 = "CABD";
         String check2 = "CAGB";
-        
-        System.out.println(check(a,b,check1));
-        System.out.println(check(a,b,check2));
-        
+
+        System.out.println(check(a, b, check1));
+        System.out.println(check(a, b, check2));
+
     }
-    
-    public static boolean check(String a,String b,String c) {
-        
-        if(c.length()!=a.length()+b.length()) {
+
+    public static boolean check(String a, String b, String c) {
+
+        if (c.length() != a.length() + b.length()) {
             return false;
         }
-        
-        int i=0;
-        int j=0;
-        int k=0;
-        
-        
-        while (i<c.length()) {
-            
-            if(j<a.length() && c.charAt(i)==a.charAt(j)) {
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+
+        while (i < c.length()) {
+
+            if (j < a.length() && c.charAt(i) == a.charAt(j)) {
                 j++;
-            }
-            else if(k< b.length() && c.charAt(i)==b.charAt(k)){
+            } else if (k < b.length() && c.charAt(i) == b.charAt(k)) {
                 k++;
-            }
-            else {
+            } else {
                 return false;
             }
-            
+
             i++;
-            
+
         }
-        
-        if(j!=a.length() || k!=b.length()) {
+
+        if (j != a.length() || k != b.length()) {
             return false;
         }
-        
+
         return true;
     }
-    
+
 }
 
 /*

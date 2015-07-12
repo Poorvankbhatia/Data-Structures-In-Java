@@ -4,54 +4,54 @@ package dyanamicProgramming;
  * Created by poorvank on 5/22/15.
  */
 public class CuttingRod {
-    
+
     public static void main(String[] args) {
-        
+
         int[] prices = new int[]{1, 5, 8, 9, 10, 17, 17, 20};
-        System.out.println(cutRecursive(prices,prices.length));
-        cutDP(prices,prices.length);
-        
+        System.out.println(cutRecursive(prices, prices.length));
+        cutDP(prices, prices.length);
+
     }
-    
-    private static int cutRecursive(int[] prices,int n) {
-        
-        if(n==0) {
+
+    private static int cutRecursive(int[] prices, int n) {
+
+        if (n == 0) {
             return 0;
         }
         int max = Integer.MIN_VALUE;
-        
-        for (int i=0;i<n;i++) {
-            
-            max = Math.max(max,prices[i]+cutRecursive(prices,n-i-1));
+
+        for (int i = 0; i < n; i++) {
+
+            max = Math.max(max, prices[i] + cutRecursive(prices, n - i - 1));
             /*
                 max(prices[0]+prices[7],prices[1]+prices[6],prices[2]+prices[5],prices[3]+prices[4]...)
              */
         }
-        
+
         return max;
     }
-    
-    private static void cutDP(int[] prices,int n) {
-        
-        int[] val = new int[n+1];
-        
+
+    private static void cutDP(int[] prices, int n) {
+
+        int[] val = new int[n + 1];
+
         val[0] = 0;
-        
-        for (int i=1;i<=n;i++) {
-            
+
+        for (int i = 1; i <= n; i++) {
+
             int max = Integer.MIN_VALUE;
-            
-            for (int j=0;j<i;j++) {
-                max = Math.max(max,prices[j] + val[i-j-1]);
+
+            for (int j = 0; j < i; j++) {
+                max = Math.max(max, prices[j] + val[i - j - 1]);
             }
-            
+
             val[i] = max;
-            
+
         }
-        
+
         System.out.println(val[n]);
     }
-    
+
 }
 
 
