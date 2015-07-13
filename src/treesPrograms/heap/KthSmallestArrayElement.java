@@ -16,7 +16,7 @@ Output: 10
 
  */
 
-package treesPrograms;
+package treesPrograms.heap;
 
 /**
  * Created by poorvank on 7/3/15.

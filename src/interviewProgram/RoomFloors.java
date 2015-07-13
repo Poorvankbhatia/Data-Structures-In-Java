@@ -6,7 +6,7 @@ find the floor on which room lies and the position of room from the left.
 
  */
 
-package miscellaneousPrograms;
+package interviewProgram;
 
 /**
  * Created by poorvank on 7/9/15.

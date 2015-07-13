@@ -7,7 +7,7 @@ Question: Given an array of positive numbers, find the maximum sum of a subseque
 
  */
 
-package arrays;
+package miscellaneousPrograms;
 
 /**
  * Created by poorvank on 7/12/15.

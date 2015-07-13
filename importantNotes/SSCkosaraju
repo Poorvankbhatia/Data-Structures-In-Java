@@ -9,7 +9,7 @@ Take v as source and do DFS (call DFSUtil(v)). The DFS starting from v prints st
 How does this work?
 The above algorithm is DFS based. It does DFS two times. DFS of a graph produces a single tree if all vertices are
  reachable from the DFS starting point. Otherwise DFS produces a forest. So DFS of a graph with only one SCC always 
- produces a tree. The important point to note is DFS may produce a tree or a forest when there are more than one SCCs \
+ produces a tree. The important point to note is DFS may produce a tree or a forest when there are more than one SCCs 
 depending upon the chosen starting point. For example, in the above diagram, if we start DFS from vertices 0 or 1 or 2,
 we get a tree as output. And if we start from 3 or 4, we get a forest. To find and print all SCCs, we would want to start
  DFS from vertex 4 (which is a sink vertex), then move to 3 which is sink in the remaining set (set excluding 4) and 
@@ -40,7 +40,8 @@ Applications:
 SCC algorithms can be used as a first step in many graph algorithms that work only on strongly connected graph.
 In social networks, 
 a group of people are generally strongly connected 
-(For example, students of a class or any other common place). Many people in these groups generally like some common pages or play common games. The SCC algorithms can be used to find such groups and suggest the commonly
+(For example, students of a class or any other common place). Many people in these groups generally like some 
+common pages or play common games. The SCC algorithms can be used to find such groups and suggest the commonly
  liked pages or games to the people in the group who have not yet liked commonly liked a page or played a game
  
  

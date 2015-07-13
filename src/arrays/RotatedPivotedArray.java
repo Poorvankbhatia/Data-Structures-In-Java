@@ -1,6 +1,8 @@
 /*
 
+
 There is a rotated and pivoted array. Write the code to determine how many times the array is rotated.
+No duplicates should be there
 
  */
 
@@ -68,3 +70,9 @@ public class RotatedPivotedArray {
     }
 
 }
+
+/*
+
+https://www.youtube.com/watch?v=4qjprDkJrjY
+
+ */
