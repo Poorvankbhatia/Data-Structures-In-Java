@@ -28,14 +28,10 @@ public class RearrangePosNeg {
         int i = -1;
 
         for (int j = 0; j < n; j++) {
-
             if (arr[j] < 0) {
-
                 i++;
                 swap(i, j, arr);
-
             }
-
         }
 
         int pos = i + 1;

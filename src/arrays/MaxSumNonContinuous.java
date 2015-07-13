@@ -13,17 +13,17 @@ package arrays;
  * Created by poorvank on 7/12/15.
  */
 public class MaxSumNonContinuous {
-    
+
     public static void main(String[] args) {
-        
+
         int[] posArr = new int[]{5, 5, 10, 40, 50, 35};
         System.out.println(positiveArraySolution(posArr));
-        
+
         int[] negArr = new int[]{4, 5, 17, 3, 12, 29, 0, -25, 25, 28, 16, 16, 16, 11, -10};
         System.out.println(dpSolution(negArr));
-        
+
     }
-    
+
     private static int positiveArraySolution(int[] arr) {
     
         /*
@@ -67,43 +67,43 @@ public class MaxSumNonContinuous {
         
         
          */
-        
+
         int includePrev = arr[0];
         int excludePrev = 0;
-        
-        for (int i=1;i<arr.length;i++) {
 
-            int excludeNew = Math.max(includePrev,excludePrev);
+        for (int i = 1; i < arr.length; i++) {
+
+            int excludeNew = Math.max(includePrev, excludePrev);
             includePrev = arr[i] + excludePrev;
-            excludePrev  = excludeNew;
-            
+            excludePrev = excludeNew;
+
         }
-        
-        return Math.max(includePrev,excludePrev);
-        
+
+        return Math.max(includePrev, excludePrev);
+
     }
-    
+
     private static int dpSolution(int[] arr) {
         
         /*
         m(i) = max (m(i-1) , m(i-2) + arr[i])
 
          */
-        
+
         int[] maxSum = new int[arr.length];
         maxSum[0] = arr[0];
-        maxSum[1] = Math.max(arr[0],arr[1]);
+        maxSum[1] = Math.max(arr[0], arr[1]);
 
         int max = maxSum[1];
-        
-        for (int i=2;i<arr.length;i++) {
-            maxSum[i] = Math.max(maxSum[i-1] , maxSum[i-2]+arr[i]);
-            if(maxSum[i]>max) {
+
+        for (int i = 2; i < arr.length; i++) {
+            maxSum[i] = Math.max(maxSum[i - 1], maxSum[i - 2] + arr[i]);
+            if (maxSum[i] > max) {
                 max = maxSum[i];
             }
         }
-        
+
         return max;
     }
-    
+
 }

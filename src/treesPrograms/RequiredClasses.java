@@ -2,24 +2,6 @@ package treesPrograms;
 
 import java.util.Scanner;
 
-class Node {
-
-    public int info;
-    public Node left;
-    public Node right;
-
-    public Node(int info) {
-        this(info, null, null);
-    }
-
-    public Node(int info, Node left, Node right) {
-        this.info = info;
-        this.left = left;
-        this.right = right;
-    }
-
-}
-
 class Tree {
 
     public Node root;
