@@ -56,7 +56,7 @@ package treesPrograms;
 /**
  * Created by poorvank on 6/23/15.
  */
-public class RemoveNodes {
+public class RemoveKDistanceNodes {
 
     public static void main(String[] args) {
 
