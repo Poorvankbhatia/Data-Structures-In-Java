@@ -16,10 +16,10 @@ public class CountIslands {
     public static void main(String[] args) {
 
         int[][] array = new int[][]{{1, 1, 0, 0, 0},
-                {0, 1, 0, 0, 1},
-                {1, 0, 0, 1, 1},
-                {0, 0, 0, 0, 0},
-                {1, 0, 1, 0, 1}
+                                    {0, 1, 0, 0, 1},
+                                    {1, 0, 0, 1, 1},
+                                    {0, 0, 0, 0, 0},
+                                    {1, 0, 1, 0, 1}
         };
 
         int arraySize = array.length;
