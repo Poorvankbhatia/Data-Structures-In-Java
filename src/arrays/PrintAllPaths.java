@@ -18,9 +18,9 @@ public class PrintAllPaths {
 
     public static void main(String[] args) {
 
-        int[][] matrix = new int[][]{{1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}};
+        int[][] matrix = new int[][]{   {1, 2, 3},
+                                        {4, 5, 6},
+                                        {7, 8, 9}};
         printPaths(matrix, matrix.length, matrix[0].length, 0, 0, new ArrayList<Integer>());
 
     }

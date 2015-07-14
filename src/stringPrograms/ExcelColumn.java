@@ -28,11 +28,12 @@ public class ExcelColumn {
     public static void main(String[] args) {
 
         System.out.println("Enter column number");
-        printColumn(new Scanner(System.in).nextInt());
+        column(new Scanner(System.in).nextInt());
+        System.out.println(printColumn(new Scanner(System.in).nextInt()));
 
     }
 
-    private static void printColumn(int n) {
+    private static void column(int n) {
 
         StringBuilder sb = new StringBuilder("");
 
@@ -51,7 +52,22 @@ public class ExcelColumn {
         }
 
         System.out.println("Column name is- " + sb.reverse().toString());
+        
 
+    }
+    
+    private static String printColumn(int column) {
+
+        column--;
+        if (column >= 0 && column < 26) {
+            System.out.println(column + " " +  Character.toString(((char)('A' + column))));
+            return Character.toString(((char)('A' + column)));
+        }
+        else if (column > 25)
+            return printColumn(column / 26) + printColumn(column % 26 + 1);
+        else
+            return  "Invalid Column #" + (column + 1);
+        
     }
 
 }
