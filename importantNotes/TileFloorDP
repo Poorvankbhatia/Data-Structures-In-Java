@@ -1,0 +1,13 @@
+Given a floor of dimensions 2 x W and tiles of dimensions 2 x 1,
+write code to find the number of ways the floor can be tiled.
+
+width    possibilities  (1 = vertical, 0 = horizontal and must be in pairs)
+  1         1 - 1  
+  2         2 - 11/00
+  3         3 - 111/100/001 
+  4         5 - 1111/1100/1001/0011/0000
+  5         8 - 11111/11100/11001/10011
+                10000/00111/00001/00000
+                
+                
+  Fib series
