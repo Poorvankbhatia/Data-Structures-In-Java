@@ -6,7 +6,7 @@ This is an variation of the standard problem: “Counting number of connected co
 
  */
 
-package arrays;
+package graphProgram;
 
 /**
  * Created by poorvank on 4/25/15.
