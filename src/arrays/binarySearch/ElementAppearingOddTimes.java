@@ -21,33 +21,32 @@ package arrays.binarySearch;
  * Created by poorvank on 7/17/15.
  */
 public class ElementAppearingOddTimes {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{1, 1, 2, 2, 1, 1, 2, 2, 13, 1, 1, 40, 40, 13, 13};
-        
-        int index = oddOccurringIndex(arr,0,arr.length-1);
-        
-        if(index!=-1) {
+
+        int index = oddOccurringIndex(arr, 0, arr.length - 1);
+
+        if (index != -1) {
             System.out.print("odd occurring element is - " + arr[index]);
-        }
-        else {
+        } else {
             System.out.print("No odd occurring element");
         }
-        
+
     }
-    
-    private static int oddOccurringIndex(int[] arr,int low,int high) {
-        
-        if(low>high) {
+
+    private static int oddOccurringIndex(int[] arr, int low, int high) {
+
+        if (low > high) {
             return -1;
         }
         //Consider case {1, 1, 2, 2, 1} low == high== 4(Index)
-        if(low==high) {
+        if (low == high) {
             return low;
         }
-        
-        int mid = (low+high)/2;
+
+        int mid = (low + high) / 2;
         
         /*
         
@@ -56,31 +55,28 @@ public class ElementAppearingOddTimes {
           right side, else on left side
         
          */
-        
-        if(mid%2==0) {
-            
+
+        if (mid % 2 == 0) {
+
             System.out.println(mid);
-            if(arr[mid]==arr[mid+1]) {
-                return oddOccurringIndex(arr,mid+2,high);
+            if (arr[mid] == arr[mid + 1]) {
+                return oddOccurringIndex(arr, mid + 2, high);
+            } else {
+                return oddOccurringIndex(arr, low, mid);
             }
-            else {
-                return oddOccurringIndex(arr,low,mid);
+
+        } else {
+
+            if (arr[mid] == arr[mid - 1]) {
+                return oddOccurringIndex(arr, mid + 1, high);
+            } else {
+                return oddOccurringIndex(arr, low, mid - 1);
             }
-            
+
         }
-        else {
-            
-            if(arr[mid]==arr[mid-1]) {
-                return oddOccurringIndex(arr,mid+1,high);
-            }
-            else {
-                return oddOccurringIndex(arr,low,mid-1);
-            }
-            
-        }
-        
+
     }
-    
+
 }
 
 

@@ -62,5 +62,5 @@ public class SortedArrayFrequency {
         return -1;
 
     }
-    
+
 }

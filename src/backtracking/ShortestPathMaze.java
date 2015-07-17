@@ -1,9 +1,9 @@
 package backtracking;
 
-import java.util.LinkedList;
-import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
 
 class PathStep {
     int i, j;
@@ -31,20 +31,20 @@ class ShortestPathMaze {
         // using set to check if already traversed
         HashSet<Integer> set = new HashSet<Integer>();
         boolean findDest = false;
-        while(!queue.isEmpty() && !findDest) {
+        while (!queue.isEmpty() && !findDest) {
             LinkedList<PathStep> tmpQueue = new LinkedList<PathStep>();
-            while(!queue.isEmpty()) {
+            while (!queue.isEmpty()) {
                 step = queue.remove();
                 int i = step.i, j = step.j, id;
-                if(matrix[i][j] == 3) {	// find dest
+                if (matrix[i][j] == 3) {    // find dest
                     findDest = true;
                     break;
                 }
                 PathStep next;
                 // move left
-                if(j > 0 && matrix[i][j - 1] != 0) {
+                if (j > 0 && matrix[i][j - 1] != 0) {
                     id = N * i + (j - 1);
-                    if(!set.contains(id)) {
+                    if (!set.contains(id)) {
                         set.add(id);
                         //Adding previous at every step
                         next = new PathStep(i, j - 1, step);
@@ -52,27 +52,27 @@ class ShortestPathMaze {
                     }
                 }
                 // move right
-                if(j < N - 1 && matrix[i][j + 1] != 0) {
+                if (j < N - 1 && matrix[i][j + 1] != 0) {
                     id = N * i + (j + 1);
-                    if(!set.contains(id)) {
+                    if (!set.contains(id)) {
                         set.add(id);
                         next = new PathStep(i, j + 1, step);
                         tmpQueue.add(next);
                     }
                 }
                 // move up
-                if(i > 0 && matrix[i - 1][j] != 0) {
+                if (i > 0 && matrix[i - 1][j] != 0) {
                     id = N * (i - 1) + j;
-                    if(!set.contains(id)) {
+                    if (!set.contains(id)) {
                         set.add(id);
                         next = new PathStep(i - 1, j, step);
                         tmpQueue.add(next);
                     }
                 }
                 // move down
-                if(i < N - 1 && matrix[i + 1][j] != 0) {
+                if (i < N - 1 && matrix[i + 1][j] != 0) {
                     id = N * (i + 1) + j;
-                    if(!set.contains(id)) {
+                    if (!set.contains(id)) {
                         set.add(id);
                         next = new PathStep(i + 1, j, step);
                         tmpQueue.add(next);
@@ -81,20 +81,19 @@ class ShortestPathMaze {
             }
             queue = tmpQueue;
         }
-        if(findDest) {
+        if (findDest) {
             // build path
             ArrayList<PathStep> path = new ArrayList<PathStep>();
-            while(step != null) {
+            while (step != null) {
                 path.add(step);
                 step = step.prev;
             }
             Collections.reverse(path);
             // print path
-            for(int i = 0; i < path.size(); i++) {
-                if(i == path.size() - 1) {
+            for (int i = 0; i < path.size(); i++) {
+                if (i == path.size() - 1) {
                     System.out.println(path.get(i));
-                }
-                else {
+                } else {
                     System.out.print(path.get(i) + " -> ");
                 }
             }
@@ -103,14 +102,14 @@ class ShortestPathMaze {
 
     public static void main(String[] args) {
         int[][] matrix = {
-                {1,1,1,1,1,1,1,1},
-                {1,0,0,0,0,0,0,1},
-                {1,1,0,0,0,0,0,1},
-                {0,1,1,1,0,0,0,1},
-                {0,0,0,1,0,0,0,1},
-                {1,1,1,1,0,0,0,1},
-                {1,0,0,0,0,0,0,1},
-                {3,1,1,1,1,1,1,1}
+                {1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 0, 0, 0, 0, 0, 0, 1},
+                {1, 1, 0, 0, 0, 0, 0, 1},
+                {0, 1, 1, 1, 0, 0, 0, 1},
+                {0, 0, 0, 1, 0, 0, 0, 1},
+                {1, 1, 1, 1, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 1},
+                {3, 1, 1, 1, 1, 1, 1, 1}
         };
         shortestPath(matrix);
     }
