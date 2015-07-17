@@ -1,4 +1,4 @@
-package arrays;
+package arrays.binarySearch;
 
 /**
  * Created by poorvank on 7/13/15.
@@ -41,8 +41,7 @@ public class FindElementPivotedRotatedArray {
             
             /*
             
-              Upper Half is sorted
-            
+
              */
 
             if(arr[mid] <= arr[high]) {

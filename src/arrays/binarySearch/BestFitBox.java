@@ -15,7 +15,7 @@ Simple binary search
 
  */
 
-package arrays;
+package arrays.binarySearch;
 
 /**
  * Created by poorvank on 6/22/15.

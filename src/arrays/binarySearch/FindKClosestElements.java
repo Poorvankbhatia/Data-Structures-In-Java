@@ -14,7 +14,7 @@ In the following solutions, it is assumed that all elements of array are distinc
 
  */
 
-package arrays;
+package arrays.binarySearch;
 
 /**
  * Created by poorvank on 7/15/15.
