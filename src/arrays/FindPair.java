@@ -73,5 +73,7 @@ If arr[j] – arr[i] is smaller than n, we need to look for greater arr[j],
 so increment j. If arr[j] – arr[i] is greater than n, 
 we need to look for greater arr[i], so increment i. 
 
+Hashmap can also be used. Add all elements to a hashmap. then for every element check if arr[i]+n is present in th hashmap.
+O(n)
 
  */
