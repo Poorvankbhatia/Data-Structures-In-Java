@@ -1,0 +1,18 @@
+
+Give N cards facing down, you have to flip all the N cards facing up. 
+If you are flipping ith card then, i-1,i,i+1 will flipped. For eg: if N =3, then minimum no of steps will be 1.
+Given N cards, we have to calculate the minimum no of steps to flip all the cards up.
+
+The cases for N=1, 2, and 3 are easy.
+
+For N = 3k, this is easy. Just flip over k cards starting with the second one.
+
+For N = 3k+1, first flip both cards on the ends, which flips over 4 cards. 
+Then we have 3k-3 cards left over, which is divisible by 3, which can be easily flipped in k-1 moves.  (k-1+2 = k+1)
+
+For N = 3k+2, first choose the first card, which flips 2 cards. 
+Now you have 3k cards left to flip, which is easily done in k flips. (k+1)
+
+So it's n/3 with multiples of 3 and n/3 + 1 otherwise
+
+It can be further reduced to (n + 2) / 3;
