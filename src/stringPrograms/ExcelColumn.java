@@ -91,4 +91,6 @@ Finally we reverse the string and print.
  The -1 on the divide/equals statement shifts A=1...Z=26.
  Then finally the generated string is reversed to get it to be in the correct order. 
 
+http://stackoverflow.com/questions/181596/how-to-convert-a-column-number-eg-127-into-an-excel-column-eg-aa
+
 */
