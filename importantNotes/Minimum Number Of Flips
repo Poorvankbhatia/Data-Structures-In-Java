@@ -15,4 +15,4 @@ Now you have 3k cards left to flip, which is easily done in k flips. (k+1)
 
 So it's n/3 with multiples of 3 and n/3 + 1 otherwise
 
-It can be further reduced to (n + 2) / 3;
+It can be further reduced to (n + 2) / 3.
