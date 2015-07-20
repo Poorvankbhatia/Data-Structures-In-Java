@@ -24,9 +24,10 @@ class ListNode2 {
     ListNode2 child;
 
     public ListNode2(int info) {
-        this(info,null,null);
+        this(info, null, null);
     }
-    public ListNode2(int info,ListNode2 right,ListNode2 down) {
+
+    public ListNode2(int info, ListNode2 right, ListNode2 down) {
         this.info = info;
         next = right;
         child = down;
@@ -36,7 +37,7 @@ class ListNode2 {
 }
 
 public class FlattenLinkList2 {
-    
+
     public static void main(String[] args) {
 
 
@@ -51,55 +52,55 @@ public class FlattenLinkList2 {
         head.child.next.child = new ListNode2(2);
         head.next.next.next.child = new ListNode2(7);
         head.next.next.next.child.next = new ListNode2(16);
-        
+
         head = flatten(head);
 
         ListNode2 current = head;
 
-        while (current!=null) {
+        while (current != null) {
             System.out.print(current.info + " ");
             current = current.next;
         }
 
     }
-    
+
     private static ListNode2 flatten(ListNode2 head) {
-        
-        if(head==null) {
+
+        if (head == null) {
             return null;
         }
-        
-        ListNode2 tmp = null,tail=head;
-        
-        while (tail.next!=null) {
+
+        ListNode2 tmp = null, tail = head;
+
+        while (tail.next != null) {
             tail = tail.next;
         }
-        
+
         ListNode2 curr = head;
-        
-        while (curr!=null) {
-            
-            if(curr.child!=null) {
-                
+
+        while (curr != null) {
+
+            if (curr.child != null) {
+
                 tmp = curr.child;
                 tail.next = tmp;
-                
-                while (tmp.next!=null) {
-                    
+
+                while (tmp.next != null) {
+
                     tmp = tmp.next;
                 }
                 tail = tmp;
             }
-            
+
             curr = curr.next;
-            
+
         }
-        
+
         return head;
-        
-        
+
+
     }
-    
+
 }
 
 /*

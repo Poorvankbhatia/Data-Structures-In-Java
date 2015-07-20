@@ -11,7 +11,7 @@ package linkedlistPrograms;
  * Created by poorvank on 5/7/15.
  */
 public class CustomSortLinkList {
-    
+
     public static void main(String[] args) {
 
         LLNode head = Input.listInput();
@@ -19,39 +19,38 @@ public class CustomSortLinkList {
         sort(head);
         System.out.println();
         LinkedList.printList(head);
-        
+
     }
-    
+
     private static void sort(LLNode head) {
-        
-        int[] countArr = new int[]{0,0,0};
-        
+
+        int[] countArr = new int[]{0, 0, 0};
+
         LLNode tmp = head;
-        
-        while (tmp!=null) {
+
+        while (tmp != null) {
             countArr[tmp.info]++;
             tmp = tmp.link;
         }
-        
+
         tmp = head;
-        
-        int i=0;
-        
-        while (tmp!=null) {
-            
-            if(countArr[i]==0) {
+
+        int i = 0;
+
+        while (tmp != null) {
+
+            if (countArr[i] == 0) {
                 i++;
-            }
-            else {
+            } else {
                 tmp.info = i;
                 tmp = tmp.link;
                 countArr[i]--;
             }
-            
+
         }
-        
+
     }
-    
+
 }
 
 /*

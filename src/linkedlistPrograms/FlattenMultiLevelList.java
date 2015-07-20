@@ -29,26 +29,27 @@ package linkedlistPrograms;
  */
 
 class MultiLevelNode {
-    
+
     int info;
     MultiLevelNode right;
     MultiLevelNode down;
-    
+
     public MultiLevelNode(int info) {
-        this(info,null,null);
+        this(info, null, null);
     }
-    public MultiLevelNode(int info,MultiLevelNode right,MultiLevelNode down) {
+
+    public MultiLevelNode(int info, MultiLevelNode right, MultiLevelNode down) {
         this.info = info;
         this.right = right;
         this.down = down;
     }
-    
+
 }
 
 public class FlattenMultiLevelList {
-    
+
     public static void main(String[] args) {
-        
+
         MultiLevelNode root = new MultiLevelNode(5);
         root.down = new MultiLevelNode(7);
         root.down.down = new MultiLevelNode(8);
@@ -58,50 +59,49 @@ public class FlattenMultiLevelList {
         root.right.right = new MultiLevelNode(19);
         root.right.right.down = new MultiLevelNode(22);
         root.right.right.down.down = new MultiLevelNode(50);
-        
+
         MultiLevelNode result = flatten(root);
-        
+
         MultiLevelNode current = result;
-        
-        while (current!=null) {
+
+        while (current != null) {
             System.out.print(current.info + " ");
             current = current.down;
         }
     }
-    
-    
+
+
     private static MultiLevelNode flatten(MultiLevelNode root) {
-        
-        if(root==null || root.right==null) {
+
+        if (root == null || root.right == null) {
             return root;
         }
-        
-        return merge(root,flatten(root.right));
+
+        return merge(root, flatten(root.right));
     }
-    
-    private static MultiLevelNode merge(MultiLevelNode root1,MultiLevelNode root2) {
-        
-        if(root1==null) {
+
+    private static MultiLevelNode merge(MultiLevelNode root1, MultiLevelNode root2) {
+
+        if (root1 == null) {
             return root2;
         }
-        if(root2==null) {
+        if (root2 == null) {
             return root1;
         }
-        
+
         MultiLevelNode result = null;
-        if(root1.info<root2.info) {
+        if (root1.info < root2.info) {
             result = root1;
-            result.down = merge(root1.down,root2);
-        }
-        else {
+            result.down = merge(root1.down, root2);
+        } else {
             result = root2;
-            result.down = merge(root1,root2.down);
+            result.down = merge(root1, root2.down);
         }
-        
+
         return result;
-        
+
     }
-    
+
 }
 
 /*
