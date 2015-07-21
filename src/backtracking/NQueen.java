@@ -28,13 +28,13 @@ public class NQueen {
     private static void solveNQ() {
 
         int[][] board = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0}};
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0},
+                                    {0, 0, 0, 0, 0, 0, 0, 0}};
 
         if (!solveNQUtil(board, 0)) {
             System.out.println("No solution exists");
@@ -63,6 +63,7 @@ public class NQueen {
             return true;
         }
 
+        //row check
         for (int i = 0; i < N; i++) {
 
             if (isSafe(board, i, col)) {

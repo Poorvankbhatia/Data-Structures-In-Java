@@ -25,7 +25,7 @@ public class LongestIncreasingSubSequence {
 
         for (int i = 0; i < array.length; i++) {
             size[i] = 1;
-            lisArray[i] = array[i] + "";
+            lisArray[i] = array[i] + " ";
         }
 
         int maxLength = 0;
@@ -78,6 +78,7 @@ lis(n) gives us the length of LIS for arr[].
 lis(1) 
 We can see that there are many subproblems which are solved again and again. 
 So this problem has Overlapping Substructure property and recomputation of same 
-subproblems can be avoided by either using Memoization or Tabulation. 
+subproblems can be avoided by either using Memoization or Tabulation.
+Following is a tabluated implementation for the LIS problem.
 
  */
