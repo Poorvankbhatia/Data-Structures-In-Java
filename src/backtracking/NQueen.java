@@ -18,7 +18,7 @@ package backtracking;
  */
 public class NQueen {
 
-    private static final int N = 4;
+    private static final int N = 8;
 
     public static void main(String[] args) {
 
@@ -27,10 +27,14 @@ public class NQueen {
 
     private static void solveNQ() {
 
-        int[][] board = new int[][]{{0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}};
+        int[][] board = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0}};
 
         if (!solveNQUtil(board, 0)) {
             System.out.println("No solution exists");
@@ -43,8 +47,8 @@ public class NQueen {
 
     private static void printSolution(int[][] sol) {
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 System.out.print(sol[i][j] + " ");
             }
             System.out.println();
@@ -135,5 +139,8 @@ If we do not find such a row due to clashes then we backtrack and return false.
         column] (Backtrack) and go to step (a) to try other rows.
 3) If all rows have been tried and nothing worked, return false to trigger 
     backtracking.
+    
+    
+    https://see.stanford.edu/materials/icspacs106b/H19-RecBacktrackExamples.pdf
 
  */
