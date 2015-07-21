@@ -24,7 +24,7 @@ package dyanamicProgramming;
 /**
  * Created by poorvank on 5/27/15.
  */
-public class PossibleDecodings {
+public class PossibleDecoding {
 
     public static void main(String[] args) {
 
