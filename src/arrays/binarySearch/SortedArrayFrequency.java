@@ -1,4 +1,26 @@
-package arrays;
+/*
+
+Count the number of occurrences in a sorted array
+Given a sorted array arr[] and a number x, write a 
+function that counts the occurrences of x in arr[]. Expected time complexity is O(Logn)
+
+Examples:
+
+  Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 2
+  Output: 4 // x (or 2) occurs 4 times in arr[]
+
+  Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 3
+  Output: 1 
+
+  Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 1
+  Output: 2 
+
+  Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 4
+  Output: -1 // 4 doesn't occur in arr[] 
+
+ */
+
+package arrays.binarySearch;
 
 /**
  * Created by poorvank on 7/15/15.
@@ -64,3 +86,11 @@ public class SortedArrayFrequency {
     }
 
 }
+
+/*
+
+1) Use Binary search to get index of the first occurrence of x in arr[]. Let the index of the first occurrence be i.
+2) Use Binary search to get index of the last occurrence of x in arr[]. Let the index of the last occurrence be j.
+3) Return (j – i + 1);
+
+ */
