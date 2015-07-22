@@ -24,6 +24,34 @@ public class PrintParenthesis {
 
         int n = 4;
         print(0, 0, n, 0);
+        print(3, 0, "");
+        
+    }
+    
+    /*
+    
+       The most important optimization is in the string building aspect. 
+       Although it looks like a simple string concatenation on the surface, 
+       the above solution actually has a "hidden" O(N^2) string building component 
+       (because concatenating one character to an immutable String of length N is an O(N) operation). 
+       Generally we optimize this by using a mutable StringBuilder instead, but for this particular case we can also 
+       simply use a fixed-size char[] and an index variable.
+    
+    
+     */
+
+    private static void print(int openBracket, int closedBracket, String s) {
+
+        if (openBracket == 0 && closedBracket == 0) {
+            System.out.println(s);
+        }
+        if (openBracket > 0) {
+            print(openBracket - 1, closedBracket + 1, s + "<");
+        }
+        if (closedBracket > 0) {
+            print(openBracket, closedBracket - 1, s + ">");
+        }
+
 
     }
 
