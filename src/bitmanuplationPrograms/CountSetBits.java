@@ -38,3 +38,13 @@ public class CountSetBits {
     }
 
 }
+
+
+/*
+
+in the worst case all the bits of n are set.
+since the number of bits is logn to base 2.the loop is executed logn times
+
+in Brian Kernighan’s Algorithm, the number of times the loop executes is equal to number of set bits in the number.
+
+ */
