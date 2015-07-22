@@ -9,6 +9,7 @@ public class LevelOrderTraversal {
         System.out.println("height of tree - " + height);
         for (int d = 1; d <= height; d++) {
             traversal(root, d);
+            System.out.println();
         }
 
     }
@@ -28,6 +29,9 @@ public class LevelOrderTraversal {
 
     private static int treeHeight(Node root) {
 
+        if(root==null) {
+            return 0;
+        }
         if (root.left == null && root.right == null) {
             return 1;
         } else {
