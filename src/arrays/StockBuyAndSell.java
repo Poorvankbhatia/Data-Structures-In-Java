@@ -32,12 +32,8 @@ public class StockBuyAndSell {
         ArrayList<Interval> arrayList = new ArrayList<>();
 
         int i = 0;
-        boolean flag = false;
 
         while (i < price.length) {
-
-            int count = 0;
-            int minElement = price[i];
 
             Interval interval = new Interval();
 
@@ -48,13 +44,8 @@ public class StockBuyAndSell {
 
 
             if (i == price.length - 1) {
-                if (!flag) {
-                    System.out.println("There is no day when buying the stock will make profit");
-                }
-                break;
+                System.out.println("There is no day when buying the stock will make profit ");
             }
-
-            flag = true;
 
             interval.buy = i++;
 
@@ -63,7 +54,7 @@ public class StockBuyAndSell {
                 i++;
             }
 
-            interval.sell = --i;
+            interval.sell = i - 1;
 
             arrayList.add(interval);
 
