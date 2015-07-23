@@ -77,7 +77,9 @@ public class FlattenMultiLevelList {
             return root;
         }
 
-        return merge(root, flatten(root.right));
+        root = merge(root, flatten(root.right));
+
+        return root;
     }
 
     private static MultiLevelNode merge(MultiLevelNode root1, MultiLevelNode root2) {
