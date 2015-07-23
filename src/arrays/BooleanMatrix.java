@@ -48,7 +48,10 @@ public class BooleanMatrix {
 
         int row = a.length;
         int col = a[0].length;
-        
+
+
+        //Call for noExtra Space method
+        //noExtraSpace(a,row,col);
         
         /*
         
@@ -96,6 +99,73 @@ check the values of row[i] and col[j]. If any of the two values (row[i] or col[j
 
     }
 
+
+    private static void noExtraSpace(int[][] a, int row, int col) {
+
+        boolean paintRow1 = false, painCol1 = false;
+
+        int i = 0, j = 0;
+        while (!paintRow1 && j < col) {
+            if (a[0][j] == 1) {
+                paintRow1 = true;
+                break;
+            }
+        }
+
+        while (!painCol1 && i < row) {
+            if (a[i][0] == 1) {
+                painCol1 = true;
+                break;
+            }
+        }
+
+
+        for (i = 1; i < row; i++) {
+            for (j = 1; j < col; j++) {
+                if (a[i][j] == 1) {
+                    a[i][0] = 1;
+                    a[0][j] = 1;
+                }
+            }
+        }
+
+        for (i = 1; i < row; i++) {
+            for (j = 1; j < col; j++) {
+
+                if (a[0][j] == 1 || a[i][0] == 1) {
+                    a[i][j] = 1;
+                }
+
+            }
+        }
+
+        if (paintRow1) {
+            for (i = 0; i < col; i++) {
+                a[0][i] = 1;
+            }
+
+        }
+
+        if (painCol1) {
+            for (i = 0; i < row; i++) {
+                a[i][0] = 1;
+            }
+
+        }
+
+        System.out.println("Matrix is : ");
+
+        for (i = 0; i < row; i++) {
+            for (j = 0; j < col; j++) {
+
+                System.out.print(a[i][j] + " ");
+
+            }
+            System.out.println();
+        }
+
+    }
+    
 }
 
 
