@@ -77,7 +77,6 @@ public class PrintMaximumAs {
 
         }
 
-        
 
         System.out.println(Arrays.toString(screen));
 

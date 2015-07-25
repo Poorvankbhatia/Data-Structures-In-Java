@@ -29,7 +29,7 @@ public class LevelOrderTraversal {
 
     private static int treeHeight(Node root) {
 
-        if(root==null) {
+        if (root == null) {
             return 0;
         }
         if (root.left == null && root.right == null) {

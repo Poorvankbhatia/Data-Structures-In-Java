@@ -52,22 +52,21 @@ public class ExcelColumn {
         }
 
         System.out.println("Column name is- " + sb.reverse().toString());
-        
+
 
     }
-    
+
     private static String printColumn(int column) {
 
         column--;
         if (column >= 0 && column < 26) {
-            System.out.println(column + " " +  Character.toString(((char)('A' + column))));
-            return Character.toString(((char)('A' + column)));
-        }
-        else if (column > 25)
+            System.out.println(column + " " + Character.toString(((char) ('A' + column))));
+            return Character.toString(((char) ('A' + column)));
+        } else if (column > 25)
             return printColumn(column / 26) + printColumn(column % 26 + 1);
         else
-            return  "Invalid Column #" + (column + 1);
-        
+            return "Invalid Column #" + (column + 1);
+
     }
 
 }

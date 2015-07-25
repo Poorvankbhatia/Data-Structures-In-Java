@@ -165,7 +165,7 @@ check the values of row[i] and col[j]. If any of the two values (row[i] or col[j
         }
 
     }
-    
+
 }
 
 

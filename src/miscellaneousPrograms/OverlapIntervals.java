@@ -23,47 +23,46 @@ import java.util.Arrays;
  * Created by poorvank on 7/9/15.
  */
 public class OverlapIntervals {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arrival = new int[]{1, 2, 10, 5, 5};
         int[] departure = new int[]{4, 5, 12, 9, 12};
 
         Arrays.sort(arrival);
         Arrays.sort(departure);
-        
+
         int n = arrival.length;
-        
-        int guestIn = 1,maxGuest = 1,i=1,j=0,maxTime=arrival[0];
-        
-        while (i<n && j<n) {
-            
-            if(arrival[i] <= departure[j]) {
-                
-                guestIn ++;
-                
-                if(maxGuest<guestIn) {
-                    
+
+        int guestIn = 1, maxGuest = 1, i = 1, j = 0, maxTime = arrival[0];
+
+        while (i < n && j < n) {
+
+            if (arrival[i] <= departure[j]) {
+
+                guestIn++;
+
+                if (maxGuest < guestIn) {
+
                     maxGuest = guestIn;
                     maxTime = arrival[i];
                 }
-                
+
                 i++;
-                
-            }
-            else {
-                
+
+            } else {
+
                 guestIn--;
                 j++;
-                
+
             }
-            
+
         }
-        
+
         System.out.println("Maximum guest = " + maxGuest + " at time - " + maxTime);
-        
+
     }
-    
+
 }
 
 /*

@@ -34,9 +34,9 @@ import java.util.List;
  * Created by poorvank on 7/15/15.
  */
 public class ReverseAlternateNodesBT {
-    
+
     private static int index = 0;
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(12);
@@ -46,41 +46,41 @@ public class ReverseAlternateNodesBT {
         root.right = new Node(45);
         root.right.right = new Node(46);
         root.right.left = new Node(18);
-        
+
         System.out.print("Inorder before \n");
         Traversal.in_Order(root);
-        
+
         System.out.print("\nIn order after \n");
         Traversal.in_Order(reverseAlternate(root));
-        
+
     }
-    
+
     private static Node reverseAlternate(Node root) {
 
         List<Integer> list = new ArrayList<>();
-        
-        storeAlternate(list,root,0);
-        
-        reverseList(list);
-        
-        index=0;
-        
-        modifyTree(list,root,0);
-        
-        return root;
-        
-    }
-    
-    
-    private static void modifyTree(List<Integer> list,Node root,int level) {
 
-        if(root==null) {
+        storeAlternate(list, root, 0);
+
+        reverseList(list);
+
+        index = 0;
+
+        modifyTree(list, root, 0);
+
+        return root;
+
+    }
+
+
+    private static void modifyTree(List<Integer> list, Node root, int level) {
+
+        if (root == null) {
             return;
         }
 
-        modifyTree(list,root.left,level+1);
-        
-        if(level%2!=0) {
+        modifyTree(list, root.left, level + 1);
+
+        if (level % 2 != 0) {
 
             root.info = list.get(index);
             index++;
@@ -89,35 +89,35 @@ public class ReverseAlternateNodesBT {
 
         modifyTree(list, root.right, level + 1);
 
-        
+
     }
-    
-    private static void storeAlternate(List<Integer> list,Node root,int level) {
-        
-        if(root==null) {
+
+    private static void storeAlternate(List<Integer> list, Node root, int level) {
+
+        if (root == null) {
             return;
         }
-        
-        storeAlternate(list,root.left,level+1);
 
-        if(level%2!=0) {
-            
+        storeAlternate(list, root.left, level + 1);
+
+        if (level % 2 != 0) {
+
             list.add(root.info);
             index++;
-            
+
         }
-        
-        storeAlternate(list,root.right,level+1);
-        
+
+        storeAlternate(list, root.right, level + 1);
+
     }
-    
-    
+
+
     private static void reverseList(List<Integer> list) {
-        
+
         Collections.reverse(list);
-        
+
     }
-    
+
 }
 
 /*

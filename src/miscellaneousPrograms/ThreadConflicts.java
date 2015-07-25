@@ -46,7 +46,7 @@ import java.util.List;
  */
 
 class Thread {
-    
+
     public int id;
     public int memoryBlock;
     public int time;
@@ -61,91 +61,87 @@ class Thread {
 }
 
 class ThreadComparator implements Comparator<Thread> {
-    
-    @Override
-    public int compare(Thread t1,Thread t2) {
 
-        if(t1.memoryBlock==t2.memoryBlock) {
-            if(t1.time > t2.time) {
+    @Override
+    public int compare(Thread t1, Thread t2) {
+
+        if (t1.memoryBlock == t2.memoryBlock) {
+            if (t1.time > t2.time) {
                 return 1;
-            } else if(t1.time < t2.time) {
+            } else if (t1.time < t2.time) {
+                return -1;
+            } else {
+                return 0;
+            }
+        } else {
+            if (t1.memoryBlock > t2.memoryBlock) {
+                return 1;
+            } else if (t1.memoryBlock < t2.memoryBlock) {
                 return -1;
             } else {
                 return 0;
             }
         }
 
-        else {
-            if(t1.memoryBlock > t2.memoryBlock) {
-                return 1;
-            }
-            else if(t1.memoryBlock < t2.memoryBlock) {
-                return -1;
-            }
-            else {
-                return 0;
-            }
-        }
-        
     }
-    
+
 }
 
 public class ThreadConflicts {
-    
+
     public static void main(String[] args) {
 
         List<Thread> threadList = new ArrayList<>();
-        threadList.add(new Thread(1,512,1,'R'));
-        threadList.add(new Thread(2,432,2,'W'));
-        threadList.add(new Thread(3,512,3,'R'));
-        threadList.add(new Thread(4,932,4,'R'));
-        threadList.add(new Thread(5,512,5,'W'));
-        threadList.add(new Thread(6,932,6,'R'));
-        threadList.add(new Thread(7,835,7,'R'));
-        threadList.add(new Thread(8,432,8,'R'));
+        threadList.add(new Thread(1, 512, 1, 'R'));
+        threadList.add(new Thread(2, 432, 2, 'W'));
+        threadList.add(new Thread(3, 512, 3, 'R'));
+        threadList.add(new Thread(4, 932, 4, 'R'));
+        threadList.add(new Thread(5, 512, 5, 'W'));
+        threadList.add(new Thread(6, 932, 6, 'R'));
+        threadList.add(new Thread(7, 835, 7, 'R'));
+        threadList.add(new Thread(8, 432, 8, 'R'));
 
 
-        Collections.sort(threadList,new ThreadComparator());
-        
-        for (int i=1;i<threadList.size();i++) {
-            
-            if(threadList.get(i).memoryBlock==threadList.get(i-1).memoryBlock) {
-                
-                
-                if(threadList.get(i).time <= threadList.get(i).time+5) {
-                    
-                    int j= i-1;
-                    
+        Collections.sort(threadList, new ThreadComparator());
+
+        for (int i = 1; i < threadList.size(); i++) {
+
+            if (threadList.get(i).memoryBlock == threadList.get(i - 1).memoryBlock) {
+
+
+                if (threadList.get(i).time <= threadList.get(i).time + 5) {
+
+                    int j = i - 1;
+
                     while (threadList.get(i).memoryBlock == threadList.get(j).memoryBlock &&
-                            threadList.get(i).time <= threadList.get(j).time+5 &&
-                            j>=0) {
-                        
-                        if(threadList.get(i).access=='W' && threadList.get(i).access=='W') {
-                            
-                            System.out.println("Conflict will occur between "  + threadList.get(i).id + " & " + threadList.get(j).id);
-                            
+                            threadList.get(i).time <= threadList.get(j).time + 5 &&
+                            j >= 0) {
+
+                        if (threadList.get(i).access == 'W' && threadList.get(i).access == 'W') {
+
+                            System.out.println("Conflict will occur between " + threadList.get(i).id + " & " + threadList.get(j).id);
+
                         }
-                        
+
                         j--;
-                        
-                        
+
+
                     }
-                    
-                    
+
+
                 }
-                
-                
+
+
             }
-            
-            
+
+
         }
-        
+
         System.out.println("All other threads are safe");
-        
-        
+
+
     }
-    
+
 }
 
 

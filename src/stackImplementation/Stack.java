@@ -12,7 +12,7 @@ package stackImplementation;
  Item is the object passed that the object will store at the run time
 
  */
-public interface Stack <Item> {
+public interface Stack<Item> {
 
     // return the top item without removing it from stack
     Item getTop();
@@ -28,5 +28,5 @@ public interface Stack <Item> {
 
     // returns the number of items in stack right now
     int size();
-    
+
 }
