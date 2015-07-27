@@ -15,7 +15,7 @@ public class PancakeSorting {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{23, 10, 20, 11, 12, 6, 7};
+        int[] array = new int[]{23, 10, 20, 11, 40, 34, 12, 6, 7};
 
         sort(array);
 
@@ -68,13 +68,13 @@ public class PancakeSorting {
 
         int start = 0;
 
-        while (start < i) {
+        if (start < i) {
 
             int temp = array[start];
             array[start] = array[i];
             array[i] = temp;
-            start++;
-            i--;
+           /* start++;
+            i--;*/
 
         }
 
