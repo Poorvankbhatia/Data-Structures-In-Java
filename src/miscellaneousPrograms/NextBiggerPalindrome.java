@@ -104,7 +104,7 @@ public class NextBiggerPalindrome {
     private static boolean areAll9(int[] arr, int n) {
 
         for (int i = 0; i < n; i++) {
-            
+
             if (arr[i] != 9) {
                 return false;
             }
