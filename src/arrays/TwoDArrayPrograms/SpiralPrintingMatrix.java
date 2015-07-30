@@ -4,7 +4,7 @@ Print two-dimensional array in spiral order
 
  */
 
-package arrays;
+package arrays.TwoDArrayPrograms;
 
 /**
  * Created by poorvank on 7/25/15.
