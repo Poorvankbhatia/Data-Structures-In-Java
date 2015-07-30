@@ -6,7 +6,7 @@ package dyanamicProgramming;
 
 class Dictionary {
 
-    private static String[] dictionary = new String[]{"mobile", "samsung", "sam", "sung", "man", "mango",
+    public static String[] dictionary = new String[]{"mobile", "samsung", "sam", "sung", "man", "mango",
             "icecream", "and", "go", "i", "like", "ice", "cream"};
 
 
