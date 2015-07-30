@@ -37,7 +37,7 @@ Screen should be changed to following.
 
  */
 
-package arrays;
+package arrays.twoDimensionalArray;
 
 /**
  * Created by poorvank on 6/8/15.
