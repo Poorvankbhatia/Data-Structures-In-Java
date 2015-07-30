@@ -6,7 +6,7 @@ Given a number x, how to decide whether this x is in the matrix. The designed al
 
  */
 
-package arrays.TwoDArrayPrograms;
+package arrays;
 
 /**
  * Created by poorvank on 6/23/15.

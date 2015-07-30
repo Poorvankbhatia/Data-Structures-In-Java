@@ -6,7 +6,7 @@ a mXn matrix with the constraints that from each cell you can either move only t
 
  */
 
-package arrays.TwoDArrayPrograms;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.List;
