@@ -7,7 +7,7 @@ public class WordBreakDP {
 
     public static void main(String[] args) {
 
-        String str = "ilikeicecream";
+        String str = "iiiiiiiiii";
         System.out.println(wordBreak(str));
 
     }
@@ -43,6 +43,7 @@ public class WordBreakDP {
 
                 if (str.substring(i, end).equals(string)) {
                     validWord[end] = true;
+                    break;
                 }
 
             }
