@@ -32,7 +32,7 @@ public class CountInversions {
     }
 
     private static int merge(int[] array, int low, int high) {
-        
+
         int invCount = 0;
 
         if (low < high) {
