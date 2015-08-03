@@ -37,7 +37,7 @@
    
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 import java.util.Arrays;
 

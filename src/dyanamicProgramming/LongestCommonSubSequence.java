@@ -17,7 +17,7 @@ LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 5/29/15.

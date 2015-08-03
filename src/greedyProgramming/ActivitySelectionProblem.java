@@ -14,7 +14,7 @@ by a single person is {0, 1, 3, 4}
 
  */
 
-package greedyProgramming;
+package greedyprogramming;
 
 import java.util.Arrays;
 

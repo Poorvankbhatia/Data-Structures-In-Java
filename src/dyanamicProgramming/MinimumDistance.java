@@ -7,7 +7,7 @@ Find the minimum cost to reach the destination.
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 6/2/15.

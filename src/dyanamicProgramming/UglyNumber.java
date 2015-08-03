@@ -7,7 +7,7 @@ Write a program to find and print the 150’th ugly number.
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 5/19/15.

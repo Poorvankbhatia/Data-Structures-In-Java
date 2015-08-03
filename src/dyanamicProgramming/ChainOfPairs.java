@@ -5,7 +5,7 @@ A pair (c, d) can follow another pair (a, b) if b < c. Chain of pairs can be for
 Find the longest chain which can be formed from a given set of pairs.
 
  */
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 import java.util.Scanner;
 

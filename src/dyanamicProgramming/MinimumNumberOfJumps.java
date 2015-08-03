@@ -14,7 +14,7 @@ First element is 1, so can only go to 3. Second element is 3, so can make at mos
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 7/22/15.

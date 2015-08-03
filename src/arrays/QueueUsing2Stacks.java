@@ -1,7 +1,7 @@
 package arrays;
 
-import stackImplementation.ArrayStack;
-import stackImplementation.Stack;
+import stack.ArrayStack;
+import stack.Stack;
 
 /**
  * Created by poorvank on 7/6/15.

@@ -18,7 +18,7 @@ Output: 5
  */
 
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 7/22/15.

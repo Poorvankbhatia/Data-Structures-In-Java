@@ -8,7 +8,7 @@ Given an array of n positive integers. Write a program to find the sum of maximu
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 5/22/15.

@@ -14,7 +14,7 @@ There are at-most three trains at a time (time between 11:00 to 11:20)
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 import java.util.Arrays;
 

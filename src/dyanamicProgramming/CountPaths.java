@@ -9,7 +9,7 @@ indicates that there is an edge from vertex i to vertex j and a value 0 indicate
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 4/6/15.

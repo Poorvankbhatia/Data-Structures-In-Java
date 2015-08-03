@@ -5,7 +5,7 @@ Consider a game where a player can score 3 or 5 or 10 points in a move.
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 import java.util.Arrays;
 import java.util.Scanner;

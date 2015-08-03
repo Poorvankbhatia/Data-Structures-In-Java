@@ -5,7 +5,7 @@ Given two strings ‘X’ and ‘Y’, find the length of the longest common sub
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 6/2/15.

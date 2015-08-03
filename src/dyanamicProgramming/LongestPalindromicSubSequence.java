@@ -1,4 +1,4 @@
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 5/22/15.

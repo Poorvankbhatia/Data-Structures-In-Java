@@ -19,7 +19,7 @@ An empty digit sequence is considered to have one decoding. It may be assumed th
 
  */
 
-package dyanamicProgramming;
+package dyanamicprogramming;
 
 /**
  * Created by poorvank on 5/27/15.
