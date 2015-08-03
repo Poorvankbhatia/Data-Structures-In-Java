@@ -58,6 +58,7 @@ public class HeapImplementation {
 
     }
 
+    //This is heapify function it takes log(n) time
     private static void restoreDown(int[] arr, int i) {
 
         int leftChild = 2 * i;
