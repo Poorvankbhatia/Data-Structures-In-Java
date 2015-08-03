@@ -14,7 +14,7 @@ Output:  15, 10, 16
 
  */
 
-package arrays.twoDimensionalArray;
+package arrays.twodimensionalarray;
 
 /**
  * Created by poorvank on 7/30/15.

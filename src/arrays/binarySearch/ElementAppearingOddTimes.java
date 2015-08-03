@@ -15,7 +15,7 @@ Output: 3
 
  */
 
-package arrays.binarySearch;
+package arrays.binarysearch;
 
 /**
  * Created by poorvank on 7/17/15.

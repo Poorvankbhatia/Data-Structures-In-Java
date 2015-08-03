@@ -6,7 +6,7 @@ b) max: Maximum high value in subtree rooted with this node.
 
  */
 
-package trees.specialTrees;
+package trees.specialtrees;
 
 /**
  * Created by poorvank on 3/31/15.

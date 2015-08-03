@@ -13,7 +13,7 @@ Output: Following are conflicting intervals
 
  */
 
-package trees.specialTrees;
+package trees.specialtrees;
 
 /**
  * Created by poorvank on 3/31/15.

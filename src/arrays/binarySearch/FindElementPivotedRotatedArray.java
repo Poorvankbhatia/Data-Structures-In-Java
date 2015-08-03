@@ -1,4 +1,4 @@
-package arrays.binarySearch;
+package arrays.binarysearch;
 
 /**
  * Created by poorvank on 7/13/15.

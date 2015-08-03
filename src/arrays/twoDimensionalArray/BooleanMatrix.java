@@ -32,7 +32,7 @@ should be changed to following
 
  */
 
-package arrays.twoDimensionalArray;
+package arrays.twodimensionalarray;
 
 /**
  * Created by poorvank on 6/18/15.

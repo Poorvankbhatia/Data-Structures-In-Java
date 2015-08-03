@@ -16,7 +16,7 @@ Let low be pointing to 1st element and high pointing to 2nd element of array, No
 
  */
 
-package arrays.binarySearch;
+package arrays.binarysearch;
 
 /**
  * Created by poorvank on 7/28/15.
