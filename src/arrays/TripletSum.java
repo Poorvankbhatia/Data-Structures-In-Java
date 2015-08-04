@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class TripletSum {
 
     public static void main(String[] args) {
-        
+
         int[] array = new int[]{1, 4, 45, 6, 10, 8};
 
         int n = array.length, sum = 22;
