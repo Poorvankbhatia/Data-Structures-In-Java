@@ -1,47 +1,37 @@
-package arrays.sortingalgorithms;
+package arrays.sorting;
 
 import java.util.Arrays;
 
 /**
  * Created by poorvank on 8/1/15.
  */
-public class IterativeMergeSort {
+public class MergeSort {
 
     public static void main(String[] args) {
 
         int[] array = new int[]{12, 11, 13, 5, 6, 7};
 
         System.out.println("Array before - " + Arrays.toString(array));
-        mergeSort(array, array.length);
+        mergeSort(array, 0, array.length - 1);
 
         System.out.println("Array after -  " + Arrays.toString(array));
 
     }
 
-    private static void mergeSort(int[] array, int n) {
-
-        int startingLeft;
+    private static void mergeSort(int[] array, int low, int high) {
 
 
-        // Merge subarrays in bottom up manner.  First merge subarrays of
-        // size 1 to create sorted subarrays of size 2, then merge subarrays
-        // of size 2 to create sorted subarrays of size 4, and so on.
-        for (int currentSize = 1; currentSize < n; currentSize = (2 * currentSize)) {
+        if (low < high) {
 
-            for (startingLeft = 0; startingLeft < n - 1; startingLeft += (2 * currentSize)) {
+            int mid = (low + high) / 2;
 
-                int mid = startingLeft + currentSize - 1;
-
-                int rightEnd = Math.min(startingLeft + (2 * currentSize) - 1, n - 1);
-
-                int[] temp = merge(array, startingLeft, mid, mid + 1, rightEnd);
-                copy(array, temp, startingLeft, rightEnd);
-
-
-            }
-
+            mergeSort(array, low, mid);
+            mergeSort(array, mid + 1, high);
+            int[] temp = merge(array, low, mid, mid + 1, high);
+            copy(array, temp, low, high);
 
         }
+
 
     }
 
@@ -75,6 +65,7 @@ public class IterativeMergeSort {
 
     }
 
+
     private static void copy(int[] array, int[] temp, int low, int high) {
 
         for (int i = low; i <= high; i++) {
@@ -83,5 +74,12 @@ public class IterativeMergeSort {
 
     }
 
-
 }
+
+/*
+
+O(nlogn)
+
+Do See Iterative approach also
+
+ */
