@@ -9,18 +9,18 @@ public class HeapImplementation {
 
     public static void main(String[] args) {
 
-        int arr[] = new int[]{Integer.MAX_VALUE, 25, 35, 18, 9, 46, 70, 48, 23, 78, 12, 95};
+        int arr[] = new int[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         maxHeap(arr);
-        System.out.println("Maximum element is - " + arr[1] + " array is - " + Arrays.toString(arr));
+        System.out.println("Maximum element is - " + arr[0] + " array is - " + Arrays.toString(arr));
         minHeap(arr);
-        System.out.println("Minimum element is - " + arr[1] + " array is - " + Arrays.toString(arr));
+        System.out.println("Minimum element is - " + arr[0] + " array is - " + Arrays.toString(arr));
 
     }
 
     //using restoreUp
     private static void maxHeap(int[] arr) {
 
-        for (int i = 2; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             restoreUp(arr, i);
         }
 
@@ -31,13 +31,16 @@ public class HeapImplementation {
          O(nlogn) in worst case
          */
         int k = arr[i];
-        int parentPosition = i / 2;
+        int parentPosition = (i - 1) / 2;
 
         while (arr[parentPosition] < k) {
 
             arr[i] = arr[parentPosition];
             i = parentPosition;
-            parentPosition = i / 2;
+            if (i == 0) {
+                break;
+            }
+            parentPosition = (i - 1) / 2;
 
         }
 
@@ -52,20 +55,19 @@ public class HeapImplementation {
         Bottom up manner . Each node is a heap of size 1. 
         O(n)
          */
-        for (int i = arr.length / 2; i >= 1; i--) {
+        for (int i = arr.length / 2; i >= 0; i--) {
             restoreDown(arr, i);
         }
 
     }
 
-    //This is heapify function it takes log(n) time
     private static void restoreDown(int[] arr, int i) {
 
-        int leftChild = 2 * i;
-        int rightChild = (2 * i) + 1;
+        int leftChild = (2 * i) + 1;
+        int rightChild = (2 * i) + 2;
         int num = arr[i];
 
-        while (rightChild <= arr.length) {
+        while (rightChild <= arr.length - 1) {
 
             if (num <= arr[leftChild] && num <= arr[rightChild]) {
                 arr[i] = num;
@@ -78,8 +80,8 @@ public class HeapImplementation {
                 i = rightChild;
             }
 
-            leftChild = 2 * i;
-            rightChild = (2 * i) + 1;
+            leftChild = (2 * i) + 1;
+            rightChild = (2 * i) + 2;
         }
         /*
         
