@@ -45,7 +45,7 @@ public class CheckBalancedParenthesis {
         return stack.size() == 0;
 
     }
-    
+
 
     private static boolean isMatching(char character1, char character2) {
 
