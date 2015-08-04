@@ -18,6 +18,8 @@ A[0] + A[1] + A[2] = A[4] + A[5] + A[6]
 
 package arrays;
 
+import java.util.Arrays;
+
 /**
  * Created by poorvank on 6/6/15.
  */
@@ -38,18 +40,21 @@ public class EquilibriumIndex {
         int n = array.length;
 
         int[] leftSum = new int[n];
-        leftSum[0] = array[0];
+        leftSum[0] = 0;
         int[] rightSum = new int[n];
-        rightSum[n - 1] = rightSum[0];
+        rightSum[n - 1] = 0;
 
         for (int i = 1; i < n; i++) {
-            leftSum[i] = leftSum[i - 1] + array[i];
+            leftSum[i] = leftSum[i - 1] + array[i - 1];
         }
 
         for (int i = n - 2; i >= 0; i--) {
-            rightSum[i] = rightSum[i + 1] + array[i];
+            rightSum[i] = rightSum[i + 1] + array[i + 1];
         }
 
+        System.out.println(Arrays.toString(leftSum));
+        System.out.println(Arrays.toString(rightSum));
+        
         for (int i = 0; i < n; i++) {
             if (leftSum[i] == rightSum[i]) {
                 System.out.println("Equilibrium Index found at index - " + i);
