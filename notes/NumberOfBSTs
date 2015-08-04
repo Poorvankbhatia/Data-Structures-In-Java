@@ -1,0 +1,39 @@
+Any of the nodes of the array can be the root of a BST, and for each root, 
+the number of distinct search trees is the combination (product) of the left and the right subarray. So,
+
+BSTCount(0) = 1
+BSTCount(n) = sum_{i = 1}^{n} BSTCount(i-1) * BSTCount(n-i)
+
+
+
+After looking at the question linked by MicSim, I still wasn't satisfied with that, 
+so I began looking at it myself. Here's what I came up with...
+
+Each tree can be thought of as two trees with a parent root node. If you know the number of 
+possible combinations of the two children branches separately, the total combinations having that root node 
+is the product of the children combinations.
+
+We can begin building up a higher count solution by solving the lower count instances first.
+
+I will use C(n) to represent the total possible combinations of n nodes, the Catalan Number.
+
+Hopefully these two are obvious:
+
+C(0) = 1
+C(1) = 1
+C(2) is also fairly obvious, but it can be built, so let's do that. There are two ways to choose the root node. 
+One leaves a child count (left:right) of 1:0 and the other 0:1. So, the first possibility is C(1)*C(0) = 1*1 = 1. 
+And the second is C(0)*C(1) = 1*1 = 1. Summing those together gives us
+
+C(2) = 2
+Nothing too exciting yet. Now let's do 3 nodes. There are 3 ways to choose the root node and, hence, 3 child groupings. 
+Your possible groups are 2:0, 1:1 and 0:2.
+
+Based on our prior defintions, C(3) can be written as C(2)*C(0) + C(1)*C(1) + C(0)*C(2) = 2*1 + 1*1 + 1*2 = 2+1+2 = 5.
+
+C(3) = 5
+4 nodes has child groupings of 3:0, 2:1, 1:2 and 0:3. So, C(4) can be written as 
+C(3)*C(0) + C(2)*C(1) + C(1)*C(2) + C(0)*C(3) = 5*1 + 2*1 + 1*2 + 1*5 = 5+2+2+5 = 14.
+
+C(4) = 14
+Hopefully, two things are beginning to become apparent. 
