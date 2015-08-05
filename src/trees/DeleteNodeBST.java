@@ -33,14 +33,10 @@ public class DeleteNodeBST {
 
         if (root == null) {
             return root;
-        }
-
-        if (root.info < key) {
-            delete(root.right, key);
-        }
-
-        if (root.info > key) {
-            delete(root.left, key);
+        } else if (root.info < key) {
+            root.right = delete(root.right, key);
+        } else if (root.info > key) {
+            root.left = delete(root.left, key);
         }
 
         //Found Key
