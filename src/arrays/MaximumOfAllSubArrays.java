@@ -38,6 +38,7 @@ public class MaximumOfAllSubArrays {
         int[] array = new int[]{12, 1, 78, 90, 57, 89, 56};
         int n = array.length;
 
+        //A dequeue of indexes of array
         Deque<Integer> deque = new LinkedList<>();
 
         int k = 3;
