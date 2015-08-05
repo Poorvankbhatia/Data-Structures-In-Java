@@ -60,7 +60,7 @@ public class MaximumDiffOfIndices {
         System.out.println("rightMax - " + Arrays.toString(rightMax));
 
         while (i < n && j < n) {
-            
+
             if (leftMin[i] < rightMax[j]) {
                 maxDifference = Math.max(maxDifference, j - i);
                 start = i;
