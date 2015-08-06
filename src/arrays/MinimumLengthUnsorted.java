@@ -19,7 +19,7 @@ package arrays;
  * Created by poorvank on 8/6/15.
  */
 public class MinimumLengthUnsorted {
-    
+
     public static void main(String[] args) {
 
         int[] array = new int[]{10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60};
