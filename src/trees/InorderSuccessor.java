@@ -41,8 +41,8 @@ public class InorderSuccessor {
             while (root != null) {
 
                 if (n.info < root.info) {
-                    root = root.left;
                     successor = root;
+                    root = root.left;
                 } else if (n.info > root.info) {
                     root = root.right;
                 } else {
