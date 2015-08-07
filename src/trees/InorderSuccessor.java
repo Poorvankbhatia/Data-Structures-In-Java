@@ -17,9 +17,11 @@ public class InorderSuccessor {
 
     public static void main(String[] args) {
 
-        Node root = Input.treeInput();
-        if (successor(root, root.right) != null)
-            System.out.println("successor is - " + successor(root, root.right).info);
+        Node root = new Node(4);
+        root.left = new Node(2);
+        root.left.right = new Node(3);
+        if (successor(root, root.left.right) != null)
+            System.out.println("successor is - " + successor(root, root.left.right).info);
         else
             System.out.println("No successor");
 
@@ -28,26 +30,32 @@ public class InorderSuccessor {
     private static Node successor(Node root, Node n) {
 
 
-        if (n.right != null) {
-            return minValue(n.right);
-        }
+        if (n != null) {
 
-        Node successor = null;
-
-        while (root != null) {
-
-            if (n.info < root.info) {
-                successor = root;
-                root = root.left;
-            } else if (n.info > root.info) {
-                root = root.right;
-            } else {
-                break;
+            if (n.right != null) {
+                return minValue(n.right);
             }
 
+            Node successor = null;
+
+            while (root != null) {
+
+                if (n.info < root.info) {
+                    root = root.left;
+                    successor = root;
+                } else if (n.info > root.info) {
+                    root = root.right;
+                } else {
+                    break;
+                }
+
+            }
+
+            return successor;
+
         }
 
-        return successor;
+        return null;
 
     }
 
