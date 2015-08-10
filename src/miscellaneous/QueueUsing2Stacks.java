@@ -1,4 +1,4 @@
-package arrays;
+package miscellaneous;
 
 import stack.ArrayStack;
 import stack.Stack;
