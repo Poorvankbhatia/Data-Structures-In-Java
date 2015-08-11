@@ -12,9 +12,6 @@ While returning back you can move only left and up.
 
 package interviews;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by poorvank on 8/10/15.
  */
@@ -25,19 +22,26 @@ public class CollectDiamonds {
     private static boolean flag = false;
     private static int reachEndCount = 0;
     private static int reachStartCount = 0;
-    private static List<Integer> diamondCountList = new ArrayList<>();
 
-    private static int[][] maze = {{1, 0, 1, 1, 1, 0},
+    /*private static int[][] maze = { {1,  0,  1, 1, -1, 0},
+                                    {1, -1, -1, 1, -1, 1},
+                                    {1, -1, -1, 1, -1, 1},
+                                    {1, -1,  0, 1, -1, 1},
+                                    {1, -1, -1, 1,  1, 0},
+                                    {1,  1,  1, 1,  1, 1}};*/
+
+    private static int[][] maze = {
+            {1, 0, 1, -1, 1, 0},
             {0, -1, -1, 1, -1, 1},
             {0, -1, -1, 1, -1, 1},
-            {0, -1, 0, 1, -1, 1},
+            {0, 0, 0, 1, -1, 1},
             {0, -1, -1, 1, 1, 0},
             {1, 1, 1, 1, 1, 1}};
-
+    
     public static void main(String[] args) {
 
         boolean[][] visited = new boolean[ROW][COL];
-        maxDiamondsFromStart(visited, 0, 0);
+        maxDiamondsFromStart(visited, 0, 0, 0);
         flag = false;
         visited[ROW - 1][COL - 1] = false;
         if (maze[ROW - 1][COL - 1] == 1) {
@@ -52,7 +56,7 @@ public class CollectDiamonds {
 
     }
 
-    private static void maxDiamondsFromStart(boolean[][] visited, int i, int j) {
+    private static void maxDiamondsFromStart(boolean[][] visited, int i, int j, int count) {
 
 
         if (flag) {
@@ -61,13 +65,14 @@ public class CollectDiamonds {
 
         if (isSafe(i, j, visited)) {
             if (maze[i][j] == 1) {
-                reachEndCount++;
+                count++;
             }
         } else {
             return;
         }
-
+        
         if (i == ROW - 1 && j == COL - 1) {
+            reachEndCount = count;
             flag = true;
         }
 
@@ -75,8 +80,8 @@ public class CollectDiamonds {
         visited[i][j] = true;
 
 
-        maxDiamondsFromStart(visited, i + 1, j);
-        maxDiamondsFromStart(visited, i, j + 1);
+        maxDiamondsFromStart(visited, i, j + 1, count);
+        maxDiamondsFromStart(visited, i + 1, j, count);
 
 
     }
