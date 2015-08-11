@@ -32,7 +32,7 @@ public class CollectDiamonds {
             {0, -1, -1, 1, -1, 1},
             {0, -1, 0, 1, -1, 1},
             {0, -1, -1, 1, 1, 0},
-            {1, 1, 1, 1, 1, 0}};
+            {1, 1, 1, 1, 1, 1}};
 
     public static void main(String[] args) {
 
@@ -40,6 +40,9 @@ public class CollectDiamonds {
         maxDiamondsFromStart(visited, 0, 0);
         flag = false;
         visited[ROW - 1][COL - 1] = false;
+        if (maze[ROW - 1][COL - 1] == 1) {
+            maze[ROW - 1][COL - 1] = 0;
+        }
         System.out.println(reachEndCount);
         maxDiamondsFromEnd(visited, ROW - 1, COL - 1, 0);
         System.out.println(reachStartCount);
