@@ -70,7 +70,7 @@ public class CollectDiamonds {
         } else {
             return;
         }
-        
+
         if (i == ROW - 1 && j == COL - 1) {
             reachEndCount = count;
             flag = true;
