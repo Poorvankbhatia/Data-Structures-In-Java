@@ -5,7 +5,9 @@ From their names, we can tell they may be used for comparing stuff in some way.
 
 1. Comparable
 
-Comparable is implemented by a class in order to be able to comparing object of itself with some other objects. The class itself must implement the interface in order to be able to compare its instance(s). The method required for implementation is compareTo(). Here is an example:
+Comparable is implemented by a class in order to be able to comparing object of itself with some other objects.
+The class itself must implement the interface in order to be able to compare its instance(s). 
+The method required for implementation is compareTo(). Here is an example:
 
 class HDTV implements Comparable<HDTV> {
 	private int size;
@@ -64,7 +66,8 @@ Comparator can be used if you want to compare objects based on certain attribute
 For example, 2 persons can be compared based on `height` or `age` etc. (this can not be done using comparable.)
 
 The method required to implement is compare(). Now let's use another way to compare those TV by size. 
-One common use of Comparator is sorting. Both Collections and Arrays classes provide a sort method which use a Comparator.
+One common use of Comparator is sorting. Both Collections and Arrays classes provide a sort method which use
+ a Comparator.
 
 import java.util.ArrayList;
 import java.util.Collections;
