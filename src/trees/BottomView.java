@@ -147,15 +147,13 @@ public class BottomView {
 
         Queue<customNode2> queue = new LinkedList<customNode2>();
 
-        int hd = root.hd;
-
         queue.add(root);
 
         while (!queue.isEmpty()) {
 
             customNode2 current = queue.remove();
 
-            hd = current.hd;
+            int hd = current.hd;
 
             // Put the de queued tree node to TreeMap having key
             // as horizontal distance. Every time we find a node
