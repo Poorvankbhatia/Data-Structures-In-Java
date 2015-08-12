@@ -71,7 +71,7 @@ public class SpiralPrintingMatrix {
 
     private static void printBottomLeft(int[][] matrix, int x1, int y1, int x2, int y2) {
 
-        for (int j = y2; j >= x1 - 1; j--) {
+        for (int j = y2; j >= y1; j--) {
             System.out.print(matrix[x2][j] + " ");
         }
 
