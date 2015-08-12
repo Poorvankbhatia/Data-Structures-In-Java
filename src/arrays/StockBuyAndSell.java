@@ -45,6 +45,7 @@ public class StockBuyAndSell {
 
             if (i == price.length - 1) {
                 System.out.println("There is no day when buying the stock will make profit ");
+                break;
             }
 
             interval.buy = i++;
