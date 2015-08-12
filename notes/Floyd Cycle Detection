@@ -1,0 +1,77 @@
+To see why this works, let's take a look at why Floyd's algorithm works in the first place. 
+The idea is to think about the sequence x0, x1, x2, ..., xn, ... of the elements of the linked list that you'll 
+visit if you start at the beginning of the list and then keep on walking down it until you reach the end.
+ If the list does not contain a cycle, then all these values are distinct. If it does contain a cycle, though, 
+ then this sequence will repeat endlessly.
+
+Here's the theorem that makes Floyd's algorithm work:
+
+The linked list contains a cycle if and only if there is a positive integer j such that for any positive integer 
+k, xj = xjk.
+Let's go prove this; it's not that hard. For the "if" case, if such a j exists, pick k = 2. 
+Then we have that for some positive j, xj = x2j and j ≠ 2j, and so the list contains a cycle.
+
+For the other direction, assume that the list contains a cycle of length l starting at position s. 
+Let j be the smallest multiple of l greater than s. Then for any k, if we consider xj and xjk, 
+since j is a multiple of the loop length, we can think of xjk as the element formed by starting at position j 
+in the list, then taking j steps k-1 times. But each of these times you take j steps, you end up right back 
+where you started in the list because j is a multiple of the loop length. Consequently, xj = xjk.
+
+This proof guarantees you that if you take any constant number of steps on each iteration, you will indeed 
+hit the slow pointer. More precisely, if you're taking k steps on each iteration, then you will eventually 
+find the points xj and xkj and will detect the cycle. Intuitively, people tend to pick k = 2 to minimize the 
+runtime, since you take the fewest number of steps on each iteration.
+
+We can analyze the runtime more formally as follows. If the list does not contain a cycle, then the fast 
+pointer will hit the end of the list after n steps for O(n) time, where n is the number of elements in the list. 
+Otherwise, the two pointers will meet after the slow pointer has taken j steps. Remember that j is the smallest multiple 
+of l greater than s. If s ≤ l, then j = l; otherwise if s > l, then j will be at most 2s, and so the value of j 
+is O(s + l). Since l and s can be no greater than the number of elements in the list, this means than j = O(n). 
+However, after the slow pointer has taken j steps, the fast pointer will have taken k steps for each of the j 
+steps taken by the slower pointer so it will have taken O(kj) steps. Since j = O(n), the net runtime is at most O(nk).
+Notice that this says that the more steps we take with the fast pointer, the longer the algorithm takes to finish
+(though only proportionally so). Picking k = 2 thus minimizes the overall runtime of the algorithm.
+
+In the first part of Floyd's algorithm, the hare moves two steps for every step of the tortoise.
+ If the tortoise and hare ever meet, there is a cycle, and the meeting point is part of the cycle, 
+ but not necessarily the first node in the cycle.
+
+When the tortoise and hare meet, we have found the smallest i (the number of steps taken by the tortoise)
+ such that Xi = X2i. Let mu represent the number of steps to get from X0 to the start of the cycle, 
+ and let lambda represent the length of the cycle. Then i = mu + a*lambda, and 2i = mu + b*lambda, 
+ where a and b are integers denoting how many times the tortoise and hare went around the cycle. 
+ Subtracting the first equation from the second gives i = (b-a)*lambda, so i is an integer multiple of lambda. 
+ Therefore, Xi + mu = Xmu. Xi represents the meeting point of the tortoise and hare. 
+ If you move the tortoise back to the starting node X0, and let the tortoise and hare continue at 
+ the same speed, after mu additional steps the tortoise will have reached Xmu, and the hare will have 
+ reached Xi + mu = Xmu, so the second meeting point denotes the start of the cycle.
+ 
+ Take mu steps from the start point to get to X_mu, the start of the cycle (by definition of mu).
+  Then if you take i more steps, where i is a multiple of the cycle length, you end up back at the cycle start:
+   X_mu + i = X_mu. But addition is commutative, so this is equivalent to taking i steps to get from the 
+   start to the first meeting point X_i, then mu additional steps to get back to X_mu, the start of the cycle.
+ 
+ 
+ let us suppose the length of the list which does not contain the loop be s. length of the loop be t. 
+ the ratio of fast_pointer_speed : slow_pointer_speed = k;
+ 
+ let the two pointers meet up at a distance j from the start of the loop.
+ 
+ So the distance slow pointer travels = s + j; Distance the fast pointer travels = s + j + m X t But the 
+ first pointer would also has traveled a distance k X (s + j) (k times the distance of the slow pointer.)
+ 
+ therefore , we get k X (s + j) = s + j + m X t .
+ 
+ s + j = (m / k-1)t.
+ 
+ Hench from the above equation , length the slow pointer travels is an integer multiple of the loop length.
+ 
+ For greatest efficiency , (m / k-1) = 1 (the slow pointer shouldn't have traveled the loop more than once.)
+ 
+ therefore , m = k - 1 => k = m + 1
+ 
+ Since m is the no.of times the fast pointer has completed the loop , m >= 1 . For greatest efficiency , m = 1.
+ 
+ therefore k = 2.
+ 
+ if we take a value of k > 2 , more the distance the two pointers would have to travel.

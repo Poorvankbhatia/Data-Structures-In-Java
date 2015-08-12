@@ -1,4 +1,5 @@
 Comparable and Comparator are two interfaces provided by Java Core API. 
+
 From their names, we can tell they may be used for comparing stuff in some way.
  But what exactly are they and what is the difference between them? The simple examples compare two HDTV's size.
 
