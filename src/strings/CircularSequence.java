@@ -10,6 +10,14 @@ A move can be on of the following.
   L - Turn left
   R - Turn right 
 
+ Examples:
+
+Input: path[] = "GLGLGLG"
+Output: Given sequence of moves is circular
+
+Input: path[] = "GLLG"
+Output: Given sequence of moves is circular
+
  */
 
 import java.util.Scanner;
