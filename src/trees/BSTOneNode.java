@@ -1,3 +1,27 @@
+/*
+
+Check if each internal node of a BST has exactly one child
+Given Preorder traversal of a BST, check if each non-leaf node has only one child. 
+Assume that the BST contains unique entries.
+
+Examples
+
+Input: pre[] = {20, 10, 11, 13, 12}
+Output: Yes
+The give array represents following BST. In the following BST, every internal
+node has exactly 1 child. Therefor, the output is true.
+        20
+       /
+      10
+       \
+        11
+          \
+           13
+           /
+         12
+
+ */
+
 package trees;
 
 import java.util.Scanner;
