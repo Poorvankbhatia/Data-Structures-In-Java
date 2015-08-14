@@ -6,9 +6,9 @@ All repeating occurrences of elements appear in pairs and these pairs are not ad
 (there cannot be more than two consecutive occurrences of any element). 
 Find the element that appears odd number of times.
 
-Note that input like {2, 2, 1, 2, 2, 1, 1} is valid as all repeating occurrences occur 
-in pairs and these pairs are not adjacent. Input like {2, 1, 2} is invalid as repeating 
-elements don’t appear in pairs. Also, input like {1, 2, 2, 2, 2} is invalid as two pairs of 2 are adjacent. 
+Note that input like {2, 2, 1, 2, 2, 1, 1} is valid as all repeating occurrences occur
+in pairs and these pairs are not adjacent. Input like {2, 1, 2} is invalid as repeating
+elements don’t appear in pairs. Also, input like {1, 2, 2, 2, 2} is invalid as two pairs of 2 are adjacent.
 Input like {2, 2, 2, 1} is also invalid as there are three consecutive occurrences of 2.
 
 Example:
@@ -61,6 +61,7 @@ public class ElementAppearingOddTimes {
           right side, else on left side
         
          */
+
 
         if (mid % 2 == 0) {
 
