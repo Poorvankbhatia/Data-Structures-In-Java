@@ -7,6 +7,9 @@ Find the longest chain which can be formed from a given set of pairs.
  */
 package dp;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -14,7 +17,7 @@ import java.util.Scanner;
  */
 
 
-class Pair {
+class Pair{
 
     public int a;
     public int b;
@@ -28,16 +31,37 @@ class Pair {
 
 }
 
+class PairComparator implements Comparator<Pair> {
+
+    @Override
+    public int compare(Pair pair1,Pair pair2) {
+
+        if(pair1.a>pair2.a) {
+            return 1;
+        }
+        else if(pair1.a<pair2.a) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+
+    }
+    
+}
+
 public class ChainOfPairs {
 
     public static void main(String[] args) {
 
-        /*TreeMap<Integer,Integer> map = new TreeMap();
+       /* HashMap<Integer,Integer> map = new HashMap<>();
         map.put(5,24);
         map.put(39,60);
         map.put(15,28);
         map.put(27,40);
         map.put(50,90);*/
+        
+        
 
         Pair[] array = new Pair[5];
         Scanner scanner = new Scanner(System.in);
@@ -46,6 +70,8 @@ public class ChainOfPairs {
             int b = scanner.nextInt();
             array[i] = new Pair(a, b);
         }
+
+        Arrays.sort(array,new PairComparator());
 
         longestChainLength(array);
     }
