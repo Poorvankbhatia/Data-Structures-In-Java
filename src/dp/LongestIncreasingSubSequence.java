@@ -25,7 +25,7 @@ public class LongestIncreasingSubSequence {
 
         for (int i = 0; i < array.length; i++) {
             size[i] = 1;
-            lisArray[i] = array[i] + " ";
+            lisArray[i] = array[i] + "";
         }
 
         int maxLength = 0;
