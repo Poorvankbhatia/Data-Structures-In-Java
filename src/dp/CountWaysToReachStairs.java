@@ -45,11 +45,11 @@ public class CountWaysToReachStairs {
 
     private static int countWaysUtil(int n, int m) {
 
-        int[] result = new int[n];
-        result[0] = 1;
+        int[] result = new int[n+1];
+        result[0] = 0;
         result[1] = 1;
 
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i < result.length; i++) {
 
             for (int j = 1; j <= m && j <= i; j++) {
 
@@ -59,7 +59,7 @@ public class CountWaysToReachStairs {
 
         }
 
-        return result[n - 1];
+        return result[n];
 
     }
 
