@@ -1,10 +1,10 @@
 /*
 
+Dynamic Programming | Set 15 (Longest Bitonic Subsequence)
 Given an array arr[0 … n-1] containing n positive integers, a subsequence of arr[] is called Bitonic 
 if it is first increasing, then decreasing. Write a function that takes an array as argument and returns 
 the length of the longest bitonic subsequence.
-A sequence, sorted in increasing order is considered Bitonic with the decreasing part as empty. Similarly, 
-decreasing order sequence is considered Bitonic with the increasing part as empty.
+A sequence, sorted in increasing order is considered Bitonic with the decreasing part as empty. Similarly, decreasing order sequence is considered Bitonic with the increasing part as empty.
 
 Examples:
 
@@ -81,14 +81,3 @@ public class LongestBitonicSubSeq {
     }
 
 }
-
-
-/*
-
-This problem is a variation of standard Longest Increasing Subsequence (LIS) problem.
- Let the input array be arr[] of length n. We need to construct two arrays lis[] and lds[] using Dynamic Programming 
- solution of LIS problem. lis[i] stores the length of the Longest Increasing subsequence ending with arr[i].
-  lds[i] stores the length of the longest Decreasing subsequence starting from arr[i]. Finally, we need to 
-  return the max value of lis[i] + lds[i] – 1 where i is from 0 to n-1.
-
- */
