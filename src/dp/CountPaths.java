@@ -19,9 +19,9 @@ public class CountPaths {
     public static void main(String[] args) {
 
         int graph[][] = new int[][]{{0, 1, 1, 1},
-                {0, 0, 0, 1},
-                {0, 0, 0, 1},
-                {0, 0, 0, 0}
+                                    {0, 0, 0, 1},
+                                    {0, 0, 0, 1},
+                                    {0, 0, 0, 0}
         };
 
         System.out.println(countWalks(0, 3, 2, graph));
@@ -75,6 +75,29 @@ Time complexity of the above DP based solution is O(V3K) which is much better th
 Shortest path : 
 if (graph[i][a] != INF && i != a && j!= a && sp[a][j][e-1] != INF)
   sp[i][j][e] = min(sp[i][j][e], graph[i][a] + sp[a][j][e-1]);
+
+
+
+// A simple solution is to start from u, go to all adjacent vertices and 
+// recur for adjacent vertices with k as k-1, source as adjacent vertex and destination as v
+
+int countwalks(int graph[][V], int u, int v, int k)
+{
+   // Base cases
+   if (k == 0 && u == v)      return 1;
+   if (k == 1 && graph[u][v]) return 1;
+   if (k <= 0)                return 0;
+
+   // Initialize result
+   int count = 0;
+
+   // Go to all adjacents of u and recur
+   for (int i = 0; i < V; i++)
+       if (graph[u][i])  // Check if is adjacent of u
+           count += countwalks(graph, i, v, k-1);
+
+   return count;
+}
 
 
  */
