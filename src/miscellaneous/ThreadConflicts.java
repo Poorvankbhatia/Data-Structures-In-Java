@@ -19,14 +19,17 @@ You are given with the list of threads accessing memory locations, you have to f
 Example–
 
 Input:
-  (1, 512, 1, R)
+  
   (2, 432, 2, W)
-  (3, 512, 3, R)
-  (4, 932, 4, R)
-  (5, 512, 5, W)
-  (6, 932, 6, R)
-  (7, 835, 7, R)
   (8, 432, 8, R)
+  (1, 512, 1, R)
+  (3, 512, 3, R)
+  (5, 512, 5, W)
+  (7, 835, 7, R)
+  (4, 932, 4, R)
+  (6, 932, 6, R)
+ 
+  
 
 Output:
 Thread 1 & 3 conflict with thread 5
