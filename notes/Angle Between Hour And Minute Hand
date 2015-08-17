@@ -1,0 +1,24 @@
+One clock cycle is 360 degree.
+
+How many degree can the minute hand run per minute? 360 / 60 = 6 degree per minute.
+
+How many degree can the hour hand run per hour? 360/12 = 30 degree per hour (since hour hand run slower than minute)
+
+
+Since it's easier to calculate in the unit, "minute", let's get
+
+"how many degree can the hour hand run per minute"?
+30 / 60 = 0.5 degree per minute.
+
+static double angle(int h, int m) {
+    double hAngle = 0.5D * (h * 60 + m);
+    double mAngle = 6 * m;
+    double angle = Math.abs(hAngle - mAngle);
+    angle = Math.min(angle, 360 - angle);
+    return angle;
+}
+Basically:
+
+The hour hand moves at the rate of 0.5 degrees per minute
+The minute hand moves at the rate of of 6 degrees per minute
+Problem solved.
