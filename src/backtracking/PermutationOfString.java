@@ -20,17 +20,13 @@ public class PermutationOfString {
         } else {
             for (int i = 0; i < n; i++) {
                 
-                /*
+
+               /* System.out.println("prefix is - " + prefix + " - " + i);
+                System.out.println("SS "  + str + " " + str.substring(0, i) + " - " + prefix + str.charAt(i) + " - " + i);*/
                 
-                  System.out.println("prefix is - " + prefix + " - " + i);
-                System.out.println("SS "  + str + " " + str.substring(0, i) + " - " + prefix + str.charAt(i) + " - " + i);
-                
-                 */
                 printPermutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
                 
-                /*
-                System.out.println("return " + i);
-                 */
+               /* System.out.println("return " + i);*/
             }
         }
 
