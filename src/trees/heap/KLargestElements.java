@@ -27,12 +27,12 @@ public class KLargestElements {
         System.arraycopy(arr, 0, dst, 0, k);
         createMinHeap(dst);
 
-        System.out.println(Arrays.toString(dst));
+        //System.out.println(Arrays.toString(dst));
 
         for (int i = k; i < arr.length; i++) {
             if (arr[i] > dst[0]) {
                 dst[0] = arr[i];
-                createMinHeap(dst);
+                restoreDown(dst,0);
             }
         }
 
