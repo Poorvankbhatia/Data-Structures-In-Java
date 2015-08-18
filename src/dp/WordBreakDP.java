@@ -7,7 +7,7 @@ public class WordBreakDP {
 
     public static void main(String[] args) {
 
-        String str = "iiiiiiiiii";
+        String str = "samsungandmango";
         System.out.println(wordBreak(str));
 
     }
