@@ -14,7 +14,10 @@ which is nothing but O(n).
 
 However, the main idea is, in Buildheap algorithm the actual Heapify cost is not O(logn) for all elements.
 
-When Heapify is called, the running time depends on how far an element might move down in tree before the process terminates. In other words it depends on the height of node. In the worst case the element might go down all the way to the leaf level.
+When Heapify is called, the running time depends on how far an element might move down in tree before the process 
+terminates.
+ In other words it depends on the height of node. In the worst case the element might go down all the way to the leaf 
+ level.
 
 Let us count the work done level by level. At the bottommost level there are 2^(h) nodes, but we do not call 
 Heapify on any of these so the work is 0. At the next to level there are  2^(h − 1) nodes, 
