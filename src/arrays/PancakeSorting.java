@@ -37,10 +37,10 @@ public class PancakeSorting {
             if (maxIndex != currentSize - 1) {
 
                 // To move at the end, first move maximum number to beginning
-                flip(array, maxIndex);
+                rev(array, maxIndex);
 
                 // Now move the maximum number to end by reversing current array
-                flip(array, currentSize - 1);
+                rev(array, currentSize - 1);
 
             }
 
@@ -64,17 +64,17 @@ public class PancakeSorting {
 
     }
 
-    private static void flip(int[] array, int i) {
+    private static void rev(int[] array, int i) {
 
         int start = 0;
 
-        if (start < i) {
+        while (start < i) {
 
             int temp = array[start];
             array[start] = array[i];
             array[i] = temp;
-           /* start++;
-            i--;*/
+            start++;
+            i--;
 
         }
 
