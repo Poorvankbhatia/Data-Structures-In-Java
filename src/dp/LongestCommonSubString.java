@@ -27,7 +27,7 @@ public class LongestCommonSubString {
         int n = str2.length();
 
         int[][] LCSub = new int[m + 1][n + 1];
-        int result = 0;
+        int result = 0,pos = -1;
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j <= n; j++) {
@@ -35,11 +35,15 @@ public class LongestCommonSubString {
                     LCSub[i][j] = 0;
                 } else if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
                     LCSub[i][j] = LCSub[i - 1][j - 1] + 1;
-                    result = Math.max(result, LCSub[i][j]);
+                    if(LCSub[i][j]>result) {
+                        result = LCSub[i][j];
+                        pos = i;
+                    }
                 } else LCSub[i][j] = 0;
             }
         }
 
+        System.out.println("SubString is - " + str1.substring(pos-result,pos));
         return result;
 
     }
