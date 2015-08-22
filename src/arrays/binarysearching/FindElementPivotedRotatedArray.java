@@ -7,55 +7,97 @@ public class FindElementPivotedRotatedArray {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{11, 12, 15, 18, 2, 5, 6, 8};
-        System.out.println("index of 12 is - " + findElementIndex(array, 12, 0, array.length - 1));
-
+        int[] array = new int[]{1,2,4,6,8,11,12,15,13,10,8};
+        //System.out.println("index is - " + findElementIndex(array, 8, 0, array.length - 1));
+        findElementIndex(array, 8, 0, array.length - 1);
 
     }
 
-    private static int findElementIndex(int[] arr, int key, int low, int high) {
+    private static void findElementIndex(int[] arr, int key, int low, int high) {
 
+        int pivotIndex = findPivot(arr,low,high);
+        
+        if(pivotIndex!=-1) {
+            
+            if(arr[pivotIndex]==key) {
+                System.out.println("Key found at " + pivotIndex);
+            }
+            else {
 
-        while (low <= high) {
+                int index1 = binarySearch(low,pivotIndex,arr,key,true);
+                int index2 = binarySearch(pivotIndex,high,arr,key,false);
+                
+                System.out.println("Key found at " + index1 + " " + index2);
+                
+            }
+            
+        }
+    }
+    
+    
+    private static int binarySearch(int low,int high,int[] arr,int key,boolean flag) {
+        
+        if(low<=high) {
+            
+            
+            int mid = (low+high)/2;
 
-            int mid = (low) + (high - low) / 2;
+            if(arr[mid]==key) {
+                return mid;
+            }
+            if(flag) {
+                if(arr[mid] < key) {
+                    return binarySearch(mid+1,high,arr,key,flag);
+                }
+                else {
+                    return binarySearch(low,mid-1,arr,key,flag);
+                }
+            }
+            else {
+                if(arr[mid] < key) {
+                    return binarySearch(low,mid-1,arr,key,flag);
+                }
+                else {
+                    return binarySearch(mid+1,high,arr,key,flag);
+                }
+            }
+            
+        }
+        
+        return -1;
+        
+    }
 
-            if (arr[mid] == key) {
+    
+    private static int findPivot(int[] arr,int low,int high) {
+        
+        if(low==high) {
+            return low;
+        }
+        
+        if(high<low) {
+            return -1;
+        }
+        
+        if(low<high) {
+            
+            int mid = (low+high)/2;
+            
+            if(arr[mid]>arr[mid+1] && arr[mid]>arr[mid-1]) {
                 return mid;
             }
             
-            /*
-            
-              Lower half is sorted
-            
-             */
-
-            if (arr[low] <= arr[mid]) {
-                if (arr[low] <= key && key < arr[mid]) {
-                    high = mid - 1;
-                } else {
-                    low = mid + 1;
-                }
+            else if(arr[mid]>arr[mid+1] && arr[mid]<arr[mid-1]) {
+                return findPivot(arr,low,mid-1);
+            }
+            else {
+                return findPivot(arr,mid+1,high);
             }
             
-            /*
-            
-
-             */
-
-            if (arr[mid] <= arr[high]) {
-                if (arr[mid] <= key && key < arr[high]) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
-            }
-
         }
-
+        
         return -1;
-
-
+        
     }
-
+    
 }
