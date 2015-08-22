@@ -8,7 +8,6 @@ public class FindElementPivotedRotatedArray {
     public static void main(String[] args) {
 
         int[] array = new int[]{1,2,4,6,8,11,12,15,13,10,8};
-        //System.out.println("index is - " + findElementIndex(array, 8, 0, array.length - 1));
         findElementIndex(array, 8, 0, array.length - 1);
 
     }
@@ -47,18 +46,18 @@ public class FindElementPivotedRotatedArray {
             }
             if(flag) {
                 if(arr[mid] < key) {
-                    return binarySearch(mid+1,high,arr,key,flag);
+                    return binarySearch(mid+1,high,arr,key,true);
                 }
                 else {
-                    return binarySearch(low,mid-1,arr,key,flag);
+                    return binarySearch(low,mid-1,arr,key,true);
                 }
             }
             else {
                 if(arr[mid] < key) {
-                    return binarySearch(low,mid-1,arr,key,flag);
+                    return binarySearch(low,mid-1,arr,key,false);
                 }
                 else {
-                    return binarySearch(mid+1,high,arr,key,flag);
+                    return binarySearch(mid+1,high,arr,key, false);
                 }
             }
             
