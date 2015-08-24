@@ -48,7 +48,7 @@ public class TreeListRecursion {
         aList = append(aList, bList);
 
 
-        System.out.println("currnt list - ");
+        System.out.println("current list - ");
         printList(aList);
 
         return aList;
