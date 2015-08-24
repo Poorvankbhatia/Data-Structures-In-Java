@@ -15,7 +15,7 @@ search tree contains only 3 pointers:
 
  */
 
-package trees;
+package trees.tries;
 
 import java.util.ArrayList;
 
