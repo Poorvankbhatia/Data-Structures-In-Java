@@ -38,7 +38,6 @@ public class SpecialPreOrderTree {
         }
 
         Node root = new Node(pre[index]);
-        // System.out.println(index);
         index++;
 
         if (preLN[i] == 'N') {
@@ -53,3 +52,12 @@ public class SpecialPreOrderTree {
     }
 
 }
+
+/*
+
+The first element in pre[] will always be root. So we can easily figure out root.
+ If left subtree is empty, the right subtree must also be empty and preLN[] entry for root must be ‘L’. 
+ We can simply create a node and return it. If left and right subtrees are not empty, 
+ then recursively call for left and right subtrees and link the returned nodes to root.
+
+ */
