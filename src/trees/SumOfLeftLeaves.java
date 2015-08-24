@@ -7,11 +7,12 @@ public class SumOfLeftLeaves {
     public static void main(String[] args) {
 
         Node root = Input.treeInput();
-        System.out.println("Left leaf sum - " + leftLeafSum(root));
+        leftLeafSum(root);
+        System.out.println("Left leaf sum - " + sum);
 
     }
 
-    private static int leftLeafSum(Node root) {
+    private static void leftLeafSum(Node root) {
 
 
         if (root != null) {
@@ -25,9 +26,6 @@ public class SumOfLeftLeaves {
             leftLeafSum(root.right);
 
         }
-
-        return sum;
-
 
     }
 
