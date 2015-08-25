@@ -20,6 +20,8 @@ Output: 5
 
 package dp;
 
+import java.util.Arrays;
+
 /**
  * Created by poorvank on 7/22/15.
  */
@@ -30,7 +32,7 @@ public class CountWaysToReachStairs {
         int n = 4, m = 2;
 
         //because ways(n) is equal to fibonacci(n+1)
-        System.out.println(countWaysUtil(n + 1, m));
+        System.out.println(countWaysUtil(n, m));
 
     }
 
@@ -46,7 +48,7 @@ public class CountWaysToReachStairs {
     private static int countWaysUtil(int n, int m) {
 
         int[] result = new int[n+1];
-        result[0] = 0;
+        result[0] = 1;
         result[1] = 1;
 
         for (int i = 2; i < result.length; i++) {
@@ -59,6 +61,7 @@ public class CountWaysToReachStairs {
 
         }
 
+        System.out.println(Arrays.toString(result));
         return result[n];
 
     }
