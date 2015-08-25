@@ -44,13 +44,13 @@ public class MinimumWindow {
         for (int begin = 0, end = 0; end < sLen; end++) {
 
 
-            if (needToFind[(int) s.charAt(end)] == 0) {
+            if (needToFind[s.charAt(end)] == 0) {
                 continue;
             }
 
-            hasFound[(int) s.charAt(end)]++;
+            hasFound[s.charAt(end)]++;
 
-            if (hasFound[(int) s.charAt(end)] <= needToFind[(int) s.charAt(end)]) {
+            if (hasFound[s.charAt(end)] <= needToFind[s.charAt(end)]) {
                 count++;
             }
 
@@ -58,11 +58,11 @@ public class MinimumWindow {
             if (count == tLen) {
 
 
-                while (needToFind[(int) s.charAt(begin)] == 0 ||
-                        hasFound[(int) s.charAt(begin)] > needToFind[(int) s.charAt(begin)]) {
+                while (needToFind[s.charAt(begin)] == 0 ||
+                        hasFound[s.charAt(begin)] > needToFind[s.charAt(begin)]) {
 
-                    if (hasFound[(int) s.charAt(begin)] > needToFind[(int) s.charAt(begin)]) {
-                        hasFound[(int) s.charAt(begin)]--;
+                    if (hasFound[s.charAt(begin)] > needToFind[s.charAt(begin)]) {
+                        hasFound[s.charAt(begin)]--;
                     }
 
                     begin++;
@@ -84,7 +84,7 @@ public class MinimumWindow {
         }
 
         if (minWindowEnd != 0)
-            System.out.println("Window length - " + minWindowLength + " starts at - " + minWindowBegin + " ends at - " + minWindowEnd);
+            System.out.println("Window length - " + minWindowLength + " starts at - " + minWindowBegin + " ends at - " + minWindowEnd + " " + s.substring(minWindowBegin,minWindowEnd+1));
         else {
             System.out.println("No window found");
         }
