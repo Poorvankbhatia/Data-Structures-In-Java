@@ -62,7 +62,7 @@ public class StockBuyAndSell {
         }
 
         for (Interval interval : arrayList) {
-            System.out.println("Buy at - " + interval.buy + "  and sell at " + interval.sell);
+            System.out.println("Buy at - " + price[interval.buy] + "  and sell at " + price[interval.sell]);
         }
 
     }
