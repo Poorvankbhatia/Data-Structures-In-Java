@@ -141,7 +141,9 @@ public class BuildLowestNo {
 
 /*
 
-Analysis: Let’s delete a digit from the number at each step. What’s the first digit to be deleted from the number 24635, in order to get the least number with the remaining digits? We may list all the remaining numbers after deleting a digit, in the following table:
+Analysis: Let’s delete a digit from the number at each step. What’s the first digit to be deleted from the number 24635, 
+in order to get the least number with the remaining digits? We may list all the remaining numbers after deleting a digit,
+ in the following table:
 
 Deleted Digit
 Remaining Number
