@@ -113,3 +113,24 @@ public class TrieImplementation {
     }
 
 }
+
+/*
+
+The complexity of creating a trie is O(W*L), where W is the number of words, and L 
+is an average length of the word: you need to perform L lookups on the average for each of the W words in the set.
+
+Same goes for looking up words later: you perform L steps for each of the W words.
+
+Hash insertions and lookups have the same complexity: for each word you need to check equality, 
+which takes O(L), for the overall complexity of O(W*L).
+
+If you need to look up entire words, hash table is easier. However, you cannot look up words by their prefix 
+using a hash table; If prefix-based lookups are of no interest to you, use a hash table; otherwise, use a trie.
+
+
+search complexities can be brought to optimal limit (key length). If we store keys in binary search tree, a
+ well balanced BST will need time proportional to M * log N,
+ where M is maximum string length and N is number of keys in tree. Using trie, we can search the key in O(M) time.
+
+
+ */
