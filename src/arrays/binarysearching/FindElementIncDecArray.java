@@ -3,7 +3,7 @@ package arrays.binarysearching;
 /**
  * Created by poorvank on 7/13/15.
  */
-public class FindElementPivotedRotatedArray {
+public class FindElementIncDecArray {
 
     public static void main(String[] args) {
 

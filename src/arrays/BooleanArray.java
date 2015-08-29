@@ -9,12 +9,11 @@ public class BooleanArray {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{0, 1};
+        int[] a = new int[]{0,1};
 
-        arr[arr[0]] = arr[arr[0]];
-        arr[arr[1]] = arr[arr[1]];
-
-        System.out.println(Arrays.toString(arr));
+        a[ a[1] ] = a[ a[0] ];
+        
+        System.out.println(Arrays.toString(a));
 
     }
 
