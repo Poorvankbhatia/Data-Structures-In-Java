@@ -80,12 +80,12 @@ public class BitonicSubArray {
 
 /*
 
-Let us consider the array {12, 4, 78, 90, 45, 23} to understand the soultion.
+Let us consider the array {12, 4, 78, 90, 45, 23} to understand the solution.
 1) Construct an auxiliary array inc[] from left to right such that inc[i] contains length of 
-the nondecreaing subarray ending at arr[i].
+the increasing subarray ending at arr[i].
 For for A[] = {12, 4, 78, 90, 45, 23}, inc[] is {1, 1, 2, 3, 1, 1}
 
-2) Construct another array dec[] from right to left such that dec[i] contains length of nonincreasing 
+2) Construct another array dec[] from right to left such that dec[i] contains length of decreasing
 subarray starting at arr[i].
 For A[] = {12, 4, 78, 90, 45, 23}, dec[] is {2, 1, 1, 3, 2, 1}.
 
