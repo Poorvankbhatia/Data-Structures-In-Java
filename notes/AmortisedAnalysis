@@ -1,11 +1,16 @@
-Amortized Analysis is used for algorithms where an occasional operation is very slow, but most of the other operations are faster. In Amortized Analysis, we analyze a sequence of operations and guarantee a worst case average time which is lower than the worst case time of a particular expensive operation.
-The example data structures whose operations are analyzed using Amortized Analysis are Hash Tables, Disjoint Sets and Splay trees.
+Amortized Analysis is used for algorithms where an occasional operation is very slow, but most of the other 
+operations are faster. In Amortized Analysis, we analyze a sequence of operations and guarantee a worst case 
+average time which is lower than the worst case time of a particular expensive operation.
+The example data structures whose operations are analyzed using Amortized Analysis are Hash Tables, Disjoint 
+Sets and Splay trees.
 
-Let us consider an example of a simple hash table insertions. How do we decide table size? There is a trade-off between space and time, if we make hash-table size big, search time becomes fast, but space required becomes high.
+Let us consider an example of a simple hash table insertions. How do we decide table size? There is a trade-off 
+between space and time, if we make hash-table size big, search time becomes fast, but space required becomes high.
 
 Dynamic Table
 
-The solution to this trade-off problem is to use Dynamic Table (or arrays). The idea is to increase size of table whenever it becomes full. Following are the steps to follow when table becomes full.
+The solution to this trade-off problem is to use Dynamic Table (or arrays). The idea is to increase size of table
+ whenever it becomes full. Following are the steps to follow when table becomes full.
 1) Allocate memory for a larger table of size, typically twice the old table.
 2) Cop the contents of old table to new table.
 3) Free the old table.
