@@ -27,24 +27,34 @@ public class PossibleStringWithSpaces {
         String s = "ABC";
 
         List<Character> list = new ArrayList<>();
-        printPermutations(s, list, 0, s.length() - 1);
+        printPermutations(s, list, 0, s.length());
 
     }
 
     private static void printPermutations(String s, List<Character> list, int i, int n) {
 
         if (i == n) {
-            System.out.println(list.toString());
+            if(list.get(list.size()-1)!=' ')
+              printList(list);
             return;
         }
 
         list.add(s.charAt(i));
-        printPermutations(s, new ArrayList<Character>(list), i + 1, n);
+        printPermutations(s, new ArrayList<>(list), i + 1, n);
 
         list.add(' ');
-        printPermutations(s, new ArrayList<Character>(list), i + 1, n);
+        printPermutations(s, new ArrayList<>(list), i + 1, n);
 
 
+    }
+    
+    private static void printList(List<Character> list) {
+        
+        StringBuilder sb = new StringBuilder();
+        for (Character c: list) {
+            sb.append(c);
+        }
+        System.out.println(sb.toString());
     }
 
 
