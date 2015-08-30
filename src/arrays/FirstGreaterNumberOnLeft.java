@@ -1,4 +1,4 @@
-package arrays.twodimensionalarrays;
+package arrays;
 
 import stack.ArrayStack;
 import stack.Stack;
