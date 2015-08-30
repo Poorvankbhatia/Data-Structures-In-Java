@@ -13,7 +13,8 @@ First consider an unsigned integer stored in 4 bits. You can have the following
 These are unsigned because there is no indication of whether they are negative or positive.
 
 To store negative numbers you can try a number of things. First, you can use sign magnitude 
-notation which assigns the first bit as a sign bit to represent +/- and the remaining bits to represent the magnitude. So using 4 bits again and assuming that 1 means - and 0 means + then you have
+notation which assigns the first bit as a sign bit to represent +/- and the remaining bits to represent the magnitude. 
+So using 4 bits again and assuming that 1 means - and 0 means + then you have
 
 0000 = +0
 0001 = +1
