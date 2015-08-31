@@ -42,7 +42,7 @@ public class Histogram2 {
         
         for (int i=0;i<n;i++) {
             
-            if(!leftStack.isEmpty() && array[i]<array[leftStack.getTop()]) {
+            while (!leftStack.isEmpty() && array[i]<=array[leftStack.getTop()]) {
                 leftStack.pop();
             }
             
@@ -60,7 +60,7 @@ public class Histogram2 {
         
         for (int i=n-1;i>=0;i--) {
             
-            if(!rightStack.isEmpty() && array[i]<array[rightStack.getTop()]) {
+            while (!rightStack.isEmpty() && array[i]<=array[rightStack.getTop()]) {
                 rightStack.pop();
             }
             
