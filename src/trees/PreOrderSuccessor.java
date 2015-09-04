@@ -16,7 +16,7 @@ public class PreOrderSuccessor {
         root.right.right = new Node(46);
         
         Node x;
-        if((x=findSuccessorPreOrder(5,root))!=null) {
+        if((x=findSuccessorPreOrder(3,root))!=null) {
             System.out.println(x.info);
         }
         
@@ -49,6 +49,10 @@ public class PreOrderSuccessor {
             
             if(successor!=null) {
                 return successor;
+            }
+            
+            if(find && successor==null) {
+                return root.right;
             }
             
             else if(!find) {
