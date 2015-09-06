@@ -43,11 +43,11 @@ public class MinimumCostPath {
 
         table[0][0] = cost[0][0];
 
-        for (int i = 1; i < COL; i++) {
+        for (int i = 1; i < ROW; i++) {
             table[i][0] = table[i - 1][0] + cost[i][0];
         }
 
-        for (int j = 1; j < ROW; j++) {
+        for (int j = 1; j < COL; j++) {
             table[0][j] = table[0][j - 1] + cost[0][j];
         }
 
