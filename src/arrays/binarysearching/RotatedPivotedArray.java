@@ -15,7 +15,7 @@ public class RotatedPivotedArray {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{11, 12, 15, 18, 2, 5, 6, 8};
+        int[] array = new int[]{5,6,1,2,3,4};
         System.out.println("array is rotated - " + findPivotIndex(array, 0, array.length - 1) + " times");
 
     }
@@ -43,7 +43,7 @@ public class RotatedPivotedArray {
         int previous = (mid - 1 + array.length) % (array.length); // in case it is the first element
         //length is added in case - 1 returns a negative value
 
-        if (array[mid] <= array[next] && array[mid] >= array[previous]) {
+        if (array[mid] <= array[next] && array[mid] <= array[previous]) {
             return mid;
         }
         
