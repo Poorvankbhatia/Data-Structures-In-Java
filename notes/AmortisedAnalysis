@@ -15,6 +15,12 @@ The solution to this trade-off problem is to use Dynamic Table (or arrays). The 
 2) Cop the contents of old table to new table.
 3) Free the old table.
 
+
+every time the number of items exceeds the table size, a new table with size, twice as the old table is created. 
+And all the items in the old table is copied to the new table.
+
+for example when table size increases from 4 -> 8, cost = 4 (to copy 4 elements) + 1 (to insert new element) = 5
+
 If the table has space available, we simply insert new item in available space.
 
 If we use simple analysis, the worst case cost of an insertion is O(n). 
