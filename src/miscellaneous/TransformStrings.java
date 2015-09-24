@@ -24,52 +24,52 @@ package miscellaneous;
  * Created by poorvank on 8/28/15.
  */
 public class TransformStrings {
-    
+
     public static void main(String[] args) {
-        
+
         String a = "ABCDE";
         String b = "DCABE";
-        
-        System.out.println(findMinOperations(a,b));
-        
+
+        System.out.println(findMinOperations(a, b));
+
     }
-    
-    private static int findMinOperations(String s1,String s2) {
-        
-        
+
+    private static int findMinOperations(String s1, String s2) {
+
+
         int[] count = new int[256];
-        
-        for (int i=0;i<s1.length();i++) {
+
+        for (int i = 0; i < s1.length(); i++) {
             count[s1.charAt(i)]++;
         }
-        
-        for (int i=0;i<s2.length();i++){
+
+        for (int i = 0; i < s2.length(); i++) {
             count[s2.charAt(i)]--;
         }
-        
-        for (int i=0;i<count.length;i++) {
-            if(count[i]!=0){
+
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] != 0) {
                 return -1;
             }
         }
-        
+
         int n = s1.length();
-        int result =0;
-        for (int i=n-1,j=n-1;j>=0 && i>=0;) {
-            
-            if(s1.charAt(i)==s2.charAt(j)) {
-                i--;j--;
-            }
-            else {
+        int result = 0;
+        for (int i = n - 1, j = n - 1; j >= 0 && i >= 0; ) {
+
+            if (s1.charAt(i) == s2.charAt(j)) {
+                i--;
+                j--;
+            } else {
                 result++;
                 i--;
             }
-            
+
         }
-        
+
         return result;
     }
-    
+
 }
 
 

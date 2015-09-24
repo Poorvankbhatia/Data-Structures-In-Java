@@ -4,12 +4,16 @@ import java.util.Stack;
 
 class GetAllSubsetByStack {
 
-    /** Set a value for target sum */
+    /**
+     * Set a value for target sum
+     */
     public static final int TARGET_SUM = 15;
 
     private Stack<Integer> stack = new Stack<Integer>();
 
-    /** Store the sum of current elements stored in stack */
+    /**
+     * Store the sum of current elements stored in stack
+     */
     private int sumInStack = 0;
 
     public void populateSubset(int[] data, int fromIndex, int endIndex) {
@@ -56,8 +60,8 @@ class GetAllSubsetByStack {
 
 public class GenerateSumSubSets {
 
-    private static final int[] DATA = { 1, 3, 4, 5, 6, 2, 7, 8, 9, 10, 11, 13,
-            14, 15 };
+    private static final int[] DATA = {1, 3, 4, 5, 6, 2, 7, 8, 9, 10, 11, 13,
+            14, 15};
 
     public static void main(String[] args) {
         GetAllSubsetByStack get = new GetAllSubsetByStack();

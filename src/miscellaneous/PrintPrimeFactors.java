@@ -9,6 +9,7 @@ And if the input number is 315, then output should be “3 3 5 7″.
 
 
 package miscellaneous;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,43 +17,43 @@ import java.util.Map;
  * Created by poorvank on 8/18/15.
  */
 public class PrintPrimeFactors {
-    
+
     public static void main(String[] args) {
 
         int n = 54345678;
-        int count =0;
-        
-        Map<Integer,Integer> map = new HashMap<>();
-        
-        while (n%2==0) {
+        int count = 0;
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        while (n % 2 == 0) {
             count++;
-            n = n/2;
+            n = n / 2;
         }
-        
-        map.put(2,count);
-        count=0;
-        for (int i=3;i<=(int)Math.sqrt(n);i=i+2) {
-                
-            while (n%i==0) {
-                n = n/i;
+
+        map.put(2, count);
+        count = 0;
+        for (int i = 3; i <= (int) Math.sqrt(n); i = i + 2) {
+
+            while (n % i == 0) {
+                n = n / i;
                 count++;
             }
-            
-            if(count!=0) {
-                map.put(i,count);
-                count =0;
+
+            if (count != 0) {
+                map.put(i, count);
+                count = 0;
             }
-            
+
         }
-        
-        if(n>2) {
-            map.put(n,1);
+
+        if (n > 2) {
+            map.put(n, 1);
         }
-        
+
         System.out.println(map.toString());
-        
+
     }
-    
+
 }
 
 /*

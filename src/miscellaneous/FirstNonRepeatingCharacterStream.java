@@ -8,41 +8,40 @@ You need to tell the first non-repeating character in O(1) time at any moment.
 
 package miscellaneous;
 
-import trees.Node;
-
 /**
  * Created by poorvank on 8/27/15.
  */
 
 class DLNode {
-    
+
     char ch;
     DLNode next;
     DLNode prev;
-    
+
     public DLNode(char ch) {
-        this(ch,null,null);
+        this(ch, null, null);
     }
-    public DLNode(char ch,DLNode next,DLNode prev) {
+
+    public DLNode(char ch, DLNode next, DLNode prev) {
         this.ch = ch;
         this.next = next;
         this.prev = prev;
     }
-    
+
 }
 
 class DLList {
-    
-    DLNode head,tail;
-    
+
+    DLNode head, tail;
+
     public DLList() {
         head = null;
-        tail=null;
+        tail = null;
     }
-    
+
     public void addToList(char ch) {
-        
-        if(head==null) {
+
+        if (head == null) {
             head = new DLNode(ch);
             tail = head;
         } else {
@@ -53,71 +52,67 @@ class DLList {
         }
 
     }
-    
+
     public void deleteFromList(DLNode node) {
-        
-        if(node!=tail && node!=head) {
+
+        if (node != tail && node != head) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
-        }
-        else if(head==tail) {
+        } else if (head == tail) {
             head = tail = null;
-        }
-        else if(node==tail) {
+        } else if (node == tail) {
             tail = tail.prev;
             tail.next = null;
-        }
-        else {
+        } else {
             head = head.next;
             head.prev = null;
         }
-        
-        
+
+
     }
-    
+
 }
 
 public class FirstNonRepeatingCharacterStream {
-    
+
     public static void main(String[] args) {
-        
+
         boolean[] repeated = new boolean[256];
         DLNode[] inDLL = new DLNode[256];
         DLList list = new DLList();
-        
+
         String stream = "geeksforgeeksandgeeksquizfor";
-        
-        for (int i=0;i<stream.length();i++) {
-            
+
+        for (int i = 0; i < stream.length(); i++) {
+
             char ch = stream.charAt(i);
-            
+
             System.out.println("Reading - " + ch + " from stream");
-            
-            if(!repeated[ch]) {
-                
-                if(inDLL[ch]==null) {
-                    
+
+            if (!repeated[ch]) {
+
+                if (inDLL[ch] == null) {
+
                     list.addToList(ch);
                     inDLL[ch] = list.tail;
-                }
-                else {
+                } else {
                     list.deleteFromList(inDLL[ch]);
                     System.out.println("deleted - " + ch);
                     inDLL[ch] = null;
                     repeated[ch] = true;
                 }
-                
-                
+
+
             }
-            
-            if(list.head!=null) {
+
+            if (list.head != null) {
                 System.out.println("First Non repeating character - " + list.head.ch);
             }
-            
+
         }
-        
+
     }
-    
+
 }
 
 

@@ -21,71 +21,69 @@ import java.util.Arrays;
  * Created by poorvank on 8/22/15.
  */
 public class Histogram2 {
-    
+
     public static void main(String[] args) {
-        
-        int[] array = new int[]{6,2,5,4,5,1,6};
-        
+
+        int[] array = new int[]{6, 2, 5, 4, 5, 1, 6};
+
         System.out.println(findMaxArea(array));
-        
+
     }
-    
+
     private static int findMaxArea(int[] array) {
 
         int n = array.length;
         Stack<Integer> leftStack = new ArrayStack<>();
         Stack<Integer> rightStack = new ArrayStack<>();
-        
+
         int[] width = new int[n];
 
-        Arrays.fill(width,1);
-        
-        for (int i=0;i<n;i++) {
-            
-            while (!leftStack.isEmpty() && array[i]<=array[leftStack.getTop()]) {
+        Arrays.fill(width, 1);
+
+        for (int i = 0; i < n; i++) {
+
+            while (!leftStack.isEmpty() && array[i] <= array[leftStack.getTop()]) {
                 leftStack.pop();
             }
-            
+
             //All the bars on left are greater than current bar
-            if(leftStack.isEmpty()) {
+            if (leftStack.isEmpty()) {
                 width[i] += i;
-            }
-            else {
+            } else {
                 width[i] += i - leftStack.getTop() - 1;
             }
-            
+
             leftStack.push(i);
-            
+
         }
-        
-        for (int i=n-1;i>=0;i--) {
-            
-            while (!rightStack.isEmpty() && array[i]<=array[rightStack.getTop()]) {
+
+        for (int i = n - 1; i >= 0; i--) {
+
+            while (!rightStack.isEmpty() && array[i] <= array[rightStack.getTop()]) {
                 rightStack.pop();
             }
-            
+
             //All bars on the right are greater
-            if(rightStack.isEmpty()) {
-                width[i] += n-1-i;
+            if (rightStack.isEmpty()) {
+                width[i] += n - 1 - i;
+            } else {
+                width[i] += rightStack.getTop() - i - 1;
             }
-            else {
-                width[i] += rightStack.getTop()-i-1;
-            }
-            
+
             rightStack.push(i);
         }
-        
+
         int max = 0;
-        
-        for (int i=0;i<n;i++) {
-            
-            max = Math.max(max,(width[i]*array[i]));
-            
+
+        for (int i = 0; i < n; i++) {
+
+            max = Math.max(max, (width[i] * array[i]));
+
         }
-        
+
         return max;
     }
-    
+
 }
 
 /*

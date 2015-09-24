@@ -52,7 +52,7 @@ public class BuildLowestNo {
         printLowestNumber(s1, k1);
         printLowestNumber(s2, k2);
         printLowestNumber(s3, k3);
-        
+
     }
 
     private static void printLowestNumber(String number, int k) {
@@ -74,7 +74,7 @@ public class BuildLowestNo {
         }
 
         System.out.println(leastNumber);
-        
+
     }
 
     /**
@@ -136,7 +136,7 @@ public class BuildLowestNo {
         return result.toString();
 
     }
-    
+
 }
 
 /*
