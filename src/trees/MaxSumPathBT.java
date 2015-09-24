@@ -4,9 +4,9 @@ package trees;
  * Created by poorvank on 8/28/15.
  */
 public class MaxSumPathBT {
-    
+
     private static int result = Integer.MIN_VALUE;
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -18,32 +18,32 @@ public class MaxSumPathBT {
         root.right.right = new Node(6);
         maxPathSum(root);
         System.out.println(result);
-        
+
     }
-    
+
     private static int maxPathSum(Node root) {
-        
-        if(root==null) {
+
+        if (root == null) {
             return 0;
         }
-        
+
         int left = maxPathSum(root.left);
         int right = maxPathSum(root.right);
-        
+
         //Max value as root
-        int max = Math.max(Math.max(left,right)+root.info,root.info);
+        int max = Math.max(Math.max(left, right) + root.info, root.info);
 
         // MaxForSubtree represents the sum when the Node under
         // consideration is the root of the maxsum path and no
         // ancestors of root are there in max sum path
-        int maxForSubTree = Math.max(left+right+root.info,max);
-        
-        result = Math.max(result,maxForSubTree);
-        
+        int maxForSubTree = Math.max(left + right + root.info, max);
+
+        result = Math.max(result, maxForSubTree);
+
         return max;
-        
+
     }
-    
+
 }
 
 /*

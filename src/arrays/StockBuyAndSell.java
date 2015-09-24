@@ -27,7 +27,7 @@ public class StockBuyAndSell {
 
     public static void main(String[] args) {
 
-        int price[] = new int[]{100, 180, 260, 310, 40, 535, 695};
+        int price[] = new int[]{1,2,100};
 
         ArrayList<Interval> arrayList = new ArrayList<>();
 
