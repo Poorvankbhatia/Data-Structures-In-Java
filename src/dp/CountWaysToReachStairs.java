@@ -47,7 +47,7 @@ public class CountWaysToReachStairs {
 
     private static int countWaysUtil(int n, int m) {
 
-        int[] result = new int[n+1];
+        int[] result = new int[n + 1];
         result[0] = 1;
         result[1] = 1;
 

@@ -16,19 +16,19 @@ package dp;
  * Created by poorvank on 8/25/15.
  */
 public class RoundHouseRobbery {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{4, 5, 17, 3, 12, 29, 31};
         int n = arr.length;
         //Include 1st house
-        int[] dp = new int[arr.length-1];
-        
+        int[] dp = new int[arr.length - 1];
+
         dp[0] = arr[0];
-        dp[1] = Math.max(dp[0],arr[1]);
-        
-        for (int i=2;i<n-1;i++) {
-            dp[i] = Math.max(dp[i-1],dp[i-2]+arr[i]);
+        dp[1] = Math.max(dp[0], arr[1]);
+
+        for (int i = 2; i < n - 1; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + arr[i]);
         }
 
         //Include Last house
@@ -37,14 +37,14 @@ public class RoundHouseRobbery {
         dr[0] = 0;
         dr[1] = arr[1];
 
-        for (int i=2;i<n;i++) {
-            dr[i] = Math.max(dr[i-1],dr[i-2]+arr[i]);
+        for (int i = 2; i < n; i++) {
+            dr[i] = Math.max(dr[i - 1], dr[i - 2] + arr[i]);
         }
-        
-        System.out.println(Math.max(dp[n-2],dr[n-1]));
-        
+
+        System.out.println(Math.max(dp[n - 2], dr[n - 1]));
+
     }
-    
+
 }
 
 /*

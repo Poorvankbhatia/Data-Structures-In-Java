@@ -19,9 +19,9 @@ public class CountPaths {
     public static void main(String[] args) {
 
         int graph[][] = new int[][]{{0, 1, 1, 1},
-                                    {0, 0, 0, 1},
-                                    {0, 0, 0, 1},
-                                    {0, 0, 0, 0}
+                {0, 0, 0, 1},
+                {0, 0, 0, 1},
+                {0, 0, 0, 0}
         };
 
         System.out.println(countWalks(0, 3, 2, graph));

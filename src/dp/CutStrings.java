@@ -44,54 +44,54 @@ import java.util.Arrays;
  * Created by poorvank on 8/26/15.
  */
 public class CutStrings {
-    
+
     public static void main(String[] args) {
-        
+
         String str = "1111101";
-        
+
         int n = str.length();
-        int[] ways = new int[n+1];
-        
+        int[] ways = new int[n + 1];
+
         ways[0] = 0;
-        
-        for (int i=1;i<=n;i++) {
-            
+
+        for (int i = 1; i <= n; i++) {
+
             ways[i] = Integer.MAX_VALUE;
-            
-            for (int j=1;j<=i;j++) {
-                
-                if(str.charAt(j-1)=='0') {
+
+            for (int j = 1; j <= i; j++) {
+
+                if (str.charAt(j - 1) == '0') {
                     continue;
                 }
-                
-                int num = Integer.parseInt(str.substring(j-1,i),2);
+
+                int num = Integer.parseInt(str.substring(j - 1, i), 2);
                 System.out.println(num + " " + isPower(num) + " i = " + i + " j = " + j);
-                
-                if(isPower(num)) {
-                    if(ways[j-1]!=Integer.MAX_VALUE)
-                      ways[i] = Math.min(ways[i],ways[j-1]+1);
+
+                if (isPower(num)) {
+                    if (ways[j - 1] != Integer.MAX_VALUE)
+                        ways[i] = Math.min(ways[i], ways[j - 1] + 1);
                 }
-                
+
             }
-            
+
         }
-        
+
         System.out.println(Arrays.toString(ways));
-        
-        System.out.println(ways[n]!=Integer.MAX_VALUE?ways[n]:-1);
-        
+
+        System.out.println(ways[n] != Integer.MAX_VALUE ? ways[n] : -1);
+
     }
-    
+
     private static boolean isPower(int num) {
-        
-        if(num==0) {
+
+        if (num == 0) {
             return false;
         }
-        int n = (int)(Math.log(num)/Math.log(5));
-        
-        return (Math.pow(5,n)==num);
+        int n = (int) (Math.log(num) / Math.log(5));
+
+        return (Math.pow(5, n) == num);
     }
-    
+
 }
 
 

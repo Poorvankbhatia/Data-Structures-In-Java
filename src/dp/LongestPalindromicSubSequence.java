@@ -56,7 +56,7 @@ public class LongestPalindromicSubSequence {
 
             }
 
-            
+
         }
 
         System.out.println(L[0][n - 1]);
