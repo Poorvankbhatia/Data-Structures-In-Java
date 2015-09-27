@@ -84,7 +84,7 @@ public class MinimumWindow {
         }
 
         if (minWindowEnd != 0)
-            System.out.println("Window length - " + minWindowLength + " starts at - " + minWindowBegin + " ends at - " + minWindowEnd + " " + s.substring(minWindowBegin,minWindowEnd+1));
+            System.out.println("Window length - " + minWindowLength + " starts at - " + minWindowBegin + " ends at - " + minWindowEnd + " " + s.substring(minWindowBegin, minWindowEnd + 1));
         else {
             System.out.println("No window found");
         }
