@@ -54,7 +54,7 @@ public class EquilibriumIndex {
 
         System.out.println(Arrays.toString(leftSum));
         System.out.println(Arrays.toString(rightSum));
-        
+
         for (int i = 0; i < n; i++) {
             if (leftSum[i] == rightSum[i]) {
                 System.out.println("Equilibrium Index found at index - " + i);

@@ -9,10 +9,10 @@ public class BooleanArray {
 
     public static void main(String[] args) {
 
-        int[] a = new int[]{0,1};
+        int[] a = new int[]{0, 1};
 
-        a[ a[1] ] = a[ a[0] ];
-        
+        a[a[1]] = a[a[0]];
+
         System.out.println(Arrays.toString(a));
 
     }

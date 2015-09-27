@@ -25,60 +25,58 @@ import java.util.Arrays;
  * Created by poorvank on 8/22/15.
  */
 public class RearrangePosNegOrder {
-    
+
     public static void main(String[] args) {
-        
+
         int[] arr = new int[]{-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
         rearrangeArray(arr);
         System.out.println(Arrays.toString(arr));
-        
+
     }
-    
+
     private static void rearrangeArray(int[] array) {
-        
+
         int n = array.length;
         int outPlace = -1;
-        
-        for (int index=0;index<n;index++) {
 
-            if(outPlace>=0) {
-                
-                if((array[index]>=0 && array[outPlace]<0) || (array[index]<0 && array[outPlace]>=0)) {
-                    
-                    rightRotateArray(array,index,outPlace);
-                    
-                    if(index-outPlace>2) {
-                        outPlace = outPlace+2;
-                    }
-                    else {
+        for (int index = 0; index < n; index++) {
+
+            if (outPlace >= 0) {
+
+                if ((array[index] >= 0 && array[outPlace] < 0) || (array[index] < 0 && array[outPlace] >= 0)) {
+
+                    rightRotateArray(array, index, outPlace);
+
+                    if (index - outPlace > 2) {
+                        outPlace = outPlace + 2;
+                    } else {
                         outPlace = -1;
                     }
-                    
+
                 }
-                
-            }
-            else {
-                
-                if((array[index]<0 && (index%2)!=0) || (array[index]>0 && (index%2)==0)) {
+
+            } else {
+
+                if ((array[index] < 0 && (index % 2) != 0) || (array[index] > 0 && (index % 2) == 0)) {
                     outPlace = index;
                 }
-                
+
             }
-            
+
         }
-        
+
     }
-    
-    private static void rightRotateArray(int[] arr,int index,int outPlace) {
-        
+
+    private static void rightRotateArray(int[] arr, int index, int outPlace) {
+
         int temp = arr[index];
-        for (int i=index;i>outPlace;i--) {
-            arr[i] = arr[i-1];
+        for (int i = index; i > outPlace; i--) {
+            arr[i] = arr[i - 1];
         }
         arr[outPlace] = temp;
-        
+
     }
-    
+
 }
 
 /*

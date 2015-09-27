@@ -16,43 +16,41 @@ public class FindPositionInfiniteArray {
 
         int[] array = new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};
         int value = 130;
-        int x=-1;
-        if((x=findPos(array,value))!=-1) {
+        int x = -1;
+        if ((x = findPos(array, value)) != -1) {
             System.out.println("Position is - " + x);
         }
 
     }
 
-    private static int findPos(int[] array,int value) {
+    private static int findPos(int[] array, int value) {
 
         int low = 0;
-        int high =1;
+        int high = 1;
 
-        while (value>array[high]) {
+        while (value > array[high]) {
 
             low = high;
-            high = (high*2);
+            high = (high * 2);
 
         }
 
-        return binarySearch(high,low,array,value);
+        return binarySearch(high, low, array, value);
 
     }
 
-    private static int binarySearch(int high,int low,int[] arr,int key) {
+    private static int binarySearch(int high, int low, int[] arr, int key) {
 
-        if(low<high) {
+        if (low < high) {
 
-            int mid = (low+high)/2;
+            int mid = (low + high) / 2;
 
-            if(arr[mid]==key) {
+            if (arr[mid] == key) {
                 return mid;
-            }
-            else if(arr[mid]>key) {
-                return binarySearch(mid-1,low,arr,key);
-            }
-            else {
-                return binarySearch(high,mid+1,arr,key);
+            } else if (arr[mid] > key) {
+                return binarySearch(mid - 1, low, arr, key);
+            } else {
+                return binarySearch(high, mid + 1, arr, key);
             }
 
         }

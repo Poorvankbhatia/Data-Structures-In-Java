@@ -15,7 +15,7 @@ public class RotatedPivotedArray {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{5,6,1,2,3,4};
+        int[] array = new int[]{5, 6, 1, 2, 3, 4};
         System.out.println("array is rotated - " + findPivotIndex(array, 0, array.length - 1) + " times");
 
     }

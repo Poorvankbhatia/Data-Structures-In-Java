@@ -13,12 +13,12 @@ public class SpiralPrintingMatrix {
 
     public static void main(String[] args) {
 
-        int[][] matrix = new int[][]{{1, 2, 3, 4, 5}, 
-                                     {18, 19, 20, 21, 6}, 
-                                     {17, 28, 29, 22, 7}, 
-                                     {16, 27, 30, 23, 8}, 
-                                     {15, 26, 25, 24, 9}, 
-                                     {14, 13, 12, 11, 10}};
+        int[][] matrix = new int[][]{{1, 2, 3, 4, 5},
+                {18, 19, 20, 21, 6},
+                {17, 28, 29, 22, 7},
+                {16, 27, 30, 23, 8},
+                {15, 26, 25, 24, 9},
+                {14, 13, 12, 11, 10}};
         int row = matrix.length;
         int col = matrix[0].length;
 

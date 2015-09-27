@@ -31,7 +31,7 @@ public class MaximumMinimum {
 
         method1(array1);
         method1(array2);
-        
+
         Result result = divideConquerApproach(array1, 0, array1.length - 1);
         System.out.println("max - " + result.max + " min - " + result.min);
 

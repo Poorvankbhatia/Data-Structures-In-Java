@@ -34,8 +34,8 @@ public class PossibleStringWithSpaces {
     private static void printPermutations(String s, List<Character> list, int i, int n) {
 
         if (i == n) {
-            if(list.get(list.size()-1)!=' ')
-              printList(list);
+            if (list.get(list.size() - 1) != ' ')
+                printList(list);
             return;
         }
 
@@ -47,11 +47,11 @@ public class PossibleStringWithSpaces {
 
 
     }
-    
+
     private static void printList(List<Character> list) {
-        
+
         StringBuilder sb = new StringBuilder();
-        for (Character c: list) {
+        for (Character c : list) {
             sb.append(c);
         }
         System.out.println(sb.toString());
