@@ -17,8 +17,8 @@ public class KnightsTour {
     /* xMove[] and yMove[] define next move of Knight.
       xMove[] is for next value of x coordinate
       yMove[] is for next value of y coordinate */
-    private static final int[] XMOVE = new int[]{2, 1, -1, -2, -2, -1,  1,  2};
-    private static final int[] YMOVE = new int[]{1, 2,  2,  1, -1, -2, -2, -1};
+    private static final int[] XMOVE = new int[]{2, 1, -1, -2, -2, -1, 1, 2};
+    private static final int[] YMOVE = new int[]{1, 2, 2, 1, -1, -2, -2, -1};
     private static final int NOTCOVERED = -1;
     private static final int N = 8;
 
