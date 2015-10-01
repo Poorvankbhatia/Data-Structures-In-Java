@@ -4,29 +4,29 @@ package bitmanuplation;
  * Created by poorvank on 8/27/15.
  */
 public class AddTwoNumbers {
-    
+
     public static void main(String[] args) {
-        
-        int a=7,b=8;
-        
-        System.out.println(add(a,b));
-        
+
+        int a = 7, b = 8;
+
+        System.out.println(add(a, b));
+
     }
-    
-    private static int add(int a,int b) {
-        
-        while (b!=0) {
-            
-            int carry = (a&b);
-            a = (a^b);
-            b = (carry<<1);
-            
+
+    private static int add(int a, int b) {
+
+        while (b != 0) {
+
+            int carry = (a & b);
+            a = (a ^ b);
+            b = (carry << 1);
+
         }
-        
+
         return a;
-        
+
     }
-    
+
 }
 
 /*
