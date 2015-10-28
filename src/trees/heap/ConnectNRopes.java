@@ -39,7 +39,7 @@ public class ConnectNRopes {
         int cost = 0;
 
         heapSize = arr.length;
-        buildMinHeap(arr, heapSize);
+        buildMinHeap(arr);
 
         while (heapSize != 1) {
 
@@ -61,7 +61,7 @@ public class ConnectNRopes {
 
         heapSize++;
         arr[heapSize - 1] = value;
-        buildMinHeap(arr, heapSize);
+        buildMinHeap(arr);
 
     }
 
@@ -71,27 +71,27 @@ public class ConnectNRopes {
 
         arr[0] = arr[length - 1];
         heapSize--;
-        buildMinHeap(arr, heapSize);
+        buildMinHeap(arr);
 
         return minValue;
 
     }
 
-    private static void buildMinHeap(int[] arr, int length) {
+    private static void buildMinHeap(int[] arr) {
 
-        for (int i = length / 2; i >= 0; i--) {
-            restoreDown(arr, i, length);
+        for (int i = heapSize / 2; i >= 0; i--) {
+            restoreDown(arr, i);
         }
 
     }
 
-    private static void restoreDown(int[] arr, int i, int length) {
+    private static void restoreDown(int[] arr, int i) {
 
         int left = (2 * i) + 1;
         int right = (2 * i) + 2;
         int num = arr[i];
 
-        while (right <= length - 1) {
+        while (right <= heapSize - 1) {
             if (num <= arr[left] && num <= arr[right]) {
                 arr[i] = num;
                 return;
@@ -108,7 +108,7 @@ public class ConnectNRopes {
         }
 
 
-        if (left <= length - 1 && arr[left] < num) {
+        if (left <= heapSize - 1 && arr[left] < num) {
             arr[i] = arr[left];
             i = left;
         }
