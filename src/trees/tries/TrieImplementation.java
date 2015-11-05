@@ -2,13 +2,14 @@ package trees.tries;
 
 
 import java.util.LinkedList;
+import java.util.List;
 
 class TrieNode1 {
 
     char content;
     boolean isLeaf;
     int count;
-    LinkedList<TrieNode1> childList;
+    List<TrieNode1> childList;
 
     public TrieNode1(char c) {
 
