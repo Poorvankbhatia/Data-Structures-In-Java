@@ -44,6 +44,7 @@ Edge 0-2: 0 is in subset 2 and 2 is also in subset 2. Hence, including this edge
 
 How subset of 0 is same as 2?
 0->1->2 // 1 is parent of 0 and 2 is parent of 1
+http://www.algorithmist.com/index.php/Union_Find
 
 Note that the implementation of union() and find() is naive and takes O(n) time in worst case.
 
