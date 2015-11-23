@@ -12,8 +12,8 @@ Union: Join two subsets into a single subset.
 In this post, we will discuss an application of Disjoint Set Data Structure. The application is to check whether a given
  graph contains a cycle or not.
 
-Union-Find Algorithm can be used to check whether an undirected graph contains cycle or not. Note that we have discussed an 
-algorithm to detect cycle. This is another method based on Union-Find. This method assumes that graph doesn’t contain any
+Union-Find Algorithm can be used to check whether an undirected graph contains cycle or not. This method assumes that 
+graph doesn’t contain any
  self-loops.
 We can keeps track of the subsets in a 1D array, lets call it parent[].
 
@@ -44,6 +44,7 @@ Edge 0-2: 0 is in subset 2 and 2 is also in subset 2. Hence, including this edge
 
 How subset of 0 is same as 2?
 0->1->2 // 1 is parent of 0 and 2 is parent of 1
+
 http://www.algorithmist.com/index.php/Union_Find
 
 Note that the implementation of union() and find() is naive and takes O(n) time in worst case.
