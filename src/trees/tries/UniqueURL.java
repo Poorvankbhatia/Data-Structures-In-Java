@@ -58,18 +58,15 @@ class DLList {
         if (node.previous != null && node.next != null) {
             node.previous.next = node.next;
             node.next.previous = node.previous;
-            return;
         }
         //When the last Node is to be deleted
         else if (node.previous != null) {
             node.previous.next = null;
-            return;
         }
         //will only happen when the first node is to be deleted
         else if (node.next != null) {
             head = node.next;
             node.next.previous = null;
-            return;
         }
         //Only Node present
         else {
@@ -150,7 +147,7 @@ class UTrie {
             }
         } else {
 
-            System.out.println("Creating new Trie for " + url);
+            System.out.println("Creating new TrieNode for " + url);
 
             UTrieNode current = root;
 
