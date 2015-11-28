@@ -193,9 +193,9 @@ class UTrie {
 
         if (current.isLeaf) {
             return current;
-        } else {
-            return null;
         }
+        return null;
+
 
     }
 
