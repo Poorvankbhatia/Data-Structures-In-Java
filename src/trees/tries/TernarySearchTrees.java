@@ -20,6 +20,7 @@ search tree contains only 3 pointers:
 package trees.tries;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by poorvank on 4/17/15.
@@ -49,7 +50,7 @@ class TSTNode {
 class TSTree {
 
     public TSTNode root;
-    public ArrayList<TSTNode> al;
+    public List<TSTNode> al;
 
     public TSTree() {
 
