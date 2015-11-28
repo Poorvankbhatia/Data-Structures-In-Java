@@ -33,7 +33,7 @@ public class RunLengthEncoding {
     //In hashmap method order is not maintained
     private static String encodingUsingMap(String input) {
 
-        HashMap<Character, Integer> hashMap = new HashMap<>();
+        Map<Character, Integer> hashMap = new HashMap<>();
 
         for (int i = 0; i < input.length(); i++) {
 
