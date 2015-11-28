@@ -1,10 +1,12 @@
 /*
 
-A ternary search tree is a special trie data structure where the child nodes of a standard trie are ordered as a 
+A ternary search tree is a special trie data structure where the child nodes of a standard trie are 
+ordered as a 
 binary search tree.
 
 Representation of ternary search trees:
-Unlike trie(standard) data structure where each node contains 26 pointers for its children, each node in a ternary 
+Unlike trie(standard) data structure where each node contains 26 pointers for its children, each node
+ in a ternary 
 search tree contains only 3 pointers:
 1. The left pointer points to the node whose value is less than the value in the current node.
 2. The equal pointer points to the node whose value is equal to the value in the current node.
