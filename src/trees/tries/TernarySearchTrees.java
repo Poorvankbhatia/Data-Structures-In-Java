@@ -50,12 +50,12 @@ class TSTNode {
 class TSTree {
 
     public TSTNode root;
-    public List<TSTNode> al;
+    //public List<TSTNode> al;
 
     public TSTree() {
 
         root = null;
-        al = new ArrayList<>();
+       // al = new ArrayList<>();
     }
 
     public boolean isEmpty() {
