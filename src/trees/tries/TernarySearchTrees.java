@@ -13,6 +13,13 @@ search tree contains only 3 pointers:
 3. The right pointer points to the node whose value is greater than the value in the current node.
 
 
+A ternary tree is a data structure that solves the memory problem of tries in a more clever way. 
+To avoid the memory occupied by unnecessary pointers, each trie node is represented as a tree-within-a-tree 
+rather than as an array. Each non-null pointer in the trie node gets its own node in a ternary search tree.
+
+http://igoro.com/archive/efficient-auto-complete-with-a-ternary-search-tree/
+
+
 
 
  */
@@ -171,11 +178,20 @@ most efficiently. Otherwise ternary search trees are better. Ternary search tree
 space) when the strings to be stored share a common prefix.
 
 Applications of ternary search trees:
-1. Ternary search trees are efficient for queries like “Given a word, find the next word in dictionary(near-neighbor 
+1. Ternary search trees are efficient for queries like “Given a word, find the next word in dictionary
+(near-neighbor 
 lookups)” or “Find all telephone numbers starting with 9342 or “typing few starting characters in a web browser 
 displays all website names with this prefix”(Auto complete feature)”.
 
 2. Used in spell checks: Ternary search trees can be used as a dictionary to store all the words. Once the word 
-is typed in an editor, the word can be parallely searched in the ternary search tree to check for correct spelling.
+is typed in an editor, the word can be parallely searched in the ternary search tree to check for correct 
+\spelling.
+
+
+At each step, you are reducing the size of the searchable range by a constant factor (in this case 3). 
+If you find your element after n steps, then the searchable range has size N = 3n.
+Inversely, the number of steps that you need until you find the element is the logarithm of the size
+of the collection. That is, the runtime is O(log N). A little further thought shows that you can also
+always construct situations where you need all those steps, so the worst-case runtime is actually Θ(log N).
 
  */
