@@ -39,10 +39,7 @@ For the above tree the output should be 5, 10, 4, 14, 25.
 package trees;
 
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 class customNode2 {
 
@@ -128,7 +125,7 @@ class customInput2 {
 
 public class BottomView {
 
-    private static HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    private static Map<Integer, Integer> map = new TreeMap<>();
 
     public static void main(String[] args) {
 
