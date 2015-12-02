@@ -23,7 +23,8 @@ public class BinaryTreeToBST {
         System.out.println("In Order before ");
         Traversal.in_Order(root);
         System.out.println("\nIn Order after ");
-        Traversal.in_Order(arrayToBST(root));
+        arrayToBST(root);
+        Traversal.in_Order(root);
 
 
     }
@@ -42,10 +43,10 @@ public class BinaryTreeToBST {
         saveInOrder(root.right);
     }
 
-    private static Node arrayToBST(Node root) {
+    private static void arrayToBST(Node root) {
 
         if (root == null) {
-            return null;
+            return;
         }
 
         arrayToBST(root.left);
@@ -54,8 +55,6 @@ public class BinaryTreeToBST {
         index++;
 
         arrayToBST(root.right);
-
-        return root;
 
     }
 
