@@ -109,4 +109,10 @@ public class WordLadder {
 /*
 
 breath-first search guarantees the optimal solution.
+
+
+"It has the extremely useful property that if all of the edges in a graph are unweighted (or the same weight)
+ then the first time a node is visited is the shortest path to that node from the source node"
+ 
+ http://stackoverflow.com/questions/8379785/how-does-a-breadth-first-search-work-when-looking-for-shortest-path
  */
