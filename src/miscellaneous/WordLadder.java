@@ -81,9 +81,10 @@ public class WordLadder {
 
                     String newWord = new String(arr);
                     if (dictionary.contains(newWord)) {
-
+                        
                         //Remove word from dictionary once found and add it to queue
                         queue.add(new WordNode(newWord, topWord.numSteps + 1));
+                        System.out.println(newWord + " " + (topWord.numSteps+1));
                         dictionary.remove(newWord);
 
                     }
