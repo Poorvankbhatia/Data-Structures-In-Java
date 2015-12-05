@@ -16,10 +16,7 @@ getRandom(): Returns a random element from current set of elements
 
 package miscellaneous;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by poorvank on 4/14/15.
@@ -27,7 +24,7 @@ import java.util.Random;
 
 class EfficientDS {
 
-    HashMap<Integer, Integer> map = new HashMap<>();
+    Map<Integer, Integer> map = new HashMap<>();
     ArrayList<Integer> arrayList = new ArrayList<>();
 
 
