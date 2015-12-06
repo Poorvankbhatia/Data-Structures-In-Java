@@ -23,7 +23,7 @@ public class PrintAnagrams {
 
         String[] array = new String[]{"art", "tar", "top", "pot", "neat", "rat", "tape", "nate", "peat", "random"};
         String[] sortedArray = sortAlphabetsInWord(array);
-        HashMap<String, String> anagramMap = new HashMap<>();
+        Map<String, String> anagramMap = new HashMap<>();
         int i = 0;
         for (String s : sortedArray) {
 
