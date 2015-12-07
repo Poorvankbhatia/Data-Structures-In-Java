@@ -13,9 +13,6 @@ public class BFS_itr {
         Vertex[] vArray = Input.graphInput();
 
         boolean[] visited = new boolean[vArray.length];
-        for (boolean b : visited) {
-            b = false;
-        }
 
         iterative(vArray, 0, visited);
 
