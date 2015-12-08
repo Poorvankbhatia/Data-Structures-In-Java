@@ -183,7 +183,8 @@ Following are some interesting properties of undirected graphs with an Eulerian 
  
 Eulerian Cycle
 An undirected graph has Eulerian cycle if following two conditions are true.
-….a) All vertices with non-zero degree are connected. We don’t care about vertices with zero degree because they don’t belong to Eulerian Cycle or Path (we only consider all edges).
+….a) All vertices with non-zero degree are connected. We don’t care about vertices with zero degree because they
+ don’t belong to Eulerian Cycle or Path (we only consider all edges).
 ….b) All vertices have even degree.
 
 Eulerian Path
