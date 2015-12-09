@@ -1,3 +1,4 @@
+
 While building a heap, lets say you're taking a bottom up approach.
 
 You take each element and compare it with its children to check if the pair conforms to the heap rules. 
