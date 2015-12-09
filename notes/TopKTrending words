@@ -19,7 +19,7 @@ As you can see, all the needed operations are done in at most O(lgn).
 
 You have to use a MinHeap, not MaxHeap. So, if you have k items in the heap, the peek of the heap is the smallest; 
 and everyone else (k - 1) is larger than the peek. 
-Now, if a new word with count > peek comes in, we want to extract the min (O(logk)) 
+Now, if a new word with count > peek.count comes in, we want to extract the min (O(logk))
 and insert the new item (O(logk)).If new item has count smaller than peek, 
 that means it is smaller than any other item in the heap (as it's a Min Heap). 
 We just discard that word as that will not be a part of top k. 
