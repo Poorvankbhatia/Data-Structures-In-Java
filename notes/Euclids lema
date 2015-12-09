@@ -1,0 +1,16 @@
+Euclid’s lemma
+We are given two numbers x and y. We know that a number p divides their product.
+ Can we say for sure that p also divides one of them?
+
+The answer is no. For example, consider x = 15, y = 6 and p = 9. p divides the product 15*6,
+ but doesn’t divide any of them.
+
+What if p is prime?
+Euclid’s lemma states that if a prime p divides the product of two numbers (x*y), it must divide at 
+least one of those numbers.
+
+For example x = 15, y = 6 and p = 5. p divides the product 15*6, it also divides 15.
+
+Generalization of Euclid’s lemma:
+If p divides x*y and p is relatively prime to x, then p must divide y. In the above example, 5 is relatively
+ prime to 6, therefore it must divide 15.
