@@ -1,0 +1,84 @@
+Round Robin Scheduling Algorithm With Example
+
+Round robin  is the  scheduling algorithm used by the CPU during execution of the process . 
+Round robin is designed specifically for time sharing systems . It is similar to first come first serve scheduling 
+algorithm but the preemption  is the added functionality to switch between the processes .
+
+A small unit of time also known as time slice or quantum is set/defined . 
+The ready queue works like circular queue .All processes in this algorithm are kept in the circular queue also known 
+as ready queue .  Each New process is added to the tail of the ready/circular queue .
+By using this algorithm , CPU makes sure, time slices ( any natural number ) are assigned  to each 
+process in equal portions and in circular order , dealing with all process without any priority .
+
+It is also known as cyclic executive .
+
+The main advantage of round robin algorithm over first come first serve algorithm is that it is  starvation free  . 
+Every process will be executed by CPU for fixed interval of time (which is set as time slice ) . 
+So in this way no process left waiting for its turn to be executed by the CPU .
+
+Round robin algorithm is simple and easy to implement . The  name round robin comes from the principle known as 
+round robin in which every person takes equal share of something in turn .
+
+
+Pseudo Code : 
+
+* CPU scheduler picks the process from the circular/ready queue , set a timer to interrupt it after 1 time slice/quantum
+  and dispatches it .
+
+*  If  process has burst time less than 1 time slice/quantum
+                
+             >  Process will leave the CPU after the completion
+             >  CPU will proceed with the next process in the ready queue / circular queue .
+
+    else If process has burst time longer than 1 time slice/quantum
+
+             >  Timer will be stopped . It cause interruption to the OS .
+             >  Executed process is then placed at the tail of the circular/ready  queue by applying  the context                   switch
+             >  CPU scheduler then proceeds by selecting the next process in the ready queue .           
+
+
+
+
+Here , User can calculate the average turnaround time and average waiting time along with the starting and 
+finishing time of each process
+
+
+Turnaround time      :   Its the total time taken by the process between starting and the completion
+ 
+Waiting time         :   Its the time for which process is ready to run but not executed by CPU scheduler
+
+for example ,
+we have three processes
+
+              
+                          Burst time              Waiting time             Turnaround time
+
+
+P1                          24                            6                           30
+
+P2                          3                             4                            7
+
+P3                          3                             7                           10
+
+
+So here we can see the turnaround time for the process 1 is 30 while 7 and 10 for 2nd and 3rd process
+
+ A Gantt chart is a chart which shows the start and finish times of  all the processes .
+
+
+  Gantt chart for the round robin algorithm  is
+
+  |-----------|-----------|----------|------------|------------|------------|------------|---------------|
+  |    P1     |      P2   |     P3   |       P1   |    P1      |  P1        |       P1   |     P1        |
+  |-----------|-----------|----------|------------|------------|------------|------------|---------------|
+ 0            4           7          10           14           18           22           26              30 
+
+
+
+The major features of the Round Robin algorithm is that
+
+* Throughput is low as the large process is holding up the Central processing unit for execution .
+
+* The main advantage of Round robin is to remove starvation  . 
+
+* Queuing is done without using any prioritization of the processes.
