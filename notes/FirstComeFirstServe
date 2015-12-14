@@ -1,0 +1,54 @@
+Scheduling Algorithm : First Come First Serve (Fcfs) Java Program Code
+
+Scheduling algorithm is used by CPU scheduler to select a process .  There are many types of scheduling algorithm but we 
+will discuss about the most common  algorithm FCFS i.e. First come and First Serve .
+By applying this scheduling algorithm  , the CPU makes sure that the process which is run by user are lined
+in queue , just like the queue for buying tickets of movie . The person who comes first , will have the chance to
+get the ticket , similarly , if  CPU is idle  and  CPU is using First come and First Serve algorithm then ,it
+executes the process which arrives first .
+
+Here , User can calculate the average turnaround time and average waiting time along with the starting and finishing time 
+of each process
+
+
+Turnaround time      :   Its the total time taken by the process between starting and the completion
+
+Waiting time         :   Its the time for which process is ready to run but not executed by CPU scheduler
+
+for example ,
+we have three processes
+
+                
+                          Burst time             Waiting time         Turnaround time 
+
+
+P1                          18                           0                           18 
+
+P2                          5                             18                         23     
+
+P3                          7                             23                         30 
+
+
+
+
+So here we can see the turnaround time for the process 1 is 18 while 23 and 30 for 2nd and 3rd process
+
+  Gantt chart for the turnaround time is
+
+  |----------------------------------------------------|------------------|------------------------|
+  |                            P1                      |       P2         |             P3         |
+  |----------------------------------------------------|------------------|------------------------|
+  0                                                    18                 23                       30
+
+ A Gantt chart is a chart which shows the start and finish times of  all the processes .
+
+Also first come first serve algorithm is non preemptive so if the process starts then the other 
+process has to wait in the queue till the executing process finishes .
+
+The major features of the First come first serve algorithm is that
+
+* Throughput is low as the large process is holding up the Central processing unit for execution .
+* The main disadvantage of FCFS is starving . As long as all processes completes the execution then we
+   dont have any trouble, But the problem starts when any of the process fails to complete . The incomplete
+   execution of any process leads to starvation .
+*  Queuing is done without using any prioritization of the processes. 
