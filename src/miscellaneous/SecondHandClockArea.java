@@ -30,11 +30,13 @@ public class SecondHandClockArea {
         int minuteDegree = (360/60)*minutes;
         int secondDegree = (360/60)*seconds;
         
+        System.out.println(hourDegree + " " + minuteDegree + " " + secondDegree);
         
         if(hourDegree>minuteDegree) {
             
             int area1 = hourDegree - minuteDegree;
             int area2 = 360-area1;
+            
             
             boolean area1IsBigger = area1>=area2;
             
@@ -47,6 +49,16 @@ public class SecondHandClockArea {
                     System.out.println("Inside Smaller Area");
                 }
                 
+            }
+            
+            else if((secondDegree<=hourDegree && secondDegree<=minuteDegree) || (secondDegree>=hourDegree && secondDegree>=minuteDegree)) {
+
+                if(area1IsBigger){
+                    System.out.println("Inside Larger Area");
+                }
+                else {
+                    System.out.println("Inside Smaller Area");
+                }
             }
             
         }
@@ -66,6 +78,16 @@ public class SecondHandClockArea {
                     System.out.println("Inside Smaller Area");
                 }
 
+            }
+
+            else if((secondDegree<=hourDegree && secondDegree<=minuteDegree) || (secondDegree>=hourDegree && secondDegree>=minuteDegree)) {
+
+                if(area1IsBigger){
+                    System.out.println("Inside Larger Area");
+                }
+                else {
+                    System.out.println("Inside Smaller Area");
+                }
             }
             
         }
