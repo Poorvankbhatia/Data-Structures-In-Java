@@ -20,6 +20,7 @@ http://www.geeksforgeeks.org/longest-even-length-substring-sum-first-second-half
  */
 package miscellaneous;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
