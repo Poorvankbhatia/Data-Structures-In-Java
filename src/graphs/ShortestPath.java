@@ -8,9 +8,9 @@ public class ShortestPath {
     public static void main(String[] args) {
 
         int graph[][] = new int[][]{{0, 10, 3, 2},
-                {-1, 0, -1, 7},
-                {-1, -1, 0, 6},
-                {-1, -1, -1, 0}
+                                    {-1, 0, -1, 7},
+                                    {-1, -1, 0, 6},
+                                    {-1, -1, -1, 0}
         };
 
         System.out.println("MIN WEIGHT - " + minWeightPath(0, 3, 2, graph));
