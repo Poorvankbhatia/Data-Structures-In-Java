@@ -1,6 +1,6 @@
 /*
 
-Find multiplication of sums of data of leaves at sane levels
+Find multiplication of sums of data of leaves at same levels
 Given a Binary Tree, return following value for it.
 1) For every level, compute sum of all leaves if there are leaves at this level. Otherwise ignore it.
 2) Return multiplication of all sums.
