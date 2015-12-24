@@ -63,7 +63,7 @@ public class TimeToRotOrange {
         
         queue.add(delimiter);
         
-        for (int i=0;i<queue.size();i++) {
+        for (int i=0;i<=queue.size();i++) {
             System.out.println(queue.peek().x + " " + queue.peek().y);
             queue.remove();
         }
