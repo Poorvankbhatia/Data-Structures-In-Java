@@ -17,7 +17,7 @@ public class CountingSort {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{1, 4, 1, 2, 7, 5, 2};
+        int[] arr = new int[] {1, 4, 1, 2, 7, 5, 2};
         int[] output = new int[arr.length];
         int[] count = new int[arr.length + 1];
 
