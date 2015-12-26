@@ -95,7 +95,7 @@ and 14.
 comes in this category.
 
 Finding the first type of nodes is easy to implement. Just traverse subtrees rooted with the target node and decrement k 
-in recursive call. When the k becomes 0, print the node currently being traversed (See this for more details). 
+in recursive call. When the k becomes 0, print the node currently being traversed .
 Here we call the function as printkdistanceNodeDown().
 
 How to find nodes of second type? For the output nodes not lying in the subtree with the target node as the root,
