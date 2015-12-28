@@ -47,17 +47,13 @@ public class MajorityElement {
     private static boolean checkMajority(int[] array, int n) {
 
         int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == n) {
+        for (int anArray : array) {
+            if (anArray == n) {
                 count++;
             }
         }
 
-        if (count > n / 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return count > n / 2;
     }
 
 }
