@@ -43,11 +43,8 @@ public class CousinsBT {
 
     private static boolean areCousin(Node root, Node n1, Node n2) {
 
-        if (level(root, n1, 1) == level(root, n2, 1) && !(isSibling(root, n1, n2))) {
-            return true;
-        }
+        return level(root, n1, 1) == level(root, n2, 1) && !(isSibling(root, n1, n2));
 
-        return false;
     }
 
     private static int level(Node root, Node n1, int level) {
@@ -70,12 +67,7 @@ public class CousinsBT {
 
     private static boolean isSibling(Node root, Node n1, Node n2) {
 
-        if (root == null) {
-            return false;
-        }
-
-        return ((root.left == n1 && root.right == n2) || (root.right == n1 && root.left == n2)
-                || isSibling(root.left, n1, n2) || (isSibling(root.right, n1, n2)));
+        return root != null && ((root.left == n1 && root.right == n2) || (root.right == n1 && root.left == n2) || isSibling(root.left, n1, n2) || (isSibling(root.right, n1, n2)));
 
     }
 
