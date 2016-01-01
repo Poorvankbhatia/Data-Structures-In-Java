@@ -1,4 +1,4 @@
-Remove duplicated from a string in O(n) without using hash.
+Remove duplicates from a string in O(n) without using hash.
 
 
 Sort the source array. Find consecutive elements that are equal
