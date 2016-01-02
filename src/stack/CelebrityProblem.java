@@ -12,7 +12,7 @@ We measure the complexity in terms of calls made to HaveAcquaintance().
 
  */
 
-package miscellaneous;
+package stack;
 
 import stack.ArrayStack;
 import stack.Stack;

@@ -7,7 +7,7 @@ We need to implement a Stack data structure using only instances of Queue.
 
  */
 
-package miscellaneous;
+package stack;
 
 import java.util.LinkedList;
 

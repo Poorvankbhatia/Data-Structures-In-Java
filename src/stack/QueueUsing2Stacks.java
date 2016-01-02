@@ -1,7 +1,4 @@
-package miscellaneous;
-
-import stack.ArrayStack;
-import stack.Stack;
+package stack;
 
 /**
  * Created by poorvank on 7/6/15.

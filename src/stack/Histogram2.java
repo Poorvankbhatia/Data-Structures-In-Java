@@ -10,7 +10,7 @@ For example, consider the following histogram with 7 bars of heights {6, 2, 5, 4
 The largest possible rectangle possible is 12
  */
 
-package miscellaneous;
+package stack;
 
 import stack.ArrayStack;
 import stack.Stack;

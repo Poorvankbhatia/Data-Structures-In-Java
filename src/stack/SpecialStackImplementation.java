@@ -9,7 +9,7 @@ like arrays, list, .. etc.
 
  */
 
-package arrays;
+package stack;
 
 /**
  * Created by poorvank on 4/20/15.
