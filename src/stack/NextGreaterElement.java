@@ -25,7 +25,7 @@ d) For the input array [13, 7, 6, 12}, the next greater elements for each elemen
 
  */
 
-package arrays;
+package stack;
 
 import stack.ArrayStack;
 import stack.Stack;
