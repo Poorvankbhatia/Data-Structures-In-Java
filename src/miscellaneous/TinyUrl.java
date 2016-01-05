@@ -6,66 +6,66 @@ import java.util.Scanner;
  * Created by poorvank on 12/27/15.
  */
 public class TinyUrl {
-    
-    static int k =62;
-    
+
+    static int k = 62;
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter table number");
         int n = scanner.nextInt();
-        
+
         String s = shortUrl(n);
-        
+
         System.out.println("Short url - " + s);
-        
+
         int x = tableNo(s);
-        
-        System.out.println("table number for " + s + " = "  + x);
-        
-        
+
+        System.out.println("table number for " + s + " = " + x);
+
+
     }
-    
-    
+
+
     private static String shortUrl(int tableNo) {
 
         String map = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        
+
         StringBuilder shortUrl = new StringBuilder();
-        
-        while (tableNo!=0) {
-            
-            int x = tableNo%k;
+
+        while (tableNo != 0) {
+
+            int x = tableNo % k;
             shortUrl.append(map.charAt(x));
-            tableNo = tableNo/k;
-            
+            tableNo = tableNo / k;
+
         }
-        
+
         return shortUrl.reverse().toString();
-        
-        
+
+
     }
-    
+
     private static int tableNo(String s) {
-        
-        int id =0;
-        
-        for (int i=0;i<s.length();i++) {
-            
-            if('a'<=s.charAt(i) && 'z'>=s.charAt(i)) {
-                id = id*k +  s.charAt(i) - 'a';
+
+        int id = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if ('a' <= s.charAt(i) && 'z' >= s.charAt(i)) {
+                id = id * k + s.charAt(i) - 'a';
             }
-            if('A'<=s.charAt(i) && 'Z'>=s.charAt(i)) {
-                id = id*k +  s.charAt(i) - 'A' + 26;
+            if ('A' <= s.charAt(i) && 'Z' >= s.charAt(i)) {
+                id = id * k + s.charAt(i) - 'A' + 26;
             }
-            if('0'<=s.charAt(i) && '9'>=s.charAt(i)) {
-                id = id*k +  s.charAt(i) - '0' + 52;
+            if ('0' <= s.charAt(i) && '9' >= s.charAt(i)) {
+                id = id * k + s.charAt(i) - '0' + 52;
             }
         }
-        
+
         return id;
     }
-    
+
 }
 
 /*
