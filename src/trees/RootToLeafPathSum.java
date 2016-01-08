@@ -23,17 +23,15 @@ adding up all the values along the path equals the given number. Return false if
 
 package trees;
 
-import java.util.Scanner;
-
 /**
  * Created by poorvank on 12/27/15.
  */
 public class RootToLeafPathSum {
-    
-    static int sum =0;
-    
+
+    static int sum = 0;
+
     public static void main(String[] args) {
-        
+
         Node root = new Node(10);
         root.left = new Node(8);
         root.left.left = new Node(3);
@@ -41,46 +39,43 @@ public class RootToLeafPathSum {
         root.right = new Node(2);
         root.right.left = new Node(2);
 
-        int n =21;
-        System.out.println(isSumPresent(root,n));
-        
+        int n = 21;
+        System.out.println(isSumPresent(root, n));
+
     }
-    
-    
-    private static boolean isSumPresent(Node root,int sum) {
-        
+
+
+    private static boolean isSumPresent(Node root, int sum) {
+
         //In case of an empty tree
-        if(root==null) {
-            return (sum==0);
-        }
-        else {
-            
+        if (root == null) {
+            return (sum == 0);
+        } else {
+
             int subSum = sum - root.info;
-            
-            if(subSum<0) {
+
+            if (subSum < 0) {
                 return false;
             }
-            
-            if(subSum==0 && root.left==null && root.right==null) {
+
+            if (subSum == 0 && root.left == null && root.right == null) {
                 return true;
-            }
-            else {
-                
+            } else {
+
                 boolean ans = false;
-                if(root.left!=null) {
-                    ans = ans || isSumPresent(root.left,subSum);
+                if (root.left != null) {
+                    ans = ans || isSumPresent(root.left, subSum);
                 }
-                if(root.right!=null) {
-                    ans = ans || isSumPresent(root.right,subSum);
+                if (root.right != null) {
+                    ans = ans || isSumPresent(root.right, subSum);
                 }
                 return ans;
-                
-            }
-            
-        }
-        
-    }
-    
 
-    
+            }
+
+        }
+
+    }
+
+
 }
