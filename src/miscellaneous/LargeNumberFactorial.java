@@ -7,46 +7,46 @@ import java.util.List;
  * Created by poorvank on 12/15/15.
  */
 public class LargeNumberFactorial {
-    
+
     public static void main(String[] args) {
-        
+
         printFactorial(500);
-        
+
     }
-    
+
     private static void printFactorial(int n) {
-        
+
         List<Integer> list = new ArrayList<>();
-        
+
         list.add(1);
-        
-        for (int i=2;i<=n;i++) {
-            multiply(list,i);
+
+        for (int i = 2; i <= n; i++) {
+            multiply(list, i);
         }
-        
-        
-        for (int i=list.size()-1;i>=0;i--) {
+
+
+        for (int i = list.size() - 1; i >= 0; i--) {
             System.out.print(list.get(i));
         }
     }
-    
-    private static void multiply(List<Integer> list,int n) {
-        
+
+    private static void multiply(List<Integer> list, int n) {
+
         int carry = 0;
-        
-        for (int i=0;i<list.size();i++) {
-            int product = list.get(i)*n + carry;
-            list.set(i,product%10);
-            carry = product/10;
+
+        for (int i = 0; i < list.size(); i++) {
+            int product = list.get(i) * n + carry;
+            list.set(i, product % 10);
+            carry = product / 10;
         }
-        
-        while (carry!=0) {
-            list.add(carry%10);
-            carry = carry/10;
+
+        while (carry != 0) {
+            list.add(carry % 10);
+            carry = carry / 10;
         }
-        
+
     }
-    
+
 }
 
 /*
