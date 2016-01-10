@@ -20,54 +20,53 @@ http://www.geeksforgeeks.org/longest-even-length-substring-sum-first-second-half
  */
 package miscellaneous;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
  * Created by poorvank on 12/15/15.
  */
 public class LongestEvenSubString {
-    
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter String");
         String input = scanner.nextLine();
-        
+
         int n = input.length();
         int ans = 0;
         StringBuilder result = new StringBuilder();
-        
-        for (int i=0;i<n-1;i++) {
+
+        for (int i = 0; i < n - 1; i++) {
 
             int leftSum = 0;
-            int rightSum =0;
-            
-            int l=i,r=i+1;
-            
-            while (r<n && l>=0) {
-                
-                leftSum += input.charAt(l)-'0';
-                rightSum += input.charAt(r)-'0';
-                if(leftSum==rightSum) {
-                    if(ans<r-l+1) {
-                      result = new StringBuilder("");
-                      String s = input.substring(l, r+1);
-                      result.append(s);
-                      ans = r-l+1 ; 
+            int rightSum = 0;
+
+            int l = i, r = i + 1;
+
+            while (r < n && l >= 0) {
+
+                leftSum += input.charAt(l) - '0';
+                rightSum += input.charAt(r) - '0';
+                if (leftSum == rightSum) {
+                    if (ans < r - l + 1) {
+                        result = new StringBuilder("");
+                        String s = input.substring(l, r + 1);
+                        result.append(s);
+                        ans = r - l + 1;
                     }
                 }
                 l--;
                 r++;
-                
+
             }
-            
+
         }
-        
+
         System.out.println("Length of longest even substring  = " + ans + " --> " + result.toString());
-        
+
     }
-    
+
 }
 
 /*
