@@ -48,50 +48,49 @@ package graphs;
  * Created by poorvank on 11/12/15.
  */
 public class FloydWarshall {
-    
+
     private static final int INF = Integer.MAX_VALUE;
-    
+
     public static void main(String[] args) {
-        
-        int[][] graph = new int[][]{ {0,   5,  INF, 10},
-                                     {INF, 0,   3, INF},
-                                     {INF, INF, 0,   1},
-                                     {INF, INF, INF, 0}};
-        
+
+        int[][] graph = new int[][]{{0, 5, INF, 10},
+                {INF, 0, 3, INF},
+                {INF, INF, 0, 1},
+                {INF, INF, INF, 0}};
+
         printAllShortestPath(graph);
-        
-        
+
+
     }
-    
+
     private static void printAllShortestPath(int[][] graph) {
 
         int V = graph.length;
-        
-        for (int k=0;k<V;k++) {
-            for (int i=0;i<V;i++) {
-                for (int j=0;j<V;j++) {
-                    if(graph[i][k] != INF && graph[k][j] != INF && graph[i][k] + graph[k][j] < graph[i][j]) {
+
+        for (int k = 0; k < V; k++) {
+            for (int i = 0; i < V; i++) {
+                for (int j = 0; j < V; j++) {
+                    if (graph[i][k] != INF && graph[k][j] != INF && graph[i][k] + graph[k][j] < graph[i][j]) {
                         graph[i][j] = graph[i][k] + graph[k][j];
                     }
                 }
             }
         }
-        
-        for (int i=0;i<V;i++) {
-            for (int j=0;j<V;j++) {
-                if(graph[i][j]==INF) {
+
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if (graph[i][j] == INF) {
                     System.out.print("INF" + " ");
-                }
-                else {
+                } else {
                     System.out.print(graph[i][j] + " ");
                 }
             }
             System.out.println();
         }
-        
-        
+
+
     }
-    
+
 }
 
 
