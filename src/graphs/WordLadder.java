@@ -11,7 +11,7 @@ One shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog", the pr
 
  */
 
-package miscellaneous;
+package graphs;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -28,7 +28,7 @@ class WordNode {
     WordNode parent;
     int numSteps;
 
-    public WordNode(String word, int numSteps,WordNode parent) {
+    public WordNode(String word, int numSteps, WordNode parent) {
         this.word = word;
         this.numSteps = numSteps;
         this.parent = parent;
@@ -57,7 +57,7 @@ public class WordLadder {
     private static int countSteps(String beginWord, String endWord, Set<String> dictionary) {
 
         Queue<WordNode> queue = new LinkedList<>();
-        queue.add(new WordNode(beginWord, 1,null));
+        queue.add(new WordNode(beginWord, 1, null));
 
         dictionary.add(endWord);
 
@@ -69,12 +69,12 @@ public class WordLadder {
             if (topWord.word.equals(endWord)) {
                 String result = topWord.word;
                 int stepCount = topWord.numSteps;
-                
-                while (topWord.parent!=null) {
-                    result = topWord.parent.word + "->" + result ;
+
+                while (topWord.parent != null) {
+                    result = topWord.parent.word + "->" + result;
                     topWord = topWord.parent;
                 }
-                
+
                 System.out.println(result);
                 return stepCount;
             }
@@ -92,10 +92,10 @@ public class WordLadder {
 
                     String newWord = new String(arr);
                     if (dictionary.contains(newWord)) {
-                        
+
                         //Remove word from dictionary once found and add it to queue
-                        queue.add(new WordNode(newWord ,topWord.numSteps+1, topWord));
-                        System.out.println(newWord + " " + (topWord.numSteps+1));
+                        queue.add(new WordNode(newWord, topWord.numSteps + 1, topWord));
+                        System.out.println(newWord + " " + (topWord.numSteps + 1));
                         dictionary.remove(newWord);
 
                     }
