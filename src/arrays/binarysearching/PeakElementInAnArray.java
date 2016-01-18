@@ -33,7 +33,7 @@ public class PeakElementInAnArray {
 
     private static int findPeak(int[] array, int low, int high, int n) {
 
-        if (low < high) {
+        if (low <= high) {
 
             int mid = (low + high) / 2;
 
