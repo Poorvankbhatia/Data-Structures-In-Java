@@ -37,90 +37,89 @@ package graphs;
  * Created by poorvank on 11/12/15.
  */
 public class HamiltonianCycle {
-    
-    private static int VERTEX_COUNT =0;
-    
+
+    private static int VERTEX_COUNT = 0;
+
     public static void main(String[] args) {
 
-        int graph[][] =  {{0, 1, 0, 1, 0},
-                          {1, 0, 1, 1, 1},
-                          {0, 1, 0, 0, 1},
-                          {1, 1, 0, 0, 1},
-                          {0, 1, 1, 1, 0}};
+        int graph[][] = {{0, 1, 0, 1, 0},
+                         {1, 0, 1, 1, 1},
+                         {0, 1, 0, 0, 1},
+                         {1, 1, 0, 0, 1},
+                         {0, 1, 1, 1, 0}};
         VERTEX_COUNT = graph.length;
-        
+
         detectCycle(graph);
     }
-    
-    private static void printSolution(int path[])
-    {
+
+    private static void printSolution(int path[]) {
         System.out.println("Solution Exists: Following" +
                 " is one Hamiltonian Cycle");
         for (int i = 0; i < path.length; i++)
             System.out.print(" " + path[i] + " ");
-        
+
         System.out.println(" " + path[0] + " ");
     }
-    
+
     private static boolean detectCycle(int[][] graph) {
-        
+
         int[] path = new int[graph.length];
-        for (int i=0;i<path.length;i++) {
+        for (int i = 0; i < path.length; i++) {
             path[i] = -1;
         }
-        
+
         path[0] = 0;
-        
-        if(!detectCycleUtil(graph,path,1)) {
+
+        if (!detectCycleUtil(graph, path, 1)) {
             System.out.print("No hamiltonian cycle exists ");
             return false;
         }
         printSolution(path);
         return true;
-        
+
     }
-    
-    private static boolean detectCycleUtil(int[][] graph,int[] path,int pos) {
-        
-        if(pos==graph.length) {
+
+    private static boolean detectCycleUtil(int[][] graph, int[] path, int pos) {
+
+        if (pos == graph.length) {
 
             return graph[path[pos - 1]][path[0]] == 1;
 
         }
-        for (int v=1;v<graph.length;v++) {
-            
-            if(isSafe(v,pos,path,graph)) {
-               
+        for (int v = 1; v < graph.length; v++) {
+
+            if (isSafe(v, pos, path, graph)) {
+
                 path[pos] = v;
-                
-                if(detectCycleUtil(graph,path,pos+1)) {
+
+                if (detectCycleUtil(graph, path, pos + 1)) {
                     return true;
                 }
 
-                path[pos]=-1;
+                path[pos] = -1;
             }
-            
+
         }
-        
+
         return false;
-        
+
     }
-    
-    private static boolean isSafe(int v,int pos,int[] path,int[][] graph) {
-        
-        if(graph[path[pos-1]][v]==0) {
+
+    private static boolean isSafe(int v, int pos, int[] path, int[][] graph) {
+
+        if (graph[path[pos - 1]][v] == 0) {
             return false;
         }
-        
-        for (int i=0;i<pos;i++ ) {
-            if(path[i]==v) {
+
+        for (int i = 0; i < pos; i++) {
+            if (path[i] == v) {
                 return false;
             }
         }
-        
+
         return true;
     }
-    
+
 }
 
 /*
