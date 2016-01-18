@@ -14,7 +14,7 @@ public class FindElementIncDecArray {
 
     private static void findElementIndex(int[] arr, int key, int low, int high) {
 
-        int pivotIndex = findPivot(arr, low, high);
+        int pivotIndex = findPivot(arr, low, high,arr.length);
 
         if (pivotIndex != -1) {
 
@@ -64,27 +64,19 @@ public class FindElementIncDecArray {
     }
 
 
-    private static int findPivot(int[] arr, int low, int high) {
+    private static int findPivot(int[] array, int low, int high, int n) {
 
-        if (low == high) {
-            return low;
-        }
-
-        if (high < low) {
-            return -1;
-        }
-
-        if (low < high) {
+        if (low <= high) {
 
             int mid = (low + high) / 2;
 
-            if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1]) {
-                return mid;
-            } else if (arr[mid] > arr[mid + 1] && arr[mid] < arr[mid - 1]) {
-                return findPivot(arr, low, mid - 1);
-            } else {
-                return findPivot(arr, mid + 1, high);
+            if ((mid == 0 || array[mid] >= array[mid - 1]) && (array[mid] >= array[mid + 1] || mid == n - 1)) {
+                return array[mid];
+            } else if (array[mid] < array[mid + 1]) {
+                return findPivot(array, mid + 1, high, n);
             }
+
+            return findPivot(array, low, mid - 1, high);
 
         }
 
