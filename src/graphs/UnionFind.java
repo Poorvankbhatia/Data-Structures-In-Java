@@ -5,7 +5,8 @@ A disjoint-set data structure is a data structure that keeps track of a set of e
 disjoint (non-overlapping) subsets. A union-find algorithm is an algorithm that performs two useful operations on such a 
 data structure:
 
-Find: Determine which subset a particular element is in. This can be used for determining if two elements are in the same subset.
+Find: Determine which subset a particular element is in. This can be used for determining if two elements are in the same 
+subset.
 
 Union: Join two subsets into a single subset.
 
@@ -58,36 +59,32 @@ package graphs;
  */
 class UnionFindGraph {
 
-    public int V,E;
+    public int V, E;
     Edge[] edges;
 
-
-    class Edge {
-        int source,destination;
-    }
 
     public UnionFindGraph(int v, int e) {
         V = v;
         E = e;
         edges = new Edge[E];
-        for (int i=0;i<e;i++) {
+        for (int i = 0; i < e; i++) {
             edges[i] = new Edge();
         }
     }
 
-    public int find(int[] parent,int edge) {
+    public int find(int[] parent, int vertex) {
 
-        if(parent[edge]==-1) {
-            return edge;
+        if (parent[vertex] == -1) {
+            return vertex;
         }
-        return find(parent,parent[edge]);
+        return find(parent, parent[vertex]);
 
     }
 
-    public void union(int[] parent,int x,int y) {
+    public void union(int[] parent, int x, int y) {
 
-        int xSet = find(parent,x);
-        int ySet = find(parent,y);
+        int xSet = find(parent, x);
+        int ySet = find(parent, y);
 
         parent[xSet] = ySet;
 
@@ -97,33 +94,37 @@ class UnionFindGraph {
 
         int[] parent = new int[unionFindGraph.E];
 
-        for (int i=0;i<parent.length;i++) {
+        for (int i = 0; i < parent.length; i++) {
             parent[i] = -1;
         }
 
-        for (int i=0;i<unionFindGraph.E;i++) {
+        for (int i = 0; i < unionFindGraph.E; i++) {
 
             int x = unionFindGraph.find(parent, unionFindGraph.edges[i].source);
             int y = unionFindGraph.find(parent, unionFindGraph.edges[i].destination);
 
-            if(x==y) {
+            if (x == y) {
                 return true;
             }
 
-            unionFindGraph.union(parent,x,y);
+            unionFindGraph.union(parent, x, y);
 
         }
 
         return false;
     }
 
+    class Edge {
+        int source, destination;
+    }
+
 }
 
 public class UnionFind {
-    
+
     public static void main(String[] args) {
 
-        UnionFindGraph graph = new UnionFindGraph(3,3);
+        UnionFindGraph graph = new UnionFindGraph(3, 3);
 
         graph.edges[0].source = 0;
         graph.edges[0].destination = 1;
@@ -137,10 +138,10 @@ public class UnionFind {
         graph.edges[2].destination = 2;
 
         if (graph.isCycle(graph))
-            System.out.println( "Graph contains cycle" );
+            System.out.println("Graph contains cycle");
         else
-            System.out.println( "Graph doesn't contain cycle" );
+            System.out.println("Graph doesn't contain cycle");
 
     }
-    
+
 }
