@@ -1,0 +1,8 @@
+In both DFS AND BFS, the runtime depends on how long it takes to iterate across the outgoing edges of a given node. 
+With an adjacency list, the runtime is directly proportional to the number of outgoing edges. 
+Since each node is visited once, the cost is the number of nodes plus the number of edges, which is O(m + n).
+With am adjacency matrix, the time required to find all outgoing edges is O(n) because all n columns in the row 
+for a node must be inspected. Summing up across all n nodes, this works out to O(n2).
+
+Hope this helps!
+
