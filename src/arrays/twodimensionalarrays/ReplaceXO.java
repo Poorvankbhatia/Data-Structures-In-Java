@@ -17,11 +17,11 @@ public class ReplaceXO {
     public static void main(String[] args) {
 
         char[][] matrix = new char[][]{{'X', 'O', 'X', 'X', 'X', 'X'},
-                {'X', 'O', 'X', 'X', 'O', 'X'},
-                {'X', 'X', 'X', 'O', 'O', 'X'},
-                {'O', 'X', 'X', 'X', 'X', 'X'},
-                {'X', 'X', 'X', 'O', 'X', 'O'},
-                {'O', 'O', 'X', 'O', 'O', 'O'}};
+                                       {'X', 'O', 'X', 'X', 'O', 'X'},
+                                       {'X', 'X', 'X', 'O', 'O', 'X'},
+                                       {'O', 'X', 'X', 'X', 'X', 'X'},
+                                       {'X', 'X', 'X', 'O', 'X', 'O'},
+                                       {'O', 'O', 'X', 'O', 'O', 'O'}};
 
 
         int row = matrix.length;
