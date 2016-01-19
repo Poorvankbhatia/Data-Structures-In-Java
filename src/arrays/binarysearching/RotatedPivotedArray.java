@@ -43,7 +43,7 @@ public class RotatedPivotedArray {
         int previous = (mid - 1 + array.length) % (array.length); // in case it is the first element
         //length is added in case - 1 returns a negative value
 
-        if (array[mid] <= array[next] && array[mid] <= array[previous]) {
+        if ((mid==array.length-1 || array[mid] <= array[mid + 1]) && (mid==0 || array[mid] <= array[mid-1])) {
             return mid;
         }
         
