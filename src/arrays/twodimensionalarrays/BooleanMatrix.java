@@ -42,8 +42,8 @@ public class BooleanMatrix {
     public static void main(String[] args) {
 
         int[][] a = new int[][]{{1, 0, 0, 1},
-                {0, 0, 1, 0},
-                {0, 0, 0, 0}};
+                                {0, 0, 1, 0},
+                                {0, 0, 0, 0}};
 
 
         int row = a.length;
