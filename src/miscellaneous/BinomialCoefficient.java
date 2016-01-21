@@ -16,7 +16,7 @@ public class BinomialCoefficient {
 
         int n = 8, k = 2;
 
-        System.out.println(calculateBinomialCoefficient(8, 2));
+        System.out.println(calculateBinomialCoefficient(n, k));
 
     }
 
@@ -43,7 +43,7 @@ public class BinomialCoefficient {
 
 /*
 
-he value of C(n, k) can be calculated in O(k) time and O(1) extra space.
+The value of C(n, k) can be calculated in O(k) time and O(1) extra space.
 
 C(n, k) = n! / (n-k)! * k!
         = [n * (n-1) *....* 1]  / [ ( (n-k) * (n-k-1) * .... * 1) *
