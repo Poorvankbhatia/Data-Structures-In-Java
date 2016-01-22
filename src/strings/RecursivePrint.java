@@ -20,8 +20,8 @@ public class RecursivePrint {
     public static void main(String[] args) {
 
         String[][] jaggedArray = {{"you", "we"},
-                {"have", "are"},
-                {"sleep", "eat", "drink"}};
+                                  {"have", "are"},
+                                  {"sleep", "eat", "drink"}};
 
         print(jaggedArray);
 
