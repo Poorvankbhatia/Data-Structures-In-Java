@@ -165,7 +165,7 @@ if the graph is represented using adjacency matrix representation.
 A simple idea is to use a all pair shortest path algorithm like Floyd Warshall or find Transitive Closure of graph. 
 Time complexity of this method would be O(v3).
 
-We can also do DFS V times starting from every vertex. If any DFS, doesn’t visit all vertices, then graph is not 
+We can also do DFS V times starting from every vertexToConsider. If any DFS, doesn’t visit all vertices, then graph is not
 strongly connected. This algorithm takes O(V*(V+E)) time which can be same as transitive closure for a dense graph.
 
 A better idea can be Strongly Connected Components (SCC) algorithm. We can find all SCCs in O(V+E) time. 
@@ -174,17 +174,17 @@ If number of SCCs is one, then graph is strongly connected. The algorithm for SC
 Following is Kosaraju’s DFS based simple algorithm that does two DFS traversals of graph:
 1) Initialize all vertices as not visited.
 
-2) Do a DFS traversal of graph starting from any arbitrary vertex v. If DFS traversal doesn’t visit all vertices, 
+2) Do a DFS traversal of graph starting from any arbitrary vertexToConsider v. If DFS traversal doesn’t visit all vertices,
 then return false.
 
 3) Reverse all arcs (or find transpose or reverse of graph)
 
 4) Mark all vertices as not-visited in reversed graph.
 
-5) Do a DFS traversal of reversed graph starting from same vertex v (Same as step 2). If DFS traversal doesn’t 
+5) Do a DFS traversal of reversed graph starting from same vertexToConsider v (Same as step 2). If DFS traversal doesn’t
 visit all vertices, then return false. Otherwise return true.
 
-The idea is, if every node can be reached from a vertex v, and every node can reach v, then the graph is strongly 
+The idea is, if every node can be reached from a vertexToConsider v, and every node can reach v, then the graph is strongly
 connected. In step 2, we check if all vertices are reachable from v. In step 4, we check if all vertices can reach v 
 (In reversed graph, if all vertices are reachable from v, then all vertices can reach v in original graph).
 
