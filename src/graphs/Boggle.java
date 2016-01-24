@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by poorvank on 4/4/15.
  */
-public class PossibleWords {
+public class Boggle {
 
     private static List<String> dictionary = new ArrayList<String>() {{
         add("GEEKS");
