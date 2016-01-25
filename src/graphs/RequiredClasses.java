@@ -59,7 +59,7 @@ class Graph {
         
         /*
         
-        Basically vertex array consists of Vertex Objects having info same as the index of the array
+        Basically vertexToConsider array consists of Vertex Objects having info same as the index of the array
         eg : index 0 has new Vertex(0)
         
          */
@@ -77,7 +77,7 @@ class Graph {
     public void addEdge(int v1, int v2, int w) {
 
         directedVertexArray[v1].adjacentVertices.add(new DirectedVertex(v2, w));
-        System.out.println("vertex  " + v1 + " to vertex " + v2 + " with weight " + directedVertexArray[v1].adjacentVertices.get(0).weight);
+        System.out.println("vertexToConsider  " + v1 + " to vertexToConsider " + v2 + " with weight " + directedVertexArray[v1].adjacentVertices.get(0).weight);
     }
 
 }
@@ -91,7 +91,7 @@ class Input {
         Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();
         Graph graph = new Graph(count);
-        System.out.println("Enter vertex values to create an edge between them eg a,b , enter s to end input");
+        System.out.println("Enter vertexToConsider values to create an edge between them eg a,b , enter s to end input");
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String input = scanner.nextLine();
@@ -126,7 +126,7 @@ class Input {
         Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();
         Graph graph = new Graph(count);
-        System.out.println("Enter vertex values to create an edge between them with weight c eg a,b,c , enter s to end input");
+        System.out.println("Enter vertexToConsider values to create an edge between them with weight c eg a,b,c , enter s to end input");
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String input = scanner.nextLine();

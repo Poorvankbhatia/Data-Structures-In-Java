@@ -49,7 +49,7 @@ public class CheckPath {
 /*
 
 We can either use Breadth First Search (BFS) or Depth First Search (DFS) to find path between two vertices.
- Take the first vertex as source in BFS (or DFS), follow the standard BFS (or DFS). 
- If we see the second vertex in our traversal, then return true. Else return false.
+ Take the first vertexToConsider as source in BFS (or DFS), follow the standard BFS (or DFS).
+ If we see the second vertexToConsider in our traversal, then return true. Else return false.
 
  */

@@ -16,11 +16,6 @@ public class DFS_rec {
 
         boolean[] visited = new boolean[vArray.length];
 
-        for (int i = 0; i < vArray.length; i++) {
-            visited[i] = false;
-        }
-
-
         // Call the recursive helper function to print DFS traversal
         // starting from all vertices one by one    
         //Since we do not know if the graph is connected or not

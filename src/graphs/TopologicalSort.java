@@ -68,9 +68,9 @@ public class TopologicalSort {
 
 /*
 
-In topological sorting, we use a temporary stack. We don’t print the vertex immediately, we first recursively call
+In topological sorting, we use a temporary stack. We don’t print the vertexToConsider immediately, we first recursively call
  topological sorting for all its adjacent vertices, then push it to a stack.
-  Finally, print contents of stack. Note that a vertex is pushed to stack only 
+  Finally, print contents of stack. Note that a vertexToConsider is pushed to stack only
   when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.
 
 

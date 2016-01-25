@@ -125,8 +125,8 @@ public class HamiltonianCycle {
 /*
 
 Backtracking Algorithm
-Create an empty path array and add vertex 0 to it. Add other vertices, starting from the vertex 1. Before adding a vertex,
- check for whether it is adjacent to the previously added vertex and not already added. If we find such a vertex, we add the 
- vertex as part of the solution. If we do not find a vertex then we return false.
+Create an empty path array and add vertexToConsider 0 to it. Add other vertices, starting from the vertexToConsider 1. Before adding a vertexToConsider,
+ check for whether it is adjacent to the previously added vertexToConsider and not already added. If we find such a vertexToConsider, we add the
+ vertexToConsider as part of the solution. If we do not find a vertexToConsider then we return false.
 
  */

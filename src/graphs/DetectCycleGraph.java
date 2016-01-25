@@ -4,56 +4,56 @@ package graphs;
  * Created by poorvank on 11/11/15.
  */
 public class DetectCycleGraph {
-    
+
     public static void main(String[] args) {
-        
+
         Vertex[] vArray = Input.graphInput();
         System.out.println(isCyclic(vArray));
-        
+
     }
-    
-    
+
+
     private static boolean isCyclic(Vertex[] vArray) {
-        
+
         boolean[] visited = new boolean[vArray.length];
         boolean[] record = new boolean[vArray.length];
-        
-        for (int i=0;i<vArray.length;i++) {
-            if(isCyclicUtil(i,visited,record,vArray)) {
+
+        for (int i = 0; i < vArray.length; i++) {
+            if (isCyclicUtil(i, visited, record, vArray)) {
                 return true;
             }
         }
-        
+
         return false;
     }
-    
-    private static boolean isCyclicUtil(int v,boolean[] visited,boolean[] record,Vertex[] vArray) {
-        
-        if(!visited[v])  {
-            
+
+    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Vertex[] vArray) {
+
+        if (!visited[v]) {
+
             visited[v] = true;
             record[v] = true;
-            
+
             for (Integer vertex : vArray[v].adjacentVertices) {
-                
-                if(!visited[vertex] && isCyclicUtil(vertex,visited,record,vArray)) {
-                    System.out.println("Cycle found between - " + v + " " + vertex );
+
+                if (!visited[vertex] && isCyclicUtil(vertex, visited, record, vArray)) {
+                    System.out.println("Cycle found between - " + v + " " + vertex);
                     return true;
                 }
-                if(record[vertex]) {
-                    System.out.println("Cycle found between - " + v + " " + vertex );
+                if (record[vertex]) {
+                    System.out.println("Cycle found between - " + v + " " + vertex);
                     return true;
                 }
-                
+
             }
-            
+
         }
-        
-        record[v]=false;
+
+        record[v] = false;
         return false;
-        
+
     }
-    
+
 }
 
 /*
@@ -75,8 +75,8 @@ For a disconnected graph, we get the DFS forrest as output. To detect cycle, we 
 by checking back edges.
 
 To detect a back edge, we can keep track of vertices currently in recursion stack of function for DFS traversal. 
-If we reach a vertex that is already in the recursion stack, then there is a cycle in the tree. The edge that connects 
-current vertex to the vertex in the recursion stack is back edge. We have used recStack[] array to keep track of vertices 
+If we reach a vertexToConsider that is already in the recursion stack, then there is a cycle in the tree. The edge that connects
+current vertexToConsider to the vertexToConsider in the recursion stack is back edge. We have used recStack[] array to keep track of vertices
 in the recursion stack.
 
  */

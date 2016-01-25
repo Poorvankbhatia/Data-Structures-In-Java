@@ -190,13 +190,13 @@ An undirected graph has Eulerian cycle if following two conditions are true.
 Eulerian Path
 An undirected graph has Eulerian Path if following two conditions are true.
 ….a) Same as condition (a) for Eulerian Cycle
-….b) If zero or two vertices have odd degree and all other vertices have even degree. Note that only one vertex with
+….b) If zero or two vertices have odd degree and all other vertices have even degree. Note that only one vertexToConsider with
  odd degree is not possible in an undirected graph (sum of all degrees is always even in an undirected graph)
 
 Note that a graph with no edges is considered Eulerian because there are no edges to traverse.
 
 How does this work?
-In Eulerian path, each time we visit a vertex v, we walk through two unvisited edges with one end point as v. 
-Therefore, all middle vertices in Eulerian Path must have even degree. For Eulerian Cycle, any vertex can be middle vertex,
+In Eulerian path, each time we visit a vertexToConsider v, we walk through two unvisited edges with one end point as v.
+Therefore, all middle vertices in Eulerian Path must have even degree. For Eulerian Cycle, any vertexToConsider can be middle vertexToConsider,
 therefore all vertices must have even degree.
 */

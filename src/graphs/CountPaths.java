@@ -63,7 +63,7 @@ public class CountPaths {
 /*
 
 A simple solution is to start from u, go to all adjacent vertices and recur for adjacent vertices with k as k-1,
- source as adjacent vertex and destination as v. 
+ source as adjacent vertexToConsider and destination as v.
  
  The worst case time complexity of the above function is O(Vk) where V is the number of vertices 
  in the given graph. We can simply analyze the time complexity by drawing recursion tree. 

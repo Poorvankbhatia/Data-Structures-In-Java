@@ -46,7 +46,7 @@ public class BFS_itr {
 /*
 
 Note that the above code traverses only the vertices reachable
- from a given source vertex. All the vertices may not be reachable from a given vertex
+ from a given source vertexToConsider. All the vertices may not be reachable from a given vertexToConsider
 
 
 In a breadth first search, you start at the root node, and then scan each node in the

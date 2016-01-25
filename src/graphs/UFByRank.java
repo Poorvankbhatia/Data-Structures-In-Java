@@ -5,91 +5,88 @@ package graphs;
  */
 
 class UFGraph {
-    
-    public int V,E;
+
+    public int V, E;
     public Edge[] edges;
-    
-    class Edge {
-        int source,destination;
-    }
-    
-    class Subset {
-        int rank,parent;
-    }
-    
-    public UFGraph(int v,int e) {
-        V =v;
-        E =e;
+
+    public UFGraph(int v, int e) {
+        V = v;
+        E = e;
         edges = new Edge[e];
-        for (int i=0;i<e;i++) {
+        for (int i = 0; i < e; i++) {
             edges[i] = new Edge();
         }
     }
-    
-    
-    public int find(Subset[] subsets,int i) {
-        
-        if(subsets[i].parent!=i) {
-            subsets[i].parent = find(subsets,subsets[i].parent);
+
+    public int find(Subset[] subsets, int i) {
+
+        if (subsets[i].parent != i) {
+            subsets[i].parent = find(subsets, subsets[i].parent);
         }
-        
+
         return subsets[i].parent;
-        
+
     }
-    
-    public void union(Subset[] subsets,int x,int y) {
-        
-        int xRoot = find(subsets,x);
-        int yRoot = find(subsets,y);
-        
-        if(subsets[xRoot].rank > subsets[yRoot].rank) {
+
+    public void union(Subset[] subsets, int x, int y) {
+
+        int xRoot = find(subsets, x);
+        int yRoot = find(subsets, y);
+
+        if (subsets[xRoot].rank > subsets[yRoot].rank) {
             subsets[yRoot].parent = xRoot;
-        }
-        else if(subsets[yRoot].rank > subsets[xRoot].rank) {
+        } else if (subsets[yRoot].rank > subsets[xRoot].rank) {
             subsets[xRoot].parent = yRoot;
-        }
-        else {
+        } else {
             subsets[yRoot].parent = xRoot;
             subsets[xRoot].rank++;
         }
     }
-    
+
     public boolean isCycle(UFGraph graph) {
-        
+
         int vertexes = graph.V;
         int edges = graph.E;
 
         Subset[] subsets = new Subset[vertexes];
-        
-        for (int v=0;v<V;v++) {
+
+        for (int v = 0; v < V; v++) {
             subsets[v] = new Subset();
             subsets[v].parent = v;
-            subsets[v].rank =0;
+            subsets[v].rank = 0;
         }
-        
-        for (int e=0;e<E;e++) {
-            int x = find(subsets,graph.edges[e].source);
-            int y = find(subsets,graph.edges[e].destination);
-            
-            if(x==y) {
+
+        for (int e = 0; e < E; e++) {
+            int x = find(subsets, graph.edges[e].source);
+            int y = find(subsets, graph.edges[e].destination);
+
+            if (x == y) {
                 return true;
             }
-            
-            union(subsets,x,y);
-            
+
+            union(subsets, x, y);
+
         }
-        
+
         return false;
-        
+
     }
-    
+
+    class Edge {
+        int source, destination;
+    }
+
+    class Subset {
+        int rank, parent;
+    }
+
 }
 
 public class UFByRank {
-    
+
     public static void main(String[] args) {
 
-        UFGraph graph = new UFGraph(3,3);
+        UFGraph graph = new UFGraph(3, 3);
 
         graph.edges[0].source = 0;
         graph.edges[0].destination = 1;
@@ -103,12 +100,12 @@ public class UFByRank {
         graph.edges[2].destination = 2;
 
         if (graph.isCycle(graph))
-            System.out.println( "Graph contains cycle" );
+            System.out.println("Graph contains cycle");
         else
-            System.out.println( "Graph doesn't contain cycle" );
-        
+            System.out.println("Graph doesn't contain cycle");
+
     }
-    
+
 }
 
 
@@ -132,7 +129,8 @@ void Union(int parent[], int x, int y)
     parent[xset] = yset;
 }
 Run on IDE
-The above union() and find() are naive and the worst case time complexity is linear. The trees created to represent subsets can be skewed and can become like a linked list. Following is an example worst case scenario.
+The above union() and find() are naive and the worst case time complexity is linear. The trees created to represent subsets
+can be skewed and can become like a linked list. Following is an example worst case scenario.
 
 Let there be 4 elements 0, 1, 2, 3
 
