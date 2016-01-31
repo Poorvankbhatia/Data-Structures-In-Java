@@ -44,7 +44,7 @@ import java.util.Queue;
  * Created by poorvank on 12/13/15.
  */
 public class MultiplicationSumOfDataLeaves {
-    
+
     public static void main(String[] args) {
 
         Node root = new Node(2);
@@ -52,57 +52,57 @@ public class MultiplicationSumOfDataLeaves {
         root.right = new Node(5);
         root.right.left = new Node(6);
         root.right.right = new Node(3);
-        
+
         System.out.println(resultMultiplication(root));
-        
-        
+
+
     }
-    
+
     private static boolean isLeaf(Node root) {
-        
-        return (root!=null && root.right==null && root.left==null);
-        
+
+        return (root != null && root.right == null && root.left == null);
+
     }
-    
-    
+
+
     private static int resultMultiplication(Node root) {
-        
+
         int mul = 1;
         Queue<Node> queue = new LinkedList<>();
-        
+
         queue.add(root);
         boolean foundLeaf = false;
-        
+
         while (!queue.isEmpty()) {
-            
+
             int size = queue.size();
 
-            int sum =0;
-            while (size>0) {
+            int sum = 0;
+            while (size > 0) {
 
                 Node current = queue.remove();
-                if(isLeaf(current)) {
+                if (isLeaf(current)) {
                     sum += current.info;
                     foundLeaf = true;
                 }
-                if(current.left!=null) {
+                if (current.left != null) {
                     queue.add(current.left);
                 }
-                if(current.right!=null) {
+                if (current.right != null) {
                     queue.add(current.right);
                 }
-                
+
                 size--;
             }
-            
-            if(foundLeaf)  {
+
+            if (foundLeaf) {
                 mul *= sum;
             }
 
         }
-        
+
         return mul;
-        
+
     }
 }
 
