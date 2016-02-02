@@ -23,19 +23,17 @@ public class OnlyLeftLeaves {
         System.out.println(leftCount(root));
 
     }
-    
+
     private static int leftCount(Node root) {
-        
-        if(root==null || (root.left==null && root.right==null)) {
+
+        if (root == null || (root.left == null && root.right == null)) {
             return 0;
-        }
-        else if(root.left!=null && root.right==null) {
+        } else if (root.left != null && root.right == null) {
             return 1 + leftCount(root.left);
-        }
-        else {
+        } else {
             return leftCount(root.left) + leftCount(root.right);
         }
-        
+
     }
-    
+
 }
