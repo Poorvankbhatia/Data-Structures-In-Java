@@ -54,9 +54,9 @@ public class FloydWarshall {
     public static void main(String[] args) {
 
         int[][] graph = new int[][]{{0, 5, INF, 10},
-                                    {INF, 0, 3, INF},
-                                    {INF, INF, 0, 1},
-                                    {INF, INF, INF, 0}};
+                {INF, 0, 3, INF},
+                {INF, INF, 0, 1},
+                {INF, INF, INF, 0}};
 
         printAllShortestPath(graph);
 

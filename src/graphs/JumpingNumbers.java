@@ -33,54 +33,52 @@ import java.util.Queue;
  * Created by poorvank on 1/16/16.
  */
 public class JumpingNumbers {
-    
+
     public static void main(String[] args) {
-        
+
         int x = 50;
-        
+
         System.out.print("0 ");
-        
+
         //In case x <9
-        for (int i=1;i<=9 && i<=x;i++) {
-            printJumpNo(i,x);
+        for (int i = 1; i <= 9 && i <= x; i++) {
+            printJumpNo(i, x);
         }
 
         System.out.println();
-        
+
         printOrderedJumpNo(x);
-        
+
     }
-    
+
     //Doing a BFS
-    private static void printJumpNo(int startNum,int x) {
+    private static void printJumpNo(int startNum, int x) {
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(startNum);
-        
+
         while (!queue.isEmpty()) {
-            
+
             startNum = queue.remove();
-            int lastDigit = startNum%10;
-            
-            if(startNum<=x) {
+            int lastDigit = startNum % 10;
+
+            if (startNum <= x) {
 
                 System.out.print(startNum + " ");
-                
-                if(lastDigit==0) {
-                    queue.add(startNum*10 + (lastDigit+1));
+
+                if (lastDigit == 0) {
+                    queue.add(startNum * 10 + (lastDigit + 1));
+                } else if (lastDigit == 9) {
+                    queue.add(startNum * 10 + (lastDigit - 1));
+                } else {
+                    queue.add(startNum * 10 + (lastDigit + 1));
+                    queue.add(startNum * 10 + (lastDigit - 1));
                 }
-                else if(lastDigit==9) {
-                    queue.add(startNum*10 + (lastDigit-1));
-                }
-                else {
-                    queue.add(startNum*10 + (lastDigit+1));
-                    queue.add(startNum*10 + (lastDigit-1));
-                }
-                
+
             }
-            
+
         }
-        
+
     }
 
     //Doing a BFS
@@ -88,8 +86,8 @@ public class JumpingNumbers {
 
         int i = 1;
         Queue<Integer> queue = new LinkedList<>();
-        
-        while (i<=9 && i<=x) {
+
+        while (i <= 9 && i <= x) {
             queue.add(i);
             i++;
         }
@@ -97,21 +95,19 @@ public class JumpingNumbers {
         while (!queue.isEmpty()) {
 
             int startNum = queue.remove();
-            int lastDigit = startNum%10;
+            int lastDigit = startNum % 10;
 
-            if(startNum<=x) {
+            if (startNum <= x) {
 
                 System.out.print(startNum + " ");
 
-                if(lastDigit==0) {
-                    queue.add(startNum*10 + (lastDigit+1));
-                }
-                else if(lastDigit==9) {
-                    queue.add(startNum*10 + (lastDigit-1));
-                }
-                else {
-                    queue.add(startNum*10 + (lastDigit+1));
-                    queue.add(startNum*10 + (lastDigit-1));
+                if (lastDigit == 0) {
+                    queue.add(startNum * 10 + (lastDigit + 1));
+                } else if (lastDigit == 9) {
+                    queue.add(startNum * 10 + (lastDigit - 1));
+                } else {
+                    queue.add(startNum * 10 + (lastDigit + 1));
+                    queue.add(startNum * 10 + (lastDigit - 1));
                 }
 
             }
@@ -119,7 +115,7 @@ public class JumpingNumbers {
         }
 
     }
-    
+
 }
 
 /*

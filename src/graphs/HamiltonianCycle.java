@@ -43,10 +43,10 @@ public class HamiltonianCycle {
     public static void main(String[] args) {
 
         int graph[][] = {{0, 1, 0, 1, 0},
-                         {1, 0, 1, 1, 1},
-                         {0, 1, 0, 0, 1},
-                         {1, 1, 0, 0, 1},
-                         {0, 1, 1, 1, 0}};
+                {1, 0, 1, 1, 1},
+                {0, 1, 0, 0, 1},
+                {1, 1, 0, 0, 1},
+                {0, 1, 1, 1, 0}};
         VERTEX_COUNT = graph.length;
 
         detectCycle(graph);

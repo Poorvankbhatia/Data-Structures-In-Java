@@ -4,88 +4,85 @@ package graphs;
  * Created by poorvank on 1/20/16.
  */
 public class Dijikstras {
-    
+
     private static int vertexCount = 9;
     private static int INF = Integer.MAX_VALUE;
-    
-    public static int minimumDistance(boolean[] sptSet,int[] distance) {
-        
-        int minDist = Integer.MAX_VALUE,minIndex = -1;
-        
-        for (int v=0;v<vertexCount;v++) {
-            
-            if(!sptSet[v] && distance[v]<minDist) {
+
+    public static int minimumDistance(boolean[] sptSet, int[] distance) {
+
+        int minDist = Integer.MAX_VALUE, minIndex = -1;
+
+        for (int v = 0; v < vertexCount; v++) {
+
+            if (!sptSet[v] && distance[v] < minDist) {
                 minDist = distance[v];
                 minIndex = v;
             }
-            
+
         }
-        
+
         return minIndex;
-        
+
     }
-    
+
     //See Images
     public static void printSolution(int[] distance) {
 
-        for (int i=0;i<distance.length;i++) {
+        for (int i = 0; i < distance.length; i++) {
             System.out.println(i + " " + distance[i]);
         }
-        
+
     }
-    
-    public static void implementAlgorithm(int[][] graph,int src) {
+
+    public static void implementAlgorithm(int[][] graph, int src) {
 
         boolean[] sptSet = new boolean[vertexCount];
-        
+
         int[] distance = new int[vertexCount];
-        
-        for (int i=0;i<vertexCount;i++) {
-            distance[i]= INF;
+
+        for (int i = 0; i < vertexCount; i++) {
+            distance[i] = INF;
         }
         distance[src] = 0;
-        
-        for (int count=0;count<vertexCount-1;count++) {
-            
-            int u = minimumDistance(sptSet,distance);
-            
+
+        for (int count = 0; count < vertexCount - 1; count++) {
+
+            int u = minimumDistance(sptSet, distance);
+
             sptSet[u] = true;
-            
-            for (int v=0;v<vertexCount;v++) {
-                
-                if(!sptSet[v] && graph[u][v]!=0 && distance[u]!=INF  && distance[u]+graph[u][v]<distance[v]) {
-                    distance[v] = distance[u]+graph[u][v];
+
+            for (int v = 0; v < vertexCount; v++) {
+
+                if (!sptSet[v] && graph[u][v] != 0 && distance[u] != INF && distance[u] + graph[u][v] < distance[v]) {
+                    distance[v] = distance[u] + graph[u][v];
                 }
-                
+
             }
-            
+
         }
-        
+
         printSolution(distance);
-        
-         
+
+
     }
 
 
-
-    public static void main (String[] args)
-    {
+    public static void main(String[] args) {
         int graph[][] = new int[][]{{0, 4, 0, 0, 0, 0, 0, 8, 0},
-                                    {4, 0, 8, 0, 0, 0, 0, 11, 0},
-                                    {0, 8, 0, 7, 0, 4, 0, 0, 2},
-                                    {0, 0, 7, 0, 9, 14, 0, 0, 0},
-                                    {0, 0, 0, 9, 0, 10, 0, 0, 0},
-                                    {0, 0, 4, 0, 10, 0, 2, 0, 0},
-                                    {0, 0, 0, 14, 0, 2, 0, 1, 6},
-                                    {8, 11, 0, 0, 0, 0, 1, 0, 7},
-                                    {0, 0, 2, 0, 0, 0, 6, 7, 0}
+                {4, 0, 8, 0, 0, 0, 0, 11, 0},
+                {0, 8, 0, 7, 0, 4, 0, 0, 2},
+                {0, 0, 7, 0, 9, 14, 0, 0, 0},
+                {0, 0, 0, 9, 0, 10, 0, 0, 0},
+                {0, 0, 4, 0, 10, 0, 2, 0, 0},
+                {0, 0, 0, 14, 0, 2, 0, 1, 6},
+                {8, 11, 0, 0, 0, 0, 1, 0, 7},
+                {0, 0, 2, 0, 0, 0, 6, 7, 0}
         };
-        
-        implementAlgorithm(graph,0);
+
+        implementAlgorithm(graph, 0);
     }
-    
-    
-    
+
+
 }
 
 

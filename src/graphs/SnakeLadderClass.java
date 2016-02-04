@@ -35,59 +35,58 @@ class Cell {
 }
 
 public class SnakeLadderClass {
-    
-    
-    private static int getMinimumDiceThrows(int[] Moves,int n) {
+
+
+    private static int getMinimumDiceThrows(int[] Moves, int n) {
 
         Queue<Cell> queue = new LinkedList<>();
-        
-        queue.add(new Cell(0,0));
+
+        queue.add(new Cell(0, 0));
         boolean[] visited = new boolean[n];
         visited[0] = true;
-        
+
         while (!queue.isEmpty()) {
-            
+
             int v = queue.peek().vertexToConsider;
-            
-            if(v==n-1) {
+
+            if (v == n - 1) {
                 break;
             }
-            
+
             Cell startCell = queue.remove();
-            
-            for (int j=(v+1);j<=(v+6) && j<n;j++) {
-                
-                if(!visited[j]) {
-                    
+
+            for (int j = (v + 1); j <= (v + 6) && j < n; j++) {
+
+                if (!visited[j]) {
+
                     Cell cell = new Cell();
-                    cell.moves = startCell.moves+1;
+                    cell.moves = startCell.moves + 1;
                     visited[j] = true;
-                    
-                    if(Moves[j]!=-1) {
+
+                    if (Moves[j] != -1) {
                         cell.vertexToConsider = Moves[j];
-                    }
-                    else {
+                    } else {
                         cell.vertexToConsider = j;
                     }
-                    
+
                     queue.add(cell);
 
                 }
-                
+
             }
-            
+
         }
-        
+
         return queue.peek().moves;
-        
-        
+
+
     }
-    
+
     public static void main(String[] args) {
 
         int N = 30;
         int[] moves = new int[N];
-        for (int i = 0; i<N; i++)
+        for (int i = 0; i < N; i++)
             moves[i] = -1;
 
         // Ladders
@@ -101,13 +100,12 @@ public class SnakeLadderClass {
         moves[20] = 8;
         moves[16] = 3;
         moves[18] = 6;
-        
+
         System.out.println(getMinimumDiceThrows(moves, N));
-        
+
     }
-    
-    
-    
+
+
 }
 
 /*
