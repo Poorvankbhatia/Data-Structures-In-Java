@@ -14,9 +14,6 @@ We measure the complexity in terms of calls made to HaveAcquaintance().
 
 package stack;
 
-import stack.ArrayStack;
-import stack.Stack;
-
 /**
  * Created by poorvank on 8/5/15.
  */

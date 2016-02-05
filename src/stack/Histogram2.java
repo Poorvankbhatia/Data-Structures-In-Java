@@ -12,9 +12,6 @@ The largest possible rectangle possible is 12
 
 package stack;
 
-import stack.ArrayStack;
-import stack.Stack;
-
 import java.util.Arrays;
 
 /**

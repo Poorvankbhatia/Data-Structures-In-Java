@@ -27,9 +27,6 @@ d) For the input array [13, 7, 6, 12}, the next greater elements for each elemen
 
 package stack;
 
-import stack.ArrayStack;
-import stack.Stack;
-
 /**
  * Created by poorvank on 7/27/15.
  */
