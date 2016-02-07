@@ -36,51 +36,49 @@ import java.util.Scanner;
  * Created by poorvank on 1/5/16.
  */
 public class ZigZagConcatenation {
-    
+
     public static void main(String[] args) {
-        
+
         String input = new Scanner(System.in).nextLine();
         int n = 3;
-        
+
         String[] arrStrings = new String[n];
-        
+
         boolean down = true;
-        
-        int length=input.length(),i=0,k=0;
-        
-        while (k<length) {
-            
-            if(arrStrings[i]!=null) {
+
+        int length = input.length(), i = 0, k = 0;
+
+        while (k < length) {
+
+            if (arrStrings[i] != null) {
                 arrStrings[i] += input.charAt(k);
-            }
-            else {
+            } else {
                 arrStrings[i] = Character.toString(input.charAt(k));
             }
-            
-            if(i==n-1) {
+
+            if (i == n - 1) {
                 down = false;
             }
-            if(i==0) {
+            if (i == 0) {
                 down = true;
             }
-            if(!down) {
+            if (!down) {
                 i--;
-            }
-            else {
+            } else {
                 i++;
             }
             k++;
-            
+
         }
-        
+
         StringBuilder result = new StringBuilder();
-        for (i=0;i<n;i++) {
+        for (i = 0; i < n; i++) {
             result.append(arrStrings[i]);
         }
-        
+
         System.out.println(result.toString());
     }
-    
+
 }
 
 /*
