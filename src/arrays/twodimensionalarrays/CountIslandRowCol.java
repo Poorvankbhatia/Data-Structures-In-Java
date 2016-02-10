@@ -38,11 +38,11 @@ public class CountIslandRowCol {
     public static void main(String[] args) {
 
         char[][] island = new char[][]{{'O', 'O', 'O'},
-                                       {'X', 'X', 'O'},
-                                       {'X', 'X', 'O'},
-                                       {'O', 'O', 'X'},
-                                       {'O', 'O', 'X'},
-                                       {'X', 'X', 'O'}
+                {'X', 'X', 'O'},
+                {'X', 'X', 'O'},
+                {'O', 'O', 'X'},
+                {'O', 'O', 'X'},
+                {'X', 'X', 'O'}
         };
 
         System.out.println(count(island));

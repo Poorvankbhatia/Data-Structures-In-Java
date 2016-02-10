@@ -4,37 +4,37 @@ package miscellaneous;
  * Created by poorvank on 1/16/16.
  */
 public class RussianPeasantMultiply {
-    
+
     public static void main(String[] args) {
-        
+
         int a = 23;
         int b = 44;
-        
-        System.out.println(multiply(a,b));
+
+        System.out.println(multiply(a, b));
     }
-    
-    private static int multiply(int a,int b) {
-        
+
+    private static int multiply(int a, int b) {
+
         int result = 0;
-        
-        while (b!=0) {
-            
-            if((b&1)!=0) {
-                result +=a;
+
+        while (b != 0) {
+
+            if ((b & 1) != 0) {
+                result += a;
             }
-            
+
             //Double
             a = a << 1;
-            
+
             //Half
             b = b >> 1;
-            
+
         }
-        
+
         return result;
-        
+
     }
-    
+
 }
 
 /*
