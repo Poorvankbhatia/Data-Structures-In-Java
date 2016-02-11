@@ -1,0 +1,109 @@
+Scanner Class in Java
+Scanner is a class in java.util package used for obtaining the input of the primitive types like int, 
+double etc. and strings. It is the easiest way to read input in a Java program, though not very efficient 
+if you want an input method for scenarios where time is a constraint like in competitive programming.
+
+To create an object of Scanner class, we usually pass the predefined object System.in, which represents the
+ standard input stream. We may pass an object of class File if we want to read input from a file.
+To read numerical values of a certain data type XYZ, the function to use is nextXYZ(). For example, to read a value of 
+type short, we can use nextShort()
+To read strings, we use nextLine().
+To read a single character, we use next().charAt(0). next() function returns the next token/word in the input as a string and 
+charAt(0) funtion returns the first character in that string.
+Let us look at the code snippet to read data of various data types.
+
+// Java program to read data of various types using Scanner class.
+import java.util.Scanner;
+public class ScannerDemo1
+{
+    public static void main(String[] args)
+    {
+        // Declare the object and initialize with
+        // predefined standard input object
+        Scanner sc = new Scanner(System.in);
+ 
+        // String input
+        String name = sc.nextLine();
+ 
+        // Character input
+        char gender = sc.next().charAt(0);
+ 
+        // Numerical data input
+        // byte, short and float can be read
+        // using similar-named functions.
+        int age = sc.nextInt();
+        long mobileNo = sc.nextLong();
+        double cgpa = sc.nextDouble();
+ 
+        // Print the values to check if input was correctly obtained.
+        System.out.println("Name: "+name);
+        System.out.println("Gender: "+gender);
+        System.out.println("Age: "+age);
+        System.out.println("Mobile Number: "+mobileNo);
+        System.out.println("CGPA: "+cgpa);
+    }
+}
+Run on IDE
+Input :
+
+Geek
+F
+40
+9876543210
+9.9
+Output :
+
+Name: Geek
+Gender: F
+Age: 40
+Mobile Number: 9876543210
+CGPA: 9.9
+Sometimes, we have to check if the next value we read is of a certain type or if the input has ended (EOF marker encountered).
+
+Then, we check if the scanner’s input is of the type we want with the help of hasNextXYZ() functions where 
+XYZ is the type we are interested in. The function returns true if the scanner has a token of that type, otherwise false. 
+For example, in the above code, we have used hasNextInt().To check for a string, we use hasNextLine(). Similarly, 
+to check for a single character, we use hasNext().charAt(0).
+
+Let us look at the code snippet to read some numbers from console and print their mean.
+
+// Java program to read some values using Scanner 
+// class and print their mean.
+import java.util.Scanner;
+ 
+public class ScannerDemo2
+{
+    public static void main(String[] args)
+    {
+        // Declare an object and initialize with
+        // predefined standard input object
+        Scanner sc = new Scanner(System.in);
+ 
+        // Initialize sum and count of input elements
+        int sum = 0, count = 0;
+ 
+        // Check if an int value is available
+        while (sc.hasNextInt())
+        {
+            // Read an int value
+            int num = sc.nextInt();
+            sum += num;
+            count++;
+        }
+        int mean = sum / count;
+        System.out.println("Mean: " + mean);
+    }
+}
+Run on IDE
+Input:
+
+101
+223
+238
+892
+99
+500
+728
+Output:
+
+Mean: 397
