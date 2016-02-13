@@ -38,9 +38,28 @@ import java.util.Arrays;
 
 class KGraph {
 
+    class Edge implements Comparable<Edge> {
+
+        int src, dest, weight;
+
+        public int compareTo(Edge compareEdge) {
+
+            return this.weight - compareEdge.weight;
+
+        }
+
+    }
+
+    class Subset {
+        int rank, parent;
+    }
+
+
     int V, E;
     Edge edge[];
 
+
+    
     public KGraph(int vertexCount, int edgeCount) {
 
         V = vertexCount;
@@ -122,22 +141,6 @@ class KGraph {
             System.out.println(result[i].src+" -- "+result[i].dest+" == "+
                     result[i].weight);
         
-    }
-
-    class Edge implements Comparable<Edge> {
-
-        int src, dest, weight;
-
-        public int compareTo(Edge compareEdge) {
-
-            return this.weight - compareEdge.weight;
-
-        }
-
-    }
-
-    class Subset {
-        int rank, parent;
     }
 
 
