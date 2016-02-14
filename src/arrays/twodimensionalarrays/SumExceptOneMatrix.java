@@ -36,8 +36,8 @@ public class SumExceptOneMatrix {
     public static void main(String[] args) {
 
         int[][] matrix = new int[][]{{1, 1, 2},
-                                     {3, 4, 6},
-                                     {5, 3, 2}};
+                {3, 4, 6},
+                {5, 3, 2}};
 
         MatrixCell[] arr = new MatrixCell[]{new MatrixCell(0, 0), new MatrixCell(1, 1), new MatrixCell(0, 1)};
 

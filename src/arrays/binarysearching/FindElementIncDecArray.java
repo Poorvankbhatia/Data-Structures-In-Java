@@ -14,7 +14,7 @@ public class FindElementIncDecArray {
 
     private static void findElementIndex(int[] arr, int key, int low, int high) {
 
-        int pivotIndex = findPivot(arr, low, high,arr.length);
+        int pivotIndex = findPivot(arr, low, high, arr.length);
 
         if (pivotIndex != -1) {
 
