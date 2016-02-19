@@ -10,9 +10,6 @@ sum of weights given to each edge of the spanning tree.
 How many edges does a minimum spanning tree has?
 A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
 
-What are the applications of Minimum Spanning Tree?
-See this for applications of MST.
-
 Below are the steps for finding MST using Kruskal’s algorithm
 
 1. Sort all the edges in non-decreasing order of their weight.
@@ -99,18 +96,18 @@ class KGraph {
     public void KruskalMST() {
 
         Edge[] result = new Edge[V];
-        //e for storing edge result
-        //i for sorted edges
 
         //If we are not allowed to change the given graph, we
         // can create a copy of array of edges
         Arrays.sort(edge);
 
-        // Allocate memory for creating V ssubsets
+        // Allocate memory for creating V subsets
         Subset subsets[] = new Subset[V];
         for(int i=0; i<V; ++i)
             subsets[i]=new Subset();
 
+        //e for storing edge result
+        //i for sorted edges`
         int e = 0, i = 0;
         // Create V subsets with single elements
         for (int v = 0; v < V; ++v)
