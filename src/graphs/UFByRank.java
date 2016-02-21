@@ -33,6 +33,7 @@ class UFGraph {
         int xRoot = find(subsets, x);
         int yRoot = find(subsets, y);
 
+        //Do try it out
         if (subsets[xRoot].rank > subsets[yRoot].rank) {
             subsets[yRoot].parent = xRoot;
         } else if (subsets[yRoot].rank > subsets[xRoot].rank) {
