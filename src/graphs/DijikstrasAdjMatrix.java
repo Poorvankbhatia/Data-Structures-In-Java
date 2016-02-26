@@ -3,7 +3,7 @@ package graphs;
 /**
  * Created by poorvank on 1/20/16.
  */
-public class Dijikstras {
+public class DijikstrasAdjMatrix {
 
     private static int vertexCount = 9;
     private static int INF = Integer.MAX_VALUE;
