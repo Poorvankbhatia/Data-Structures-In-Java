@@ -12,40 +12,40 @@ package miscellaneous;
  * Created by poorvank on 1/16/16.
  */
 public class NewNumberSystem {
-    
+
     public static void main(String[] args) {
-        
+
         int n = 8;
-        
-        String[] arr = new String[n+1];
-        
+
+        String[] arr = new String[n + 1];
+
         arr[0] = "";
-        
+
         //Total number pf elements till now
         int size = 1;
-        
+
         //Elements in last iteration
         int lastIterationCount = 1;
-        
-        while (size<=n) {
-            
-            for (int i=0;i<lastIterationCount && (size+i)<=n;i++) {
-                arr[size+i] = '3' + arr[size-lastIterationCount+i];
+
+        while (size <= n) {
+
+            for (int i = 0; i < lastIterationCount && (size + i) <= n; i++) {
+                arr[size + i] = '3' + arr[size - lastIterationCount + i];
             }
-            
-            for (int i=0;i<lastIterationCount && (size+lastIterationCount+i)<=n;i++) {
-                arr[size+lastIterationCount+i] = '4' + arr[size-lastIterationCount+i];
+
+            for (int i = 0; i < lastIterationCount && (size + lastIterationCount + i) <= n; i++) {
+                arr[size + lastIterationCount + i] = '4' + arr[size - lastIterationCount + i];
             }
-            
+
             lastIterationCount = lastIterationCount << 1;
-            
-            size = size+lastIterationCount;
-            
+
+            size = size + lastIterationCount;
+
         }
-        
+
         System.out.println(arr[n]);
     }
-    
+
 }
 
 /*
