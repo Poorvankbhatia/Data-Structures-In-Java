@@ -1,0 +1,25 @@
+Use Prim's algorithm when you have a graph with lots of edges.
+
+For a graph with V vertices E edges, Kruskal's algorithm runs in O(E log V) time and Prim's algorithm can 
+run in O(E + V log V) amortized time, if you use a Fibonacci Heap.
+
+Prim's algorithm is significantly faster in the limit when you've got a really dense graph with many more edges than vertices. 
+Kruskal performs better in typical situations (sparse graphs) because it uses simpler data structures.
+
+The best time for Kruskal's is O(E logV). For Prim's using fib heaps we can get O(E+V lgV). 
+Therefore on a dense graph, Prim's is much better.
+
+
+Kruskal's algorithm will grow a solution from the cheapest edge by adding the next cheapest edge, 
+provided that it doesn't create a cycle.
+
+Prim's algorithm will grow a solution from a random vertex by adding the next cheapest vertex, the vertex that is 
+not currently in the solution but connected to it by the cheapest edge.
+
+If you implement both Kruskal and Prim, in their optimal form : with a union find and a finbonacci heap respectively, 
+then you will note how Kruskal is easy to implement compared to Prim.
+
+Prim is harder with a fibonacci heap mainly because you have to maintain a book-keeping table to record the bi-directional 
+link between graph nodes and heap nodes. With a Union Find, it's the opposite, the structure is simple and can even produce
+directly the mst at almost no additional cost.
+
