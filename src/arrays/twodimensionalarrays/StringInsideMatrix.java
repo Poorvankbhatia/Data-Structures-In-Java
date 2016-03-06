@@ -29,10 +29,10 @@ public class StringInsideMatrix {
     public static void main(String[] args) {
 
         char[][] arr = new char[][]{{'a', 'c', 'p', 'r', 'c'},
-                                    {'x', 's', 'o', 'p', 'c'},
-                                    {'v', 'o', 'v', 'n', 'i'},
-                                    {'w', 'g', 'f', 'm', 'n'},
-                                    {'q', 'a', 't', 'i', 't'}};
+                {'x', 's', 'o', 'p', 'c'},
+                {'v', 'o', 'v', 'n', 'i'},
+                {'w', 'g', 'f', 'm', 'n'},
+                {'q', 'a', 't', 'i', 't'}};
 
         String find = "microsoft";
 
