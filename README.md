@@ -1,3 +1,2 @@
 # JavaDS
-This repository consist of implementation of most of the data structures including trees,Linked List, Maps, String
-and various algorithms and programming paradigm in JAVA language! 
+This repository consist of implementation/explination of essential data structures and algorithms including trees,Linked List, Maps, String , Graphs and various other programming paradigm in JAVA language! 
