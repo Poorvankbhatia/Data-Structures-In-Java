@@ -129,6 +129,10 @@ class APGraph {
         int[] connectValue = new int[vertexCount]; // Represents the indicates earliest visited vertex reachable from 
         // subtree rooted with v
         
+        for (int i=0;i<parent.length;i++) {
+            parent[i] = -1;
+        }
+        
         for (int i=0;i<vertexCount;i++) {
             if(!visited[i]) {
                 markArticulationPoints(i,discovery,visited,finalAp,parent,connectValue);
