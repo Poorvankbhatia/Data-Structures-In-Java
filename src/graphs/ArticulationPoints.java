@@ -126,7 +126,8 @@ class APGraph {
         boolean[] finalAp = new boolean[vertexCount];
         int[] parent = new int[vertexCount];
         boolean[] visited = new boolean[vertexCount];
-        int[] connectValue = new int[vertexCount];
+        int[] connectValue = new int[vertexCount]; // Represents the indicates earliest visited vertex reachable from 
+        // subtree rooted with v
         
         for (int i=0;i<vertexCount;i++) {
             if(!visited[i]) {
@@ -165,5 +166,56 @@ public class ArticulationPoints {
 
 The above function is simple DFS with additional arrays. 
 So time complexity is same as DFS which is O(V+E) for adjacency list representation of graph.
+
+Some Dry Run:
+
+ver   disc  low
+0      1       1
+1      2       1
+2      3       1
+——
+3      4       4
+
+
+
+0—2
+| /
+|/
+1—3
+
+low(2) = min(low(2),disc(0)) = min(3,1) = 1
+
+low(1) = min(low(1),low(2)) = min(2,1) = 1
+
+
+ver   disc  low
+0      1       1
+1      2       1
+2      3       1
+3      4       2
+
+
+
+0—-2
+| /|
+|/ |
+1—3
+
+
+
+ver   disc  low
+0      1       1
+1      2       2
+2      3       1
+4      4       4
+3      5       2
+
+
+
+0—2
+| /\
+|/  \
+1—3—4
+
 
  */
