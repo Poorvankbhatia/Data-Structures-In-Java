@@ -44,7 +44,7 @@ import java.util.Queue;
 /**
  * Created by poorvank on 3/10/16.
  */
-public class FordFulkersonMaxFlow {
+public class FordFulkersonMaxFlowAdjMatrix {
     
     private static int vertexCount = 6;
     
@@ -123,7 +123,7 @@ public class FordFulkersonMaxFlow {
                                      {0, 0, 0, 7, 0, 4},
                                      {0, 0, 0, 0, 0, 0}  };
         
-        FordFulkersonMaxFlow fordFulkerson = new FordFulkersonMaxFlow();
+        FordFulkersonMaxFlowAdjMatrix fordFulkerson = new FordFulkersonMaxFlowAdjMatrix();
         
         System.out.println("Maximum flow is = " + fordFulkerson.maxFlow(graph,0,5));
         
