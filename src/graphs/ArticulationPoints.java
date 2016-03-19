@@ -1,4 +1,3 @@
-
 /*
 
 Articulation Points (or Cut Vertices) in a Graph
@@ -63,106 +62,106 @@ class APNode {
 
 class APGraph {
 
-    static int time=0;
+    static int time = 0;
     int vertexCount;
     List<APNode> list = new ArrayList<>();
-    
+
     public APGraph(int vertexCount) {
         this.vertexCount = vertexCount;
-        for (int i=0;i<vertexCount;i++) {
-            list.add(new APNode(i,new ArrayList<Integer>()));
+        for (int i = 0; i < vertexCount; i++) {
+            list.add(new APNode(i, new ArrayList<Integer>()));
         }
     }
-    
-    
-    public void addEdge(int a,int b) {
-        
+
+
+    public void addEdge(int a, int b) {
+
         list.get(a).adjacencyList.add(b);
         list.get(b).adjacencyList.add(b);
-        
+
     }
-    
-    
-    public void markArticulationPoints(int source,int[] discovery,boolean[] visited,boolean[] finalAp,int[] parent,int[] low) {
-        
+
+
+    public void markArticulationPoints(int source, int[] discovery, boolean[] visited, boolean[] finalAp, int[] parent, int[] low) {
+
         discovery[source] = low[source] = ++time;
         visited[source] = true;
         int children = 0;
 
-        
-        for (Integer neighbour: list.get(source).adjacencyList) {
-            
-            if(!visited[neighbour]) {
+
+        for (Integer neighbour : list.get(source).adjacencyList) {
+
+            if (!visited[neighbour]) {
 
                 children++;
                 parent[neighbour] = source;
-                markArticulationPoints(neighbour,discovery,visited,finalAp,parent,low);
-                
+                markArticulationPoints(neighbour, discovery, visited, finalAp, parent, low);
+
                 //Check if subtree rooted with child has a connection to the parents of source
-                low[source] = Math.min(low[source],low[neighbour]);
-                
+                low[source] = Math.min(low[source], low[neighbour]);
+
                 //source will be the articulation point in the following cases
-                if(parent[source]==-1 && children>1) {
+                if (parent[source] == -1 && children > 1) {
                     finalAp[source] = true;
                 }
-                if(parent[source]!=-1 && low[neighbour] >= discovery[source]) {
+                if (parent[source] != -1 && low[neighbour] >= discovery[source]) {
                     finalAp[source] = true;
                 }
-                
-                
+
+
             }
             //Update connected value of source to parent function calls
-            else if(source!=parent[neighbour]) {
-                low[source] = Math.min(low[source],discovery[neighbour]);
+            else if (source != parent[neighbour]) {
+                low[source] = Math.min(low[source], discovery[neighbour]);
             }
-            
+
         }
-        
+
     }
-    
+
     public void calculateArticulationPoints() {
-        
+
         int[] discovery = new int[vertexCount];
         boolean[] finalAp = new boolean[vertexCount];
         int[] parent = new int[vertexCount];
         boolean[] visited = new boolean[vertexCount];
         int[] connectValue = new int[vertexCount]; // Represents the indicates earliest visited vertex reachable from 
         // subtree rooted with v
-        
-        for (int i=0;i<parent.length;i++) {
+
+        for (int i = 0; i < parent.length; i++) {
             parent[i] = -1;
         }
-        
-        for (int i=0;i<vertexCount;i++) {
-            if(!visited[i]) {
-                markArticulationPoints(i,discovery,visited,finalAp,parent,connectValue);
+
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited[i]) {
+                markArticulationPoints(i, discovery, visited, finalAp, parent, connectValue);
             }
         }
-        
-        for (int i=0;i<vertexCount;i++) {
-            if(finalAp[i]) {
+
+        for (int i = 0; i < vertexCount; i++) {
+            if (finalAp[i]) {
                 System.out.println(i);
             }
         }
-        
+
     }
-    
+
 }
 
 public class ArticulationPoints {
-    
+
     public static void main(String[] args) {
-        
+
         APGraph g1 = new APGraph(5);
         g1.addEdge(1, 0);
         g1.addEdge(0, 2);
         g1.addEdge(2, 1);
         g1.addEdge(0, 3);
         g1.addEdge(3, 4);
-        
+
         g1.calculateArticulationPoints();
     }
-    
+
 }
 
 
