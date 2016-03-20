@@ -27,7 +27,7 @@ import java.util.List;
  */
 
 class BGNode {
-    
+
     int info;
     List<Integer> adjacencyList;
 
@@ -38,76 +38,75 @@ class BGNode {
 }
 
 class BGraph {
-    
+
+    public static int time = 0;
     public int vertexCount;
-    public static int time= 0;
-    public List<BGNode>  nodeList = new ArrayList<>();
+    public List<BGNode> nodeList = new ArrayList<>();
 
     public BGraph(int vertexCount) {
         this.vertexCount = vertexCount;
-        for (int i=0;i<vertexCount;i++) {
-            nodeList.add(new BGNode(i,new ArrayList<Integer>()));
+        for (int i = 0; i < vertexCount; i++) {
+            nodeList.add(new BGNode(i, new ArrayList<Integer>()));
         }
     }
-    
-    public void addEdge(int a,int b) {
-        
+
+    public void addEdge(int a, int b) {
+
         nodeList.get(a).adjacencyList.add(b);
         nodeList.get(b).adjacencyList.add(a);
-        
+
     }
-    
-    public void findBridgeUtil(int source,int[] low,int[] parent,int[] discovery,boolean[] visited) {
-        
+
+    public void findBridgeUtil(int source, int[] low, int[] parent, int[] discovery, boolean[] visited) {
+
         visited[source] = true;
 
         low[source] = discovery[source] = ++time;
-        
+
         for (Integer neighbour : nodeList.get(source).adjacencyList) {
-            
-            if(!visited[neighbour]) {
+
+            if (!visited[neighbour]) {
 
                 parent[neighbour] = source;
-                findBridgeUtil(neighbour,low,parent,discovery,visited);
-                
-                low[source] = Math.min(low[source],low[neighbour]);
-                
-                if(low[neighbour]>discovery[source]) {
+                findBridgeUtil(neighbour, low, parent, discovery, visited);
+
+                low[source] = Math.min(low[source], low[neighbour]);
+
+                if (low[neighbour] > discovery[source]) {
                     System.out.println("Bridge is " + neighbour + " - " + source);
                 }
-                
+
+            } else if (neighbour != parent[source]) {
+                low[source] = Math.min(low[source], discovery[neighbour]);
             }
-            else if(neighbour!=parent[source]) {
-                low[source] = Math.min(low[source],discovery[neighbour]);
-            }
-            
+
         }
-        
+
     }
-    
+
     public void findBridges() {
-        
+
         int[] low = new int[vertexCount];
         int[] discovery = new int[vertexCount];
         boolean[] visited = new boolean[vertexCount];
         int[] parent = new int[vertexCount];
-        
-        for (int i=0;i<parent.length;i++) {
+
+        for (int i = 0; i < parent.length; i++) {
             parent[i] = -1;
         }
-        
-        for (int i=0;i<vertexCount;i++) {
-            if(!visited[i]) {
-                findBridgeUtil(i,low,parent,discovery,visited);
+
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited[i]) {
+                findBridgeUtil(i, low, parent, discovery, visited);
             }
         }
-        
+
     }
-    
+
 }
 
 public class Bridges {
-    
+
     public static void main(String[] args) {
 
         BGraph g1 = new BGraph(5);
@@ -117,9 +116,9 @@ public class Bridges {
         g1.addEdge(0, 3);
         g1.addEdge(3, 4);
         g1.findBridges();
-        
+
     }
-    
+
 }
 
 /*

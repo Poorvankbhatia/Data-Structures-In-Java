@@ -45,90 +45,89 @@ import java.util.Queue;
  * Created by poorvank on 3/10/16.
  */
 public class FordFulkersonMaxFlowAdjMatrix {
-    
+
     private static int vertexCount = 6;
-    
-    private boolean bfs(int[] parent,int source,int destination,int[][] graph) {
+
+    public static void main(String[] args) {
+
+        int graph[][] = new int[][]{{0, 16, 13, 0, 0, 0},
+                {0, 0, 10, 12, 0, 0},
+                {0, 4, 0, 0, 14, 0},
+                {0, 0, 9, 0, 0, 20},
+                {0, 0, 0, 7, 0, 4},
+                {0, 0, 0, 0, 0, 0}};
+
+        FordFulkersonMaxFlowAdjMatrix fordFulkerson = new FordFulkersonMaxFlowAdjMatrix();
+
+        System.out.println("Maximum flow is = " + fordFulkerson.maxFlow(graph, 0, 5));
+
+    }
+
+    private boolean bfs(int[] parent, int source, int destination, int[][] graph) {
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(source);
         parent[source] = -1;
         boolean[] visited = new boolean[vertexCount];
-        
+
         while (!queue.isEmpty()) {
             int current = queue.remove();
-            visited[current] =true;
-            
-            for (int v=0;v<vertexCount;v++) {
-                if(graph[current][v]>0 && !visited[v]) {
+            visited[current] = true;
+
+            for (int v = 0; v < vertexCount; v++) {
+                if (graph[current][v] > 0 && !visited[v]) {
                     parent[v] = current;
-                    visited[v] =true;
+                    visited[v] = true;
                     queue.add(v);
                 }
             }
-            
+
         }
-        
+
         return visited[destination];
-        
+
     }
-    
-    
-    private int maxFlow(int[][] graph,int source,int destination) {
-        
+
+    private int maxFlow(int[][] graph, int source, int destination) {
+
         int[] parent = new int[vertexCount];
-        
+
         int[][] residualGraph = new int[vertexCount][vertexCount];
-        
-        for (int i=0;i<vertexCount;i++) {
-            for (int j=0;j<vertexCount;j++) {
+
+        for (int i = 0; i < vertexCount; i++) {
+            for (int j = 0; j < vertexCount; j++) {
                 residualGraph[i][j] = graph[i][j];
             }
         }
-        
+
         int maxFlow = 0;
-        
-        while (bfs(parent,source,destination,residualGraph)) {
-            
+
+        while (bfs(parent, source, destination, residualGraph)) {
+
             int pathFlow = Integer.MAX_VALUE;
-            
+
             //Find minimum path flow
-            for (int v = destination;v!=source;v= parent[v]) {
-                
+            for (int v = destination; v != source; v = parent[v]) {
+
                 int u = parent[v];
-                pathFlow = Math.min(pathFlow,residualGraph[u][v]);
+                pathFlow = Math.min(pathFlow, residualGraph[u][v]);
             }
-            
+
             //Update Residual capacities of edges and reverse edges
-            for (int v=destination;v!=source;v=parent[v]) {
+            for (int v = destination; v != source; v = parent[v]) {
 
                 int u = parent[v];
                 residualGraph[u][v] -= pathFlow;
                 residualGraph[v][u] += pathFlow;
             }
-            
-            maxFlow +=pathFlow;
-            
+
+            maxFlow += pathFlow;
+
         }
-        
+
         return maxFlow;
     }
-    
-    public static void main(String[] args) {
-        
-        int graph[][] =new int[][] { {0, 16, 13, 0, 0, 0},
-                                     {0, 0, 10, 12, 0, 0},
-                                     {0, 4, 0, 0, 14, 0},
-                                     {0, 0, 9, 0, 0, 20},
-                                     {0, 0, 0, 7, 0, 4},
-                                     {0, 0, 0, 0, 0, 0}  };
-        
-        FordFulkersonMaxFlowAdjMatrix fordFulkerson = new FordFulkersonMaxFlowAdjMatrix();
-        
-        System.out.println("Maximum flow is = " + fordFulkerson.maxFlow(graph,0,5));
-        
-    }
-    
+
 }
 
 

@@ -35,28 +35,10 @@ import java.util.Arrays;
 
 class KGraph {
 
-    class Edge implements Comparable<Edge> {
-
-        int src, dest, weight;
-
-        public int compareTo(Edge compareEdge) {
-
-            return this.weight - compareEdge.weight;
-
-        }
-
-    }
-
-    class Subset {
-        int rank, parent;
-    }
-
-
     int V, E;
     Edge edge[];
 
 
-    
     public KGraph(int vertexCount, int edgeCount) {
 
         V = vertexCount;
@@ -103,21 +85,20 @@ class KGraph {
 
         // Allocate memory for creating V subsets
         Subset subsets[] = new Subset[V];
-        for(int i=0; i<V; ++i)
-            subsets[i]=new Subset();
+        for (int i = 0; i < V; ++i)
+            subsets[i] = new Subset();
 
         //e for storing edge result
         //i for sorted edges`
         int e = 0, i = 0;
         // Create V subsets with single elements
-        for (int v = 0; v < V; ++v)
-        {
+        for (int v = 0; v < V; ++v) {
             subsets[v].parent = v;
             subsets[v].rank = 0;
         }
 
-        while (e<V-1) {
-            
+        while (e < V - 1) {
+
             Edge nextEdge = edge[i++];
 
             int x = find(subsets, nextEdge.src);
@@ -125,19 +106,34 @@ class KGraph {
 
             // If including this edge does't cause cycle, include it
             // in result and increment the index of result for next edge
-            if (x != y)
-            {
+            if (x != y) {
                 result[e++] = nextEdge;
                 union(subsets, x, y);
             }
-            
+
         }
 
         System.out.println("Following are the edges in the constructed MST");
         for (i = 0; i < e; ++i)
-            System.out.println(result[i].src+" -- "+result[i].dest+" == "+
+            System.out.println(result[i].src + " -- " + result[i].dest + " == " +
                     result[i].weight);
-        
+
+    }
+
+    class Edge implements Comparable<Edge> {
+
+        int src, dest, weight;
+
+        public int compareTo(Edge compareEdge) {
+
+            return this.weight - compareEdge.weight;
+
+        }
+
+    }
+
+    class Subset {
+        int rank, parent;
     }
 
 

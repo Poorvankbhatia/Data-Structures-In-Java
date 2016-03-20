@@ -30,11 +30,11 @@ import java.util.Queue;
  */
 
 class FFAlgorithm {
-    
+
     private static int vertexCount = 6;
 
 
-    private static boolean bfs(int[][] graph,int[] parent,int source,int destination) {
+    private static boolean bfs(int[][] graph, int[] parent, int source, int destination) {
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(source);
@@ -43,12 +43,12 @@ class FFAlgorithm {
 
         while (!queue.isEmpty()) {
             int current = queue.remove();
-            visited[current] =true;
+            visited[current] = true;
 
-            for (int v=0;v<vertexCount;v++) {
-                if(graph[current][v]>0 && !visited[v]) {
+            for (int v = 0; v < vertexCount; v++) {
+                if (graph[current][v] > 0 && !visited[v]) {
                     parent[v] = current;
-                    visited[v] =true;
+                    visited[v] = true;
                     queue.add(v);
                 }
             }
@@ -58,84 +58,84 @@ class FFAlgorithm {
         return visited[destination];
 
     }
-    
-    private static void  dfs(int[][] residualGraph,int source,boolean[] visited) {
-        
+
+    private static void dfs(int[][] residualGraph, int source, boolean[] visited) {
+
         visited[source] = true;
-        for (int i=0;i<vertexCount;i++) {
-            if(!visited[i] && residualGraph[source][i]>0) {
-                dfs(residualGraph,i,visited);
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited[i] && residualGraph[source][i] > 0) {
+                dfs(residualGraph, i, visited);
             }
         }
-        
+
     }
-    
-    public static void findMinCutEdges(int[][] graph,int source,int destination) {
+
+    public static void findMinCutEdges(int[][] graph, int source, int destination) {
 
         int[] parent = new int[vertexCount];
 
         int[][] residualGraph = new int[vertexCount][vertexCount];
 
-        for (int i=0;i<vertexCount;i++) {
-            for (int j=0;j<vertexCount;j++) {
+        for (int i = 0; i < vertexCount; i++) {
+            for (int j = 0; j < vertexCount; j++) {
                 residualGraph[i][j] = graph[i][j];
             }
         }
-        
+
         //Construct the residual graph
-        while (bfs(residualGraph,parent,source,destination)) {
+        while (bfs(residualGraph, parent, source, destination)) {
 
             int pathFlow = Integer.MAX_VALUE;
 
-            for (int v=destination;v!=source;v=parent[v]) {
+            for (int v = destination; v != source; v = parent[v]) {
 
                 int u = parent[v];
-                pathFlow = Math.min(pathFlow,residualGraph[u][v]);
+                pathFlow = Math.min(pathFlow, residualGraph[u][v]);
 
             }
 
-            for (int v=destination;v!=source;v=parent[v]) {
+            for (int v = destination; v != source; v = parent[v]) {
 
                 int u = parent[v];
                 residualGraph[u][v] -= pathFlow;
                 residualGraph[v][u] += pathFlow;
             }
-            
+
         }
-        
+
         boolean[] visited = new boolean[vertexCount];
-        dfs(residualGraph,source,visited);
-        
+        dfs(residualGraph, source, visited);
+
         System.out.println("Min Cut Edges are:");
         //Print Minimum cut edges
-        for (int i=0;i<vertexCount;i++) {
-            for (int j=0;j<vertexCount;j++) {
-                if(visited[i] && !visited[j] && graph[i][j]>0) {
-                    System.out.println(i+ "  " +j);
+        for (int i = 0; i < vertexCount; i++) {
+            for (int j = 0; j < vertexCount; j++) {
+                if (visited[i] && !visited[j] && graph[i][j] > 0) {
+                    System.out.println(i + "  " + j);
                 }
             }
         }
-        
+
     }
-    
+
 }
 
 public class MinimumSTCut {
-    
+
     public static void main(String[] args) {
 
-        int[][] graph = { {0, 16, 13, 0, 0, 0},
-                          {0, 0, 10, 12, 0, 0},
-                          {0, 4, 0, 0, 14, 0},
-                          {0, 0, 9, 0, 0, 20},
-                          {0, 0, 0, 7, 0, 4},
-                          {0, 0, 0, 0, 0, 0}};
-        
-        
-        FFAlgorithm.findMinCutEdges(graph,0,5);
-        
+        int[][] graph = {{0, 16, 13, 0, 0, 0},
+                {0, 0, 10, 12, 0, 0},
+                {0, 4, 0, 0, 14, 0},
+                {0, 0, 9, 0, 0, 20},
+                {0, 0, 0, 7, 0, 4},
+                {0, 0, 0, 0, 0, 0}};
+
+
+        FFAlgorithm.findMinCutEdges(graph, 0, 5);
+
     }
-    
+
 }
 
 
