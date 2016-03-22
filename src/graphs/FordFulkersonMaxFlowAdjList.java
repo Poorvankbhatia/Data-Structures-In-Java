@@ -11,3 +11,11 @@ public class FordFulkersonMaxFlowAdjList {
     }
 
 }
+
+
+/*
+
+http://www.codebytes.in/2015/12/maximum-bipartite-matching-using-ford.html
+http://www.codebytes.in/2015/12/finding-maxflow-mincut-using-ford.html
+
+ */
