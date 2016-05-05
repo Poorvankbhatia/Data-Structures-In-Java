@@ -1,4 +1,5 @@
 package stack;
+import utility.Stack;
 
 /**
  * Created by poorvank on 7/6/15.
@@ -6,8 +7,8 @@ package stack;
 
 class ModQueue {
 
-    private static Stack<Integer> stack1 = new ArrayStack<Integer>();
-    private static Stack<Integer> stack2 = new ArrayStack<Integer>();
+    private static Stack<Integer> stack1 = new Stack<Integer>();
+    private static Stack<Integer> stack2 = new Stack<Integer>();
 
     public static void enqueue(int x) {
         stack1.push(x);

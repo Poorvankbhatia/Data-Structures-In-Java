@@ -13,6 +13,7 @@ We measure the complexity in terms of calls made to HaveAcquaintance().
  */
 
 package stack;
+import utility.Stack;
 
 /**
  * Created by poorvank on 8/5/15.
@@ -35,7 +36,7 @@ public class CelebrityProblem {
 
     private static void findCelebrity() {
 
-        Stack<Integer> stack = new ArrayStack<>();
+        Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < peopleCount; i++) {
             stack.push(i);

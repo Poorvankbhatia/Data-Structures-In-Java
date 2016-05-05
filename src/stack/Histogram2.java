@@ -13,6 +13,7 @@ The largest possible rectangle possible is 12
 package stack;
 
 import java.util.Arrays;
+import utility.Stack;
 
 /**
  * Created by poorvank on 8/22/15.
@@ -30,8 +31,8 @@ public class Histogram2 {
     private static int findMaxArea(int[] array) {
 
         int n = array.length;
-        Stack<Integer> leftStack = new ArrayStack<>();
-        Stack<Integer> rightStack = new ArrayStack<>();
+        Stack<Integer> leftStack = new Stack<>();
+        Stack<Integer> rightStack = new Stack<>();
 
         int[] width = new int[n];
 
@@ -39,7 +40,7 @@ public class Histogram2 {
 
         for (int i = 0; i < n; i++) {
 
-            while (!leftStack.isEmpty() && array[i] <= array[leftStack.getTop()]) {
+            while (!leftStack.isEmpty() && array[i] <= array[leftStack.peek()]) {
                 leftStack.pop();
             }
 
@@ -47,7 +48,7 @@ public class Histogram2 {
             if (leftStack.isEmpty()) {
                 width[i] += i;
             } else {
-                width[i] += i - leftStack.getTop() - 1;
+                width[i] += i - leftStack.peek() - 1;
             }
 
             leftStack.push(i);
@@ -56,7 +57,7 @@ public class Histogram2 {
 
         for (int i = n - 1; i >= 0; i--) {
 
-            while (!rightStack.isEmpty() && array[i] <= array[rightStack.getTop()]) {
+            while (!rightStack.isEmpty() && array[i] <= array[rightStack.peek()]) {
                 rightStack.pop();
             }
 
@@ -64,7 +65,7 @@ public class Histogram2 {
             if (rightStack.isEmpty()) {
                 width[i] += n - 1 - i;
             } else {
-                width[i] += rightStack.getTop() - i - 1;
+                width[i] += rightStack.peek() - i - 1;
             }
 
             rightStack.push(i);

@@ -26,6 +26,7 @@ d) For the input array [13, 7, 6, 12}, the next greater elements for each elemen
  */
 
 package stack;
+import utility.Stack;
 
 /**
  * Created by poorvank on 7/27/15.
@@ -42,7 +43,7 @@ public class NextGreaterElement {
 
     private static void printNGE(int[] array) {
 
-        Stack<Integer> stack = new ArrayStack<>();
+        Stack<Integer> stack = new Stack<>();
         int element, next;
 
         stack.push(array[0]);
