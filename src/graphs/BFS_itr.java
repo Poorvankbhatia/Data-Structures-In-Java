@@ -1,5 +1,6 @@
 package graphs;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -27,16 +28,18 @@ public class BFS_itr {
         while (!queue.isEmpty()) {
 
             Vertex vertex = queue.remove();
+            visited[vertex.info] = true;
             System.out.print(vertex.info + " ");
 
             for (int ve : vertex.adjacentVertices) {
                 if (!visited[ve]) {
                     queue.add(vArray[ve]);
-                    visited[ve] = true;
                 }
             }
 
         }
+
+        System.out.println(Arrays.toString(visited));
 
     }
 
@@ -48,6 +51,8 @@ public class BFS_itr {
 Note that the above code traverses only the vertices reachable
  from a given source vertexToConsider. All the vertices may not be reachable from a given vertexToConsider
 
+In BFS, we want to explore the
+vertices in order of their distance from the source
 
 In a breadth first search, you start at the root node, and then scan each node in the
  first level starting from the leftmost node, moving towards the right.
