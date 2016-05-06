@@ -1,4 +1,5 @@
 package stack;
+import utility.Stack;
 
 /**
  * Created by poorvank on 8/4/15.
@@ -15,7 +16,7 @@ public class CheckBalancedParenthesis {
 
     private static boolean checkBalanced(String string) {
 
-        stack.Stack<Character> stack = new ArrayStack<>();
+        Stack<Character> stack = new Stack<>();
 
         int i = 0;
 
