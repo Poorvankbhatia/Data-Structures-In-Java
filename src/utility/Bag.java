@@ -40,10 +40,10 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     public void addToBag(Item item) {
-        Node current = first;
+        Node old = first;
         first = new Node();
         first.item = item;
-        first.next = current;
+        first.next = old;
         size++;
     }
 
@@ -65,19 +65,31 @@ public class Bag<Item> implements Iterable<Item> {
         private Node current = first;
 
         public boolean hasNext() {
-            return first==null;
+            return current!=null;
         }
 
         public Item next() {
-
-            if(!hasNext()) {
-                throw new NoSuchElementException();
-            }
+            if (!hasNext()) throw new NoSuchElementException();
             Item item = current.item;
             current = current.next;
             return item;
-
         }
+
+    }
+
+    public String toString() {
+
+        Node current = first;
+        if(current==null) {
+            return "No items in the bag";
+        }
+        StringBuilder sb = new StringBuilder();
+        while (current!=null) {
+            sb.append(current.item).append(" ");
+            current = current.next;
+        }
+
+        return sb.toString();
 
     }
 
