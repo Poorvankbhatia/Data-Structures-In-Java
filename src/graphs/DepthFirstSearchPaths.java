@@ -81,3 +81,17 @@ public class DepthFirstSearchPaths {
     }
 
 }
+
+/*
+
+Instead of just keeping track of the path from the current vertex back to the start,
+we remember a path from each vertex to the
+start. To accomplish this, we remember the edge
+v-w that takes us to each vertex w for the first
+time, by setting edgeTo[w] to v. In other words,
+v-w is the last edge on the known path from s
+to w. The result of the search is a tree rooted at
+the source; edgeTo[] is a parent-link representation
+of that tree.
+
+ */
