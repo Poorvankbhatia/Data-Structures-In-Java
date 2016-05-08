@@ -1,5 +1,7 @@
 package graphs;
 
+import utility.Stack;
+
 /**
  * Created by poorvank on 4/2/15.
  */
@@ -16,7 +18,7 @@ public class DFS_itr {
 
     private static void iterative(Vertex[] vArray, int v, boolean[] visited) {
 
-        Stack stack = new Stack();
+        Stack stack = new Stack<>();
 
         stack.push(vArray[v]);
 
