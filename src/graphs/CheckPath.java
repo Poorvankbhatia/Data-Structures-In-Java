@@ -12,9 +12,6 @@ public class CheckPath {
         Vertex[] vArray = Input.graphInput();
         boolean[] visited = new boolean[vArray.length];
 
-        for (int i = 0; i < vArray.length; i++) {
-            visited[i] = false;
-        }
         pathPresent(0, 2, vArray, visited);
         if (flag) {
             System.out.println("Present");
