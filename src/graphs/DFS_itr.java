@@ -18,13 +18,13 @@ public class DFS_itr {
 
     private static void iterative(Vertex[] vArray, int v, boolean[] visited) {
 
-        Stack stack = new Stack<>();
+        Stack<Vertex> stack = new Stack<>();
 
         stack.push(vArray[v]);
 
         while (!stack.isEmpty()) {
 
-            Vertex popped = (Vertex) stack.pop();
+            Vertex popped = stack.pop();
 
             if (!visited[popped.info]) {
 
