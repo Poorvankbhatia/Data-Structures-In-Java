@@ -37,11 +37,9 @@ public class DetectCycleGraph {
             for (Integer vertex : vArray[v].adjacentVertices) {
 
                 if (!visited[vertex] && isCyclicUtil(vertex, visited, record, vArray)) {
-                    System.out.println("Cycle found between - " + v + " " + vertex);
                     return true;
                 }
                 if (record[vertex]) {
-                    System.out.println("Cycle found between - " + v + " " + vertex);
                     return true;
                 }
 
@@ -49,7 +47,7 @@ public class DetectCycleGraph {
 
         }
 
-        record[v] = false;
+        record[v] = false; // remove the vertex from recursion stack
         return false;
 
     }
@@ -67,8 +65,7 @@ Given a directed graph, check whether the graph contains a cycle or not. Your fu
 Solution
 Depth First Traversal can be used to detect cycle in a Graph. DFS for a connected graph produces a tree. 
 There is a cycle in a graph only if there is a back edge present in the graph. A back edge is an edge that is from a node 
-to itself (selfloop) or one of its ancestor in the tree produced by DFS. In the following graph, there are 3 back edges, 
-marked with cross sign. We can observe that these 3 back edges indicate 3 cycles present in the graph.
+to itself (selfloop) or one of its ancestor in the tree produced by DFS.
 
 
 For a disconnected graph, we get the DFS forrest as output. To detect cycle, we can check for cycle in individual trees 
@@ -78,5 +75,19 @@ To detect a back edge, we can keep track of vertices currently in recursion stac
 If we reach a vertexToConsider that is already in the recursion stack, then there is a cycle in the tree. The edge that connects
 current vertexToConsider to the vertexToConsider in the recursion stack is back edge. We have used recStack[] array to keep track of vertices
 in the recursion stack.
+
+visited array will treat back edge and cross edge in same way.
+Cross edge doesn't make a cycle. Only back edge does. Recursion stack is used to identify back edge correctly.
+
+Graph g(7);
+g.addEdge(0,1);
+g.addEdge(1,2);
+g.addEdge(2,3);
+g.addEdge(0,4);
+g.addEdge(4,5);
+g.addEdge(5,6);
+g.addEdge(5,2);
+
+Here edge 5 -- > 2 is cross edge and there is no cycle in this example.
 
  */
