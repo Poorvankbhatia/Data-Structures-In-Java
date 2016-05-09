@@ -47,6 +47,8 @@ public class HamiltonianCycle {
                 {0, 1, 0, 0, 1},
                 {1, 1, 0, 0, 1},
                 {0, 1, 1, 1, 0}};
+
+     //   int graph[][] = {{0,1,1,1},{1,0,0,0},{1,0,0,1},{1,0,1,0}};
         VERTEX_COUNT = graph.length;
 
         detectCycle(graph);
@@ -111,6 +113,7 @@ public class HamiltonianCycle {
             return false;
         }
 
+        //If already present in path
         for (int i = 0; i < pos; i++) {
             if (path[i] == v) {
                 return false;
