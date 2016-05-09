@@ -1,5 +1,6 @@
 package graphs;
 
+import utility.Digraph;
 import utility.Stack;
 
 /**
@@ -11,20 +12,26 @@ public class DetectCycleGraph {
 
     public static void main(String[] args) {
 
-        Vertex[] vArray = Input.graphInput();
-        System.out.println(isCyclic(vArray));
+        Digraph digraph = new Digraph(4);
+        digraph.addEdge(0,1);
+        digraph.addEdge(1,2);
+        digraph.addEdge(2,3);
+        digraph.addEdge(3,1);
 
+        System.out.println(isCyclic(digraph));
     }
 
 
-    private static boolean isCyclic(Vertex[] vArray) {
+    private static boolean isCyclic(Digraph digraph) {
 
-        boolean[] visited = new boolean[vArray.length];
-        boolean[] record = new boolean[vArray.length];
-        int[] edgeTo = new int[vArray.length];
+        int size = digraph.getVertexCount();
 
-        for (int i = 0; i < vArray.length; i++) {
-            if (isCyclicUtil(i, visited, record, vArray,edgeTo)) {
+        boolean[] visited = new boolean[size];
+        boolean[] record = new boolean[size];
+        int[] edgeTo = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            if (isCyclicUtil(i, visited, record, digraph,edgeTo)) {
 
 
                 if(hasCycle()) {
@@ -40,14 +47,14 @@ public class DetectCycleGraph {
         return false;
     }
 
-    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Vertex[] vArray,int[] edgeTo) {
+    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Digraph digraph,int[] edgeTo) {
 
         if (!visited[v]) {
 
             visited[v] = true;
             record[v] = true;
 
-            for (Integer vertex : vArray[v].adjacentVertices) {
+            for (Integer vertex : digraph.getAdj(v)) {
 
                 if(hasCycle()) {
                     return true;
@@ -55,7 +62,7 @@ public class DetectCycleGraph {
 
                 if (!visited[vertex]) {
                     edgeTo[vertex] = v;
-                    if(isCyclicUtil(vertex, visited, record, vArray,edgeTo)) {
+                    if(isCyclicUtil(vertex, visited, record, digraph,edgeTo)) {
                         return true;
                     }
                 }
