@@ -1,0 +1,28 @@
+For any vertex v reachable from s, BFS computes a shortest path
+from s to v (no path from s to v has fewer edges).
+
+Proof: It is easy to prove by induction that the queue always consists of zero or
+more vertices of distance k from the source, followed by zero or more vertices of
+distance k +1 from the source, for some integer k, starting with k equal to 0. This
+property implies, in particular, that vertices enter and leave the queue in order of
+their distance from s. When a vertex v enters the queue, no shorter path to v will
+be found before it comes off the queue, and no path to v that is discovered after it
+comes off the queue can be shorter than v’s tree path length.
+
+
+DFS wends its way through the graph, storing
+on the stack the points where other
+paths branch off; BFS sweeps through
+the graph, using a queue to remember
+the frontier of visited places. DFS explores
+the graph by looking for new
+vertices far away from the start point,
+taking closer vertices only when dead
+ends are encountered; BFS completely
+covers the area close to the starting
+point, moving farther away only when
+everything nearby has been examined.
+DFS paths tend to be long and winding;
+BFS paths are short and direct. The algorithms differ only in the rule used to
+take the next vertex from the data structure
+(least recently added for BFS, most recently added for DFS).
