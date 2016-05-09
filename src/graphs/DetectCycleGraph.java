@@ -1,9 +1,13 @@
 package graphs;
 
+import utility.Stack;
+
 /**
  * Created by poorvank on 11/11/15.
  */
 public class DetectCycleGraph {
+
+    private static Stack<Integer> cycle = null;
 
     public static void main(String[] args) {
 
@@ -17,9 +21,18 @@ public class DetectCycleGraph {
 
         boolean[] visited = new boolean[vArray.length];
         boolean[] record = new boolean[vArray.length];
+        int[] edgeTo = new int[vArray.length];
 
         for (int i = 0; i < vArray.length; i++) {
-            if (isCyclicUtil(i, visited, record, vArray)) {
+            if (isCyclicUtil(i, visited, record, vArray,edgeTo)) {
+
+
+                if(hasCycle()) {
+                    for (Integer vertex : cycle) {
+                        System.out.print(vertex + " ");
+                    }
+                }
+
                 return true;
             }
         }
@@ -27,7 +40,7 @@ public class DetectCycleGraph {
         return false;
     }
 
-    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Vertex[] vArray) {
+    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Vertex[] vArray,int[] edgeTo) {
 
         if (!visited[v]) {
 
@@ -36,10 +49,23 @@ public class DetectCycleGraph {
 
             for (Integer vertex : vArray[v].adjacentVertices) {
 
-                if (!visited[vertex] && isCyclicUtil(vertex, visited, record, vArray)) {
+                if(hasCycle()) {
                     return true;
                 }
+
+                if (!visited[vertex]) {
+                    edgeTo[vertex] = v;
+                    if(isCyclicUtil(vertex, visited, record, vArray,edgeTo)) {
+                        return true;
+                    }
+                }
                 if (record[vertex]) {
+
+                    cycle = new Stack<>();
+                    for (int i = v;i!=vertex;i=edgeTo[i]) {
+                        cycle.push(i);
+                    }
+                    cycle.push(vertex);
                     return true;
                 }
 
@@ -50,6 +76,10 @@ public class DetectCycleGraph {
         record[v] = false; // remove the vertex from recursion stack
         return false;
 
+    }
+
+    private static boolean hasCycle() {
+        return cycle!=null;
     }
 
 }
