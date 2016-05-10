@@ -72,12 +72,45 @@ Cycles in digraphs. If job x must be completed before job y, job y before job z,
 job z before job x, then someone has made a mistake, because those three constraints
 cannot all be satisfied. In general, if a precedence-constrained scheduling problem has
 a directed cycle, then there is no feasible solution. To check for such errors, we need to
-be able to solve the following problem:
+be able to solve the following problem.
+
+topological sorting and cycle detection
+go hand in hand, with cycle detection playing
+the role of a debugging tool. For example, in
+a job-scheduling application, a directed cycle in
+the underlying digraph represents a mistake that
+must be corrected, no matter how the schedule was
+formulated. Thus, a job-scheduling application is
+typically a three-step process:
+1. Specify the tasks and precedence constraints.
+2. Make sure that a feasible solution exists, by
+detecting and removing cycles in the underlying
+digraph until none exist.
+3. Solve the scheduling problem, using topological
+sort.
+Similarly, any changes in the schedule can be
+checked for cycles (using DirectedCycle), then a
+new schedule computed (using Topological).
 
 Proposition E. A digraph has a topological order if and only if it is a DAG.
 Proof: If the digraph has a directed cycle, it has no topological order. Conversely,
 the algorithm that we are about to examine computes a topological order for any
 given DAG.
+
+
+Reverse postorder in a DAG is a topological sort.
+Proof: Consider any edge v->w. One of the following three cases must hold when
+dfs(v) is called (see the diagram on page 583):
+1. dfs(w) has already been called and has returned (w is marked).
+2. dfs(w) has not yet been called (w is unmarked), so v->w will cause dfs(w) to
+be called (and return), either directly or indirectly, before dfs(v) returns.
+3. dfs(w) has been called and has not yet returned when dfs(v) is called. The
+key to the proof is that this case is impossible in a DAG, because the recursive
+call chain implies a path from w to v and v->w would complete a directed
+cycle.
+In the two possible cases, dfs(w) is done before dfs(v), so w appears before v in
+postorder and after v in reverse postorder. Thus, each edge v->w points from a vertex
+earlier in the order to a vertex later in the order, as desired.
 
 
 
