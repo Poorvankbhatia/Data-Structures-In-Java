@@ -79,7 +79,7 @@ public class Digraph {
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Vertices = " + vertexCount + " edges = " + edgeCount);
+        sb.append("Vertices = " + vertexCount + " edges = " + edgeCount + "\n");
         for (int v = 0; v < vertexCount; v++) {
             sb.append(v).append(" : ");
             for (int adjV : adj[v]) {
