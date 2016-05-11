@@ -22,7 +22,7 @@ public class DetectCycleGraph {
     }
 
 
-    private static boolean isCyclic(Digraph digraph) {
+    public static boolean isCyclic(Digraph digraph) {
 
         int size = digraph.getVertexCount();
 
