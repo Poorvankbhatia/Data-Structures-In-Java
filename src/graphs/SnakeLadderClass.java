@@ -22,7 +22,10 @@ import java.util.Queue;
 
 class Cell {
 
+    //Current Vertex/ Vertex to go on to when a Snake/Ladder is visited
     int vertexToConsider;
+
+    //Number of moves to reach the current Cell
     int moves;
 
     public Cell() {
