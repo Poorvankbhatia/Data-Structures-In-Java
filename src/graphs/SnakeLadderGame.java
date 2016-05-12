@@ -91,8 +91,6 @@ public class SnakeLadderGame {
           if (snakeLadderStartEndMap.containsKey(j)) {
             int id = snakeLadderStartEndMap.get(j);
             cell.setId(id);
-            // node reached after ladder climb or snake bite is also marked visited
-            visited[id] = true;
 
           } else {
             cell.setId(j);
