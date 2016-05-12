@@ -82,24 +82,18 @@ public class SnakeLadderGame {
       Cell startCell = queue.dequeue();
 
       for (int j = (v + 1); j <= (v + 6) && j < cellCount; j++) {
-
-
-        if (!visited[j]) {
-          visited[j] = true;
-
+        // in case of ladder or snake, instead of processing 'j' cell we process,
+        // snakeLadderStartEndMap.get(j)
+        int id = j;
+        if (snakeLadderStartEndMap.containsKey(j)) {
+          id = snakeLadderStartEndMap.get(j);
+        }
+        if (!visited[id]) {
+          visited[id] = true;
           Cell cell = new Cell();
           cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
-
-          if (snakeLadderStartEndMap.containsKey(j)) {
-            int id = snakeLadderStartEndMap.get(j);
-            cell.setId(id);
-
-          } else {
-            cell.setId(j);
-          }
-
+          cell.setId(id);
           queue.enqueue(cell);
-
         }
 
       }
