@@ -17,135 +17,114 @@ import java.util.Map;
 
 import utility.Queue;
 
+
 /**
  * Created by poorvank on 1/21/16.
  */
 
 class Cell {
 
-    // Current Vertex/ Vertex to go on to when a Snake/Ladder is visited
-    private int id;
+  // Current Vertex/ Vertex to go on to when a Snake/Ladder is visited
+  private int id;
 
-    // Number of moves to reach the current Cell
-    private int minMovesToReachFromStart;
+  // Number of moves to reach the current Cell
+  private int minMovesToReachFromStart;
 
-    public Cell() {
-    }
+  public Cell() {}
 
-    public Cell(int id) {
-        this.id = id;
-    }
+  public Cell(int id) {
+    this.id = id;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public int getMinMovesToReachFromStart() {
-        return minMovesToReachFromStart;
-    }
+  public int getMinMovesToReachFromStart() {
+    return minMovesToReachFromStart;
+  }
 
-    public void setMinMovesToReachFromStart(int minMovesToReachFromStart) {
-        this.minMovesToReachFromStart = minMovesToReachFromStart;
-    }
+  public void setMinMovesToReachFromStart(int minMovesToReachFromStart) {
+    this.minMovesToReachFromStart = minMovesToReachFromStart;
+  }
 }
 
 
 public class SnakeLadderGame {
-    int cellCount;
-    Map<Integer, Integer> snakeLadderStartEndMap;
+  int cellCount;
+  Map<Integer, Integer> snakeLadderStartEndMap;
 
-    public SnakeLadderGame(int cellCount, Map<Integer, Integer> snakeLadderStartEndMap) {
-        this.cellCount = cellCount;
-        this.snakeLadderStartEndMap = snakeLadderStartEndMap;
-    }
+  public SnakeLadderGame(int cellCount, Map<Integer, Integer> snakeLadderStartEndMap) {
+    this.cellCount = cellCount;
+    this.snakeLadderStartEndMap = snakeLadderStartEndMap;
+  }
 
-    private int getMinimumDiceThrows(int n) {
+  private int getMinimumDiceThrows() {
+    Queue<Cell> queue = new Queue();
+    queue.enqueue(new Cell(0));
+    boolean[] visited = new boolean[cellCount];
+    visited[0] = true;
 
-        Queue<Cell> queue = new Queue<>();
 
-        queue.enqueue(new Cell(0));
-        boolean[] visited = new boolean[n];
-        visited[0] = true;
+    while (!queue.isEmpty()) {
 
-        while (!queue.isEmpty()) {
+      int v = queue.peek().getId();
 
-            int v = queue.peek().getId();
+      if (v == cellCount - 1) {
+        break;
+      }
 
-            if (v == n - 1) {
-                break;
-            }
 
-            Cell startCell = queue.dequeue();
+      Cell startCell = queue.dequeue();
 
-            for (int j = (v + 1); j <= (v + 6) && j < n; j++) {
-
-                if (!visited[j]) {
-                    visited[j] = true;
-
-                    Cell cell = new Cell();
-                    cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
-
-                    if (snakeLadderStartEndMap.containsKey(j)) {
-                        int id = snakeLadderStartEndMap.get(j);
-                        cell.setId(id);
-
-                    } else {
-                        cell.setId(j);
-                    }
-
-                    queue.enqueue(cell);
-
-                }
-
-            }
-
+      for (int j = (v + 1); j <= (v + 6) && j < cellCount; j++) {
+        // in case of ladder or snake, instead of processing 'j' cell we process,
+        // snakeLadderStartEndMap.get(j)
+        int id = j;
+        if (snakeLadderStartEndMap.containsKey(j)) {
+          id = snakeLadderStartEndMap.get(j);
+        }
+        if (!visited[id]) {
+          visited[id] = true;
+          Cell cell = new Cell();
+          cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
+          cell.setId(id);
+          queue.enqueue(cell);
         }
 
-        return queue.peek().getMinMovesToReachFromStart();
-
-
-    }
-
-    public static void main(String[] args) {
-        int N = 30;
-
-        Map<Integer, Integer> snakeLadderStartEndMap = new HashMap<Integer, Integer>();
-
-        snakeLadderStartEndMap.put(2, 21);
-        snakeLadderStartEndMap.put(4, 7);
-        snakeLadderStartEndMap.put(10, 25);
-        snakeLadderStartEndMap.put(19, 28);
-        snakeLadderStartEndMap.put(26, 0);
-        snakeLadderStartEndMap.put(20, 8);
-        snakeLadderStartEndMap.put(16, 3);
-        snakeLadderStartEndMap.put(18, 6);
-
-    /*int[] moves = new int[N];
-    for (int i = 0; i < N; i++)
-      moves[i] = -1;
-
-    // Ladders
-    moves[2] = 21;
-    moves[4] = 7;
-    moves[10] = 25;
-    moves[19] = 28;
-
-    // Snakes
-    moves[26] = 0;
-    moves[20] = 8;
-    moves[16] = 3;
-    moves[18] = 6;*/
-
-
-        SnakeLadderGame snakeLadderGame = new SnakeLadderGame(N, snakeLadderStartEndMap);
-
-        System.out.println(snakeLadderGame.getMinimumDiceThrows(N));
+      }
 
     }
+
+    return queue.peek().getMinMovesToReachFromStart();
+
+
+  }
+
+  public static void main(String[] args) {
+    int N = 30;
+
+    Map<Integer, Integer> snakeLadderStartEndMap = new HashMap<Integer, Integer>();
+
+    snakeLadderStartEndMap.put(2, 21);
+    snakeLadderStartEndMap.put(4, 7);
+    snakeLadderStartEndMap.put(10, 25);
+    snakeLadderStartEndMap.put(19, 28);
+    snakeLadderStartEndMap.put(26, 0);
+    snakeLadderStartEndMap.put(20, 8);
+    snakeLadderStartEndMap.put(16, 3);
+    snakeLadderStartEndMap.put(18, 6);
+
+    SnakeLadderGame snakeLadderGame = new SnakeLadderGame(N, snakeLadderStartEndMap);
+
+    System.out.println(snakeLadderGame.getMinimumDiceThrows());
+
+
+  }
 }
 
 /*
