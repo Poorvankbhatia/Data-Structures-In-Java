@@ -1,10 +1,10 @@
 /*
- * 
+ *
  * Snake and Ladder Problem Given a snake and ladder board, find the minimum number of dice throws
  * required to reach the destination or last cell from source or 1st cell. Basically, the player has
  * total control over outcome of dice throw and wants to find out minimum number of throws required
  * to reach last cell.
- * 
+ *
  * If the player reaches a cell which is base of a ladder, the player has to climb up that ladder
  * and if reaches a cell is mouth of the snake, has to go down to the tail of snake without a dice
  * throw.
@@ -55,76 +55,97 @@ class Cell {
 
 
 public class SnakeLadderGame {
-  int cellCount;
-  Map<Integer, Integer> snakeLadderStartEndMap;
+    int cellCount;
+    Map<Integer, Integer> snakeLadderStartEndMap;
 
-  public SnakeLadderGame(int cellCount, Map<Integer, Integer> snakeLadderStartEndMap) {
-    this.cellCount = cellCount;
-    this.snakeLadderStartEndMap = snakeLadderStartEndMap;
-  }
+    public SnakeLadderGame(int cellCount, Map<Integer, Integer> snakeLadderStartEndMap) {
+        this.cellCount = cellCount;
+        this.snakeLadderStartEndMap = snakeLadderStartEndMap;
+    }
 
-  private int getMinimumDiceThrows() {
-    Queue<Cell> queue = new Queue();
-    queue.enqueue(new Cell(0));
-    boolean[] visited = new boolean[cellCount];
-    visited[0] = true;
+    private int getMinimumDiceThrows(int n) {
 
+        Queue<Cell> queue = new Queue<>();
 
-    while (!queue.isEmpty()) {
+        queue.enqueue(new Cell(0));
+        boolean[] visited = new boolean[n];
+        visited[0] = true;
 
-      int v = queue.peek().getId();
+        while (!queue.isEmpty()) {
 
-      if (v == cellCount - 1) {
-        break;
-      }
+            int v = queue.peek().getId();
 
+            if (v == n - 1) {
+                break;
+            }
 
-      Cell startCell = queue.dequeue();
+            Cell startCell = queue.dequeue();
 
-      for (int j = (v + 1); j <= (v + 6) && j < cellCount; j++) {
-        // in case of ladder or snake, instead of processing 'j' cell we process,
-        // snakeLadderStartEndMap.get(j)
-        int id = j;
-        if (snakeLadderStartEndMap.containsKey(j)) {
-          id = snakeLadderStartEndMap.get(j);
+            for (int j = (v + 1); j <= (v + 6) && j < n; j++) {
+
+                if (!visited[j]) {
+                    visited[j] = true;
+
+                    Cell cell = new Cell();
+                    cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
+
+                    if (snakeLadderStartEndMap.containsKey(j)) {
+                        int id = snakeLadderStartEndMap.get(j);
+                        cell.setId(id);
+
+                    } else {
+                        cell.setId(j);
+                    }
+
+                    queue.enqueue(cell);
+
+                }
+
+            }
+
         }
-        if (!visited[id]) {
-          visited[id] = true;
-          Cell cell = new Cell();
-          cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
-          cell.setId(id);
-          queue.enqueue(cell);
-        }
 
-      }
+        return queue.peek().getMinMovesToReachFromStart();
+
 
     }
 
-    return queue.peek().getMinMovesToReachFromStart();
+    public static void main(String[] args) {
+        int N = 30;
+
+        Map<Integer, Integer> snakeLadderStartEndMap = new HashMap<Integer, Integer>();
+
+        snakeLadderStartEndMap.put(2, 21);
+        snakeLadderStartEndMap.put(4, 7);
+        snakeLadderStartEndMap.put(10, 25);
+        snakeLadderStartEndMap.put(19, 28);
+        snakeLadderStartEndMap.put(26, 0);
+        snakeLadderStartEndMap.put(20, 8);
+        snakeLadderStartEndMap.put(16, 3);
+        snakeLadderStartEndMap.put(18, 6);
+
+    /*int[] moves = new int[N];
+    for (int i = 0; i < N; i++)
+      moves[i] = -1;
+
+    // Ladders
+    moves[2] = 21;
+    moves[4] = 7;
+    moves[10] = 25;
+    moves[19] = 28;
+
+    // Snakes
+    moves[26] = 0;
+    moves[20] = 8;
+    moves[16] = 3;
+    moves[18] = 6;*/
 
 
-  }
+        SnakeLadderGame snakeLadderGame = new SnakeLadderGame(N, snakeLadderStartEndMap);
 
-  public static void main(String[] args) {
-    int N = 30;
+        System.out.println(snakeLadderGame.getMinimumDiceThrows(N));
 
-    Map<Integer, Integer> snakeLadderStartEndMap = new HashMap<Integer, Integer>();
-
-    snakeLadderStartEndMap.put(2, 21);
-    snakeLadderStartEndMap.put(4, 7);
-    snakeLadderStartEndMap.put(10, 25);
-    snakeLadderStartEndMap.put(19, 28);
-    snakeLadderStartEndMap.put(26, 0);
-    snakeLadderStartEndMap.put(20, 8);
-    snakeLadderStartEndMap.put(16, 3);
-    snakeLadderStartEndMap.put(18, 6);
-
-    SnakeLadderGame snakeLadderGame = new SnakeLadderGame(N, snakeLadderStartEndMap);
-
-    System.out.println(snakeLadderGame.getMinimumDiceThrows());
-
-
-  }
+    }
 }
 
 /*
