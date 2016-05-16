@@ -17,6 +17,10 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
         size = 0;
     }
 
+    public MaxPriorityQueue() {
+        this(1);
+    }
+
     public MaxPriorityQueue(Item[] items) {
         pq = (Item[]) new Object[items.length+1];
         size = items.length;
@@ -146,6 +150,7 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
         exchange(1,size);
         size--;
         sink(1);
+        pq[size+1] = null;
         if(size>0 && size==(pq.length-1)/4) {
             resize(pq.length/2);
         }
