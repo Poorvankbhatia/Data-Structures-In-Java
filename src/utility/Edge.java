@@ -7,9 +7,9 @@ public class Edge implements Comparable<Edge> {
 
     private final int source;
     private final int destination;
-    private final int weight;
+    private final double weight;
 
-    public Edge(int source,int destination,int weight) {
+    public Edge(int source,int destination,double weight) {
         if(source < 0) {
             throw new IllegalArgumentException("Source cannot be negative");
         }
@@ -56,11 +56,11 @@ public class Edge implements Comparable<Edge> {
     }
 
     public String toString() {
-        return String.format("%d -- > %d (%d)",source,destination,weight);
+        return String.format("%d -- > %d (%.5f)",source,destination,weight);
     }
 
     public static void main(String[] args) {
-        Edge e = new Edge(12, 34, 5);
+        Edge e = new Edge(12, 34, 5.098);
         System.out.println(e);
     }
 
