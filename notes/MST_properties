@@ -1,0 +1,33 @@
+--> Adding an edge that connects two vertices in a tree
+creates a unique cycle.
+--> Removing an edge from a tree breaks it into two
+separate subtrees.
+These properties are the basis for proving a fundamental property of MSTs that leads to the MST algorithms.
+
+Cut property. This property, which we refer to as the cut
+property, has to do with identifying edges that must be in the
+MST of a given edge-weighted graph, by dividing vertices
+into two sets and examining edges that cross the division.
+
+
+Definition. A cut of a graph is a partition of its vertices into two nonempty disjoint sets. A crossing edge of a cut is an edge
+ that connects a vertex in one set with a vertex in the other.
+
+
+ Proposition J. ( Cut property) Given any cut in an edgeweighted graph, the crossing edge of minimum weight is in
+ the MST of the graph.
+ Proof: Let e be the crossing edge of minimum weight and
+ let T be the MST. The proof is by contradiction: Suppose
+ that T does not contain e. Now consider the graph formed
+ by adding e to T. This graph has a cycle that contains e, and
+ that cycle must contain at least one other crossing edge—
+ say, f, which has higher weight than e (since e is minimal and
+ all edge weights are different). We can get a spanning tree of
+ strictly lower weight by deleting f and adding e, contradicting
+ the assumed minimality of T.
+
+ Under our assumption that edge weights
+ are distinct, every connected graph has a
+ unique MST  and the cut property says that the shortest crossing
+ edge for every cut must be in the MST.
+
