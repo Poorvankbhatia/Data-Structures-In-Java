@@ -23,19 +23,18 @@ for 6 vertices and edges as
 package graphs;
 
 import utility.Digraph;
-import utility.Stack;
 
 /**
  * Created by poorvank on 4/7/15.
  */
-public class TopologicalSort {
+public class Topological {
 
     private Iterable<Integer> order;
 
     public static void main(String[] args) {
 
 
-        TopologicalSort ts = new TopologicalSort();
+        Topological ts = new Topological();
         Digraph digraph = new Digraph(6);
         digraph.addEdge(5,0);
         digraph.addEdge(5,2);

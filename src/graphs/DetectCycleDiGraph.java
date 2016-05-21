@@ -1,3 +1,9 @@
+/*
+
+This class is only used to detect cycle in a directed graph, For an Edge weighted Diagraph implementation is different.
+
+ */
+
 package graphs;
 
 import utility.Digraph;
@@ -6,7 +12,7 @@ import utility.Stack;
 /**
  * Created by poorvank on 11/11/15.
  */
-public class DetectCycleGraph {
+public class DetectCycleDiGraph {
 
     private static Stack<Integer> cycle = null;
 
