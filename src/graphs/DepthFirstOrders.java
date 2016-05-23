@@ -26,6 +26,30 @@ public class DepthFirstOrders {
 
     }
 
+    public DepthFirstOrders(EdgeWeightedDigraph G) {
+        int size = G.getVertexCount();
+        marked = new boolean[size];
+        reversePost = new Stack<>();
+        post = new Queue<>();
+        for (int i=0;i<size;i++) {
+            if(!marked[i]) {
+                dfs(G,i);
+            }
+        }
+    }
+
+    private void dfs(EdgeWeightedDigraph G,int v) {
+        marked[v] = true;
+        for (DirectedEdge e : G.getAdj(v)) {
+            int w = e.to();
+            if (!marked[w]) {
+                dfs(G, w);
+            }
+        }
+        post.enqueue(v);
+        reversePost.push(v);
+    }
+
     private void dfs(Digraph G,int i) {
         marked[i] = true;
         for (Integer vertex: G.getAdj(i)) {
@@ -43,5 +67,9 @@ public class DepthFirstOrders {
 
     public Iterable<Integer> getPost() {
         return post;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
