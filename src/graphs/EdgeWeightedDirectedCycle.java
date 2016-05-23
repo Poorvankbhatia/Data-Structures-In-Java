@@ -25,8 +25,9 @@ public class EdgeWeightedDirectedCycle {
             }
         }
 
-        if(check(G)) {
-            System.out.println("No cycle found");
+        if(!check(G)) {
+            System.out.println("Cycle found");
+            System.exit(1);
         }
 
     }
