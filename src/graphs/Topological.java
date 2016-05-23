@@ -23,6 +23,7 @@ for 6 vertices and edges as
 package graphs;
 
 import utility.Digraph;
+import utility.EdgeWeightedDigraph;
 
 /**
  * Created by poorvank on 4/7/15.
@@ -30,11 +31,66 @@ import utility.Digraph;
 public class Topological {
 
     private Iterable<Integer> order;
+    private int[] rank;
 
-    public static void main(String[] args) {
+
+    public Topological(Digraph G) {
+        int size = G.getVertexCount();
+        rank = new int[size];
+        if(!DetectCycleDiGraph.isCyclic(G)) {
+            DepthFirstOrders depthFirstOrders = new DepthFirstOrders(G);
+            order= depthFirstOrders.getReversePost();
+            int i =0;
+            for (int v: order) {
+                rank[v] = i++;
+            }
+        }
+    }
+
+    public Topological(EdgeWeightedDigraph G) {
+        int size = G.getVertexCount();
+        rank = new int[size];
+        EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(G);
+        if(!finder.hasCycle()) {
+            DepthFirstOrders depthFirstOrders = new DepthFirstOrders(G);
+            order= depthFirstOrders.getReversePost();
+            int i =0;
+            for (int v: order) {
+                rank[v] = i++;
+            }
+        }
+    }
+
+    public int getRank(int v) {
+        return rank[v];
+    }
+
+    public Iterable<Integer> getOrder() {
+        return order;
+    }
+
+    public boolean hasOrder() {
+        return order!=null;
+    }
+
+    private void validateVertex(int v) {
+        if(v<0 || v>=rank.length) {
+            throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (rank.length-1));
+        }
+    }
+
+    public int rank(int v) {
+        validateVertex(v);
+        if(hasOrder()) {
+            return rank[v];
+        }
+        return -1;
+    }
+
+     public static void main(String[] args) {
 
 
-        Topological ts = new Topological();
+
         Digraph digraph = new Digraph(6);
         digraph.addEdge(5,0);
         digraph.addEdge(5,2);
@@ -43,18 +99,16 @@ public class Topological {
         digraph.addEdge(2,3);
         digraph.addEdge(3,1);
 
-
-        if(!DetectCycleGraph.isCyclic(digraph)) {
-            DepthFirstOrders depthFirstOrders = new DepthFirstOrders(digraph);
-            ts.order = depthFirstOrders.getReversePost();
+        Topological ts = new Topological(digraph);
+        for (int vertex : ts.getOrder()) {
+            System.out.print(vertex + " ");
         }
 
-        for (Integer v : ts.order) {
-            System.out.print(v + " ");
-        }
-
+         System.out.println("\nRank of 4 is - " + (ts.getRank(4)+1));
 
     }
+
+
 
 
 }
