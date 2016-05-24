@@ -1,0 +1,65 @@
+Edge relaxation. To relax an edge v->w means to test whether the best known way from s to w is to go from s to v,
+then take the edge from v to w, and, if so, update our data structures.
+
+
+private void relax(DirectedEdge e) {
+    int v = e.from(), w = e.to();
+    if (distTo[w] > distTo[v] + e.weight()) {
+        distTo[w] = distTo[v] + e.weight();
+        edgeTo[w] = e;
+    }
+}
+
+//See Images
+
+( Shortest-paths optimality conditions)
+
+Proposition P.  Let G be an edge-weighted
+digraph, with s a source vertex in G and distTo[] a vertex-indexed array of path
+lengths in G such that, for all v reachable from s, the value of distTo[v] is the
+length of some path from s to v with distTo[v] equal to infinity for all v not reachable
+from s. These values are the lengths of shortest paths if and only if they satisfy
+distTo[w] <= distTo[v] + e.weight() for each edge e from v to w (or, in
+other words, no edge is eligible).
+
+
+Proof: Suppose that distTo[w] is the length of a shortest path from s to w. If
+distTo[w] > distTo[v] + e.weight() for some edge e from v to w, then e
+would give a path from s to w (through v) of length less than distTo[w], a contradiction.
+Thus the optimality conditions are necessary.
+To prove that the optimality conditions are sufficient, suppose that w is reachable
+from s and that s = v0->v1->v2...->vk = w is a shortest path from s to
+w, of weight OPTsw. For i from 1 to k, denote the edge from vi-1 to vi by ei. By the
+optimality conditions, we have the following sequence of inequalities:
+distTo[w] = distTo[vk] <= distTo[vk-1] + ek.weight()
+distTo[vk-1] <= distTo[vk-2] + ek-1.weight()
+...
+distTo[v2] <= distTo[v1] + e2.weight()
+distTo[v1] <= distTo[s] + e1.weight()
+Collapsing these inequalities and eliminating distTo[s] = 0.0, we have
+distTo[w] <= e1.weight() + ... + ek.weight() = OPTsw.
+Now, distTo[w] is the length of some path from s to w, so it cannot be smaller than
+the length of a shortest path. Thus, we have shown that
+OPTsw <= distTo[w] <= OPTsw
+and equality must hold.
+
+
+( Generic shortest-paths algorithm)
+
+Every relaxation decreased distTo[v] for some v
+
+Proposition Q.  Initialize distTo[s] to 0 and
+all other distTo[] values to infinity, and proceed as follows:
+Relax any edge in G, continuing until no edge is eligible.
+For all vertices w reachable from s, the value of distTo[w] after this computation
+is the length of a shortest path from s to w (and the value of edgeTo[] is the last
+edge on that path).
+Proof: Relaxing an edge v->w always sets distTo[w] to the length of some path
+from s (and edgeTo[w] to the last edge on that path). For any vertex w reachable
+from s, some edge on the shortest path to w is eligible as long as distTo[w] remains
+infinite, so the algorithm continues until the distTo[] value of each vertex reachable
+from s is the length of some path to that vertex. For any vertex v for which the
+shortest path is well-defined, throughout the algorithm distTo[v] is the length of
+some (simple) path from s to v and is strictly monotonically decreasing. Thus, it
+can decrease at most a finite number of times (once for each simple path from s to
+v). When no edge is eligible, Proposition P applies.
