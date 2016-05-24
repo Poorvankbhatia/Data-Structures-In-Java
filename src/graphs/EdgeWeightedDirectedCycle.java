@@ -1,6 +1,7 @@
 package graphs;
 
 import utility.*;
+import utility.Stack;
 
 /**
  * Created by poorvank on 21/05/16.
@@ -26,8 +27,7 @@ public class EdgeWeightedDirectedCycle {
         }
 
         if(!check(G)) {
-            System.out.println("Cycle found");
-            System.exit(1);
+            System.out.println("[In Method:EdgeWeightedDirectedCycle] No cycle found");
         }
 
     }
@@ -83,6 +83,7 @@ public class EdgeWeightedDirectedCycle {
                 }
                 if(last!=null) {
                     if(last.to() != e.from()) {
+                        System.out.println("Cycle Not found");
                         System.out.println("cycle edges " + last + " and "  + e +   " are not incident ");
                         return false;
                     }
@@ -92,6 +93,7 @@ public class EdgeWeightedDirectedCycle {
             }
 
             if (last!=null && last.to() != first.from()) {
+                System.out.println("Cycle Not found");
                 System.out.println("cycle edges " + last + " and "  + first +   " are not incident ");
                 return false;
             }
