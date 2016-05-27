@@ -11,8 +11,7 @@ The largest possible rectangle possible is 12
 
 package miscellaneous;
 
-import stack.ArrayStack;
-import stack.Stack;
+import utility.Stack;
 
 /**
  * Created by poorvank on 8/7/15.
@@ -33,22 +32,22 @@ public class LargestHistogramArea {
         int i = 0, maxArea = 0;
 
         //Stack to hold array indexes
-        Stack<Integer> stack = new ArrayStack<>();
+        Stack<Integer> stack = new Stack<>();
 
         while (i < n) {
 
 
-            if (stack.isEmpty() || histogram[i] >= histogram[stack.getTop()]) {
+            if (stack.isEmpty() || histogram[i] >= histogram[stack.peek()]) {
                 stack.push(i++);
             }
             
             /* if a smaller index found pop*/
             else {
 
-                int top = stack.getTop();
+                int top = stack.peek();
                 stack.pop();
 
-                int area = histogram[top] * (stack.isEmpty() ? i : i - stack.getTop() - 1);
+                int area = histogram[top] * (stack.isEmpty() ? i : i - stack.peek() - 1);
 
                 if (area > maxArea) {
                     maxArea = area;
@@ -61,10 +60,10 @@ public class LargestHistogramArea {
 
         while (!stack.isEmpty()) {
 
-            int top = stack.getTop();
+            int top = stack.peek();
             stack.pop();
 
-            int area = histogram[top] * (stack.isEmpty() ? i : i - stack.getTop() - 1);
+            int area = histogram[top] * (stack.isEmpty() ? i : i - stack.peek() - 1);
 
             if (area > maxArea) {
                 maxArea = area;
