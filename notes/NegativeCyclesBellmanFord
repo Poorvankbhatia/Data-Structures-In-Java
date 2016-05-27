@@ -1,0 +1,24 @@
+Definition. A negative cycle in an edgeweighted
+digraph is a directed cycle whose
+total weight (sum of the weights of its
+edges) is negative.
+
+Now, suppose that some vertex on a path from s to a
+reachable vertex v is also on a negative cycle. In this case,
+the existence of a shortest path from s to v would be a
+contradiction, because we could use the cycle to construct
+a path with weight lower than any given value. In other
+words, shortest paths can be an ill-posed problem if negative
+cycles are present.
+
+Proposition W. There exists a shortest path from s
+to v in an edge-weighted digraph if and only if there
+exists at least one directed path from s to v and no
+vertex on any directed path from s to v is on a negative
+cycle.
+
+
+algorithm           restriction                         typical  worst-case extra-space   sweet-spot
+Dijkstra (eager)      positive edge weights             E log V   E log V        V          worst-case guarantee
+topological sort      edge-weighted DAGs                E + V     E + V          V          optimal for acyclic
+Bellman-Ford         (queue-based)no negative-cycles    E + V       VE           V          widely applicable
