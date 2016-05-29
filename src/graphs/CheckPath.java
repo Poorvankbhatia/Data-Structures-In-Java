@@ -1,5 +1,7 @@
 package graphs;
 
+import utility.UndirectedGraph;
+
 /**
  * Created by poorvank on 4/2/15.
  */
@@ -9,10 +11,13 @@ public class CheckPath {
 
     public static void main(String[] args) {
 
-        Vertex[] vArray = Input.graphInput();
-        boolean[] visited = new boolean[vArray.length];
+        UndirectedGraph graph = new UndirectedGraph(4);
+        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.addEdge(0,3);
+        boolean[] visited = new boolean[graph.getVertexCount()];
 
-        pathPresent(0, 2, vArray, visited);
+        pathPresent(1, 2, graph, visited);
         if (flag) {
             System.out.println("Present");
         } else {
@@ -21,16 +26,17 @@ public class CheckPath {
 
     }
 
-    private static boolean pathPresent(int a, int b, Vertex[] vArray, boolean[] visited) {
+    private static boolean pathPresent(int a, int b, UndirectedGraph graph, boolean[] visited) {
 
         visited[a] = true;
 
-        for (Integer v : vArray[a].adjacentVertices) {
+        for (Integer v : graph.getAdj(a)) {
             if (!visited[v]) {
                 if (v == b) {
-                    return true;
+                    flag = true;
+                    return flag;
                 }
-                flag = pathPresent(v, b, vArray, visited);
+                flag = pathPresent(v, b, graph, visited);
                 if (flag) {
                     break;
                 }

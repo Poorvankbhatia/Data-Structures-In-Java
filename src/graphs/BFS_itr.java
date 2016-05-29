@@ -1,5 +1,7 @@
 package graphs;
 
+import utility.UndirectedGraph;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -11,35 +13,38 @@ public class BFS_itr {
 
     public static void main(String[] args) {
 
-        Vertex[] vArray = Input.graphInput();
+        UndirectedGraph graph = new UndirectedGraph(4);
+        graph.addEdge(0,1);
+        graph.addEdge(0,2);
+        graph.addEdge(2,3);
 
-        boolean[] visited = new boolean[vArray.length];
+        boolean[] visited = new boolean[graph.getVertexCount()];
 
-        iterative(vArray, 0, visited);
+        iterative(graph, 0, visited);
 
     }
 
-    private static void iterative(Vertex[] vArray, int v, boolean[] visited) {
+    private static void iterative(UndirectedGraph graph, int v, boolean[] visited) {
 
-        Queue<Vertex> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
-        queue.add(vArray[v]);
+        queue.add(v);
 
         while (!queue.isEmpty()) {
 
-            Vertex vertex = queue.remove();
-            visited[vertex.info] = true;
-            System.out.print(vertex.info + " ");
+            Integer vertex = queue.remove();
+            visited[vertex] = true;
+            System.out.print(vertex + " ");
 
-            for (int ve : vertex.adjacentVertices) {
+            for (int ve : graph.getAdj(vertex)) {
                 if (!visited[ve]) {
-                    queue.add(vArray[ve]);
+                    queue.add(ve);
                 }
             }
 
         }
 
-        System.out.println(Arrays.toString(visited));
+       // System.out.println(Arrays.toString(visited));
 
     }
 

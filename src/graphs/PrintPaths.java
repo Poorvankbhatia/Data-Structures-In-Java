@@ -1,5 +1,7 @@
 package graphs;
 
+import utility.UndirectedGraph;
+
 import java.util.ArrayList;
 
 /**
@@ -9,17 +11,22 @@ public class PrintPaths {
 
     public static void main(String[] args) {
 
-        Vertex[] vArray = Input.graphInput();
-        boolean[] visited = new boolean[vArray.length];
+        UndirectedGraph graph = new UndirectedGraph(4);
+        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.addEdge(2,3);
 
-        for (int i = 0; i < vArray.length; i++) {
+
+        boolean[] visited = new boolean[graph.getVertexCount()];
+
+        for (int i = 0; i < graph.getVertexCount(); i++) {
             visited[i] = false;
         }
-        print(2, 3, visited, new ArrayList<Integer>(), vArray);
+        print(0, 2, visited, new ArrayList<Integer>(), graph);
 
     }
 
-    private static void print(int s, int d, boolean[] visited, ArrayList<Integer> arrayList, Vertex[] vArray) {
+    private static void print(int s, int d, boolean[] visited, ArrayList<Integer> arrayList, UndirectedGraph graph) {
 
         visited[s] = true;
         arrayList.add(s);
@@ -28,10 +35,10 @@ public class PrintPaths {
             System.out.println(arrayList.toString());
         } else {
 
-            for (Integer i : vArray[s].adjacentVertices) {
+            for (Integer i : graph.getAdj(s)) {
                 //prevent cycle
                 if (!visited[i]) {
-                    print(i, d, visited, arrayList, vArray);
+                    print(i, d, visited, arrayList, graph);
                 }
             }
 
