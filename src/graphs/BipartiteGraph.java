@@ -10,64 +10,134 @@ A Bipartite Graph is a graph whose vertices can be divided into two independent 
 
 package graphs;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import utility.Queue;
+import utility.Stack;
+import utility.UndirectedGraph;
 
 /**
  * Created by poorvank on 4/5/15.
  */
 public class BipartiteGraph {
 
-    public static void main(String[] args) {
 
-        Vertex[] vArray = Input.graphInput();
-        if (isBipartite(vArray, 0)) {
-            System.out.println("Bipartite");
-        } else {
-            System.out.println("Nope");
+    private static final boolean WHITE = true;
+    private static final boolean BLACK = false;
+
+    private boolean[] marked;
+    private boolean[] color;
+    private boolean isBipartite;
+    private int[] edgeTo;
+    private Queue<Integer> cycle;
+
+
+    public BipartiteGraph(UndirectedGraph G) {
+        int size = G.getVertexCount();
+        marked = new boolean[size];
+        color = new boolean[size];
+        isBipartite = false;
+        edgeTo = new int[size];
+
+        for (int v=0;v<size;v++) {
+            if(!marked[v]) {
+                bfs(G,v);
+            }
         }
-
     }
 
-    private static boolean isBipartite(Vertex[] vArray, int v) {
 
-        int[] colorArray = new int[vArray.length];
-        for (int i = 0; i < vArray.length; i++) {
-            colorArray[i] = -1;
-        }
+    private void bfs(UndirectedGraph G,int vertex) {
 
-        colorArray[v] = 1;
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(v);
+        marked[vertex] = true;
+        Queue<Integer> queue = new Queue<>();
+        color[vertex] = WHITE;
+        queue.enqueue(vertex);
 
         while (!queue.isEmpty()) {
-
-            int vertex = queue.remove();
-
-            for (int i : vArray[vertex].adjacentVertices) {
-
-                if (colorArray[i] == -1) {
-                    queue.add(i);
-                    colorArray[i] = 1 - colorArray[vertex];
-                } else if (colorArray[i] == colorArray[vertex]) {
-                    return false;
+            int v = queue.dequeue();
+            for (Integer neighbour : G.getAdj(v)) {
+                if(!marked[neighbour]) {
+                    marked[neighbour] = true;
+                    color[neighbour] = BLACK;
+                    edgeTo[neighbour] = v;
+                    queue.enqueue(neighbour);
                 }
+                else if(color[neighbour]==color[v]) {
+                    isBipartite = true;
 
+                    //G is bipartite iff it has no odd cycles.
+                    // to form odd cycle, consider s-v path and s-w path
+                    // and let x be closest node to v and w common to two paths
+                    // then (w-x path) + (x-v path) + (edge v-w) is an odd-length cycle
+                    // Note: distTo[v] == distTo[w];
+                    Stack<Integer> stack = new Stack<>();
+                    cycle = new Queue<>();
+                    int x=v,y=neighbour;
+                    while (x!=y) {
+                        stack.push(x);
+                        cycle.enqueue(y);
+                        x = edgeTo[x];
+                        y = edgeTo[y];
+                    }
+
+                    stack.push(x);
+                    while (!stack.isEmpty())
+                        cycle.enqueue(stack.pop());
+                    cycle.enqueue(neighbour);
+                    return;
+                }
             }
 
         }
 
-        return true;
+    }
+
+    public boolean isBipartite() {
+        return isBipartite;
+    }
+
+    public Iterable<Integer> getCycle() {
+        if(!isBipartite) {
+            return null;
+        }
+        return cycle;
+    }
+
+    public boolean color(int v) {
+        if (!isBipartite)
+            throw new UnsupportedOperationException("Graph is not bipartite");
+        return color[v];
+    }
+
+
+    public static void main(String[] args) {
+
+        UndirectedGraph graph = new UndirectedGraph(4);
+        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.addEdge(2,0);
+        graph.addEdge(3,0);
+
+        BipartiteGraph bg = new BipartiteGraph(graph);
+
+        if(bg.isBipartite) {
+            for (int vertex : bg.getCycle()) {
+                System.out.print(" " + vertex);
+            }
+        }
+        else {
+            System.out.println("Not bipartite");
+        }
 
     }
+
 
 }
 
 
 /*
 
-Time Complexity of the above approach is same as that Breadth First Search.
- In above implementation is O(V^2) where V is number of vertices. 
+Given a graph, find either (i) a bipartition or (ii) an odd-length cycle.
+ *  Runs in O(E + V) time.
  If graph is represented using adjacency list, then the complexity becomes O(V+E).
 
 1.	Assign RED color to the source vertexToConsider (putting into set U).
@@ -155,6 +225,9 @@ One of the most interesting challenges associated with social media is predictin
 expected to comment on which blog. This can be  formulated as a link prediction problem in bipartite graphs.
 Recently, sparse matrix factorization became popular for link prediction.
 Therefore, we can apply matrix factorization to predict which user is expected to comment which blog.
+
+http://www.personal.kent.edu/~rmuhamma/GraphTheory/MyGraphTheory/defEx.htm
+https://www.topcoder.com/community/data-science/data-science-tutorials/maximum-flow-section-2/
 
 
  */
