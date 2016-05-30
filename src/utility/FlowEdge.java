@@ -92,7 +92,7 @@ public class FlowEdge {
         }
     }
 
-    public void addResidualFlowTo(int v,int delta) {
+    public void addResidualFlowTo(int v,double delta) {
         if(v==destination) { //forward Edge
             this.flow += delta;
         }
