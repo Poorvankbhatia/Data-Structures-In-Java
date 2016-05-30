@@ -3,7 +3,7 @@ package utility;
 /**
  * Created by poorvank.b on 07/05/16.
  */
-public class UndirectedGraph {
+public class Graph {
 
     private static final String NEWLINE = System.getProperty("line.separator");
     private final int vertexCount;
@@ -11,7 +11,7 @@ public class UndirectedGraph {
     private Bag<Integer>[] adj;
 
     @SuppressWarnings("unchecked")
-    public UndirectedGraph(int vertexCount) {
+    public Graph(int vertexCount) {
         if (vertexCount < 0) throw new IllegalArgumentException("Vertex count cannot be negative");
         this.vertexCount = vertexCount;
         this.edgeCount = 0;

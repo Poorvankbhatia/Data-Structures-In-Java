@@ -12,7 +12,7 @@ package graphs;
 
 import utility.Queue;
 import utility.Stack;
-import utility.UndirectedGraph;
+import utility.Graph;
 
 /**
  * Created by poorvank on 4/5/15.
@@ -30,7 +30,7 @@ public class BipartiteGraph {
     private Queue<Integer> cycle;
 
 
-    public BipartiteGraph(UndirectedGraph G) {
+    public BipartiteGraph(Graph G) {
         int size = G.getVertexCount();
         marked = new boolean[size];
         color = new boolean[size];
@@ -45,7 +45,7 @@ public class BipartiteGraph {
     }
 
 
-    private void bfs(UndirectedGraph G,int vertex) {
+    private void bfs(Graph G, int vertex) {
 
         marked[vertex] = true;
         Queue<Integer> queue = new Queue<>();
@@ -111,7 +111,7 @@ public class BipartiteGraph {
 
     public static void main(String[] args) {
 
-        UndirectedGraph graph = new UndirectedGraph(4);
+        Graph graph = new Graph(4);
         graph.addEdge(0,1);
         graph.addEdge(1,2);
         graph.addEdge(2,0);

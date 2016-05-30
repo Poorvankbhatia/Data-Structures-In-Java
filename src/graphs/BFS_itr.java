@@ -1,8 +1,7 @@
 package graphs;
 
-import utility.UndirectedGraph;
+import utility.Graph;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,7 +12,7 @@ public class BFS_itr {
 
     public static void main(String[] args) {
 
-        UndirectedGraph graph = new UndirectedGraph(4);
+        Graph graph = new Graph(4);
         graph.addEdge(0,1);
         graph.addEdge(0,2);
         graph.addEdge(2,3);
@@ -24,7 +23,7 @@ public class BFS_itr {
 
     }
 
-    private static void iterative(UndirectedGraph graph, int v, boolean[] visited) {
+    private static void iterative(Graph graph, int v, boolean[] visited) {
 
         Queue<Integer> queue = new LinkedList<>();
 

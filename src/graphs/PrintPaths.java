@@ -1,6 +1,6 @@
 package graphs;
 
-import utility.UndirectedGraph;
+import utility.Graph;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public class PrintPaths {
 
     public static void main(String[] args) {
 
-        UndirectedGraph graph = new UndirectedGraph(4);
+        Graph graph = new Graph(4);
         graph.addEdge(0,1);
         graph.addEdge(1,2);
         graph.addEdge(2,3);
@@ -26,7 +26,7 @@ public class PrintPaths {
 
     }
 
-    private static void print(int s, int d, boolean[] visited, ArrayList<Integer> arrayList, UndirectedGraph graph) {
+    private static void print(int s, int d, boolean[] visited, ArrayList<Integer> arrayList, Graph graph) {
 
         visited[s] = true;
         arrayList.add(s);

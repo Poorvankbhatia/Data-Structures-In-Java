@@ -3,7 +3,7 @@
 package graphs;
 
 import utility.Stack;
-import utility.UndirectedGraph;
+import utility.Graph;
 
 import java.util.*;
 
@@ -16,7 +16,7 @@ public class DepthFirstSearchPaths {
     private int[] edgeTo;
     private boolean[] marked;
 
-    public DepthFirstSearchPaths(UndirectedGraph G, int source) {
+    public DepthFirstSearchPaths(Graph G, int source) {
 
         this.source = source;
         marked = new boolean[G.getVertexCount()];
@@ -26,7 +26,7 @@ public class DepthFirstSearchPaths {
     }
 
 
-    private void dfs(UndirectedGraph G,int source) {
+    private void dfs(Graph G, int source) {
 
         marked[source] = true;
 
@@ -46,7 +46,7 @@ public class DepthFirstSearchPaths {
     }
 
 
-    public Iterable<Integer> pathTo(UndirectedGraph G,int destination) {
+    public Iterable<Integer> pathTo(Graph G, int destination) {
 
         Stack path = new Stack();
         while (destination!=source) {
@@ -61,7 +61,7 @@ public class DepthFirstSearchPaths {
 
     public static void main(String[] args) {
 
-        UndirectedGraph G = new UndirectedGraph(6);
+        Graph G = new Graph(6);
         G.addEdge(0,5);
         G.addEdge(0,1);
         G.addEdge(0,2);

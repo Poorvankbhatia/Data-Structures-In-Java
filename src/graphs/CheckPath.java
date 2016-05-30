@@ -1,6 +1,6 @@
 package graphs;
 
-import utility.UndirectedGraph;
+import utility.Graph;
 
 /**
  * Created by poorvank on 4/2/15.
@@ -11,7 +11,7 @@ public class CheckPath {
 
     public static void main(String[] args) {
 
-        UndirectedGraph graph = new UndirectedGraph(4);
+        Graph graph = new Graph(4);
         graph.addEdge(0,1);
         graph.addEdge(1,2);
         graph.addEdge(0,3);
@@ -26,7 +26,7 @@ public class CheckPath {
 
     }
 
-    private static boolean pathPresent(int a, int b, UndirectedGraph graph, boolean[] visited) {
+    private static boolean pathPresent(int a, int b, Graph graph, boolean[] visited) {
 
         visited[a] = true;
 

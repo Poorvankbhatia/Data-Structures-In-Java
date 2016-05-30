@@ -1,7 +1,7 @@
 package graphs;
 
 import utility.Bag;
-import utility.UndirectedGraph;
+import utility.Graph;
 
 /**
  * Created by poorvank.b on 07/05/16.
@@ -12,7 +12,7 @@ public class ConnectedComponents {
     private int[] id;
     private int count;
 
-    public ConnectedComponents(UndirectedGraph G) {
+    public ConnectedComponents(Graph G) {
 
         marked = new boolean[G.getVertexCount()];
         id = new int[G.getVertexCount()];
@@ -26,7 +26,7 @@ public class ConnectedComponents {
     }
 
 
-    public void dfs(UndirectedGraph G, int v) {
+    public void dfs(Graph G, int v) {
 
         marked[v] = true;
         id[v] = count;
@@ -53,7 +53,7 @@ public class ConnectedComponents {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
 
-        UndirectedGraph G = new UndirectedGraph(6);
+        Graph G = new Graph(6);
         G.addEdge(0, 1);
         G.addEdge(2, 0);
         G.addEdge(1, 5);

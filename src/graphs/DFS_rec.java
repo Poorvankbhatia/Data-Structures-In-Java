@@ -1,6 +1,6 @@
 package graphs;
 
-import utility.UndirectedGraph;
+import utility.Graph;
 
 /**
  * Created by poorvank on 4/1/15.
@@ -9,7 +9,7 @@ public class DFS_rec {
 
     public static void main(String[] args) {
 
-        UndirectedGraph graph = new UndirectedGraph(4);
+        Graph graph = new Graph(4);
         graph.addEdge(0,1);
         graph.addEdge(1,2);
         graph.addEdge(2,3);
@@ -17,7 +17,7 @@ public class DFS_rec {
 
     }
 
-    private static void recursive(UndirectedGraph graph, int v) {
+    private static void recursive(Graph graph, int v) {
 
         boolean[] visited = new boolean[graph.getVertexCount()];
 
@@ -33,7 +33,7 @@ public class DFS_rec {
 
     }
 
-    private static void recurUtil(UndirectedGraph graph, int v, boolean[] visited) {
+    private static void recurUtil(Graph graph, int v, boolean[] visited) {
 
         visited[v] = true;
         System.out.print(v + " ");
