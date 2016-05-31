@@ -8,7 +8,7 @@ import java.util.Queue;
 /**
  * Created by poorvank on 4/2/15.
  */
-public class BFS_itr {
+public class BreadthFirstSearchIterative {
 
     public static void main(String[] args) {
 

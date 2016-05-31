@@ -6,7 +6,7 @@ import utility.Graph;
 /**
  * Created by poorvank on 4/2/15.
  */
-public class DFS_itr {
+public class DepthFirstSearchIterative {
 
     public static void main(String[] args) {
 

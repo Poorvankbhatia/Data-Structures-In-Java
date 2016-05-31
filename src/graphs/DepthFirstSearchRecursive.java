@@ -5,7 +5,7 @@ import utility.Graph;
 /**
  * Created by poorvank on 4/1/15.
  */
-public class DFS_rec {
+public class DepthFirstSearchRecursive {
 
     public static void main(String[] args) {
 
