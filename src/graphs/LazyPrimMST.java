@@ -1,6 +1,9 @@
 package graphs;
 
 import utility.*;
+import utility.EdgeClasses.Edge;
+import utility.PriorityQueueClasses.MinPriorityQueue;
+import utility.graphClasses.EdgeWeightedGraph;
 
 import java.io.BufferedReader;
 import java.io.File;

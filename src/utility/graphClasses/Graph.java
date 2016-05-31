@@ -1,4 +1,6 @@
-package utility;
+package utility.graphClasses;
+
+import utility.Bag;
 
 /**
  * Created by poorvank.b on 07/05/16.
@@ -35,6 +37,17 @@ public class Graph {
         return adj[v].getSize();
     }
 
+    public int maxDegree() {
+        int maxDegree = 0;
+        for (int v=0;v<vertexCount;v++) {
+            int currentVertexDegree = degree(v);
+            if(maxDegree<currentVertexDegree) {
+                maxDegree = currentVertexDegree;
+            }
+        }
+        return maxDegree;
+    }
+
     public Iterable<Integer> getAdj(int v) {
         return adj[v];
     }
@@ -69,3 +82,19 @@ public class Graph {
 
 
 }
+
+
+/*
+
+ Space usage proportional to V + E
+ Constant time to add an edge
+ Time proportional to the degree of v to iterate through vertices adjacent to v (constant time per adjacent vertex processed)
+
+
+underlying-data-structure     space     add edgev-w  check whether w is adjacent to v    iterate through vertices adjacent to v
+list of edges                   E           1           E                                        E
+adjacency matrix               Sq(V)        1           1                                        V
+adjacency lists                E+V          1           degree(v)                               degree(v)
+adjacency sets                  E+V          log V          log V                           log V + degree(v)
+
+ */

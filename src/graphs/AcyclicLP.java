@@ -8,8 +8,9 @@ solving the
 
 package graphs;
 
-import utility.*;
+import utility.EdgeClasses.DirectedEdge;
 import utility.Stack;
+import utility.graphClasses.EdgeWeightedDigraph;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +24,7 @@ public class AcyclicLP {
     private double[] distTo;
     private DirectedEdge[] edgeTo;
 
-    public AcyclicLP(EdgeWeightedDigraph G,int souce) {
+    public AcyclicLP(EdgeWeightedDigraph G, int souce) {
         int size = G.getVertexCount();
         distTo = new double[size];
         edgeTo = new DirectedEdge[size];

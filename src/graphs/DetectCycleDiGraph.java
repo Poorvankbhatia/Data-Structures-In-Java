@@ -6,7 +6,7 @@ This class is only used to detect cycle in a directed graph, For an Edge weighte
 
 package graphs;
 
-import utility.Digraph;
+import utility.graphClasses.Digraph;
 import utility.Stack;
 
 /**
@@ -34,26 +34,18 @@ public class DetectCycleDiGraph {
 
         boolean[] visited = new boolean[size];
         boolean[] record = new boolean[size];
-        int[] edgeTo = new int[size];
+        int[] vertexTo = new int[size];
 
         for (int i = 0; i < size; i++) {
-            if (isCyclicUtil(i, visited, record, digraph,edgeTo)) {
-
-
-                if(hasCycle()) {
-                    for (Integer vertex : cycle) {
-                        System.out.print(vertex + " ");
-                    }
-                }
-
-                return true;
+            if(!visited[i]) {
+                dfs(i,visited,record,digraph,vertexTo);
             }
         }
 
-        return false;
+        return hasCycle();
     }
 
-    private static boolean isCyclicUtil(int v, boolean[] visited, boolean[] record, Digraph digraph,int[] edgeTo) {
+    private static void dfs(int v, boolean[] visited, boolean[] record, Digraph digraph,int[] vertexTo) {
 
         if (!visited[v]) {
 
@@ -63,23 +55,20 @@ public class DetectCycleDiGraph {
             for (Integer vertex : digraph.getAdj(v)) {
 
                 if(hasCycle()) {
-                    return true;
+                    return;
                 }
 
                 if (!visited[vertex]) {
-                    edgeTo[vertex] = v;
-                    if(isCyclicUtil(vertex, visited, record, digraph,edgeTo)) {
-                        return true;
-                    }
+                    vertexTo[vertex] = v;
+                    dfs(vertex,visited,record,digraph,vertexTo);
                 }
                 if (record[vertex]) {
 
                     cycle = new Stack<>();
-                    for (int i = v;i!=vertex;i=edgeTo[i]) {
+                    for (int i = v;i!=vertex;i=vertexTo[i]) {
                         cycle.push(i);
                     }
                     cycle.push(vertex);
-                    return true;
                 }
 
             }
@@ -87,7 +76,6 @@ public class DetectCycleDiGraph {
         }
 
         record[v] = false; // remove the vertex from recursion stack
-        return false;
 
     }
 

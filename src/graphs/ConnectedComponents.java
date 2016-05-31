@@ -1,7 +1,7 @@
 package graphs;
 
 import utility.Bag;
-import utility.Graph;
+import utility.graphClasses.Graph;
 
 /**
  * Created by poorvank.b on 07/05/16.
@@ -71,7 +71,7 @@ public class ConnectedComponents {
             component[i] = new Bag<>();
 
         for (int i = 0; i < G.getVertexCount(); i++) {
-            component[connectedComponents.id[i]].addToBag(i);
+            component[connectedComponents.id(i)].addToBag(i);
         }
 
         for (int i = 0; i < cc; i++) {

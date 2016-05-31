@@ -12,7 +12,7 @@ package graphs;
 
 import utility.Queue;
 import utility.Stack;
-import utility.Graph;
+import utility.graphClasses.Graph;
 
 /**
  * Created by poorvank on 4/5/15.

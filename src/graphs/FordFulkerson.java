@@ -10,8 +10,8 @@ empty backward edges), continuing until there are no such paths in the network.
 
 package graphs;
 
-import utility.FlowEdge;
-import utility.FlowNetwork;
+import utility.EdgeClasses.FlowEdge;
+import utility.graphClasses.FlowNetwork;
 import utility.Queue;
 
 import java.io.BufferedReader;

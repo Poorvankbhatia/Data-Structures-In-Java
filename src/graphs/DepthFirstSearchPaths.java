@@ -3,7 +3,7 @@
 package graphs;
 
 import utility.Stack;
-import utility.Graph;
+import utility.graphClasses.Graph;
 
 import java.util.*;
 

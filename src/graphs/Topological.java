@@ -22,8 +22,8 @@ for 6 vertices and edges as
 
 package graphs;
 
-import utility.Digraph;
-import utility.EdgeWeightedDigraph;
+import utility.graphClasses.Digraph;
+import utility.graphClasses.EdgeWeightedDigraph;
 
 /**
  * Created by poorvank on 4/7/15.

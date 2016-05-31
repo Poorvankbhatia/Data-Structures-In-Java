@@ -1,8 +1,8 @@
 package graphs;
 
-import utility.DirectedEdge;
-import utility.EdgeWeightedDigraph;
-import utility.IndexMinPriorityQueue;
+import utility.EdgeClasses.DirectedEdge;
+import utility.graphClasses.EdgeWeightedDigraph;
+import utility.PriorityQueueClasses.IndexMinPriorityQueue;
 import utility.Stack;
 
 import java.io.BufferedReader;

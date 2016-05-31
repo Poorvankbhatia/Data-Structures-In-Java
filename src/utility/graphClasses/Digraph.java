@@ -1,4 +1,6 @@
-package utility;
+package utility.graphClasses;
+
+import utility.Bag;
 
 /**
  * Created by poorvank.b on 09/05/16.

@@ -1,7 +1,7 @@
 package graphs;
 
 import utility.Stack;
-import utility.Graph;
+import utility.graphClasses.Graph;
 
 /**
  * Created by poorvank on 4/2/15.

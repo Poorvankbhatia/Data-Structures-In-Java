@@ -14,9 +14,7 @@ general directed cycle that contains them both
 package graphs;
 
 import utility.Bag;
-import utility.Digraph;
-
-import java.util.Arrays;
+import utility.graphClasses.Digraph;
 
 /**
  * Created by poorvank on 4/9/15.

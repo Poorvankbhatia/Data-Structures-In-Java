@@ -1,9 +1,7 @@
 package graphs;
 
-import utility.Graph;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import utility.graphClasses.Graph;
+import utility.Queue;
 
 /**
  * Created by poorvank on 4/2/15.
@@ -25,25 +23,23 @@ public class BreadthFirstSearchIterative {
 
     private static void iterative(Graph graph, int v, boolean[] visited) {
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new Queue<Integer>();
 
-        queue.add(v);
+        queue.enqueue(v);
 
         while (!queue.isEmpty()) {
 
-            Integer vertex = queue.remove();
+            Integer vertex = queue.dequeue();
             visited[vertex] = true;
             System.out.print(vertex + " ");
 
             for (int ve : graph.getAdj(vertex)) {
                 if (!visited[ve]) {
-                    queue.add(ve);
+                    queue.enqueue(ve);
                 }
             }
 
         }
-
-       // System.out.println(Arrays.toString(visited));
 
     }
 

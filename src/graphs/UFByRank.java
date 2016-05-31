@@ -83,7 +83,7 @@ class UFGraph {
 
 }
 
-public class UFByRank {
+public class    UFByRank {
 
     public static void main(String[] args) {
 

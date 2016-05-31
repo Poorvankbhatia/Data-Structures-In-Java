@@ -8,7 +8,7 @@ integer index to refer to items.
  */
 
 
-package utility;
+package utility.PriorityQueueClasses;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

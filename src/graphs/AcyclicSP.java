@@ -8,8 +8,8 @@ solving the
 
 package graphs;
 
-import utility.DirectedEdge;
-import utility.EdgeWeightedDigraph;
+import utility.EdgeClasses.DirectedEdge;
+import utility.graphClasses.EdgeWeightedDigraph;
 import utility.Stack;
 
 import java.io.BufferedReader;

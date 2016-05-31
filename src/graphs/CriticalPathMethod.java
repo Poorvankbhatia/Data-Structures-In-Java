@@ -10,8 +10,8 @@
 package graphs;
 
 
-import utility.DirectedEdge;
-import utility.EdgeWeightedDigraph;
+import utility.EdgeClasses.DirectedEdge;
+import utility.graphClasses.EdgeWeightedDigraph;
 
 import java.io.*;
 

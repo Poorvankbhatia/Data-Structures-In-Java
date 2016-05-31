@@ -1,4 +1,7 @@
-package utility;
+package utility.graphClasses;
+
+import utility.Bag;
+import utility.EdgeClasses.DirectedEdge;
 
 /**
  * Created by poorvank on 20/05/16.

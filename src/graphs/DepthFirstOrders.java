@@ -1,7 +1,10 @@
 package graphs;
 
 import utility.*;
+import utility.EdgeClasses.DirectedEdge;
 import utility.Stack;
+import utility.graphClasses.Digraph;
+import utility.graphClasses.EdgeWeightedDigraph;
 
 /**
  * Created by poorvank on 10/05/16.
