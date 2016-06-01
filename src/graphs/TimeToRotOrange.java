@@ -1,163 +1,193 @@
+/*
+
+Given a matrix of dimension m*n where each cell in the matrix can have values 0, 1 or 2 which has the following meaning:
+
+0: Empty cell
+
+1: Cells have fresh oranges
+
+2: Cells have rotten oranges
+
+So we have to determine what is the minimum time required so that all the oranges become rotten.
+A rotten orange at index [i,j] can rot other fresh orange at indexes [i-1,j], [i+1,j], [i,j-1], [i,j+1]
+(up, down, left and right). If it is impossible to rot every orange then simply return -1.
+
+Examples:
+
+Input:  arr[][C] = { {2, 1, 0, 2, 1},
+                     {1, 0, 1, 2, 1},
+                     {1, 0, 0, 2, 1}};
+Output:
+All oranges can become rotten in 2 time frames.
+
+
+Input:  arr[][C] = { {2, 1, 0, 2, 1},
+                     {0, 0, 1, 2, 1},
+                     {1, 0, 0, 2, 1}};
+Output:
+All oranges cannot be rotten.
+
+ */
+
+
 package graphs;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import utility.Queue;
 
 /**
  * Created by poorvank on 12/23/15.
  */
 
-class Element {
-
-    public int x, y;
-
-}
 
 public class TimeToRotOrange {
 
+    private final int ROW;
+    private final int COL;
+    private int minimumTime;
+
+    public TimeToRotOrange(int[][] input) {
+        ROW = input.length;
+        COL = input[0].length;
+        minimumTime = minTime(input);
+        if(!checkAll(input)) {
+            minimumTime = -1;
+        }
+    }
+
+    public int getMinimumTime() {
+        return minimumTime;
+    }
+
+    private class Cell {
+        private int x,y;
+
+        public Cell(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+
     public static void main(String[] args) {
 
-
-        int[][] arr = new int[][]{{2, 1, 0, 2, 1},
-                {1, 0, 1, 2, 1},
+        int[][] input = new int[][] { {2, 1, 0, 2, 1},
+                {0, 0, 1, 2, 1},
                 {1, 0, 0, 2, 1}};
 
+        TimeToRotOrange time =new TimeToRotOrange(input);
 
-        System.out.println(minimumTime(arr));
 
-    }
-
-    private static boolean isValid(int x, int y, int row, int col) {
-
-        return (x >= 0 && x < row && y >= 0 && y < col);
+        System.out.println("Minimum time = " + time.getMinimumTime());
 
     }
 
-    private static int minimumTime(int[][] arr) {
+    private boolean checkAll(int[][] input) {
+        for (int i=0;i<ROW;i++) {
+            for (int j=0;j<COL;j++) {
+                if(input[i][j]==1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
+    private int minTime(int[][] input) {
 
-        Queue<Element> queue = new LinkedList<>();
-        int row = arr.length;
-        int col = arr[0].length;
+        Queue<Cell> queue = new Queue<>();
+        int time = 0;
+        boolean flag = false;
 
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (arr[i][j] == 2) {
-                    Element element = new Element();
-                    element.x = i;
-                    element.y = j;
-                    queue.add(element);
+        for (int row=0;row<ROW;row++) {
+            for (int col=0;col<COL;col++) {
+                if(input[row][col]==2) {
+                    Cell cell = new Cell(row,col);
+                    queue.enqueue(cell);
                 }
             }
         }
 
-        System.out.println(queue.size());
-
-        int ans = 0;
-
-        Element delimiter = new Element();
-        delimiter.x = -1;
-        delimiter.y = -1;
-
-
-        queue.add(delimiter);
-
-        for (int i = 0; i <= queue.size(); i++) {
-            System.out.println(queue.peek().x + " " + queue.peek().y);
-            queue.remove();
-        }
-
-        System.exit(0);
+        Cell delimiter = new Cell(-1,-1);
+        queue.enqueue(delimiter);
 
         while (!queue.isEmpty()) {
 
-            boolean flag = false;
+            Cell current = queue.dequeue();
 
-            while (queue.peek().x != -1 && queue.peek().y != -1) {
+            while (current.x!=-1 && current.y!=-1) {
 
-                Element current = queue.peek();
+                if(isValid(current.x+1,current.y,input)) {
 
-                if (isValid(current.x + 1, current.y, row, col) && arr[current.x + 1][current.y] == 1) {
-
-                    if (!flag) {
+                    if(!flag) {
+                        time++;
                         flag = true;
-                        System.out.println(1);
-                        ans++;
                     }
 
-                    arr[current.x + 1][current.y] = 2;
-                    current.x++;
-                    queue.add(current);
-                    current.x--;
+                    input[current.x+1][current.y] = 2;
+                    Cell newCell = new Cell(current.x+1,current.y);
+                    queue.enqueue(newCell);
 
                 }
 
-                if (isValid(current.x, current.y + 1, row, col) && arr[current.x][current.y + 1] == 1) {
+                if(isValid(current.x,current.y+1,input)) {
 
-                    if (!flag) {
+                    if(!flag) {
+                        time++;
                         flag = true;
-                        System.out.println(2);
-                        ans++;
                     }
 
-                    arr[current.x][current.y + 1] = 2;
-                    current.y++;
-                    queue.add(current);
-                    current.y--;
+                    input[current.x][current.y+1] = 2;
+                    Cell newCell = new Cell(current.x,current.y+1);
+                    queue.enqueue(newCell);
 
                 }
 
-                if (isValid(current.x - 1, current.y, row, col) && arr[current.x - 1][current.y] == 1) {
+                if(isValid(current.x-1,current.y,input)) {
 
-                    if (!flag) {
+                    if(!flag) {
+                        time++;
                         flag = true;
-                        System.out.println(3);
-                        ans++;
                     }
 
-                    arr[current.x - 1][current.y] = 2;
-                    current.x--;
-                    queue.add(current);
-                    current.x++;
+                    input[current.x-1][current.y] = 2;
+                    Cell newCell = new Cell(current.x-1,current.y);
+                    queue.enqueue(newCell);
 
                 }
 
-                if (isValid(current.x, current.y - 1, row, col) && arr[current.x][current.y - 1] == 1) {
+                if(isValid(current.x,current.y-1,input)) {
 
-                    if (!flag) {
+                    if(!flag) {
+                        time++;
                         flag = true;
-                        System.out.println(4);
-                        ans++;
                     }
 
-                    arr[current.x + 1][current.y] = 2;
-                    current.y--;
-                    queue.add(current);
-                    current.y++;
+                    input[current.x][current.y-1] = 2;
+                    Cell newCell = new Cell(current.x,current.y-1);
+                    queue.enqueue(newCell);
 
                 }
 
-                System.out.println(current.x + " " + current.y);
-                queue.remove();
-                System.out.println(queue.peek().x + " " + queue.peek().y);
+                current = queue.dequeue();
+
             }
 
-            queue.remove();
-
-            if (!queue.isEmpty()) {
-                delimiter.x = -1;
-                delimiter.y = -1;
-
-                queue.add(delimiter);
+            if(current.equals(delimiter) && queue.getSize()!=0) {
+                queue.enqueue(delimiter);
             }
+
+            flag = false;
 
 
         }
 
-
-        return ans;
+        return time;
 
     }
 
+    private boolean isValid(int x,int y,int[][] input) {
+        return !(x < 0 || y < 0 || x >= ROW || y >= COL || input[x][y] != 1);
+    }
+
 }
+
