@@ -28,7 +28,7 @@ class Cell {
   private int id;
 
   // Number of moves to reach the current Cell
-  private int minMovesToReachFromStart;
+  private int minMovesFromStart;
 
   public Cell() {}
 
@@ -44,12 +44,12 @@ class Cell {
     this.id = id;
   }
 
-  public int getMinMovesToReachFromStart() {
-    return minMovesToReachFromStart;
+  public int getMinMovesFromStart() {
+    return minMovesFromStart;
   }
 
-  public void setMinMovesToReachFromStart(int minMovesToReachFromStart) {
-    this.minMovesToReachFromStart = minMovesToReachFromStart;
+  public void setMinMovesFromStart(int minMovesFromStart) {
+    this.minMovesFromStart = minMovesFromStart;
   }
 }
 
@@ -87,7 +87,7 @@ public class SnakeLadderGame {
                     visited[j] = true;
 
                     Cell cell = new Cell();
-                    cell.setMinMovesToReachFromStart(startCell.getMinMovesToReachFromStart() + 1);
+                    cell.setMinMovesFromStart(startCell.getMinMovesFromStart() + 1);
 
                     if (snakeLadderStartEndMap.containsKey(j)) {
                         int id = snakeLadderStartEndMap.get(j);
@@ -105,7 +105,7 @@ public class SnakeLadderGame {
 
         }
 
-        return queue.peek().getMinMovesToReachFromStart();
+        return queue.peek().getMinMovesFromStart();
 
 
     }
@@ -123,22 +123,6 @@ public class SnakeLadderGame {
         snakeLadderStartEndMap.put(20, 8);
         snakeLadderStartEndMap.put(16, 3);
         snakeLadderStartEndMap.put(18, 6);
-
-    /*int[] moves = new int[N];
-    for (int i = 0; i < N; i++)
-      moves[i] = -1;
-
-    // Ladders
-    moves[2] = 21;
-    moves[4] = 7;
-    moves[10] = 25;
-    moves[19] = 28;
-
-    // Snakes
-    moves[26] = 0;
-    moves[20] = 8;
-    moves[16] = 3;
-    moves[18] = 6;*/
 
 
         SnakeLadderGame snakeLadderGame = new SnakeLadderGame(N, snakeLadderStartEndMap);
