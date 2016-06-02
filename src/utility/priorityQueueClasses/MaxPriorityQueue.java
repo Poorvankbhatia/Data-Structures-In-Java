@@ -1,4 +1,4 @@
-package utility.PriorityQueueClasses;
+package utility.priorityQueueClasses;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
