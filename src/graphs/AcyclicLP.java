@@ -8,7 +8,7 @@ solving the
 
 package graphs;
 
-import utility.EdgeClasses.DirectedEdge;
+import utility.edgeClasses.DirectedEdge;
 import utility.Stack;
 import utility.graphClasses.EdgeWeightedDigraph;
 

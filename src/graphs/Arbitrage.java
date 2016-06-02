@@ -25,7 +25,7 @@ with weight x corresponds to a conversion from s to t at exchange rate x.
 
 package graphs;
 
-import utility.EdgeClasses.DirectedEdge;
+import utility.edgeClasses.DirectedEdge;
 import utility.graphClasses.EdgeWeightedDigraph;
 
 import java.io.BufferedReader;

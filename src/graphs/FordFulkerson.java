@@ -10,7 +10,7 @@ empty backward edges), continuing until there are no such paths in the network.
 
 package graphs;
 
-import utility.EdgeClasses.FlowEdge;
+import utility.edgeClasses.FlowEdge;
 import utility.graphClasses.FlowNetwork;
 import utility.Queue;
 
