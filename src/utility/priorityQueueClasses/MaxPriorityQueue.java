@@ -77,7 +77,7 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
     /**
      * A Brilliant and concise method for sink. (Copied from Sedgewick Book)
-     * Gauranteed orgasm after a dry run!
+     * Guaranteed orgasm after a dry run!
      */
     private void sink(int k) {
 
