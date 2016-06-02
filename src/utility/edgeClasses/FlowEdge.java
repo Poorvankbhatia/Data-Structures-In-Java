@@ -1,4 +1,4 @@
-package utility.EdgeClasses;
+package utility.edgeClasses;
 
 /**
  * Created by poorvank on 26/05/16.

@@ -1,7 +1,7 @@
 package utility.graphClasses;
 
 import utility.Bag;
-import utility.EdgeClasses.Edge;
+import utility.edgeClasses.Edge;
 
 /**
  * Created by poorvank on 14/05/16.
