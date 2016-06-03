@@ -25,6 +25,7 @@ with weight x corresponds to a conversion from s to t at exchange rate x.
 
 package graphs;
 
+import utility.GetInputFile;
 import utility.edgeClasses.DirectedEdge;
 import utility.graphClasses.EdgeWeightedDigraph;
 
@@ -42,8 +43,7 @@ public class Arbitrage {
     public static void main(String[] args) {
 
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(filePath + "/src/inputFiles/rates.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("rates.txt")));
             Integer vertexCount = Integer.parseInt(br.readLine());
             EdgeWeightedDigraph digraph = new EdgeWeightedDigraph(vertexCount);
             name = new String[vertexCount];

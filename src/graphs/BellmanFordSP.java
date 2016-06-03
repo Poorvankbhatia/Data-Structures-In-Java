@@ -118,8 +118,7 @@ public class BellmanFordSP {
 
 
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(filePath + "/src/inputFiles/BFInput"));
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("BFInput")));
             int vertexCount = Integer.parseInt(br.readLine());
             int lineCount = Integer.parseInt(br.readLine());
 

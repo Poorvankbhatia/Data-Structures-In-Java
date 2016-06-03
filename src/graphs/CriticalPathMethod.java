@@ -10,6 +10,7 @@
 package graphs;
 
 
+import utility.GetInputFile;
 import utility.edgeClasses.DirectedEdge;
 import utility.graphClasses.EdgeWeightedDigraph;
 
@@ -23,8 +24,7 @@ public class CriticalPathMethod {
     public static void main(String[] args) {
 
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br  = new BufferedReader(new FileReader(filePath + "/src/inputFiles/CPMInput"));
+            BufferedReader br  = new BufferedReader(new FileReader(GetInputFile.getFile("CPMInput")));
             Integer n = Integer.parseInt(br.readLine());
             EdgeWeightedDigraph edgeWeightedDigraph = new EdgeWeightedDigraph((2*n)+2);
 

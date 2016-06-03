@@ -8,6 +8,7 @@ solving the
 
 package graphs;
 
+import utility.GetInputFile;
 import utility.edgeClasses.DirectedEdge;
 import utility.Stack;
 import utility.graphClasses.EdgeWeightedDigraph;
@@ -77,8 +78,8 @@ public class AcyclicLP {
 
     public static void main(String[] args) {
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(filePath + "/src/inputFiles/newInput.txt"));
+
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("newInput.txt")));
             int vertexCount = Integer.parseInt(br.readLine());
             int lineCount = Integer.parseInt(br.readLine());
 

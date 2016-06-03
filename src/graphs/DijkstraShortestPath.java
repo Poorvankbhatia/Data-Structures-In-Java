@@ -1,5 +1,6 @@
 package graphs;
 
+import utility.GetInputFile;
 import utility.edgeClasses.DirectedEdge;
 import utility.graphClasses.EdgeWeightedDigraph;
 import utility.priorityQueueClasses.IndexMinPriorityQueue;
@@ -79,8 +80,7 @@ public class DijkstraShortestPath {
 
     public static void main(String[] args) {
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(filePath + "/src/inputFiles/largeEWG.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("largeEWG.txt")));
             String line = null;
             int count = 0;
             int vertexCount = Integer.parseInt(br.readLine());

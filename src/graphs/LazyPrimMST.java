@@ -71,8 +71,7 @@ public class LazyPrimMST {
 
     public static void main(String[] args) {
         try {
-            String filePath = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(filePath + "/src/inputFiles/mediumEWG.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("mediumEWG.txt")));
             String line = null;
             int count = 0;
             int vertexCount = Integer.parseInt(br.readLine());
