@@ -1,5 +1,7 @@
 package utility.graphClasses;
 
+import utility.GetInputFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,7 +9,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * Created by poorvank.b on 02/06/16.
+ * Created by poorvank on 02/06/16.
  */
 public class SymbolGraph {
 
@@ -73,9 +75,7 @@ public class SymbolGraph {
 
     public static void main(String[] args) {
 
-        String path = new File("").getAbsolutePath();
-        File file = new File(path + "/src/inputFiles/movies.txt");
-        SymbolGraph sg = new SymbolGraph(file,"/");
+        SymbolGraph sg = new SymbolGraph(GetInputFile.getFile("/src/inputFiles/routes.txt")," ");
         Graph G = sg.getAssociatedGraph();
 
         for (int v=0;v<G.getVertexCount();v++) {
@@ -97,6 +97,11 @@ public class SymbolGraph {
  A symbol table st with String keys (vertex names) and int values (indices)
  An array keys[] that serves as an inverted index, giving the vertex name associated
 with each integer index
- A Graph G built using the indices to refer to vertices
+ A Graph G built using the indices to refer to vertices.
+
+
+ Q. Does SymbolGraph really need two passes?
+A. No. You could pay an extra lg N factor and support adj() directly as an ST instead
+of a Bag.
 
  */

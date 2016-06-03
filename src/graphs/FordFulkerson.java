@@ -10,12 +10,12 @@ empty backward edges), continuing until there are no such paths in the network.
 
 package graphs;
 
+import utility.GetInputFile;
 import utility.edgeClasses.FlowEdge;
 import utility.graphClasses.FlowNetwork;
 import utility.Queue;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 
 /**
@@ -104,8 +104,7 @@ public class FordFulkerson {
     public static void main(String[] args) {
 
         try {
-            String path = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(path + "/src/inputFiles/FordFulkersonInput"));
+            BufferedReader br = new BufferedReader(new FileReader(GetInputFile.getFile("FordFulkersonInput")));
             int vertexCount = Integer.parseInt(br.readLine());
             int source = 0,destination = vertexCount-1;
             FlowNetwork network = new FlowNetwork(vertexCount);
