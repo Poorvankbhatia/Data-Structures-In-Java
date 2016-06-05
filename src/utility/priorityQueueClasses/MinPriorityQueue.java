@@ -93,7 +93,7 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
         }
     }
 
-    public Item max() {
+    public Item min() {
         if(isEmpty()) {
             throw new NoSuchElementException("Priority Queue Underflow");
         }
@@ -176,7 +176,7 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
 
         Integer arr[] = new Integer[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         MinPriorityQueue<Integer> minPQ = new MinPriorityQueue(arr);
-        System.out.println("Minimum element = " + minPQ.max() + " size of PQ = " + minPQ.size);
+        System.out.println("Minimum element = " + minPQ.min() + " size of PQ = " + minPQ.size);
         for (Integer i : minPQ) {
             System.out.print(i + " ");
         }
