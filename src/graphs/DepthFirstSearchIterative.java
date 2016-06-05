@@ -47,3 +47,28 @@ public class DepthFirstSearchIterative {
     }
 
 }
+
+/*
+
+Mark-and-sweep garbage collection.
+ An important
+application of multiple-source reachability
+is found in typical memory-management
+systems, including many implementations of
+Java. A digraph where each vertex represents
+an object and each edge represents a reference
+to an object is an appropriate model for the
+memory usage of a running Java program. At
+any point in the execution of a program, certain
+objects are known to be directly accessible, and
+any object not reachable from that set of objects
+can be returned to available memory. A markand-
+sweep garbage collection strategy reserves
+one bit per object for the purpose of garbage
+collection, then periodically marks the set of
+potentially accessible objects by running a digraph
+reachability algorithm like DirectedDFS
+and sweeps through all objects, collecting the
+unmarked ones for use for new objects.
+
+ */
