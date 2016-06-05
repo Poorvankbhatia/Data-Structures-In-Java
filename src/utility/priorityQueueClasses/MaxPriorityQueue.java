@@ -54,7 +54,7 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
         return (pq[i]).compareTo(pq[j]) < 0;
     }
 
-    private void swim(int k) {
+    public void swim(int k) {
 
         while (k>1 && isSmall(k/2,k)) {
             exchange(k/2,k);
@@ -72,12 +72,21 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
         }
     }
 
+    // Replace root with a given Item type
+    public void replaceRoot(Item k) {
+        if(isEmpty()) {
+            throw new NoSuchElementException("Priority Queue Underflow");
+        }
+        pq[1] = k;
+        sink(1);
+    }
+
     /**
      * A Brilliant and concise method for sink. (Copied from Sedgewick Book)
      * Guaranteed orgasm after a dry run!
      * 2*k == left and (2*k) + 1==right
      */
-    private void sink(int k) {
+    public void sink(int k) {
 
         while ((2*k)<=size) {
             int j = 2*k;

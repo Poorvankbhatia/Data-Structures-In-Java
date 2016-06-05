@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Created by poorvank.b on 16/05/16.
+ * Created by poorvank on 16/05/16.
  */
 @SuppressWarnings("unchecked")
 public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable<Item> {
@@ -98,6 +98,15 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
             throw new NoSuchElementException("Priority Queue Underflow");
         }
         return pq[1];
+    }
+
+    // Replace root with a given Item type
+    public void replaceRoot(Item k) {
+        if(isEmpty()) {
+            throw new NoSuchElementException("Priority Queue Underflow");
+        }
+        pq[1] = k;
+        sink(1);
     }
 
     public void insert(Item item) {
