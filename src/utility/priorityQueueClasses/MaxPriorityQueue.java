@@ -6,14 +6,15 @@ import java.util.NoSuchElementException;
 /**
  * Created by poorvank on 4/21/15.
  */
-public class MaxPriorityQueue<Item> implements Iterable<Item> {
+@SuppressWarnings("unchecked")
+public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable<Item> {
 
     private Item[] pq;
     private int size;
 
-    @SuppressWarnings("unchecked")
+
     public MaxPriorityQueue(int capacity) {
-        pq = (Item[]) new Object[capacity+1];
+        pq = (Item[]) new Comparable[capacity+1];
         size = 0;
     }
 
@@ -22,7 +23,7 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
     }
 
     public MaxPriorityQueue(Item[] items) {
-        pq = (Item[]) new Object[items.length+1];
+        pq = (Item[]) new Comparable[items.length+1];
         size = items.length;
         for(int i=0;i<size;i++) {
             pq[i+1] = items[i];
@@ -49,12 +50,8 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
         pq[j] = k;
     }
 
-
-    /*
-       Cast to comparable in case we have predifined objects in heap
-     */
     private boolean isSmall(int i,int j) {
-        return ((Comparable<Item>) pq[i]).compareTo(pq[j]) < 0;
+        return (pq[i]).compareTo(pq[j]) < 0;
     }
 
     private void swim(int k) {
@@ -67,7 +64,7 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
     private void resize(int capacity) {
         if(capacity>size) {
-            Item[] temp = (Item[]) new Object[capacity];
+            Item[] temp = (Item[]) new Comparable[capacity];
             for(int i=1;i<=size;i++) {
                 temp[i] = pq[i];
             }
@@ -78,11 +75,13 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
     /**
      * A Brilliant and concise method for sink. (Copied from Sedgewick Book)
      * Guaranteed orgasm after a dry run!
+     * 2*k == left and (2*k) + 1==right
      */
     private void sink(int k) {
 
         while ((2*k)<=size) {
             int j = 2*k;
+            // j<size means a right child exists
             if(j<size && isSmall(j,j+1)) {
                 j++;
             }
@@ -102,6 +101,11 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
         return pq[1];
     }
 
+
+    /**
+     * We add the new key at the end of the array, increment the size of the heap,
+     * and then swim up through the heap with that key to restore the heap condition.
+     */
     public void insert(Item item) {
 
         if(getSize()>=pq.length-1) {
@@ -142,6 +146,11 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
     }
 
+    /**
+     * We take the largest key off the top, put the item from
+     * the end of the heap at the top, decrement the size of the heap, and then sink down
+     * through the heap with that key to restore the heap condition
+     */
     public Item delMax() {
         if(isEmpty()) {
             throw new NoSuchElementException("Proiority Queue Underflow");
@@ -177,7 +186,8 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
         Integer arr[] = new Integer[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         MaxPriorityQueue<Integer> maxPQ = new MaxPriorityQueue(arr);
-        System.out.println(maxPQ.max() + " " + maxPQ.size);
+        System.out.println("Max element =  " + maxPQ.max() + " size of PQ = " + maxPQ.size);
+
         for (Integer i : maxPQ) {
             System.out.print(i + " ");
         }

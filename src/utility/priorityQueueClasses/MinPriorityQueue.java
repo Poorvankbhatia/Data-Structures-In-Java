@@ -7,21 +7,21 @@ import java.util.NoSuchElementException;
  * Created by poorvank.b on 16/05/16.
  */
 @SuppressWarnings("unchecked")
-public class MinPriorityQueue<Item> implements Iterable<Item> {
+public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable<Item> {
 
     private Item[] pq;
     private int size;
 
 
     public MinPriorityQueue(Item[] items) {
-        pq = (Item[]) new Object[items.length+1];
+        pq = (Item[]) new Comparable[items.length+1];
         size = items.length;
         for(int i=0;i<size;i++) {
             pq[i+1] = items[i];
         }
 
 
-        for(int k=(int) (Math.ceil(size/2));k>=1;k--) {
+        for(int k=size/2;k>=1;k--) {
             sink(k);
         }
 
@@ -33,7 +33,7 @@ public class MinPriorityQueue<Item> implements Iterable<Item> {
     }
 
     public MinPriorityQueue(int capacity) {
-        pq = (Item[]) new Object[capacity+1];
+        pq = (Item[]) new Comparable[capacity+1];
         size = 0;
     }
 
@@ -57,7 +57,7 @@ public class MinPriorityQueue<Item> implements Iterable<Item> {
 
 
     private boolean isSmall(int i, int j) {
-        return ((Comparable<Item>) pq[i]).compareTo(pq[j]) < 0;
+        return (pq[i]).compareTo(pq[j]) < 0;
     }
 
     private void swim(int k) {
@@ -70,7 +70,7 @@ public class MinPriorityQueue<Item> implements Iterable<Item> {
 
     private void resize(int capacity) {
         if(capacity>size) {
-            Item[] temp = (Item[]) new Object[capacity];
+            Item[] temp = (Item[]) new Comparable[capacity];
             for(int i=1;i<=size;i++) {
                 temp[i] = pq[i];
             }
@@ -176,7 +176,7 @@ public class MinPriorityQueue<Item> implements Iterable<Item> {
 
         Integer arr[] = new Integer[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         MinPriorityQueue<Integer> minPQ = new MinPriorityQueue(arr);
-        System.out.println(minPQ.max() + " " + minPQ.size);
+        System.out.println("Minimum element = " + minPQ.max() + " size of PQ = " + minPQ.size);
         for (Integer i : minPQ) {
             System.out.print(i + " ");
         }
