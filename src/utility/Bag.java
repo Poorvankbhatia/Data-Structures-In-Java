@@ -65,7 +65,7 @@ public class Bag<Item> implements Iterable<Item> {
         private Node current = first;
 
         public boolean hasNext() {
-            return current!=null;
+            return current != null;
         }
 
         public Item next() {
@@ -80,11 +80,11 @@ public class Bag<Item> implements Iterable<Item> {
     public String toString() {
 
         Node current = first;
-        if(current==null) {
+        if (current == null) {
             return "No items in the bag";
         }
         StringBuilder sb = new StringBuilder();
-        while (current!=null) {
+        while (current != null) {
             sb.append(current.item).append(" ");
             current = current.next;
         }
