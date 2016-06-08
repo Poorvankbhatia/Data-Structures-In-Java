@@ -27,7 +27,7 @@ i,e., numbers can be printed in any order
 package graphs;
 
 import java.util.LinkedList;
-import java.util.Queue;
+import utility.Queue;
 
 /**
  * Created by poorvank on 1/16/16.
@@ -54,12 +54,12 @@ public class JumpingNumbers {
     //Doing a BFS
     private static void printJumpNo(int startNum, int x) {
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(startNum);
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(startNum);
 
         while (!queue.isEmpty()) {
 
-            startNum = queue.remove();
+            startNum = queue.dequeue();
             int lastDigit = startNum % 10;
 
             if (startNum <= x) {
@@ -67,12 +67,12 @@ public class JumpingNumbers {
                 System.out.print(startNum + " ");
 
                 if (lastDigit == 0) {
-                    queue.add(startNum * 10 + (lastDigit + 1));
+                    queue.enqueue(startNum * 10 + (lastDigit + 1));
                 } else if (lastDigit == 9) {
-                    queue.add(startNum * 10 + (lastDigit - 1));
+                    queue.enqueue(startNum * 10 + (lastDigit - 1));
                 } else {
-                    queue.add(startNum * 10 + (lastDigit + 1));
-                    queue.add(startNum * 10 + (lastDigit - 1));
+                    queue.enqueue(startNum * 10 + (lastDigit + 1));
+                    queue.enqueue(startNum * 10 + (lastDigit - 1));
                 }
 
             }
@@ -85,16 +85,16 @@ public class JumpingNumbers {
     private static void printOrderedJumpNo(int x) {
 
         int i = 1;
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new Queue<>();
 
         while (i <= 9 && i <= x) {
-            queue.add(i);
+            queue.enqueue(i);
             i++;
         }
 
         while (!queue.isEmpty()) {
 
-            int startNum = queue.remove();
+            int startNum = queue.dequeue();
             int lastDigit = startNum % 10;
 
             if (startNum <= x) {
@@ -102,12 +102,12 @@ public class JumpingNumbers {
                 System.out.print(startNum + " ");
 
                 if (lastDigit == 0) {
-                    queue.add(startNum * 10 + (lastDigit + 1));
+                    queue.enqueue(startNum * 10 + (lastDigit + 1));
                 } else if (lastDigit == 9) {
-                    queue.add(startNum * 10 + (lastDigit - 1));
+                    queue.enqueue(startNum * 10 + (lastDigit - 1));
                 } else {
-                    queue.add(startNum * 10 + (lastDigit + 1));
-                    queue.add(startNum * 10 + (lastDigit - 1));
+                    queue.enqueue(startNum * 10 + (lastDigit + 1));
+                    queue.enqueue(startNum * 10 + (lastDigit - 1));
                 }
 
             }
