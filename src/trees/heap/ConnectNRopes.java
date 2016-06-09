@@ -17,104 +17,36 @@ Finally we connect 13 and 2. Total cost in this way is 10 + 13 + 15 = 38.
  */
 package trees.heap;
 
+import utility.priorityQueueClasses.MinPriorityQueue;
+
 /**
  * Created by poorvank on 7/12/15.
  */
-//TODO a class of minHeap to be used in all min heap implementations
 
 public class ConnectNRopes {
 
-    private static int heapSize = 0;
-
     public static void main(String[] args) {
 
-        int[] arr = new int[]{4, 3, 2, 6};
-        System.out.println(minCost(arr));
+        Integer[] arr = new Integer[]{4, 3, 2, 6};
 
-
-    }
-
-    private static int minCost(int[] arr) {
+        MinPriorityQueue<Integer> pq = new MinPriorityQueue<Integer>(arr);
+        int currentRopeCount = pq.getSize();
 
         int cost = 0;
 
-        heapSize = arr.length;
-        buildMinHeap(arr);
-
-        while (heapSize != 1) {
-
-            int min = extractMinimum(arr, heapSize);
-            int secMin = extractMinimum(arr, heapSize);
-
-            cost += min + secMin;
-
-            insertMinHeap(arr, min + secMin);
-
+        while (currentRopeCount!=1) {
+            int smallest = pq.delMin();
+            int secondToSmallest = pq.delMin();
+            int newRope = smallest+secondToSmallest;
+            pq.insert(newRope);
+            cost += newRope;
+            currentRopeCount = pq.getSize();
         }
 
-
-        return cost;
-
-    }
-
-    private static void insertMinHeap(int[] arr, int value) {
-
-        heapSize++;
-        arr[heapSize - 1] = value;
-        buildMinHeap(arr);
+        System.out.println(cost);
 
     }
 
-    private static int extractMinimum(int[] arr, int length) {
-
-        int minValue = arr[0];
-
-        arr[0] = arr[length - 1];
-        heapSize--;
-        buildMinHeap(arr);
-
-        return minValue;
-
-    }
-
-    private static void buildMinHeap(int[] arr) {
-
-        for (int i = heapSize / 2; i >= 0; i--) {
-            restoreDown(arr, i);
-        }
-
-    }
-
-    private static void restoreDown(int[] arr, int i) {
-
-        int left = (2 * i) + 1;
-        int right = (2 * i) + 2;
-        int num = arr[i];
-
-        while (right <= heapSize - 1) {
-            if (num <= arr[left] && num <= arr[right]) {
-                arr[i] = num;
-                return;
-            } else if (arr[left] < arr[right]) {
-                arr[i] = arr[left];
-                i = left;
-            } else if (arr[left] > arr[right]) {
-                arr[i] = arr[right];
-                i = right;
-            }
-
-            left = (2 * i) + 1;
-            right = (2 * i) + 2;
-        }
-
-
-        if (left <= heapSize - 1 && arr[left] < num) {
-            arr[i] = arr[left];
-            i = left;
-        }
-
-        arr[i] = num;
-    }
 
 }
 
