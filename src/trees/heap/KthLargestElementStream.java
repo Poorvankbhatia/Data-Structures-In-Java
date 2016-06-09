@@ -16,6 +16,8 @@ Extra space allowed is O(k).
 
 package trees.heap;
 
+import utility.priorityQueueClasses.MinPriorityQueue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,115 +26,51 @@ import java.util.Scanner;
  * Created by poorvank on 7/3/15.
  */
 
-class MinimumHeap {
-
-    public static List<Integer> heapList = new ArrayList<>();
-    public static int heapSize = 0;
-    public static int count = 1;
-
-    public static int leftChild(int i) {
-        return (2 * i) + 1;
-    }
-
-    public static int rightChild(int i) {
-        return (2 * i) + 2;
-    }
-
-    public static int parent(int i) {
-        return (i - 1) / 2;
-    }
-
-    public static void replaceMin(int x) {
-        heapList.set(0, x);
-        restoreDown(0);
-
-    }
-
-    public static void KthLargest(int k) {
-
-        while (true) {
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter new element");
-            int x = scanner.nextInt();
-
-            if (count < k) {
-                heapList.add(x);
-                count++;
-                heapSize++;
-            } else {
-
-                if (count == k) {
-                    heapList.add(x);
-                    heapSize++;
-                    System.out.println(heapList.toString());
-                    buildHeap();
-                }
-
-                //Check if the next element is >  root value. count at that time should be > k
-                if (x > heapList.get(0) && count > k) {
-                    replaceMin(x);
-                }
-
-                System.out.println(heapList.toString());
-                System.out.println(k + " largest element is - " + heapList.get(0));
-
-                count++;
-
-            }
-
-        }
-
-    }
-
-
-    public static void buildHeap() {
-
-        for (int i = heapList.size() / 2; i >= 0; i--) {
-            restoreDown(i);
-        }
-
-    }
-
-    private static void restoreDown(int i) {
-
-        int num = heapList.get(i);
-        int rIndex = rightChild(i);
-        int lIndex = leftChild(i);
-
-
-        while (rIndex <= heapSize - 1) {
-            if (num <= heapList.get(rIndex) && num <= heapList.get(lIndex)) {
-                heapList.set(i, num);
-                return;
-            } else if (heapList.get(rIndex) < heapList.get(lIndex)) {
-                heapList.set(i, heapList.get(rIndex));
-                i = rIndex;
-            } else if (heapList.get(lIndex) < heapList.get(rIndex)) {
-                heapList.set(i, heapList.get(lIndex));
-                i = lIndex;
-            }
-
-            rIndex = rightChild(i);
-            lIndex = leftChild(i);
-        }
-
-        if (lIndex == heapSize - 1 && heapList.get(lIndex) < num) {
-            heapList.set(i, heapList.get(lIndex));
-            i = lIndex;
-        }
-
-        heapList.set(i, num);
-    }
-
-}
-
 public class KthLargestElementStream {
+
 
     public static void main(String[] args) {
 
         int k = 3;
-        MinimumHeap.KthLargest(k);
+
+        System.out.println("To mark the end of stream type \"end\" ");
+        Scanner scanner = new Scanner(System.in);
+
+        MinPriorityQueue<Integer> minPriorityQueue = new MinPriorityQueue<>(k);
+
+        int count=0;
+
+        while (true) {
+
+            System.out.println("Enter a new element");
+            String line = scanner.nextLine();
+
+            if(("end").equals(line)) {
+                if(count>k) {
+                    System.out.println("Finally Minimum element at position = " + k  + " in stream = " + minPriorityQueue.min());
+                }
+                break;
+            }
+
+            Integer element = Integer.parseInt(line);
+            if(count>=k) {
+                if(element>minPriorityQueue.min()) {
+                    minPriorityQueue.replaceRoot(element);
+                }
+            } else {
+                minPriorityQueue.insert(element);
+            }
+            count++;
+
+            if(count<k) {
+                continue;
+            }
+
+
+            System.out.println("Currently Minimum element at position = " + k  + " in stream = " + minPriorityQueue.min());
+
+        }
+
     }
 
 }
