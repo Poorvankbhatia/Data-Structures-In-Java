@@ -18,6 +18,8 @@ Output: 10
 
 package trees.heap;
 
+import utility.priorityQueueClasses.MinPriorityQueue;
+
 /**
  * Created by poorvank on 7/3/15.
  */
@@ -27,89 +29,23 @@ public class KthSmallestArrayElement {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{4, 7, 10};
+        Integer[] arr = new Integer[]{4, 7, 10};
 
         int k = 1;
 
+        MinPriorityQueue<Integer> pq = new MinPriorityQueue<>(arr);
 
-        if (k > arr.length || k <= 0) {
-            System.out.println("Not possible");
-        } else {
-            System.out.println(KthElement(arr, k));
-        }
+        int kthSmallestElement = -1;
 
-
-    }
-
-    private static int KthElement(int[] arr, int k) {
-
-        buildMinHeap(arr);
-
-        heapSize = arr.length;
-        for (int i = 1; i < k; i++) {
-            extractMin(arr);
-            heapSize--;
-        }
-
-        return arr[0];
-
-    }
-
-    private static void extractMin(int[] arr) {
-
-        int root = arr[0];
-
-        if (arr.length > 1) {
-            arr[0] = arr[heapSize - 1];
-            restoreDown(arr, 0, heapSize);
-        }
-
-    }
-
-    private static void buildMinHeap(int[] arr) {
-
-        for (int i = arr.length / 2; i >= 0; i--) {
-            restoreDown(arr, i, arr.length);
-        }
-
-    }
-
-    private static void restoreDown(int[] arr, int i, int length) {
-
-        int leftChild = (2 * i) + 1;
-        int rightChild = (2 * i) + 2;
-        int num = arr[i];
-
-        while (rightChild <= length - 1) {
-
-            if (num <= arr[leftChild] && num <= arr[rightChild]) {
-                arr[i] = num;
-                return;
-            } else if (arr[leftChild] < arr[rightChild]) {
-                arr[i] = arr[leftChild];
-                i = leftChild;
-            } else if (arr[rightChild] < arr[leftChild]) {
-                arr[i] = arr[rightChild];
-                i = rightChild;
+        while (k!=0) {
+            if(!pq.isEmpty()) {
+                kthSmallestElement = pq.delMin();
             }
-
-            leftChild = (2 * i) + 1;
-            rightChild = (2 * i) + 2;
-
-        }
-        
-         /*
-        
-        When odd nodes all nodes will have 2 || 0 children
-        In case of even nodes there is only 1 node with 1 left child
-         */
-
-        if (leftChild == length - 1 && arr[leftChild] < num) {
-            arr[i] = arr[leftChild];
-            i = leftChild;
+            k--;
         }
 
-        arr[i] = num;
+        System.out.println(" smallest element is = " + kthSmallestElement);
+
 
     }
 
