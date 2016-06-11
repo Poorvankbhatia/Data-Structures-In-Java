@@ -103,7 +103,7 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
     }
 
 
-    public Item max() {
+    public Item getMaximumElement() {
         if(isEmpty()) {
             throw new NoSuchElementException("Priority Queue Underflow");
         }
@@ -195,7 +195,7 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
 
         Integer arr[] = new Integer[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         MaxPriorityQueue<Integer> maxPQ = new MaxPriorityQueue(arr);
-        System.out.println("Max element =  " + maxPQ.max() + " size of PQ = " + maxPQ.size);
+        System.out.println("Max element =  " + maxPQ.getMaximumElement() + " size of PQ = " + maxPQ.size);
 
         for (Integer i : maxPQ) {
             System.out.print(i + " ");
