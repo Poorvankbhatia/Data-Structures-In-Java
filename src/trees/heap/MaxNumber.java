@@ -13,6 +13,8 @@ one digit of sec can be used to replace only once.
 
 package trees.heap;
 
+import utility.priorityQueueClasses.MaxPriorityQueue;
+
 import java.util.Arrays;
 
 /**
@@ -22,66 +24,24 @@ public class MaxNumber {
 
     public static void main(String[] args) {
 
-        int[] primaryArray = new int[]{3, 1, 4, 5, 6};
-        int[] secArray = new int[]{1, 9, 5, 2, 3};
+        Integer[] primaryArray = new Integer[]{3, 1, 4, 5, 6};
+        Integer[] secArray = new Integer[]{1, 9, 5, 2, 3};
         int length = secArray.length;
 
-        maxHeap(secArray, length);
+        MaxPriorityQueue<Integer> pq = new MaxPriorityQueue<>(secArray);
 
-        for (int i = 0; i < primaryArray.length; i++) {
-
-            if (primaryArray[i] < secArray[0]) {
-                primaryArray[i] = secArray[0];
-                secArray[0] = secArray[length - 1];
-                maxHeap(secArray, length - 1);
+        for (int i=0;i<length;i++) {
+            if(pq.isEmpty()) {
+                System.out.println("No more items can be replaced");
+                break;
             }
-
-        }
-
-        System.out.println(Arrays.toString(primaryArray));
-
-    }
-
-
-    private static void maxHeap(int[] arr, int length) {
-
-        for (int i = length / 2; i >= 0; i--) {
-            heapify(arr, i, length);
-        }
-
-    }
-
-    private static void heapify(int[] arr, int i, int length) {
-
-        int leftChild = (2 * i) + 1;
-        int rightChild = (2 * i) + 2;
-        int n = arr[i];
-
-        while (rightChild <= length - 1) {
-
-            if (n >= arr[leftChild] && n >= arr[rightChild]) {
-                arr[i] = n;
-                return;
-            } else if (arr[leftChild] > arr[rightChild]) {
-                arr[i] = arr[leftChild];
-                i = leftChild;
-            } else if (arr[rightChild] > arr[leftChild]) {
-                arr[i] = arr[rightChild];
-                i = rightChild;
+            int maxInteger = pq.getMaximumElement();
+            if(maxInteger>primaryArray[i]) {
+                primaryArray[i] = pq.delMax();
             }
-
-            leftChild = (2 * i) + 1;
-            rightChild = (2 * i) + 2;
-
         }
 
-        if (leftChild == length - 1 && arr[leftChild] > n) {
-            arr[i] = arr[leftChild];
-            i = leftChild;
-        }
-
-        arr[i] = n;
-
+        System.out.println("New array - " + Arrays.toString(primaryArray));
 
     }
 
@@ -89,7 +49,7 @@ public class MaxNumber {
 
 /*
 
-construct a max heap of sec array.And ran a loop checking if the max element of sec was greater than the element
+construct a getMaximumElement heap of sec array.And ran a loop checking if the getMaximumElement element of sec was greater than the element
 in arr and then  replaced it in arr and deleted the same from the maxheap.
 
  */
