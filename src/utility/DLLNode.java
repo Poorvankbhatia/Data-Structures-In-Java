@@ -19,7 +19,9 @@ public class DLLNode<T extends Comparable<T>> implements Comparable<DLLNode<T>> 
         this.previous = previous;
     }
 
-
+    public void setNext(DLLNode next) {
+        this.next = next;
+    }
 
     public T getInfo() {
         return info;
