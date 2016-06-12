@@ -54,12 +54,17 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
         return (pq[i]).compareTo(pq[j]) < 0;
     }
 
-    public void swim(int k) {
+    /*
+     * Return current position of element in pq
+     */
+    public int swim(int k) {
 
         while (k>1 && isSmall(k/2,k)) {
             exchange(k/2,k);
             k=k/2;
         }
+
+        return k;
     }
 
     private void resize(int capacity) {
@@ -114,17 +119,19 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
     /**
      * We add the new key at the end of the array, increment the size of the heap,
      * and then swim up through the heap with that key to restore the heap condition.
+     * Returns the current position of element in pq
      */
-    public void insert(Item item) {
+    public int insert(Item item) {
 
         if(getSize()>=pq.length-1) {
             resize(2*pq.length);
         }
         pq[++size] = item;
-        swim(size);
+        int pos = swim(size);
         if(!isMaxHeap())  {
             System.out.println("Heap property not satisfied!!!");
         }
+        return pos;
     }
 
     public Iterator<Item> iterator() {
@@ -153,6 +160,23 @@ public class MaxPriorityQueue<Item extends Comparable<Item>> implements Iterable
             return copy.delMax();
         }
 
+    }
+
+
+    public void deleteIndex(Integer index) {
+        if(index>getSize()) {
+            throw new NoSuchElementException("Index is greater than size, can't be deleted");
+        }
+        exchange(index,size);
+        size--;
+        sink(index);
+        pq[size+1] = null;
+        if(size>0 && size==(pq.length-1)/4) {
+            resize(pq.length/2);
+        }
+        if(!isMaxHeap())  {
+            System.out.println("Heap property not satisfied!!!");
+        }
     }
 
     /**

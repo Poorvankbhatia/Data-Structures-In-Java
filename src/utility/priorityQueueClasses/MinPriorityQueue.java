@@ -60,12 +60,16 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
         return (pq[i]).compareTo(pq[j]) < 0;
     }
 
-    private void swim(int k) {
+    /*
+     * Return current position of the element in priority queue
+     */
+    private int swim(int k) {
 
         while (k>1 && isSmall(k,k/2)) {
             exchange(k/2,k);
             k=k/2;
         }
+        return k;
     }
 
     private void resize(int capacity) {
@@ -93,7 +97,7 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
         }
     }
 
-    public Item min() {
+    public Item getMinimumElement() {
         if(isEmpty()) {
             throw new NoSuchElementException("Priority Queue Underflow");
         }
@@ -109,17 +113,22 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
         sink(1);
     }
 
-    public void insert(Item item) {
+    /*
+     * Return final inserted position of item in pq
+     */
+    public int insert(Item item) {
 
         if(getSize()>=pq.length-1) {
             resize(2*pq.length);
         }
         pq[++size] = item;
-        swim(size);
+        int pos = swim(size);
         if(!isMinHeap())  {
             System.out.println("Heap property not satisfied while inserting!!!");
             System.exit(1);
         }
+
+        return pos;
     }
 
     public Iterator<Item> iterator() {
@@ -148,6 +157,22 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
             return copy.delMin();
         }
 
+    }
+
+    public void deleteIndex(Integer index) {
+        if(index>getSize()) {
+            throw new NoSuchElementException("Index is greater than size, can't be deleted");
+        }
+        exchange(index,size);
+        size--;
+        sink(index);
+        pq[size+1] = null;
+        if(size>0 && size==(pq.length-1)/4) {
+            resize(pq.length/2);
+        }
+        if(!isMinHeap())  {
+            System.out.println("Heap property not satisfied!!!");
+        }
     }
 
     public Item delMin() {
@@ -185,7 +210,7 @@ public class MinPriorityQueue<Item extends Comparable<Item>> implements Iterable
 
         Integer arr[] = new Integer[]{25, 35, 18, 9, 46, 70, 48, 23, 78, 12};
         MinPriorityQueue<Integer> minPQ = new MinPriorityQueue(arr);
-        System.out.println("Minimum element = " + minPQ.min() + " size of PQ = " + minPQ.size);
+        System.out.println("Minimum element = " + minPQ.getMinimumElement() + " size of PQ = " + minPQ.size);
         for (Integer i : minPQ) {
             System.out.print(i + " ");
         }
