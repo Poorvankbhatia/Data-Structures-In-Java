@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 /**
  * Created by poorvank on 19/05/16.
  */
-public class IndexMinPriorityQueue<Key extends Comparable<Key>> implements Iterable<Integer> {
+public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implements Iterable<Integer> {
 
     private int maxSize; //Maximum number of elements in priority queue
     private int N;       //Cuurent number of elements

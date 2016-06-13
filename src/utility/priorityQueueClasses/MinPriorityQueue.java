@@ -7,10 +7,6 @@ import java.util.NoSuchElementException;
  * Created by poorvank on 16/05/16.
  */
 @SuppressWarnings("unchecked")
-
-/**
- * @see <a href="http://stackoverflow.com/questions/2827585/what-is-super-t-syntax">Super Syantax</a>
- */
 public class MinPriorityQueue<Item extends Comparable<? super Item>> implements Iterable<Item> {
 
     private Item[] pq;
