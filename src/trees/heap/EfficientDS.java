@@ -25,6 +25,8 @@ operations according to their frequency.
  */
 package trees.heap;
 
+import utility.DLLNode;
+import utility.DoublyLinkList;
 import utility.priorityQueueClasses.MaxPriorityQueue;
 import utility.priorityQueueClasses.MinPriorityQueue;
 
@@ -36,11 +38,8 @@ import java.util.NoSuchElementException;
  */
 
 @SuppressWarnings("unchecked")
-class EfficientDSNode<T extends Comparable<T>> implements Comparable<EfficientDSNode<T>>  {
+class EfficientDSNode<T extends Comparable<T>> extends DLLNode<T> {
 
-    private T info;
-    private EfficientDSNode next;
-    private EfficientDSNode previous;
     private Integer maxHeapIndex;
     private Integer minHeapIndex;
 
@@ -49,35 +48,9 @@ class EfficientDSNode<T extends Comparable<T>> implements Comparable<EfficientDS
     }
 
     public EfficientDSNode(T info, EfficientDSNode next, EfficientDSNode previous, Integer maxHeapIndex, Integer minHeapIndex) {
-        this.info = info;
-        this.next = next;
-        this.previous = previous;
+        super(info,next,previous);
         this.maxHeapIndex = maxHeapIndex;
         this.minHeapIndex = minHeapIndex;
-    }
-
-    public T getInfo() {
-        return info;
-    }
-
-    public void setInfo(T info) {
-        this.info = info;
-    }
-
-    public EfficientDSNode getNext() {
-        return next;
-    }
-
-    public void setNext(EfficientDSNode next) {
-        this.next = next;
-    }
-
-    public EfficientDSNode getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(EfficientDSNode previous) {
-        this.previous = previous;
     }
 
     public Integer getMaxHeapIndex() {
@@ -96,157 +69,22 @@ class EfficientDSNode<T extends Comparable<T>> implements Comparable<EfficientDS
         this.minHeapIndex = minHeapIndex;
     }
 
-    @Override
     public int compareTo(EfficientDSNode<T> o) {
-        return this.info.compareTo(o.getInfo());
+        return this.getInfo().compareTo(o.getInfo());
     }
 }
 
-class EfficientList<Item extends Comparable<Item>> implements Iterable<Item> {
-
-    private int size;
-    private EfficientDSNode head;
-    private EfficientDSNode tail;
-
-    public EfficientList() {
-        size = 0;
-        head = null;
-        tail = null;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size==0;
-    }
-
-    public EfficientDSNode getHeadNode() {
-        if(isEmpty()) {
-            throw new NoSuchElementException("Link list is empty!");
-        }
-        return head;
-    }
-
-    public EfficientDSNode getTailNode() {
-        if(isEmpty()) {
-            throw new NoSuchElementException("Link list is empty!");
-        }
-        return tail;
-    }
-
-    public void add(Item item) {
-
-        EfficientDSNode node = new EfficientDSNode(item);
-        if(isEmpty()) {
-            head = tail = node;
-        } else {
-            EfficientDSNode temp = head;
-            head = node;
-            head.setNext(temp);
-            temp.setPrevious(head);
-        }
-        size++;
-
-    }
-
-    public void delete(EfficientDSNode node) {
-        if(node==null) {
-            throw new NullPointerException("Null node cannot be deleted");
-        }
-        if(node.getNext()!=null && node.getPrevious()!=null) {
-            node.getPrevious().setNext(node.getNext());
-            node.getNext().setPrevious(node.getPrevious());
-        } else if(node.getNext()!=null) {
-            head = node.getNext();
-            head.setPrevious(null);
-        } else if(node.getPrevious()!=null) {
-            tail = node.getPrevious();
-            tail.setNext(null);
-        } else {
-            head = tail = null;
-        }
-    }
-
-    public void add(EfficientDSNode node) {
-        if(isEmpty()) {
-            head = tail = node;
-        } else {
-            EfficientDSNode temp = head;
-            head = node;
-            head.setNext(temp);
-            temp.setPrevious(head);
-        }
-        size++;
-    }
-
-    public EfficientDSNode removeFirst() {
-
-        if(isEmpty()) {
-            throw new NoSuchElementException("Empty List");
-        }
-        EfficientDSNode current = head;
-        head = head.getNext();
-        if(head==null) {
-            tail=null;
-        }
-        size--;
-        return current;
-
-    }
-
-
-
-    public EfficientDSNode removeLast() {
-
-        if(isEmpty()) {
-            throw new NoSuchElementException("Empty List");
-        }
-        EfficientDSNode prev = tail;
-        tail = tail.getPrevious();
-        tail.setNext(null);
-        if(tail==null) {
-            head=null;
-        }
-        size--;
-        return prev;
-
-    }
-
-    @Override
-    public Iterator<Item> iterator() {
-        return new EfficientDSListIterator();
-    }
-
-    private class EfficientDSListIterator implements Iterator<Item>  {
-
-        EfficientDSNode<Integer> current = head;
-
-        public boolean hasNext() {
-            return current!=null;
-        }
-
-        public Item next() {
-            Item item = (Item) current.getInfo();
-            current = current.getNext();
-            return item;
-        }
-
-    }
-
-}
 
 public class EfficientDS<Item extends Comparable<Item>> {
 
     private MaxPriorityQueue<EfficientDSNode<Item>> maxPriorityQueue;
     private MinPriorityQueue<EfficientDSNode<Item>> minPriorityQueue;
-    EfficientList<EfficientDSNode<Item>> doublyLinkList;
+    DoublyLinkList<EfficientDSNode<Item>> doublyLinkList;
 
     public EfficientDS() {
         maxPriorityQueue = new MaxPriorityQueue<>();
         minPriorityQueue = new MinPriorityQueue<>();
-        doublyLinkList = new EfficientList<>();
+        doublyLinkList = new DoublyLinkList<>();
     }
 
     private void insert(Item element) {
@@ -307,9 +145,10 @@ public class EfficientDS<Item extends Comparable<Item>> {
         ds.insert(30);
 
         System.out.println("Max element - " + ds.getMaxElement());
-        ds.delete(45);
+        ds.deleteMaximum();
         System.out.println("Max element after deleting - " + ds.getMaxElement());
         System.out.println("Minimum element - "+ ds.getMinElement());
+
 
     }
 
