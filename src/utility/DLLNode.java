@@ -3,7 +3,7 @@ package utility;
 /**
  * Created by poorvank on 11/06/16.
  */
-public class DLLNode<T extends Comparable<T>> implements Comparable<DLLNode<T>> {
+public class DLLNode<T extends Comparable<? super T>> implements Comparable<DLLNode<T>> {
 
     private T info;
     private DLLNode next;
