@@ -34,18 +34,18 @@ public class DetectCycleDiGraph {
 
         boolean[] visited = new boolean[size];
         boolean[] record = new boolean[size];
-        int[] vertexTo = new int[size];
+        int[] vertexFrom = new int[size];
 
         for (int i = 0; i < size; i++) {
             if(!visited[i]) {
-                dfs(i,visited,record,digraph,vertexTo);
+                dfs(i,visited,record,digraph,vertexFrom);
             }
         }
 
         return hasCycle();
     }
 
-    private static void dfs(int v, boolean[] visited, boolean[] record, Digraph digraph,int[] vertexTo) {
+    private static void dfs(int v, boolean[] visited, boolean[] record, Digraph digraph,int[] vertexFrom) {
 
         if (!visited[v]) {
 
@@ -59,13 +59,13 @@ public class DetectCycleDiGraph {
                 }
 
                 if (!visited[vertex]) {
-                    vertexTo[vertex] = v;
-                    dfs(vertex,visited,record,digraph,vertexTo);
+                    vertexFrom[vertex] = v;
+                    dfs(vertex,visited,record,digraph,vertexFrom);
                 }
                 if (record[vertex]) {
 
                     cycle = new Stack<>();
-                    for (int i = v;i!=vertex;i=vertexTo[i]) {
+                    for (int i = v;i!=vertex;i=vertexFrom[i]) {
                         cycle.push(i);
                     }
                     cycle.push(vertex);
