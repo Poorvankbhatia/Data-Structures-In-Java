@@ -16,30 +16,32 @@ import java.util.NoSuchElementException;
 /**
  * Created by poorvank on 19/05/16.
  */
+
+@SuppressWarnings("unchecked")
 public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implements Iterable<Integer> {
 
     private int maxSize; //Maximum number of elements in priority queue
-    private int N;       //Cuurent number of elements
+    private int N;       //Current number of elements
     private int[] pq;    //Heap (1-base index) (Index represents size and value position priority)
-    private int[] qp;  //Inverse of pq -->  pq[qp[i]]=qp[pq[i]=i (Integer index same as client) (Index represents position)
+    private int[] qp;    //Inverse of pq -->  pq[qp[i]]=qp[pq[i]=i  (Index represents position in pq)
     private Key[] keys;  //Keys[i]= priority of i
 
 
     public IndexMinPriorityQueue(int maxSize) {
-        if(maxSize<0) {
-            throw new IllegalArgumentException("MaxSize cannopt be less than 0");
+        if (maxSize < 0) {
+            throw new IllegalArgumentException("MaxSize cannot be less than 0");
         }
         this.maxSize = maxSize;
         keys = (Key[]) new Comparable[maxSize]; //Because it is a heap 1-based index
-        pq = new int[maxSize+1];
-        qp = new int[maxSize+1];
-        for(int i=0;i<=maxSize;i++) {
-            qp[i]=-1;
+        pq = new int[maxSize + 1];
+        qp = new int[maxSize + 1];
+        for (int i = 0; i <= maxSize; i++) {
+            qp[i] = -1;
         }
     }
 
     public boolean isEmpty() {
-        return N==0;
+        return N == 0;
     }
 
     public int getCurrentSize() {
@@ -47,51 +49,51 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
     }
 
     public boolean containsIndex(int i) {
-        if(i<0 || i>=maxSize) {
+        if (i < 0 || i >= maxSize) {
             throw new IndexOutOfBoundsException(i + " not present.");
         }
-        return qp[i]!=-1;
+        return qp[i] != -1;
     }
 
 
-    private boolean isGreater(int i,int j) {
+    private boolean isGreater(int i, int j) {
         return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
     }
 
-    private void exchange(int i,int j) {
+    private void exchange(int i, int j) {
         int temp = pq[i];
         pq[i] = pq[j];
-        pq[j]=temp;
+        pq[j] = temp;
         qp[pq[i]] = i;
         qp[pq[j]] = j;
     }
 
     private void swim(int k) {
-        while (k>1 && isGreater(k/2,k)) {
-            exchange(k/2,k);
-            k = k/2;
+        while (k > 1 && isGreater(k / 2, k)) {
+            exchange(k / 2, k);
+            k = k / 2;
         }
     }
 
     private void sink(int k) {
-        while (2*k <= N) {
-            int j = (2*k);
-            if(j< N && isGreater(j,j+1)) {
+        while (2 * k <= N) {
+            int j = (2 * k);
+            if (j < N && isGreater(j, j + 1)) {
                 j++;
             }
-            if(isGreater(j,k)) {
+            if (isGreater(j, k)) {
                 break;
             }
-            exchange(k,j);
-            k=j;
+            exchange(k, j);
+            k = j;
         }
     }
 
-    public void insert(int i,Key key) {
-        if(i<0 && i>=maxSize) {
+    public void insert(int i, Key key) {
+        if (i < 0 && i >= maxSize) {
             throw new IndexOutOfBoundsException();
         }
-        if(containsIndex(i)) {
+        if (containsIndex(i)) {
             throw new IllegalArgumentException("Already present !!");
         }
         N++;
@@ -102,30 +104,32 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
     }
 
     public Key getMinimumKey() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException("Underflow!");
         }
         return keys[pq[1]];
     }
 
     public int getMinIndex() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException("Underflow!");
         }
         return pq[1];
     }
 
 
-    //Dry Run To Understand
+    /*
+      Given index of minimum element  for key[] array
+     */
     public int deleteMinimum() {
-        if(isEmpty()) {
-            throw new NoSuchElementException("Undeflow!");
+        if (isEmpty()) {
+            throw new NoSuchElementException("Underflow!");
         }
         int min = pq[1];
-        exchange(1,N--);
+        exchange(1, N--);
         sink(1);
         keys[min] = null;
-        pq[N+1] = -1;
+        pq[N + 1] = -1;
         qp[min] = -1;
         return min;
     }
@@ -139,11 +143,11 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
         else return keys[i];
     }
 
-    public void changeKey(int i,Key key) {
-        if(i<0 || i>=maxSize) {
-            throw  new IndexOutOfBoundsException();
+    public void changeKey(int i, Key key) {
+        if (i < 0 || i >= maxSize) {
+            throw new IndexOutOfBoundsException();
         }
-        if(!containsIndex(i)) {
+        if (!containsIndex(i)) {
             throw new NoSuchElementException("Index not present in queue");
         }
         keys[i] = key;
@@ -151,7 +155,9 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
         sink(qp[i]);
     }
 
-    public Iterator<Integer> iterator() { return new HeapIterator(); }
+    public Iterator<Integer> iterator() {
+        return new HeapIterator();
+    }
 
     private class HeapIterator implements Iterator<Integer> {
         // create a new pq
@@ -163,8 +169,13 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
                 copy.insert(pq[i], keys[pq[i]]);
         }
 
-        public boolean hasNext()  { return !copy.isEmpty();                     }
-        public void remove()      { throw new UnsupportedOperationException();  }
+        public boolean hasNext() {
+            return !copy.isEmpty();
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
 
         public Integer next() {
             if (!hasNext()) throw new NoSuchElementException();
@@ -185,7 +196,7 @@ public class IndexMinPriorityQueue<Key extends Comparable<? super Key>> implemen
 
     public static void main(String[] args) {
         // insert a bunch of strings
-        String[] strings = { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
+        String[] strings = {"it", "was", "the", "best", "of", "times", "it", "was", "the", "worst"};
 
         IndexMinPriorityQueue<String> pq = new IndexMinPriorityQueue<>(strings.length);
         for (int i = 0; i < strings.length; i++) {
