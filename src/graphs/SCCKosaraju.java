@@ -3,7 +3,7 @@
 A directed graph is strongly connected if there is a path between all pairs of vertices.
  A strongly connected component (SCC) of a directed graph is a maximal strongly connected subgraph.
 
-  Definition. Two vertices v and w are strongly connected if they are
+Definition. Two vertices v and w are strongly connected if they are
 mutually reachable: that is, if there is a directed path from v to w
 and a directed path from w to v. A digraph is strongly connected if all
 its vertices are strongly connected to one another. Two vertices are strongly connected if and only if there exists a
@@ -43,6 +43,7 @@ public class SCCKosaraju {
 
     }
 
+    //Process nodes in decreasing order of finishing Times!, Node with greatest finishing time is processed first
     private void dfs(Digraph G,int v) {
 
         marked[v] = true;
@@ -110,32 +111,36 @@ Read Notes:
 
 
 Proposition H. In a DFS of a digraph G where marked vertices are considered in
-reverse postorder given by a DFS of the digraph’s reverse G R (Kosaraju’s algorithm),
+reverse postorder given by a DFS of the digraph’s reverse G(r) (Kosaraju’s algorithm),
 the vertices reached in each call of the recursive method from the constructor are
 in a strong component.
+
+
 Proof: First, we prove by contradiction that every vertex v that is strongly connected
 to s is reached by the call dfs(G, s) in the constructor. Suppose a vertex v that is
 strongly connected to s is not reached by dfs(G, s). Since there is a path from s to
 v, v must have been previously marked. But then, since there is a path from v to s, s
 would have been marked during the call dfs(G, v) and the constructor would not
 call dfs(G, s), a contradiction.
+
 Second, we prove that every vertex v reached by the call dfs(G, s) in the constructor
 is strongly connected to s. Let v be a vertex reached by the call dfs(G, s). Then,
 there is a path from s to v in G, so it remains only to prove that there is a path from
 v to s in G. This statement is equivalent to saying that there is a path from s to v in
-GR, so it remains only to prove that there is a path from s to v in GR.
+G(r), so it remains only to prove that there is a path from s to v in G(r).
+
 The crux of the proof is that the reverse postorder construction implies that
-dfs(G, v) must have been done before dfs(G, s) during the DFS of GR, leaving
+dfs(G, v) must have been done before dfs(G, s) during the DFS of G(r), leaving
 just two cases to consider for dfs(G, v): it might have been called
 ■ before dfs(G, s) was called (and also done before dfs(G, s) was called)
-■
-after dfs(G, s) was called (and done before dfs(G, s) was done)
-The first of these is not possible because there is a path from v to s in GR; the second
-implies that there is a path from s to v in GR, completing the proof.
+■ after dfs(G, s) was called (and done before dfs(G, s) was done)
+The first of these is not possible because there is a path from v to s in G(r); the second
+implies that there is a path from s to v in G(r), completing the proof.
 
 
 Proposition I. Kosaraju’s algorithm uses preprocessing time and space proportional
 to V + E to support constant-time strong connectivity queries in a digraph.
+
 Proof: The algorithm computes the reverse of the digraph and does two depth-first
 searches. Each of these three steps takes time proportional to VE. The reverse copy
 of the digraph uses space proportional to V +E.
