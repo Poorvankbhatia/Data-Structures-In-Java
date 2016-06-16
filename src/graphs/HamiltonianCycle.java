@@ -43,12 +43,11 @@ public class HamiltonianCycle {
     public static void main(String[] args) {
 
         int graph[][] = {{0, 1, 0, 1, 0},
-                {1, 0, 1, 1, 1},
-                {0, 1, 0, 0, 1},
-                {1, 1, 0, 0, 1},
-                {0, 1, 1, 1, 0}};
+                         {1, 0, 1, 1, 1},
+                         {0, 1, 0, 0, 1},
+                         {1, 1, 0, 0, 1},
+                         {0, 1, 1, 1, 0}};
 
-     //   int graph[][] = {{0,1,1,1},{1,0,0,0},{1,0,0,1},{1,0,1,0}};
         VERTEX_COUNT = graph.length;
 
         detectCycle(graph);
@@ -128,8 +127,10 @@ public class HamiltonianCycle {
 /*
 
 Backtracking Algorithm
-Create an empty path array and add vertexToConsider 0 to it. Add other vertices, starting from the vertexToConsider 1. Before adding a vertexToConsider,
- check for whether it is adjacent to the previously added vertexToConsider and not already added. If we find such a vertexToConsider, we add the
+Create an empty path array and add vertexToConsider 0 to it. Add other vertices, starting from the vertexToConsider 1.
+Before adding a vertexToConsider,
+ check for whether it is adjacent to the previously added vertexToConsider and not already added.
+ [If we find such a vertexToConsider, we add the
  vertexToConsider as part of the solution. If we do not find a vertexToConsider then we return false.
 
  */
