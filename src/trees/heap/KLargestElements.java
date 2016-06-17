@@ -34,7 +34,7 @@ public class KLargestElements {
 
             int element = inputArray[i];
 
-            if(!pq.isEmpty() && pq.min()>element) {
+            if(!pq.isEmpty() && pq.getMinimumElement()>element) {
                 continue;
             }
             else {

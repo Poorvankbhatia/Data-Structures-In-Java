@@ -153,7 +153,7 @@ given DAG.
 
 Reverse postorder in a DAG is a topological sort.
 Proof: Consider any edge v->w. One of the following three cases must hold when
-dfs(v) is called (see the diagram on page 583):
+dfs(v) is called :
 1. dfs(w) has already been called and has returned (w is marked).
 2. dfs(w) has not yet been called (w is unmarked), so v->w will cause dfs(w) to
 be called (and return), either directly or indirectly, before dfs(v) returns.

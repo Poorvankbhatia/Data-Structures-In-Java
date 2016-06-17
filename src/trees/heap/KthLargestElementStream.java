@@ -47,14 +47,14 @@ public class KthLargestElementStream {
 
             if(("end").equals(line)) {
                 if(count>k) {
-                    System.out.println("Finally Minimum element at position = " + k  + " in stream = " + minPriorityQueue.min());
+                    System.out.println("Finally Minimum element at position = " + k  + " in stream = " + minPriorityQueue.getMinimumElement());
                 }
                 break;
             }
 
             Integer element = Integer.parseInt(line);
             if(count>=k) {
-                if(element>minPriorityQueue.min()) {
+                if(element>minPriorityQueue.getMinimumElement()) {
                     minPriorityQueue.replaceRoot(element);
                 }
             } else {
@@ -67,7 +67,7 @@ public class KthLargestElementStream {
             }
 
 
-            System.out.println("Currently Minimum element at position = " + k  + " in stream = " + minPriorityQueue.min());
+            System.out.println("Currently Minimum element at position = " + k  + " in stream = " + minPriorityQueue.getMinimumElement());
 
         }
 
