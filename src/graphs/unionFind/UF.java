@@ -101,10 +101,11 @@ public class UF {
             File file = GetInputFile.getFile("largeUF.txt");
 
             BufferedReader br = new BufferedReader(new FileReader(file));
-            int inputCount = Integer.parseInt(br.readLine());
-            UF uf = new UF(inputCount);
-            for (int i=0;i<inputCount;i++) {
-                String[] input  = (br.readLine()).split(" ");
+            int vertexCount = Integer.parseInt(br.readLine());
+            UF uf = new UF(vertexCount);
+            String line = "";
+            while ((line=br.readLine())!=null) {
+                String[] input  = (line).split(" ");
                 int p = Integer.parseInt(input[0]);
                 int q = Integer.parseInt(input[1]);
                 if(!uf.isConnected(p,q)) {
