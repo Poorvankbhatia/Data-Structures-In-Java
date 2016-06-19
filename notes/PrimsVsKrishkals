@@ -23,3 +23,11 @@ Prim is harder with a fibonacci heap mainly because you have to maintain a book-
 link between graph nodes and heap nodes. With a Union Find, it's the opposite, the structure is simple and can even produce
 directly the mst at almost no additional cost.
 
+
+Prim’s algorithm builds the MST one edge at a time, finding a new edge to attach to a single growing tree at each step.
+Kruskal’s algorithm also builds the MST one edge at a time; but, by contrast, it finds an edge that connects two trees in a
+forest of growing trees. We start with a degenerate forest of V single-vertex trees and perform the operation of combining
+two trees (using the shortest edge possible) until there is just one tree left: the MST.
+
+
+See Images for complexities
