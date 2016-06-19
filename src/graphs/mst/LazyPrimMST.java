@@ -1,4 +1,4 @@
-package graphs;
+package graphs.mst;
 
 import utility.*;
 import utility.edgeClasses.Edge;
@@ -6,7 +6,6 @@ import utility.priorityQueueClasses.MinPriorityQueue;
 import utility.graphClasses.EdgeWeightedGraph;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 
 /**

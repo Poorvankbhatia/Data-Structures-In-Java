@@ -29,7 +29,7 @@ included in MST.
 
  */
 
-package graphs;
+package graphs.mst;
 
 /**
  * Created by poorvank on 2/25/16.

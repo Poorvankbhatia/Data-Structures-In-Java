@@ -25,7 +25,7 @@ The Greedy Choice is to pick the smallest weight edge that does not cause a cycl
 
  */
 
-package graphs;
+package graphs.mst;
 
 import java.util.Arrays;
 
