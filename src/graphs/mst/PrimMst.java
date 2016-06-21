@@ -65,7 +65,7 @@ public class PrimMst {
         pq.insert(s, distanceTo[s]);
         while (!pq.isEmpty()) {
             int v = pq.deleteMinimum();
-            scan(G, s);
+            scan(G, v);
         }
 
     }
