@@ -171,13 +171,13 @@ Proposition N. The eager version of P rim’s algorithm uses extra
 space proportional to V and time proportional to E log V
 (in the worst case) to compute the MST of a connected edgeweighted
 graph with E edges and V vertices.
+
 Proof: The number of edges on the priority queue is at most
 V, and there are three vertex-indexed arrays, which implies the
 space bound. The algorithm uses V insert operations, V delete
 the minimum operations, and (in the worst case) E change priority
 operations. These counts, coupled with the fact that our
 heap-based implementation of the index priority queue implements
-all these operations in time proportional to log V (see
-page 321), imply the time bound.
+all these operations in time proportional to log V , imply the time bound.
 
  */
