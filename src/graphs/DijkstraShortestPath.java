@@ -142,6 +142,37 @@ undirected graphs and edges and omitting the references to distTo[v] in the rela
 Prims is for undirected and dijkstra is for directed graph
 
 
+Dijkstra's algorithm doesn't create a MST, it finds the shortest path.
+
+Consider this graph
+
+       5     5
+  s *-----*-----* t
+     \         /
+       -------
+         9
+The shortest path is 9, while the MST is a different 'path' at 10.
+
+Prim's algorithm constructs a minimum spanning tree for the graph, which is a tree that connects all
+nodes in the graph and has the least total cost among all trees that connect all the nodes. However,
+the length of a path between any two nodes in the MST might not be the shortest path between those two nodes
+in the original graph. MSTs are useful, for example, if you wanted to physically wire up the nodes in the graph to
+provide electricity to them at the least total cost. It doesn't matter that the path length between two nodes might
+not be optimal, since all you care about is the fact that they're connected.
+
+Dijkstra's algorithm constructs a shortest path tree starting from some source node. A shortest path tree is a tree that
+connects all nodes in the graph and has the property that the length of any path from some start node to any other node
+in the graph is minimized. This is useful, for example, if you wanted to build a road network that made it as efficient as possible
+for everyone to get to some major important landmark. However, the shortest path tree is not guaranteed to be a minimum spanning
+tree, and the cost of building such a tree could be much larger than the cost of an MST.
+
+Another important difference concerns what types of graphs the algorithms work on. Prim's algorithm works on undirected graphs only,
+since the concept of an MST assumes that graphs are inherently undirected. (There is something called a "minimum spanning arborescence"
+for directed graphs, but algorithms to find them are much more complicated). Dijkstra's algorithm will work fine on directed graphs,
+since shortest path trees can indeed be directed. Additionally, Dijkstra's algorithm does not necessarily yield the correct solution
+in graphs containing negative edge weights, while Prim's algorithm can handle this.
+
+
 _____________________________-------------------------________________________________
 
 
