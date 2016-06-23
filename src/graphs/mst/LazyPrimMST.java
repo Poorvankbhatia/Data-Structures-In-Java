@@ -105,7 +105,7 @@ public class LazyPrimMST {
 /*
 
 attach a new edge to a single growing tree at each step. Start with any vertex as a single-vertex
-tree; then add V1 edges to it, always taking next (coloring black) the minimumweight
+tree; then add V - 1 edges to it, always taking next (coloring black) the minimumweight
 edge that connects a vertex on the tree to a vertex not yet
 on the tree (a crossing edge for the cut defined by tree vertices).
 
@@ -124,11 +124,8 @@ edge-weighted graph with E edges and V vertices.
 Proof: The bottleneck in the algorithm is the number of edge-weight comparisons
 in the priority-queue methods insert() and delMin(). The number of edges on
 the priority queue is at most E, which gives the space bound. In the worst case,
-the cost of an insertion is ~lg E and the cost to delete the minimum is ~2 lg E (see
-Proposition O in Chapter 2). Since at most E edges are inserted and at most E are
+the cost of an insertion is ~lg E and the cost to delete the minimum is ~2 lg E. Since at most E edges are inserted and at most E are
 deleted, the time bound follows.
-
-
 
 
  */
