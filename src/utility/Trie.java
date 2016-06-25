@@ -218,3 +218,43 @@ public class Trie<Item> {
 
 
 }
+
+/*
+
+The linked structure (shape) of a trie is independent of the key insertion/
+deletion order: there is a unique trie for any given set of keys.
+
+Proof: Immediate, by induction on the subtries.
+This fundamental fact is a distinctive feature of tries: for all of the other search tree
+structures that we have considered so far, the tree that we construct depends both on
+the set of keys and on the order in which we insert those keys.
+
+Worst-case time bound for search and insert. How long does it take to find the value
+associated with a key? For BSTs, hashing, and other methods in Chapter 4, we needed
+mathematical analysis to study this question, but for tries it is very easy to answer:
+Proposition G. The number of array accesses when searching in a trie or inserting
+a key into a trie is at most 1 plus the length of the key.
+Proof: Immediate from the code. The recursive get() and put() implementations
+carry an argument d that starts at 0, increments for each call, and is used to stop the
+recursion when it reaches the key length.
+
+From a theoretical standpoint, the implication of Proposition G is that tries are optimal
+for search hit—we could not expect to do better than search time proportional to
+the length of the search key. Whatever algorithm or data structure we are using, we cannot
+know that we have found a key that we seek without examining all of its characters.
+From a practical standpoint this guarantee is important because it does not depend on
+the number of keys : when we are working with 7-character keys like license plate numbers,
+we know that we need to examine at most 8 nodes to search or insert; when we are
+working with 20-digit account numbers, we only need to examine at most 21 nodes to
+search or insert.
+
+The number of links in a trie is between RN and RNw, where w is
+the average key length.
+Proof: Every key in the trie has a node containing its associated value that also has
+R links, so the number of links is at least RN. If the first characters of all the keys are
+different, then there is a node with R links for every key character, so the number of
+links is R times the total number of key characters, or RNw.
+
+
+
+ */
