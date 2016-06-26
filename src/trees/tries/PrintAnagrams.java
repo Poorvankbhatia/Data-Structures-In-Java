@@ -12,151 +12,42 @@ TRIE SOLUTION
 
 package trees.tries;
 
+import utility.Trie;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by poorvank on 3/30/15.
  */
 
-class IndexNode {
 
-    public int index;
-    public IndexNode next;
-
-    public IndexNode(int index) {
-        this.index = index;
-        next = null;
-    }
-
-}
-
-
-class AnagramNode {
-
-    public char content;
-    public boolean isLeaf;
-    public LinkedList<AnagramNode> childList;
-    public int count;
-    public IndexNode indexNode;
-
-
-    public AnagramNode(char c) {
-        content = c;
-        count = 0;
-        childList = new LinkedList<>();
-        isLeaf = false;
-        indexNode = null;
-    }
-
-    public AnagramNode subNode(char c) {
-
-        if (childList != null) {
-
-            for (AnagramNode node : childList) {
-                if (node.content == c) {
-                    return node;
-                }
-            }
-
-        }
-
-        return null;
-
-    }
-
-}
-
-class AnagramTrie {
-
-    public AnagramNode root;
+class AnagramTrie extends Trie<ArrayList<String>> {
 
     public AnagramTrie() {
-        root = new AnagramNode(' ');
+        super();
     }
 
-    public void insert(String word, int arrayIndex) {
-
-        IndexNode indexNode = search(word);
-
-        if (indexNode != null) {
-            // System.out.println("Already present in trie ~ " + word);
-            while (indexNode.next != null) {
-                indexNode = indexNode.next;
-            }
-            indexNode.next = new IndexNode(arrayIndex);
-            return;
+    public void put(String key, String s) {
+        ArrayList<String> list = get(key);
+        if(list!=null && list.size()!=0) {
+            list.add(s);
         }
-
-        AnagramNode current = root;
-
-        for (char ch : word.toCharArray()) {
-
-            AnagramNode subNode = current.subNode(ch);
-
-            if (subNode != null) {
-                current = subNode;
-            } else {
-                current.childList.add(new AnagramNode(ch));
-                current = current.subNode(ch);
-            }
-            current.count++;
+        else {
+            list = new ArrayList<>();
+            list.add(s);
+            super.put(key,list);
         }
-
-        current.isLeaf = true;
-        if (current.indexNode == null) {
-            current.indexNode = new IndexNode(arrayIndex);
-        }
-
     }
 
-    private IndexNode search(String word) {
-
-        AnagramNode current = root;
-
-        for (char ch : word.toCharArray()) {
-
-            AnagramNode subNode = current.subNode(ch);
-
-            if (subNode == null) {
-                return null;
-            } else {
-                current = subNode;
-            }
-
+    public void print() {
+        for (String key : keys()) {
+            List<String> list = get(key);
+            System.out.println(list.toString());
         }
-
-        if (current.isLeaf) {
-            return current.indexNode;
-        }
-
-        return null;
     }
-
-    public void print(AnagramNode root, String[] array) {
-
-        if (root == null) {
-            return;
-        }
-
-        if (root.isLeaf) {
-
-            IndexNode current = root.indexNode;
-
-            while (current != null) {
-                System.out.print(array[current.index] + " ");
-                current = current.next;
-            }
-            System.out.println();
-
-        }
-
-        for (int i = 0; i < root.childList.size(); i++) {
-            print(root.childList.get(i), array);
-        }
-
-    }
-
 }
 
 
@@ -169,12 +60,13 @@ public class PrintAnagrams {
         for (String s : array) {
             char[] element = s.toCharArray();
             Arrays.sort(element);
-            trie.insert(String.valueOf(element), i);
+            trie.put(String.valueOf(element), s);
             i++;
         }
 
         System.out.println("Anagrams are as follows : ");
-        trie.print(trie.root, array);
+        trie.print();
+        System.out.println("Total size = " + trie.getSize());
 
     }
 
