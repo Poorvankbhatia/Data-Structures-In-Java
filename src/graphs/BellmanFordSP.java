@@ -151,7 +151,7 @@ public class BellmanFordSP {
                         System.out.println();
                     }
                     else {
-                        System.out.printf("%d to %d           no path\n", s, v);
+                        System.out.printf("%d to %d no path\n", s, v);
                     }
                 }
             }

@@ -134,11 +134,7 @@ once, again in time proportional to E + V.
 
 For shortest paths, the topological-sort-based method
 is faster than Dijkstra’s algorithm by a factor proportional to the cost of the priorityqueue
-operations in Dijkstra’s algorithm. Moreover, the proof of Proposition S does
-not depend on the edge weights being nonnegative, so we can remove that restriction
-for edge-weighted DAGs. Next, we consider implications of this ability to allow negative
-edge weights, by considering the use of the shortest-paths model to solve two other
-problems, one of which seems at first blush to be quite removed from graph processing.
+operations in Dijkstra’s algorithm.
 
 **************************************IMPORTANT******************************************
 
