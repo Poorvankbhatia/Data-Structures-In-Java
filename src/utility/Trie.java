@@ -23,7 +23,12 @@ public class Trie<Item> {
 
     public Item get(String key) {
         Node x = get(root,key,0);
-        return x!=null? (Item)x.value:null;
+        if(x!=null) {
+            if(x.value!=null) {
+                return (Item)x.value;
+            }
+        }
+        return null;
     }
 
     private Node get(Node x,String key,int d) {
@@ -85,7 +90,7 @@ public class Trie<Item> {
         return results;
     }
 
-    private void collect(Node x,StringBuilder prefix,Queue results) {
+    private void collect(Node x,StringBuilder prefix,Queue<String> results) {
         if(x==null) {
             return;
         }
