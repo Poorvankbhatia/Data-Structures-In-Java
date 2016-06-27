@@ -11,6 +11,7 @@ public class Trie<Item> {
     private Node root;
     private int size;
 
+
     private static class Node {
         private Object value;
         private Node[] childArray = new Node[R];
@@ -30,6 +31,7 @@ public class Trie<Item> {
         }
         return null;
     }
+
 
     private Node get(Node x,String key,int d) {
         if(x==null) {
@@ -63,7 +65,7 @@ public class Trie<Item> {
             if(x.value==null) {
                 size++;
             }
-            x.value = item;
+            x.value = (item);
             return x;
         }
         char c = key.charAt(d);

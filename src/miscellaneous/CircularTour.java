@@ -23,18 +23,19 @@ package miscellaneous;
  * Created by poorvank on 8/2/15.
  */
 
-class PetrolPump {
-
-    int petrol;
-    int distance;
-
-    public PetrolPump(int petrol, int distance) {
-        this.petrol = petrol;
-        this.distance = distance;
-    }
-}
 
 public class CircularTour {
+
+    private static class PetrolPump {
+
+        int petrol;
+        int distance;
+
+        PetrolPump(int petrol, int distance) {
+            this.petrol = petrol;
+            this.distance = distance;
+        }
+    }
 
     public static void main(String[] args) {
 
