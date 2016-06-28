@@ -1,5 +1,4 @@
 /*
-
 A ternary search tree is a special trie data structure where the child nodes of a standard trie are 
 ordered as a 
 binary search tree.
@@ -12,153 +11,172 @@ search tree contains only 3 pointers:
 2. The equal pointer points to the node whose value is equal to the value in the current node.
 3. The right pointer points to the node whose value is greater than the value in the current node.
 
-
 A ternary tree is a data structure that solves the memory problem of tries in a more clever way. 
 To avoid the memory occupied by unnecessary pointers, each trie node is represented as a tree-within-a-tree 
 rather than as an array. Each non-null pointer in the trie node gets its own node in a ternary search tree.
 
 http://igoro.com/archive/efficient-auto-complete-with-a-ternary-search-tree/
 
-
-
-
  */
 
 package trees.tries;
 
-/**
- * Created by poorvank on 4/17/15.
- */
 
-class TSTNode {
+import utility.Queue;
 
-    public char data;
-    public boolean isLeaf;
-    public TSTNode left;
-    public TSTNode right;
-    public TSTNode middle;
+public class TernarySearchTrees<Item> {
 
-    public TSTNode(char data) {
+    private int size;
+    private Node<Item> root;
 
-        this.data = data;
-        isLeaf = false;
-        left = null;
-        right = null;
-        middle = null;
-
+    private class Node<item> {
+        private Item value;
+        private Node<Item> left,middle,right;
+        private char c;
     }
 
-}
-
-
-class TSTree {
-
-    public TSTNode root;
-    //public List<TSTNode> al;
-
-    public TSTree() {
-
-        root = null;
-        // al = new ArrayList<>();
+    public boolean contains(String key) {
+        return get(key)!=null;
     }
 
-    public boolean isEmpty() {
-
-        return root == null;
-    }
-
-    public void insert(String word) {
-
-        root = insert(root, word.toCharArray(), 0);
-
-    }
-
-    public TSTNode insert(TSTNode node, char[] word, int pos) {
-
-        if (node == null) {
-            node = new TSTNode(word[pos]);
+    public Item get(String key) {
+        if(key==null) {
+            throw new NullPointerException("Null key passed");
         }
-        if (word[pos] > node.data) {
-            node.right = insert(node.right, word, pos);
-        } else if (word[pos] < node.data) {
-            node.left = insert(node.left, word, pos);
+        Node<Item> node = get(root,0,key);
+        if(node==null) {
+            return null;
+        }
+        return node.value;
+    }
+
+    private Node<Item> get(Node<Item> x,int d,String key) {
+        if(x==null) {
+            return null;
+        }
+        char c = key.charAt(d);
+        if(c>x.c) {
+            return get(x.right,d,key);
+        } else if(c<x.c) {
+            return get(x.left,d,key);
+        } else if(d<key.length() - 1) {
+            return get(x.middle,d+1,key);
         } else {
-            if (pos < word.length - 1) {
-                node.middle = insert(node.middle, word, pos + 1);
+            return x;
+        }
+    }
+
+    public void put(String key,Item item) {
+        if(!contains(key)) {
+            size++;
+        }
+        root = put(root,key,item,0);
+    }
+
+    private Node<Item> put(Node<Item> x,String key,Item item,int d) {
+        char c = key.charAt(d);
+        if(x==null) {
+            x = new Node<>();
+            x.c = c;
+        }
+        if(c<x.c) {
+            x.left = put(x.left,key,item,d);
+        } else if(c>x.c) {
+            x.right = put(x.right,key,item,d);
+        } else if(d<key.length()-1) {
+            x.middle = put(x.middle,key,item,d+1);
+        } else {
+            x.value = item;
+        }
+        return x;
+    }
+
+    public String longestPrefixOf(String key) {
+        Node<Item> x = root;
+        int length = 0,i=0;
+        while (x!=null && i<key.length()) {
+            char ch = key.charAt(i);
+            if(ch<x.c) {
+                x = x.left;
+            } else if(ch>x.c) {
+                x = x.right;
             } else {
-                node.isLeaf = true;
-            }
-        }
-        return node;
-    }
-
-    public void delete(String word) {
-
-        delete(root, word.toCharArray(), 0);
-
-    }
-
-    public void delete(TSTNode node, char[] word, int pos) {
-
-        if (node == null) {
-            return;
-        }
-
-        if (word[pos] > node.data) {
-            delete(node.right, word, pos);
-        } else if (word[pos] < node.data) {
-            delete(node.left, word, pos);
-        } else {
-            if (node.isLeaf && pos == word.length - 1) {
-                node.isLeaf = false;
-            }
-            if (pos < word.length - 1) {
-                delete(node.middle, word, pos + 1);
+                i++;
+                if(x.value!=null) {
+                    length = i;
+                }
+                x = x.middle;
             }
         }
 
+        return key.substring(0,length);
     }
 
-    public boolean search(String word) {
-        return search(root, word.toCharArray(), 0);
+    public Iterable<String> keys() {
+        Queue<String> results = new Queue<>();
+        collect(root,new StringBuilder(),results);
+        return results;
     }
 
-    public boolean search(TSTNode node, char[] word, int pos) {
 
-        if (node == null) {
-            return false;
-        }
-        if (word[pos] > node.data) {
-            return search(node.right, word, pos);
-        } else if (word[pos] < node.data) {
-            return search(node.left, word, pos);
-        } else {
-            if (pos == word.length - 1) {
-                return node.isLeaf;
+    public Iterable<String> keysWithPrefix(String prefix) {
+        Queue<String> queue = new Queue<String>();
+        Node<Item> x = get(root, 0, prefix);
+        if (x == null) return queue;
+        if (x.value != null) queue.enqueue(prefix);
+        collect(x.middle, new StringBuilder(prefix), queue);
+        return queue;
+    }
+
+    private void collect(Node<Item> x, StringBuilder prefix, Queue<String> queue) {
+        if (x == null) return;
+        collect(x.left,  prefix, queue);
+        if (x.value != null) queue.enqueue(prefix.toString() + x.c);
+        collect(x.middle,   prefix.append(x.c), queue);
+        prefix.deleteCharAt(prefix.length() - 1);
+        collect(x.right, prefix, queue);
+    }
+
+    public Iterable<String> keysThatMatch(String pattern) {
+        Queue<String> queue = new Queue<String>();
+        collect(root, new StringBuilder(), 0, pattern, queue);
+        return queue;
+    }
+
+    private void collect(Node<Item> x, StringBuilder prefix, int i, String pattern, Queue<String> queue) {
+        if (x == null) return;
+        char c = pattern.charAt(i);
+        if (c == '.' || c < x.c) collect(x.left, prefix, i, pattern, queue);
+        if (c == '.' || c == x.c) {
+            if (i == pattern.length() - 1 && x.value != null) queue.enqueue(prefix.toString() + x.c);
+            if (i < pattern.length() - 1) {
+                collect(x.middle, prefix.append(x.c), i+1, pattern, queue);
+                prefix.deleteCharAt(prefix.length() - 1);
             }
-            return search(node.middle, word, pos + 1);
         }
-
+        if (c == '.' || c > x.c) collect(x.right, prefix, i, pattern, queue);
     }
-
-
-}
-
-public class TernarySearchTrees {
 
     public static void main(String[] args) {
 
-        TSTree tree = new TSTree();
-        tree.insert("cat");
-        tree.insert("cats");
-        tree.insert("bug");
-        tree.insert("up");
+        TernarySearchTrees<Boolean> trie = new TernarySearchTrees<>();
+        trie.put("by",Boolean.TRUE);
+        trie.put("sea",Boolean.TRUE);
+        trie.put("sells",Boolean.TRUE);
+        trie.put("she",Boolean.TRUE);
+        trie.put("shells",Boolean.TRUE);
+        trie.put("the",Boolean.TRUE);
 
-        System.out.println("Is bug present - " + tree.search("bug"));
+        System.out.println("All keys:" + trie.size);
+        for (String keys : trie.keys()) {
+            System.out.println(keys);
+        }
 
-        tree.delete("bug");
+        System.out.println("Keys which are prefix to - " + "sh");
+        for (String keys : trie.keysWithPrefix("sh")) {
+            System.out.println(keys);
+        }
 
-        System.out.println("Is bug present - " + tree.search("bug"));
     }
 
 }
@@ -190,5 +208,9 @@ If you find your element after n steps, then the searchable range has size N = 3
 Inversely, the number of steps that you need until you find the element is the logarithm of the size
 of the collection. That is, the runtime is O(log N). A little further thought shows that you can also
 always construct situations where you need all those steps, so the worst-case runtime is actually Θ(log N).
+
+
+The number of links in a TST built from N string keys of average
+length w is between 3N and 3Nw.
 
  */
