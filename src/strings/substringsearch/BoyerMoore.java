@@ -7,7 +7,7 @@ public class BoyerMoore {
 
     private int R;
     private String pattern;
-    int[] right;
+    private int[] right;
 
     public BoyerMoore(String pattern) {
         this.R = 256;
