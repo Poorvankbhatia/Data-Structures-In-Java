@@ -9,6 +9,9 @@ twice in a given string? For example, the longest repeated substring in the stri
 package strings;
 
 
+import utility.Suffix;
+import utility.priorityQueueClasses.LongestCommonPrefix;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Arrays;
@@ -17,38 +20,23 @@ import java.util.Arrays;
  * Created by poorvank on 13/07/16.
  */
 
-/*Todo: It throws heap space error for MobyDick.txt
-http://algs4.cs.princeton.edu/63suffix/mobydick.txt
-Resolve it.
-*/
-
-
 public class LongestRepeatedSubstring {
-
-
-
     /*
         Longest common Prefix:  it takes
         time proportional to the length of
         the match.
      */
     private static String lcp(String s1,String s2) {
-        int N = Math.min(s1.length(),s2.length());
-        for (int i=0;i<N;i++) {
-            if(s1.charAt(i)!=s2.charAt(i)) {
-                return s1.substring(0,i);
-            }
-        }
-        return s1.substring(0,N);
+        return LongestCommonPrefix.value(s1,s2);
     }
 
     public static String lrs(String text) {
 
         // form the N suffixes
         int N  = text.length();
-        String[] suffixes = new String[N];
+        Suffix[] suffixes = new Suffix[N];
         for (int i = 0; i < N; i++) {
-            suffixes[i] = text.substring(i, N);
+            suffixes[i] = new Suffix(text,i);
         }
 
         //For optimised version use 3 way Quick Sort
@@ -56,10 +44,11 @@ public class LongestRepeatedSubstring {
 
         String lrs = "";
         for (int i=0;i<N-1;i++) {
-             String lcp = lcp(suffixes[i],suffixes[i+1]);
+            String lcp = LongestCommonPrefix.value(suffixes[i].toString(),suffixes[i+1].toString());
             if(lcp.length()>lrs.length()) {
                 lrs = lcp;
             }
+            //System.out.println("current i = " + i + " lrs = " + lrs);
         }
 
         return lrs;
@@ -69,7 +58,7 @@ public class LongestRepeatedSubstring {
 
         try {
             String absolutePath = new File("").getAbsolutePath();
-            File file = new File(absolutePath + "/src/inputFiles/mobidick.txt");
+            File file = new File(absolutePath + "/src/inputFiles/mobydick.txt");
             FileInputStream fis = new FileInputStream(file);
             byte[] data = new byte[(int) file.length()];
             fis.read(data);
@@ -78,7 +67,10 @@ public class LongestRepeatedSubstring {
             String text = new String(data, "UTF-8");
             text = text.replace("\n", "");
             text = text.replaceAll("\\s+", " ");
+
+            Long startTime = System.currentTimeMillis();
             System.out.println("Longest repeated substring = " + lrs(text));
+            System.out.println("Total time taken = " + (System.currentTimeMillis() - startTime));
 
         } catch (Exception e) {
             e.printStackTrace();
