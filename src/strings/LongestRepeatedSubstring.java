@@ -10,7 +10,7 @@ package strings;
 
 
 import utility.Suffix;
-import utility.priorityQueueClasses.LongestCommonPrefix;
+import utility.LongestCommonPrefix;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,9 +26,6 @@ public class LongestRepeatedSubstring {
         time proportional to the length of
         the match.
      */
-    private static String lcp(String s1,String s2) {
-        return LongestCommonPrefix.value(s1,s2);
-    }
 
     public static String lrs(String text) {
 
@@ -48,7 +45,7 @@ public class LongestRepeatedSubstring {
             if(lcp.length()>lrs.length()) {
                 lrs = lcp;
             }
-            //System.out.println("current i = " + i + " lrs = " + lrs);
+            System.out.println("current i = " + i + " lrs = " + lrs);
         }
 
         return lrs;
@@ -104,5 +101,22 @@ adjacent strings
 
 
 
+Worst input in case when LRS is very long:
+
+Same letter is repeated N times,So there are 2 copies.
+
+twinstwins
+winstwins
+instwins
+nstwins
+stwins
+twins
+wins
+ins
+ns
+s
+
+D = Longest Match
+LRS needs = 1+2+3+4..D = Quadratic!!!
 
  */
