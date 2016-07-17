@@ -1,4 +1,4 @@
-//Implementation of all suffixes of an
+//Implementation of all suffixes of a String
 
 package utility;
 

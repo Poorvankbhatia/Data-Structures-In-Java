@@ -10,7 +10,7 @@ public class KeyIndexCounting {
     private static final int R = 256;
 
     /*
-         Fills the first occurrence of the character in the output first.
+         Fills the last occurrence of the character in the output first.
      */
     public static void sortMethod1(char[] arr) {
 
