@@ -8,6 +8,13 @@ import java.util.Comparator;
 @SuppressWarnings("unchecked")
 public class SortFunctions {
 
+    /*
+    Java’s convention
+    is that the call v.compareTo(w) returns an integer that is negative, zero, or positive
+    (usually -1, 0, or +1) when v < w, v = w,
+    or v > w, respectively.
+     */
+
     public static boolean less(Comparable a,Comparable b) {
         return a.compareTo(b) < 0;
     }
