@@ -10,7 +10,7 @@
  * throw.
  */
 
-package graphs;
+package graphs.search;
 
 import java.util.HashMap;
 import java.util.Map;

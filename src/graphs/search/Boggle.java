@@ -19,7 +19,7 @@ Output:  Following words of dictionary are present
          QUIZ
 
  */
-package graphs;
+package graphs.search;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,7 +16,7 @@ The above Array has two Amazon Strings. You need to return the count of number o
 
  */
 
-package graphs;
+package graphs.search;
 
 import java.util.ArrayList;
 

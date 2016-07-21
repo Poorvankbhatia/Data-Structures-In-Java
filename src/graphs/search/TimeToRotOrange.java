@@ -30,7 +30,7 @@ All oranges cannot be rotten.
  */
 
 
-package graphs;
+package graphs.search;
 
 import utility.Queue;
 
