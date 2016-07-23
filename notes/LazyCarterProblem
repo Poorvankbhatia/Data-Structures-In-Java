@@ -1,0 +1,53 @@
+The Lazy Caterer’s Problem
+Given an integer n, denoting the number of cuts that can be made on a pancake,
+find the maximum number of pieces that can be formed by making n cuts.
+Examples:
+
+Input :  n = 1
+Output : 2
+With 1 cut we can divide the pancake in 2 pieces
+
+Input :  2
+Output : 4
+With 2 cuts we can divide the pancake in 4 pieces
+
+Input : 3
+Output : 7
+We can divide the pancake in 7 parts with 3 cuts
+
+Input : 50
+Output : 1276
+
+If u draw various lines and circles u will find out that in order for maximum cuts the next line has to cross all the other present
+lines.
+
+So if u check :
+
+Let f(n) denote the maximum number of pieces
+that can be obtained by making n cuts.
+Trivially,
+f(0) = 1
+As there'd be only 1 piece without any cut.
+
+Similarly,
+f(1) = 2
+
+Proceeding in similar fashion we can deduce
+the recursive nature of the function.
+The function can be represented recursively as :
+f(n) = n + f(n-1)
+
+Hence a simple solution based on the above
+formula can run in O(n).
+
+
+We can optimize above formula.
+
+We now know ,
+f(n) = n + f(n-1)
+
+Expanding f(n-1) and so on we have ,
+f(n) = n + n-1 + n-2 + ...... + 1 + f(0)
+
+which gives,
+f(n) = (n*(n+1))/2 + 1
