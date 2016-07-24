@@ -27,7 +27,7 @@ Output : DD EE FF
 
  */
 
-package strings;
+package strings.print;
 
 import java.util.HashMap;
 

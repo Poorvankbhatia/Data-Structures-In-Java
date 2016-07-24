@@ -6,7 +6,7 @@ Given a list of word lists How to print all sentences possible taking one word f
 
  */
 
-package strings;
+package strings.print;
 
 import java.util.ArrayList;
 

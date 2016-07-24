@@ -11,7 +11,7 @@ for n=2
 
  */
 
-package arrays;
+package strings.print;
 
 /**
  * Created by poorvank on 6/16/15.

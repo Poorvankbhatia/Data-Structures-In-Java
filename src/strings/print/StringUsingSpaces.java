@@ -12,7 +12,7 @@ Output: ABC
 
  */
 
-package strings;
+package strings.print;
 
 import java.util.Arrays;
 import java.util.Scanner;

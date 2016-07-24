@@ -24,7 +24,7 @@ An interleaved string of given two strings preserves the order of characters in 
 For example, in all the interleavings of above first example, ‘A’ comes before ‘B’ and ‘C’ comes before ‘D’.
 
  */
-package strings;
+package strings.print;
 
 import java.util.ArrayList;
 import java.util.List;
