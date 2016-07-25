@@ -1,4 +1,4 @@
-package backtracking;
+package strings.print;
 
 /**
  * Created by poorvank on 7/21/15.
