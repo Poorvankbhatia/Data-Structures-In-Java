@@ -137,4 +137,40 @@ The weighted quick-union algorithm uses at most
 c M lg N array accesses to process M connections among N sites for a small constant c.
 
 
+
+Disjoint Set Data Structures (Java Implementation)
+Consider a situation with a number of persons and following tasks to be performed on them.
+
+Add a new friendship relation, i.e., a person x becomes friend of another person y.
+Find whether individual x is a friend of individual y (direct or indirect friend)
+Example:
+
+We are given 10 individuals say,
+a, b, c, d, e, f, g, h, i, j
+
+Following are relationships to be added.
+a <-> b
+b <-> d
+c <-> f
+c <-> i
+j <-> e
+g <-> j
+
+And given queries like whether a is a friend of d
+or not.
+
+We basically need to create following 4 groups
+and maintain a quickly accessible connection
+among group items:
+G1 = {a, b, d}
+G2 = {c, f, i}
+G3 = {e, g, j}
+G4 = {h}
+Problem : To find whether x and y belong to same group or not, i.e., to find if x and y are direct/indirect friends.
+
+Solution : Partitioning the individuals into different sets according to the groups in which they fall.
+This method is known as disjoint set data structure which maintains collection of disjoint sets and each set is represented
+by its representative which is one of its members
+
+
  */
