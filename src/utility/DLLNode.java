@@ -10,7 +10,7 @@ public class DLLNode<T extends Comparable<? super T>> implements Comparable<DLLN
     private DLLNode previous;
 
     public DLLNode(T info) {
-       this(info,null,null);
+        this(info, null, null);
     }
 
     public DLLNode(T info, DLLNode next, DLLNode previous) {

@@ -17,14 +17,14 @@ public class EdgeWeightedDigraph {
     private int[] inDegree;
 
     public EdgeWeightedDigraph(int vertexCount) {
-        if(vertexCount<0) {
+        if (vertexCount < 0) {
             throw new IllegalArgumentException("Vertex count cannot be negative");
         }
         this.vertexCount = vertexCount;
-        this.edgeCount =0;
+        this.edgeCount = 0;
         inDegree = new int[vertexCount];
-        adj= (Bag<DirectedEdge>[]) new Bag[vertexCount];
-        for (int i=0;i<vertexCount;i++) {
+        adj = (Bag<DirectedEdge>[]) new Bag[vertexCount];
+        for (int i = 0; i < vertexCount; i++) {
             adj[i] = new Bag<>();
         }
     }
@@ -42,7 +42,7 @@ public class EdgeWeightedDigraph {
     }
 
     private void validateVertex(int v) {
-        if(v<0 && v>=vertexCount) {
+        if (v < 0 && v >= vertexCount) {
             throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (vertexCount - 1));
         }
     }
@@ -59,7 +59,7 @@ public class EdgeWeightedDigraph {
 
     public Iterable<DirectedEdge> edges() {
         Bag<DirectedEdge> bag = new Bag<>();
-        for (int v=0;v<vertexCount;v++) {
+        for (int v = 0; v < vertexCount; v++) {
             for (DirectedEdge e : adj[v]) {
                 bag.addToBag(e);
             }
@@ -69,7 +69,7 @@ public class EdgeWeightedDigraph {
 
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(vertexCount + " " + edgeCount  + NEWLINE);
+        s.append(vertexCount + " " + edgeCount + NEWLINE);
         for (int v = 0; v < vertexCount; v++) {
             s.append(v + ": ");
             for (DirectedEdge e : adj[v]) {
