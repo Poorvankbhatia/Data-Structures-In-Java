@@ -17,6 +17,27 @@ public class Trie<Item> {
         private Node[] childArray = new Node[R];
     }
 
+    public int getSizeLazyImplementation() {
+        return getSizeLazyImplementation(root);
+    }
+
+    public int getSizeLazyImplementation(Node x) {
+
+        if(x==null) {
+            return 0;
+        }
+
+        int count = 0;
+        if(x.value!=null) {
+            count++;
+        }
+        for (int i=0;i<R;i++) {
+            count += getSizeLazyImplementation(x.childArray[i]);
+        }
+
+        return count;
+    }
+
     public Trie() {
         root = new Node();
         size = 0;
