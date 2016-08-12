@@ -6,7 +6,11 @@
  * and next line contains size of boxes with space. The next line contains size of given product.
  * The output shows the best fit box size and -1 otherwise.
  * 
- * For example, Input: 6 2 7 9 11 13 16 12 Output: 13
+ * For example
+ * Input: 6
+ * 2 7 9 11 13 16
+ * 12
+ * Output: 13
  * 
  * Simple binary search
  */
@@ -51,7 +55,7 @@ public class BestFitBox {
         return aptBox(arr, mid + 1, high, box);
       }
 
-    } else {
+    } else { // arr[mid]>box
 
       if (mid - 1 >= low && box > arr[mid - 1]) {
         return arr[mid];

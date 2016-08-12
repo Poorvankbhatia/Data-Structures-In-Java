@@ -1,3 +1,7 @@
+/**
+ *  Find an element in an increasing & then decreasing array.
+ */
+
 package arrays.binarysearching;
 
 /**
