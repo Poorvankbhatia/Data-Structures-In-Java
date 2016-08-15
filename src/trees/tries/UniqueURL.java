@@ -7,205 +7,43 @@ Given a very long list of URLs, find the first URL which is unique ( occurred ex
 
 package trees.tries;
 
-import java.util.LinkedList;
+import utility.DLLNode;
+import utility.DoublyLinkList;
+import utility.Trie;
 
-/**
- * Created by poorvank on 4/23/15.
- */
-
-class DLLNode {
-
-    public String url;
-    public DLLNode next;
-    public DLLNode previous;
-
-    public DLLNode(String url) {
-
-        this.url = url;
-        next = null;
-        previous = null;
-
-    }
-
-}
-
-class DLList {
-
-    public DLLNode head;
-
-    public DLList() {
-        head = null;
-    }
-
-    public DLLNode addToList(String url) {
-
-        if (head == null) {
-            head = new DLLNode(url);
-        } else {
-            DLLNode temp;
-            temp = head;
-            head = new DLLNode(url);
-            head.next = temp;
-            temp.previous = head;
-        }
-
-        return head;
-
-    }
-
-    public void deleteFromList(DLLNode node) {
-
-        if (node.previous != null && node.next != null) {
-            node.previous.next = node.next;
-            node.next.previous = node.previous;
-        }
-        //When the last Node is to be deleted
-        else if (node.previous != null) {
-            node.previous.next = null;
-        }
-        //will only happen when the first node is to be deleted
-        else if (node.next != null) {
-            head = node.next;
-            node.next.previous = null;
-        }
-        //Only Node present
-        else {
-            head = null;
-        }
-    }
-
-    public void printList() {
-
-        DLLNode temp = head;
-        while (temp != null) {
-            System.out.print(temp.url + " ");
-            temp = temp.next;
-        }
-
-    }
-
-}
-
-class UTrieNode {
-
-    public LinkedList<UTrieNode> childList;
-    public DLLNode dllNode;
-    char content;
-    boolean isLeaf;
-    int count;
-
-    public UTrieNode(char content) {
-
-        this.content = content;
-        isLeaf = false;
-        count = 0;
-        childList = new LinkedList<>();
-        dllNode = null;
-
-    }
-
-    public UTrieNode subNode(char c) {
-
-        if (childList != null) {
-
-            for (UTrieNode uTrieNode : childList) {
-
-                if (uTrieNode.content == c) {
-                    return uTrieNode;
-                }
-
-            }
-
-        }
-
-        return null;
-    }
-
-}
-
-class UTrie {
-
-    public UTrieNode root;
-    DLList list = new DLList();
-
-    public UTrie() {
-
-        root = new UTrieNode(' ');
-
-    }
-
-    public void insert(String url) {
-        UTrieNode node;
-        if ((node = search(url)) != null) {
-            System.out.println("Already present - " + url);
-            if (node.dllNode == null) {
-                System.out.println("dllNode is null");
-            } else {
-                System.out.println("dllNode is present");
-                list.deleteFromList(node.dllNode);
-                node.dllNode = null;
-            }
-        } else {
-
-            System.out.println("Creating new TrieNode for " + url);
-
-            UTrieNode current = root;
-
-            for (char ch : url.toCharArray()) {
-
-                UTrieNode subNode = current.subNode(ch);
-
-                if (subNode == null) {
-                    current.childList.add(new UTrieNode(ch));
-                    current = current.subNode(ch);
-                } else {
-                    current = subNode;
-                }
-
-                current.count++;
-
-            }
-
-            current.isLeaf = true;
-            current.dllNode = list.addToList(url);
-
-        }
-        list.printList();
-        System.out.println("\n");
-
-    }
-
-    public UTrieNode search(String url) {
-
-        UTrieNode current = root;
-
-        for (char ch : url.toCharArray()) {
-
-            UTrieNode subNode = current.subNode(ch);
-
-            if (subNode == null) {
-                return null;
-            } else {
-                current = subNode;
-            }
-
-        }
-
-        if (current.isLeaf) {
-            return current;
-        }
-        return null;
-
-
-    }
-
-}
+import java.util.Iterator;
 
 public class UniqueURL {
 
+    Trie<DLLNode<String>> trie  = new Trie<>();
+    DoublyLinkList<String> stringDoublyLinkList = new DoublyLinkList<>();
+
+    public void printUniqueUrl(String[] urls) {
+
+        for (String url : urls) {
+            if(trie.contains(url)) {
+                DLLNode value = trie.get(url);
+                //Check if the node is already deleted
+                if(value.getNext()!=null || value.getPrevious()!=null) {
+                    stringDoublyLinkList.delete(value);
+                }
+            } else {
+                DLLNode<String> node = new DLLNode<>(url);
+                trie.put(url,node);
+                stringDoublyLinkList.add(node);
+            }
+        }
+
+        Iterator<String> listIterator = stringDoublyLinkList.iterator();
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+    }
+
+
     public static void main(String[] args) {
 
-        String[] urls = new String[]{"http://www.google.com/",
+        String[] urls = new String[]{"http://www.google.com/","http://www.google.com/","http://www.google.com/",
                 "http://www.yahoo.com/",
                 "http://www.amazon.com/",
                 "http://www.apache.com/",
@@ -227,14 +65,10 @@ public class UniqueURL {
                 "http://www.apple.com/",
         };
 
-        UTrie uTrie = new UTrie();
+        UniqueURL uniqueURL = new UniqueURL();
+        uniqueURL.printUniqueUrl(urls);
 
-        for (String url : urls) {
-            uTrie.insert(url);
-        }
 
-        System.out.println("\nFinal unique list is -: ");
-        uTrie.list.printList();
 
     }
 
