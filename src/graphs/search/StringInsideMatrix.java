@@ -15,7 +15,7 @@ Output: (2,0)
 
  */
 
-package arrays.twodimensionalarrays;
+package graphs.search;
 
 /**
  * Created by poorvank on 6/23/15.
