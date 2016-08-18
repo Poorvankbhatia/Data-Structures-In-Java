@@ -12,6 +12,10 @@ public class Trie<Item> {
     private int size;
 
 
+    /*
+            Static class does not have reference to outer class
+            Follow: http://stackoverflow.com/questions/27415693/why-do-i-need-to-declare-a-private-class-static-to-avoid-the-generic-array-crea
+     */
     private static class Node {
         private Object value;
         private Node[] childArray = new Node[R];
