@@ -47,4 +47,8 @@ public class DLLNode<T extends Comparable<? super T>> implements Comparable<DLLN
         return this.info.compareTo(o.getInfo());
     }
 
+    public String toString() {
+        return info.toString();
+    }
+
 }

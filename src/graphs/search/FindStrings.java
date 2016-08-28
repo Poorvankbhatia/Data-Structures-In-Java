@@ -37,7 +37,7 @@ public class FindStrings {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < col; j++) {
                 if (a[i][j] == toFind.charAt(0)) {
-                    findUtil(visited, a, i, j, 0, toFind, new StringBuilder(), rows - 1, col - 1,new ArrayList<String>());
+                    findUtil(visited, a, i, j, 0, toFind, new StringBuilder(), rows - 1, col - 1, new ArrayList<>());
                     visited[i][j] = false;
                 }
             }
@@ -45,10 +45,10 @@ public class FindStrings {
 
     }
 
-    private static void findUtil(boolean[][] visited, Character[][] a, int i, int j, int index, String toFind, StringBuilder result, int R, int C,ArrayList<String> list) {
+    private static void findUtil(boolean[][] visited, Character[][] a, int i, int j, int index, String toFind, StringBuilder result, int R, int C, ArrayList<String> list) {
 
         result.append(a[i][j]);
-        list.add(i+"-"+j);
+        list.add(i + "-" + j);
         if (index == toFind.length() - 1 && result.toString().equals(toFind)) {
             //System.out.println(i + " " + j); // End point of String toFind
             System.out.println(list.toString());
@@ -64,29 +64,32 @@ public class FindStrings {
         if (i + 1 >= 0 && j >= 0 && i + 1 <= R && j <= C && !visited[i + 1][j] && a[i + 1][j] == toFind.charAt(nextIndex)) {
             nextR = i + 1;
             nextC = j;
-            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C,new ArrayList<>(list));
-            //Every time we are done with the next character in the 2D Array we mark it visited
+            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C, new ArrayList<>(list));
+            //Every time we are done with the next character in the 2D Array we mark its visited value false
             visited[nextR][nextC] = false;
         }
+
         //Right
         if (i >= 0 && j + 1 >= 0 && i <= R && j + 1 <= C && !visited[i][j + 1] && a[i][j + 1] == toFind.charAt(nextIndex)) {
             nextR = i;
             nextC = j + 1;
-            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C,new ArrayList<>(list));
+            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C, new ArrayList<>(list));
             visited[nextR][nextC] = false;
         }
+
         //Left
         if (i >= 0 && j - 1 >= 0 && i <= R && j - 1 <= C && !visited[i][j - 1] && a[i][j - 1] == toFind.charAt(nextIndex)) {
             nextR = i;
             nextC = j - 1;
-            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C,new ArrayList<>(list));
+            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C, new ArrayList<>(list));
             visited[nextR][nextC] = false;
         }
+
         //Up
         if (i - 1 >= 0 && j >= 0 && i - 1 <= R && j <= C && !visited[i - 1][j] && a[i - 1][j] == toFind.charAt(nextIndex)) {
             nextR = i - 1;
             nextC = j;
-            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C,new ArrayList<>(list));
+            findUtil(visited, a, nextR, nextC, nextIndex, toFind, new StringBuilder(result), R, C, new ArrayList<>(list));
             visited[nextR][nextC] = false;
         }
 

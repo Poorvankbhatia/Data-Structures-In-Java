@@ -18,7 +18,7 @@ package backtracking;
  */
 public class NQueen {
 
-    private static final int N = 8;
+    private static final int N = 4;
 
     public static void main(String[] args) {
 
@@ -27,15 +27,7 @@ public class NQueen {
 
     private static void solveNQ() {
 
-        int[][] board = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0}};
-
+        int[][] board = new int[N][N];
         if (!solveNQUtil(board, 0)) {
             System.out.println("No solution exists");
         } else {
