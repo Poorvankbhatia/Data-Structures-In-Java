@@ -7,6 +7,8 @@ import java.util.NoSuchElementException;
  * Created by poorvank on 16/05/16.
  */
 @SuppressWarnings("unchecked")
+
+/*It means that T must implement Comparable<T itself or one of T's superclasses>*/
 public class MinPriorityQueue<Item extends Comparable<? super Item>> implements Iterable<Item> {
 
     private Item[] pq;
@@ -16,11 +18,9 @@ public class MinPriorityQueue<Item extends Comparable<? super Item>> implements 
     public MinPriorityQueue(Item[] items) {
         pq = (Item[]) new Comparable[items.length+1];
         size = items.length;
-        for(int i=0;i<size;i++) {
+        for(int i=0;i<size;i++) {;
             pq[i+1] = items[i];
         }
-
-
         for(int k=size/2;k>=1;k--) {
             sink(k);
         }
