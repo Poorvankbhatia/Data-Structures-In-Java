@@ -48,14 +48,14 @@ public class BitonicSubArray {
         }
 
         for (int i = 1; i < array.length; i++) {
-            if (array[i] > array[i - 1]) {
+            if (array[i] >= array[i - 1]) {
                 increasing[i] = increasing[i - 1] + 1;
             }
         }
 
         for (int i = array.length - 2; i >= 0; i--) {
 
-            if (array[i] > array[i + 1]) {
+            if (array[i] >= array[i + 1]) {
                 decreasing[i] = decreasing[i + 1] + 1;
             }
 

@@ -25,8 +25,6 @@ import utility.priorityQueueClasses.MinPriorityQueue;
  */
 public class KthSmallestArrayElement {
 
-    private static int heapSize = 0;
-
     public static void main(String[] args) {
 
         Integer[] arr = new Integer[]{4, 7, 10};

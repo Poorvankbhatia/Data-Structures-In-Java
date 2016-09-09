@@ -52,9 +52,6 @@ public class EquilibriumIndex {
             rightSum[i] = rightSum[i + 1] + array[i + 1];
         }
 
-        System.out.println(Arrays.toString(leftSum));
-        System.out.println(Arrays.toString(rightSum));
-
         for (int i = 0; i < n; i++) {
             if (leftSum[i] == rightSum[i]) {
                 System.out.println("Equilibrium Index found at index - " + i);
@@ -71,8 +68,8 @@ public class EquilibriumIndex {
         int sum = 0, leftSum = 0;
         int n = array.length;
 
-        for (int i = 0; i < n; i++) {
-            sum += array[i];
+        for (int anArray : array) {
+            sum += anArray;
         }
 
         for (int i = 0; i < n; i++) {

@@ -15,6 +15,8 @@ Output: No Such Pair
 package arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Created by poorvank on 4/21/15.
@@ -29,9 +31,9 @@ public class FindPair {
         pairPresent(arr, diff);
 
         arr = new int[]{90, 70, 20, 80, 50};
-        diff = 45;
+        diff = 60;
 
-        pairPresent(arr, diff);
+        pairPresentMap(arr, diff);
     }
 
     private static boolean pairPresent(int[] arr, int diff) {
@@ -56,6 +58,27 @@ public class FindPair {
         return false;
 
     }
+
+    private static boolean pairPresentMap(int[] arr,int diff) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int anArr : arr) {
+            set.add(anArr);
+        }
+
+        for (int element  : arr) {
+            if(set.contains(element-diff)) {
+                System.out.println("Elmenents found are : " + element + " " +  (element-diff));
+                return true;
+            }
+        }
+
+        System.out.println("No pair found");
+        return false;
+
+    }
+
 }
 
 /*
