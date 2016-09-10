@@ -43,17 +43,11 @@ public class Itinerary {
 
     private static void printRoute(Map<String, String> map) {
 
-        Map<String, String> reverseMap = new HashMap<>();
-
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            reverseMap.put(entry.getValue(), entry.getKey());
-        }
-
         String start = "";
 
         for (Map.Entry<String, String> entry : map.entrySet()) {
 
-            if (!reverseMap.containsKey(entry.getKey())) {
+            if (map.containsKey(entry.getValue())) {
                 start = entry.getKey();
                 break;
             }
