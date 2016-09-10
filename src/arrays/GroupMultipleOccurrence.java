@@ -28,27 +28,27 @@ public class GroupMultipleOccurrence {
 
         HashMap<Integer, Integer> countMap = new HashMap<>();
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int element : arr) {
 
-            if (countMap.containsKey(arr[i])) {
-                countMap.put(arr[i], countMap.get(arr[i]) + 1);
+            if (countMap.containsKey(element)) {
+                countMap.put(element, countMap.get(element) + 1);
             } else {
-                countMap.put(arr[i], 1);
+                countMap.put(element, 1);
             }
 
         }
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int anArr : arr) {
 
-            Integer count = countMap.get(arr[i]);
+            Integer count = countMap.get(anArr);
 
             if (count != null) {
                 for (int j = 0; j < count; j++) {
-                    System.out.print(arr[i] + " ");
+                    System.out.print(anArr + " ");
                 }
 
                 //Remove so that it is not encountered 2nd time
-                countMap.remove(arr[i]);
+                countMap.remove(anArr);
 
             }
 
