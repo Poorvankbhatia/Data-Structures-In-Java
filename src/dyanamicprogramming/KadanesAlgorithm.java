@@ -10,9 +10,9 @@ public class KadanesAlgorithm {
         int[] array = new int[]{-2, -3, 4, -1, -2, 1, 5, -3};
         DPMethod1(array);
         int[] array2 = {-1, 3, -5, 4, 6, -1, 2, -7, 13, -3};
-        DPMethod2(array2);
+        DPMethod1(array2);
         int[] array3 = {-6, -2, -3, -4, -1, -5, -5};
-        DPMethod3(array3);//Works For Negative Numbers
+        DPMethod1(array3);//Works For Negative Numbers
 
     }
 
@@ -28,13 +28,14 @@ public class KadanesAlgorithm {
 
             cumulativeSum += array[i];
 
-            if (cumulativeSum < 0) {
-                maxIndexUntilNow = i + 1;
-                cumulativeSum = 0;
-            } else if (maxSum < cumulativeSum) {
+            if (maxSum < cumulativeSum) {
                 maxSum = cumulativeSum;
                 maxStartIndex = maxIndexUntilNow;
                 maxEndIndex = i;
+            }
+            if (cumulativeSum < 0) {
+                maxIndexUntilNow = i + 1;
+                cumulativeSum = 0;
             }
 
         }
