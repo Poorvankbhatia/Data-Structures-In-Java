@@ -6,27 +6,27 @@ import java.util.HashMap;
  * Created by poorvank on 6/10/15.
  */
 
-class CloneNode {
-
-    int info;
-    CloneNode left;
-    CloneNode right;
-    CloneNode random;
-
-    public CloneNode(int info) {
-        this(info, null, null, null);
-    }
-
-    public CloneNode(int info, CloneNode left, CloneNode right, CloneNode random) {
-        this.info = info;
-        this.left = left;
-        this.right = right;
-        this.random = random;
-    }
-
-}
-
 public class CloneBT {
+
+    private static class CloneNode {
+
+        int info;
+        CloneNode left;
+        CloneNode right;
+        CloneNode random;
+
+        public CloneNode(int info) {
+            this(info, null, null, null);
+        }
+
+        public CloneNode(int info, CloneNode left, CloneNode right, CloneNode random) {
+            this.info = info;
+            this.left = left;
+            this.right = right;
+            this.random = random;
+        }
+
+    }
 
     public static void main(String[] args) {
 

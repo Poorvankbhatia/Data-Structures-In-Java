@@ -1,5 +1,6 @@
 package trees;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayToBST {
@@ -15,6 +16,8 @@ public class ArrayToBST {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+
+        Arrays.sort(arr);
 
         Traversal.pre_Order(createTree(arr, 0, n - 1));
 

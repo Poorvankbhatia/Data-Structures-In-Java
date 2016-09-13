@@ -10,26 +10,28 @@ package trees;
  * Created by poorvank on 6/16/15.
  */
 
-class ListNode {
 
-    int info;
-    ListNode next;
-
-    public ListNode(int n) {
-        this(n, null);
-    }
-
-    public ListNode(int n, ListNode l) {
-        info = n;
-        next = l;
-    }
-
-}
 
 public class ConnectDeepestRightLeaf {
 
     private static ListNode head = null;
     private static int max = 0;
+
+    private static class ListNode {
+
+        int info;
+        ListNode next;
+
+        public ListNode(int n) {
+            this(n, null);
+        }
+
+        public ListNode(int n, ListNode l) {
+            info = n;
+            next = l;
+        }
+
+    }
 
     public static void main(String[] args) {
 

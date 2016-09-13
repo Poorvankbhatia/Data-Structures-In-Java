@@ -23,6 +23,9 @@ Closest leaf to 'B' is 'B' itself, so distance is 0 for 'B'
 
 package trees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by poorvank on 6/12/15.
  */
@@ -37,13 +40,13 @@ public class ClosestLeaf {
         root.left.left = new Node(3);
         root.right = new Node(45);
         root.right.right = new Node(46);
-        Node[] ancestors = new Node[100];
+        List<Node> ancestors = new ArrayList<>();
 
         System.out.println(findLeafDistance(root, ancestors, 0, 12));
 
     }
 
-    private static int findLeafDistance(Node root, Node[] ancestors, int index, int key) {
+    private static int findLeafDistance(Node root, List<Node> ancestors, int index, int key) {
 
         //If(key is not found)
         if (root == null) {
@@ -56,7 +59,7 @@ public class ClosestLeaf {
             int result = findClosestDown(root);
 
             for (int i = index - 1; i >= 0; i--) {
-                result = Math.min(result, (index - i) + findClosestDown(ancestors[i]));
+                result = Math.min(result, (index - i) + findClosestDown(ancestors.get(i)));
             }
 
             return result;
@@ -64,10 +67,10 @@ public class ClosestLeaf {
         }
 
 
-        ancestors[index] = root;
+        ancestors.add(index,root);
 
-        return Math.min((findLeafDistance(root.left, ancestors, index + 1, key)),
-                (findLeafDistance(root.right, ancestors, index + 1, key)));
+        return Math.min((findLeafDistance(root.left, new ArrayList<>(ancestors), index + 1, key)),
+                (findLeafDistance(root.right, new ArrayList<>(ancestors), index + 1, key)));
 
 
     }

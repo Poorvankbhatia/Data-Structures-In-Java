@@ -40,6 +40,7 @@ package trees;
 
 
 import java.util.*;
+import utility.Queue;
 
 class customNode2 {
 
@@ -125,30 +126,31 @@ class customInput2 {
 
 public class BottomView {
 
-    private static Map<Integer, Integer> map = new TreeMap<>();
-
     public static void main(String[] args) {
 
         customNode2 root = customInput2.treeInput();
-        bottom(root);
+        Map<Integer, Integer> map = new TreeMap<>();
+        bottom(root,map);
         System.out.println(map);
 
     }
 
 
-    private static void bottom(customNode2 root) {
+    private static void bottom(customNode2 root,Map<Integer,Integer> map) {
+
+
 
         if (root == null) {
             return;
         }
 
-        Queue<customNode2> queue = new LinkedList<customNode2>();
+        Queue<customNode2> queue = new Queue<>();
 
-        queue.add(root);
+        queue.enqueue(root);
 
         while (!queue.isEmpty()) {
 
-            customNode2 current = queue.remove();
+            customNode2 current = queue.dequeue();
 
             int hd = current.hd;
 
@@ -160,12 +162,12 @@ public class BottomView {
 
             if (current.left != null) {
                 current.left.hd = hd - 1;
-                queue.add(current.left);
+                queue.enqueue(current.left);
             }
 
             if (current.right != null) {
                 current.right.hd = hd + 1;
-                queue.add(current.right);
+                queue.enqueue(current.right);
             }
 
         }
