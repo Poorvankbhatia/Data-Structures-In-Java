@@ -17,19 +17,21 @@ import java.util.List;
  * Created by poorvank on 4/19/15.
  */
 
-class MinIterationNode {
 
-    public int info;
-    public List<Integer> childList;
-
-    public MinIterationNode(int info) {
-        this.info = info;
-        childList = new ArrayList<>();
-    }
-
-}
 
 class MinIterationTree {
+
+    private class MinIterationNode {
+
+        public int info;
+        public List<Integer> childList;
+
+        public MinIterationNode(int info) {
+            this.info = info;
+            childList = new ArrayList<>();
+        }
+
+    }
 
     public MinIterationNode root;
     public List<MinIterationNode> nodeList;

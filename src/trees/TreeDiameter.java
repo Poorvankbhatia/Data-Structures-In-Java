@@ -1,17 +1,18 @@
 package trees;
 
 
-class Height {
+public class TreeDiameter {
 
-    public int value;
+    private class Height {
 
-    public Height(int value) {
-        this.value = value;
+        public int value;
+
+        public Height(int value) {
+            this.value = value;
+        }
+
     }
 
-}
-
-public class TreeDiameter {
 
     public static void main(String[] args) {
 
