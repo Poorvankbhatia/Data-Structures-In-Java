@@ -18,100 +18,104 @@ import java.util.Map;
  * Created by poorvank on 8/11/15.
  */
 
-class DLLNode {
-
-    public int info;
-    public DLLNode next;
-    public DLLNode prev;
-
-    public DLLNode(int info, DLLNode next, DLLNode prev) {
-        this.info = info;
-        this.next = next;
-        this.prev = prev;
-    }
-
-}
-
-class Cache {
-
-    int capacity;
-    Map<Integer, DLLNode> map = new HashMap<>();
-    DLLNode head = null;
-    DLLNode end = null;
-
-    public Cache(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public int get(int key) {
-
-        if (map.containsKey(key)) {
-            DLLNode node = map.get(key);
-            remove(node);
-            setHead(node);
-            return node.info;
-        }
-
-        return -1;
-    }
-
-    private void setHead(DLLNode node) {
-
-        node.next = head;
-        node.prev = null;
-        if (head != null) {
-            head.prev = node;
-        }
-
-        head = node;
-
-        if (end == null) {
-            end = head;
-        }
-
-    }
-
-    public void remove(DLLNode n) {
-
-        if (n.prev != null) {
-            n.prev.next = n.next;
-        } else {
-            head = n.next;
-        }
-
-        if (n.next != null) {
-            n.next.prev = n.prev;
-        } else {
-            end = n.prev;
-        }
-
-    }
-
-    public void set(int key, int value) {
-
-        if (map.containsKey(key)) {
-            DLLNode old = map.get(key);
-            old.info = value;
-            remove(old);
-            setHead(old);
-        } else {
-            DLLNode created = new DLLNode(value, null, null);
-            if (map.size() >= capacity) {
-                map.remove(end.info);
-                remove(end);
-                setHead(created);
-            } else {
-                setHead(created);
-            }
-            map.put(key, created);
-        }
 
 
-    }
 
-}
 
 public class LRUCache {
+
+    private static class DLLNode {
+
+        public int info;
+        public DLLNode next;
+        public DLLNode prev;
+
+        public DLLNode(int info, DLLNode next, DLLNode prev) {
+            this.info = info;
+            this.next = next;
+            this.prev = prev;
+        }
+
+    }
+
+    private static class Cache {
+
+        int capacity;
+        Map<Integer, DLLNode> map = new HashMap<>();
+        DLLNode head = null;
+        DLLNode end = null;
+
+        public Cache(int capacity) {
+            this.capacity = capacity;
+        }
+
+        public int get(int key) {
+
+            if (map.containsKey(key)) {
+                DLLNode node = map.get(key);
+                remove(node);
+                setHead(node);
+                return node.info;
+            }
+
+            return -1;
+        }
+
+        private void setHead(DLLNode node) {
+
+            node.next = head;
+            node.prev = null;
+            if (head != null) {
+                head.prev = node;
+            }
+
+            head = node;
+
+            if (end == null) {
+                end = head;
+            }
+
+        }
+
+        public void remove(DLLNode n) {
+
+            if (n.prev != null) {
+                n.prev.next = n.next;
+            } else {
+                head = n.next;
+            }
+
+            if (n.next != null) {
+                n.next.prev = n.prev;
+            } else {
+                end = n.prev;
+            }
+
+        }
+
+        public void set(int key, int value) {
+
+            if (map.containsKey(key)) {
+                DLLNode old = map.get(key);
+                old.info = value;
+                remove(old);
+                setHead(old);
+            } else {
+                DLLNode created = new DLLNode(value, null, null);
+                if (map.size() >= capacity) {
+                    map.remove(end.info);
+                    remove(end);
+                    setHead(created);
+                } else {
+                    setHead(created);
+                }
+                map.put(key, created);
+            }
+
+
+        }
+
+    }
 
     public static void main(String[] args) {
 
