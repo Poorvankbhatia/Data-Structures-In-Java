@@ -12,68 +12,70 @@ package miscellaneous;
  * Created by poorvank on 8/27/15.
  */
 
-class DLNode {
-
-    char ch;
-    DLNode next;
-    DLNode prev;
-
-    public DLNode(char ch) {
-        this(ch, null, null);
-    }
-
-    public DLNode(char ch, DLNode next, DLNode prev) {
-        this.ch = ch;
-        this.next = next;
-        this.prev = prev;
-    }
-
-}
-
-class DLList {
-
-    DLNode head, tail;
-
-    public DLList() {
-        head = null;
-        tail = null;
-    }
-
-    public void addToList(char ch) {
-
-        if (head == null) {
-            head = new DLNode(ch);
-            tail = head;
-        } else {
-            DLNode temp = new DLNode(ch);
-            tail.next = temp;
-            temp.prev = tail;
-            tail = temp;
-        }
-
-    }
-
-    public void deleteFromList(DLNode node) {
-
-        if (node != tail && node != head) {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-        } else if (head == tail) {
-            head = tail = null;
-        } else if (node == tail) {
-            tail = tail.prev;
-            tail.next = null;
-        } else {
-            head = head.next;
-            head.prev = null;
-        }
-
-
-    }
-
-}
 
 public class FirstNonRepeatingCharacterStream {
+
+
+    private static class DLNode {
+
+        char ch;
+        DLNode next;
+        DLNode prev;
+
+        public DLNode(char ch) {
+            this(ch, null, null);
+        }
+
+        public DLNode(char ch, DLNode next, DLNode prev) {
+            this.ch = ch;
+            this.next = next;
+            this.prev = prev;
+        }
+
+    }
+
+    private static class DLList {
+
+        DLNode head, tail;
+
+        public DLList() {
+            head = null;
+            tail = null;
+        }
+
+        public void addToList(char ch) {
+
+            if (head == null) {
+                head = new DLNode(ch);
+                tail = head;
+            } else {
+                DLNode temp = new DLNode(ch);
+                tail.next = temp;
+                temp.prev = tail;
+                tail = temp;
+            }
+
+        }
+
+        public void deleteFromList(DLNode node) {
+
+            if (node != tail && node != head) {
+                node.prev.next = node.next;
+                node.next.prev = node.prev;
+            } else if (head == tail) {
+                head = tail = null;
+            } else if (node == tail) {
+                tail = tail.prev;
+                tail.next = null;
+            } else {
+                head = head.next;
+                head.prev = null;
+            }
+
+
+        }
+
+    }
 
     public static void main(String[] args) {
 
