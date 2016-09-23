@@ -28,25 +28,26 @@ package linkedlist;
  * Created by poorvank on 6/18/15.
  */
 
-class MultiLevelNode {
-
-    int info;
-    MultiLevelNode right;
-    MultiLevelNode down;
-
-    public MultiLevelNode(int info) {
-        this(info, null, null);
-    }
-
-    public MultiLevelNode(int info, MultiLevelNode right, MultiLevelNode down) {
-        this.info = info;
-        this.right = right;
-        this.down = down;
-    }
-
-}
 
 public class FlattenMultiLevelList {
+
+    private static class MultiLevelNode {
+
+        int info;
+        MultiLevelNode right;
+        MultiLevelNode down;
+
+        public MultiLevelNode(int info) {
+            this(info, null, null);
+        }
+
+        public MultiLevelNode(int info, MultiLevelNode right, MultiLevelNode down) {
+            this.info = info;
+            this.right = right;
+            this.down = down;
+        }
+
+    }
 
     public static void main(String[] args) {
 

@@ -17,26 +17,28 @@ package linkedlist;
  * Created by poorvank on 6/18/15.
  */
 
-class ListNode2 {
 
-    int info;
-    ListNode2 next;
-    ListNode2 child;
-
-    public ListNode2(int info) {
-        this(info, null, null);
-    }
-
-    public ListNode2(int info, ListNode2 right, ListNode2 down) {
-        this.info = info;
-        next = right;
-        child = down;
-    }
-
-
-}
 
 public class FlattenLinkList2 {
+
+    private static class ListNode2 {
+
+        int info;
+        ListNode2 next;
+        ListNode2 child;
+
+        public ListNode2(int info) {
+            this(info, null, null);
+        }
+
+        public ListNode2(int info, ListNode2 right, ListNode2 down) {
+            this.info = info;
+            next = right;
+            child = down;
+        }
+
+
+    }
 
     public static void main(String[] args) {
 
