@@ -34,7 +34,7 @@ public class NonRecursiveTraversal {
             }
             if (root.left != null) {
                 stack.push(root.left);
-            }
+        }
 
         }
 

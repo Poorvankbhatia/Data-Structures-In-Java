@@ -10,90 +10,91 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class customNode1 {
 
-    public int info;
-    public customNode1 left;
-    public customNode1 right;
-    public int vd;
+public class DiagonalSum {
 
-    public customNode1(int info, int vd) {
-        this(info, null, null, vd);
+    private static class customNode1 {
+
+        public int info;
+        public customNode1 left;
+        public customNode1 right;
+        public int vd;
+
+        public customNode1(int info, int vd) {
+            this(info, null, null, vd);
+        }
+
+        public customNode1(int info, customNode1 left, customNode1 right, int vd) {
+            this.info = info;
+            this.left = left;
+            this.right = right;
+            this.vd = vd;
+        }
+
     }
 
-    public customNode1(int info, customNode1 left, customNode1 right, int vd) {
-        this.info = info;
-        this.left = left;
-        this.right = right;
-        this.vd = vd;
-    }
+    private static class customTree1 {
 
-}
+        public customNode1 root;
 
-class customTree1 {
+        public customTree1() {
+            root = null;
+        }
 
-    public customNode1 root;
+        public static customNode1 search(int n, customNode1 root) {
 
-    public customTree1() {
-        root = null;
-    }
+            if (root.info == n) {
+                return root;
+            }
 
-    public static customNode1 search(int n, customNode1 root) {
+            if (root.info < n) {
+                return search(n, root.right);
+            }
 
-        if (root.info == n) {
+            if (root.info > n) {
+                return search(n, root.left);
+            }
+
+            return null;
+
+        }
+
+        public customNode1 customInsert(int info, customNode1 root) {
+            if (root == null) {
+                root = new customNode1(info, 0);
+            } else if (info < root.info) {
+                root.left = customInsert(info, root.left);
+            } else if (info > root.info) {
+                root.right = customInsert(info, root.right);
+            } else {
+                System.out.println("Node already present");
+            }
             return root;
         }
 
-        if (root.info < n) {
-            return search(n, root.right);
-        }
+    }
 
-        if (root.info > n) {
-            return search(n, root.left);
-        }
+    private static class customInput1 {
 
-        return null;
+        public static customNode1 treeInput() {
+
+            System.out.println("Creating binary tree\n");
+            System.out.println("Enter nodes(6) : ");
+            customNode1 root = null;
+            customTree1 tree = new customTree1();
+
+            for (int i = 0; i <= 5; i++) {
+                root = tree.customInsert(Integer.parseInt((new Scanner(System.in)).nextLine()), root);
+            }
+
+            System.out.println("Root is = " + root.info);
+
+            return root;
+
+        }
 
     }
 
-    public customNode1 customInsert(int info, customNode1 root) {
-        if (root == null) {
-            root = new customNode1(info, 0);
-        } else if (info < root.info) {
-            root.left = customInsert(info, root.left);
-        } else if (info > root.info) {
-            root.right = customInsert(info, root.right);
-        } else {
-            System.out.println("Node already present");
-        }
-        return root;
-    }
-
-}
-
-class customInput1 {
-
-    public static customNode1 treeInput() {
-
-        System.out.println("Creating binary tree\n");
-        System.out.println("Enter nodes(6) : ");
-        customNode1 root = null;
-        customTree1 tree = new customTree1();
-
-        for (int i = 0; i <= 5; i++) {
-            root = tree.customInsert(Integer.parseInt((new Scanner(System.in)).nextLine()), root);
-        }
-
-        System.out.println("Root is = " + root.info);
-
-        return root;
-
-    }
-
-}
-
-
-public class DiagonalSum {
 
     private static HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 

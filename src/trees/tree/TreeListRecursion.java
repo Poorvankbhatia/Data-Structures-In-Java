@@ -41,7 +41,7 @@ public class TreeListRecursion {
 
         //Empty tree -> Empty list
         if (root == null) {
-            return root;
+            return null;
         }
 
         aList = treeToList(root.left);

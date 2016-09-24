@@ -31,15 +31,7 @@ public class SumOfLeftLeaves {
 
     private static boolean isLeaf(Node root) {
 
-        if (root == null) {
-            return false;
-        }
-
-        if (root.left == null && root.right == null) {
-            return true;
-        }
-
-        return false;
+       return root!=null && root.left==null && root.right==null;
     }
 
 }
