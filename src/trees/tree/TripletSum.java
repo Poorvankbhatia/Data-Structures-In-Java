@@ -11,7 +11,7 @@ public class TripletSum {
 
         Node root = Input.treeInput();
         storeInOrder(root);
-        if (!sumElements(root, 20)) {
+        if (!sumElements(20)) {
             System.out.println("Not present");
         }
 
@@ -30,7 +30,7 @@ public class TripletSum {
 
     }
 
-    private static boolean sumElements(Node root, int sum) {
+    private static boolean sumElements(int sum) {
 
         for (int i = 0; i < inOrder.size(); i++) {
 
