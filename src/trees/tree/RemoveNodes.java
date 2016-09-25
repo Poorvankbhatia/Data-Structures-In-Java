@@ -11,7 +11,7 @@ then X is not deleted from Binary Tree. In other words a node is deleted if all 
 
 package trees.tree;
 
-public class RemoveNodes1 {
+public class RemoveNodes {
 
     public static void main(String[] args) {
 
