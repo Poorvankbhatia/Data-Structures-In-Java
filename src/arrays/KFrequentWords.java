@@ -49,7 +49,7 @@ public class KFrequentWords {
         ArrayList<ArrayList<String>> lists = new ArrayList<>(max + 1);
 
         for (int i = 0; i < max + 1; i++) {
-            lists.add(new ArrayList<String>());
+            lists.add(new ArrayList<>());
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {

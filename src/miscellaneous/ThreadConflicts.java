@@ -48,49 +48,49 @@ import java.util.List;
  * Created by poorvank on 7/17/15.
  */
 
-class Thread {
+public class ThreadConflicts {
 
-    public int id;
-    public int memoryBlock;
-    public int time;
-    public char access;
+    private static class Thread {
 
-    public Thread(int id, int memoryBlock, int time, char access) {
-        this.id = id;
-        this.memoryBlock = memoryBlock;
-        this.time = time;
-        this.access = access;
+        public int id;
+        public int memoryBlock;
+        public int time;
+        public char access;
+
+        public Thread(int id, int memoryBlock, int time, char access) {
+            this.id = id;
+            this.memoryBlock = memoryBlock;
+            this.time = time;
+            this.access = access;
+        }
     }
-}
 
-class ThreadComparator implements Comparator<Thread> {
+    private static class ThreadComparator implements Comparator<Thread> {
 
-    @Override
-    public int compare(Thread t1, Thread t2) {
+        @Override
+        public int compare(Thread t1, Thread t2) {
 
-        if (t1.memoryBlock == t2.memoryBlock) {
-            if (t1.time > t2.time) {
-                return 1;
-            } else if (t1.time < t2.time) {
-                return -1;
+            if (t1.memoryBlock == t2.memoryBlock) {
+                if (t1.time > t2.time) {
+                    return 1;
+                } else if (t1.time < t2.time) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             } else {
-                return 0;
+                if (t1.memoryBlock > t2.memoryBlock) {
+                    return 1;
+                } else if (t1.memoryBlock < t2.memoryBlock) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
-        } else {
-            if (t1.memoryBlock > t2.memoryBlock) {
-                return 1;
-            } else if (t1.memoryBlock < t2.memoryBlock) {
-                return -1;
-            } else {
-                return 0;
-            }
+
         }
 
     }
-
-}
-
-public class ThreadConflicts {
 
     public static void main(String[] args) {
 

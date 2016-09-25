@@ -16,18 +16,18 @@ import java.util.ArrayList;
  * Created by poorvank on 4/16/15.
  */
 
-class Interval {
-
-    public int sell;
-    public int buy;
-
-}
-
 public class StockBuyAndSell {
+
+    private static class Interval {
+
+        public int sell;
+        public int buy;
+
+    }
 
     public static void main(String[] args) {
 
-        int price[] = new int[]{1, 2, 100};
+        int price[] = new int[]{100, 180, 260, 310, 40, 535, 695};
 
         ArrayList<Interval> arrayList = new ArrayList<>();
 
