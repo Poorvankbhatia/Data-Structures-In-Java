@@ -51,7 +51,7 @@ public class SortedArrayFrequency {
 
     private static int firstIndex(int[] arr, int x, int low, int high) {
 
-        int mid = (high + low) / 2;
+        int mid = low + (high - low) / 2;
 
         if (high >= low) {
 
@@ -69,7 +69,7 @@ public class SortedArrayFrequency {
 
     private static int lastIndex(int[] arr, int x, int low, int high) {
 
-        int mid = (high + low) / 2;
+        int mid = low + (high - low) / 2;
 
         if (high >= low) {
             if ((mid == arr.length - 1 || x < arr[mid + 1]) && arr[mid] == x) {

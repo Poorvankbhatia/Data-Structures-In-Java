@@ -40,7 +40,7 @@ public class FixedPoint {
 
         if (low <= high) {
 
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
 
             if (mid == array[mid]) {
                 return mid;

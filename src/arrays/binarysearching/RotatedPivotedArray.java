@@ -15,7 +15,7 @@ public class RotatedPivotedArray {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{5, 6, 1, 2, 3, 4};
+        int[] array = new int[]{9,34,232,879, 1, 2, 3, 4,5,6};
         System.out.println("array is rotated - " + findPivotIndex(array, 0, array.length - 1) + " times");
 
     }
@@ -28,7 +28,7 @@ public class RotatedPivotedArray {
      */
     private static int findPivotIndex(int[] array, int low, int high) {
 
-        int mid = (low + high) / 2;
+        int mid = low + (high - low) / 2;
         
         /*
         
@@ -39,9 +39,6 @@ public class RotatedPivotedArray {
         if (array[low] <= array[high]) {
             return low;
         }
-        int next = (mid + 1) % (array.length);//in case the mid index is the last index
-        int previous = (mid - 1 + array.length) % (array.length); // in case it is the first element
-        //length is added in case - 1 returns a negative value
 
         if ((mid == array.length - 1 || array[mid] <= array[mid + 1]) && (mid == 0 || array[mid] <= array[mid - 1])) {
             return mid;

@@ -35,7 +35,7 @@ public class PeakElementInAnArray {
 
         if (low <= high) {
 
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
 
             if ((mid == 0 || array[mid] >= array[mid - 1]) && (array[mid] >= array[mid + 1] || mid == n - 1)) {
                 return array[mid];

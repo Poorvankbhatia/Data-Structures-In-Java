@@ -54,7 +54,7 @@ public class FindKClosestElements {
         // If there are no more elements on left side, then
         // print right elements
         while (count < k && r < n) {
-            System.out.print(arr[l--] + " ");
+            System.out.print(arr[r++] + " ");
         }
 
     }
@@ -68,7 +68,7 @@ public class FindKClosestElements {
             return low;
         }
 
-        int mid = (high + low) / 2;
+        int mid = low + (high - low) / 2;
         
         /* If x is same as middle element, then return mid */
         if (arr[mid] <= x && arr[mid + 1] > x) {

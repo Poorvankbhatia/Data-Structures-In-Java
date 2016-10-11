@@ -47,11 +47,11 @@ public class ElementAppearingOddTimes {
       return low;
     }
 
-    int mid = (low + high) / 2;
+    int mid = low  + (high - low) / 2;
 
-    // {2,2,2,1} or {2,1}
-    if (low == mid)
-      return -1;
+    // {2,2,1} or {2,1}
+    /*if (low == mid)
+      return -1;*/
 
     /*
      * 

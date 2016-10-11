@@ -45,7 +45,7 @@ public class MaxElementIncreasingDecreasingArray {
 
         if (low < high) {
 
-            int mid = (high + low) / 2;
+            int mid = low + (high - low) / 2;
 
             if (array[mid] > array[mid + 1] && array[mid] > array[mid - 1]) {
                 return mid;
