@@ -7,7 +7,7 @@ Given a matrix where every element is either ‘O’ or ‘X’, replace ‘O’
 
  */
 
-package arrays.twodimensionalarrays;
+package graphs.search;
 
 /**
  * Created by poorvank on 6/8/15.
@@ -17,11 +17,11 @@ public class ReplaceXO {
     public static void main(String[] args) {
 
         char[][] matrix = new char[][]{{'X', 'O', 'X', 'X', 'X', 'X'},
-                {'X', 'O', 'X', 'X', 'O', 'X'},
-                {'X', 'X', 'X', 'O', 'O', 'X'},
-                {'O', 'X', 'X', 'X', 'X', 'X'},
-                {'X', 'X', 'X', 'O', 'X', 'O'},
-                {'O', 'O', 'X', 'O', 'O', 'O'}};
+                                       {'X', 'O', 'X', 'X', 'O', 'X'},
+                                       {'X', 'X', 'O', 'O', 'O', 'X'},
+                                       {'O', 'X', 'X', 'X', 'X', 'X'},
+                                       {'X', 'X', 'X', 'O', 'X', 'O'},
+                                       {'O', 'O', 'X', 'O', 'O', 'O'}};
 
 
         int row = matrix.length;
@@ -41,9 +41,9 @@ public class ReplaceXO {
 
         algorithm(matrix, row, col);
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (char[] aMatrix : matrix) {
             for (int j = 0; j < matrix[0].length; j++)
-                System.out.print(matrix[i][j] + " ");
+                System.out.print(aMatrix[j] + " ");
             System.out.println();
         }
     }

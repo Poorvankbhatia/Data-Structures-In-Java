@@ -69,13 +69,14 @@ public class QuickFindUF {
 
         try {
 
-            File file = GetInputFile.getFile("largeUF.txt");
+            File file = GetInputFile.getFile("mediumUF.txt");
 
             BufferedReader br = new BufferedReader(new FileReader(file));
             int inputCount = Integer.parseInt(br.readLine());
             QuickFindUF qf = new QuickFindUF(inputCount);
-            for (int i=0;i<inputCount;i++) {
-                String[] input  = (br.readLine()).split(" ");
+            String line="";
+            while ((line=br.readLine())!=null) {
+                String[] input  = (line).split(" ");
                 int p = Integer.parseInt(input[0]);
                 int q = Integer.parseInt(input[1]);
                 if(!qf.isConnected(p,q)) {
@@ -105,11 +106,11 @@ combines two components.
 Proof: Immediate from the code. Each call to connected() tests two entries in the
 id[] array, one for each of the two calls to find(). Each call to union() that combines
 two components does so by making two calls to find(), testing each of the N
-entries in the id[] array, and changing between 1 and N  1 of them.
+entries in the id[] array, and changing between 1 and N - 1 of them.
 
 In particular, suppose that we use quick-find for the
 dynamic connectivity problem and wind up with a
-single component. This requires at least N1 calls to
+single component. This requires at least N- 1 calls to
 union(), and, consequently, at least (N+3)(N-1) ~
 square(N) array accesses—we are led immediately to the hypothesis
 that dynamic connectivity with quick-find

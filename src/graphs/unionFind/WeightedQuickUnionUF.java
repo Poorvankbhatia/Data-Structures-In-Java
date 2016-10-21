@@ -79,8 +79,9 @@ public class WeightedQuickUnionUF {
             BufferedReader br = new BufferedReader(new FileReader(file));
             int inputCount = Integer.parseInt(br.readLine());
             WeightedQuickUnionUF qf = new WeightedQuickUnionUF(inputCount);
-            for (int i=0;i<inputCount;i++) {
-                String[] input  = (br.readLine()).split(" ");
+            String line="";
+            while ((line=br.readLine())!=null) {
+                String[] input  = (line).split(" ");
                 int p = Integer.parseInt(input[0]);
                 int q = Integer.parseInt(input[1]);
                 if(!qf.isConnected(p,q)) {
@@ -106,10 +107,10 @@ Worst case for weighted quick union, when the sizes of the trees to be merged by
 union() are always equal (and a power
 of 2). These tree structures look complex,
 but they have the simple property that
-the height of a tree of 2n nodes is n. Furthermore,
-when we merge two trees of 2n
-nodes, we get a tree of 2n1 nodes, and we
-increase the height of the tree to n1. This
+the height of a tree of 2^n nodes is n. Furthermore,
+when we merge two trees of 2^n
+nodes, we get a tree of 2^n+ 1 nodes, and we
+increase the height of the tree to n+ 1. This
 observation generalizes to provide a proof
 that the weighted algorithm can guarantee
 logarithmic performance.

@@ -28,7 +28,7 @@ Output: Number of islands is 4
 
  */
 
-package arrays.twodimensionalarrays;
+package graphs.search;
 
 /**
  * Created by poorvank on 6/8/15.
