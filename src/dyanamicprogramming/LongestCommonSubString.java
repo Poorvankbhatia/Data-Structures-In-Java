@@ -29,7 +29,7 @@ public class LongestCommonSubString {
         int[][] LCSub = new int[m + 1][n + 1];
         int result = 0, pos = -1;
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
                 if (i == 0 || j == 0) {
                     LCSub[i][j] = 0;

@@ -17,7 +17,7 @@ public class MaximumSumIncSubSeq {
 
     public static void main(String[] args) {
 
-        int[] array = new int[]{10, 5, 4, 3};
+        int[] array = new int[]{10, 8, 4, 9};
         maxSequence(array);
     }
 
@@ -26,9 +26,7 @@ public class MaximumSumIncSubSeq {
 
         int[] sumArray = new int[array.length];
 
-        for (int i = 0; i < sumArray.length; i++) {
-            sumArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, sumArray, 0, sumArray.length);
 
         for (int i = 1; i < array.length; i++) {
             for (int j = 0; j < i; j++) {
@@ -40,9 +38,9 @@ public class MaximumSumIncSubSeq {
 
         int max = 0;
 
-        for (int i = 0; i < sumArray.length; i++) {
-            if (max < sumArray[i])
-                max = sumArray[i];
+        for (int aSumArray : sumArray) {
+            if (max < aSumArray)
+                max = aSumArray;
         }
 
         System.out.println(max);

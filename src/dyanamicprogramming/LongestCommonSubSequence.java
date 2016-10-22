@@ -104,6 +104,17 @@ L(“AGGTAB”, “GXTXAYB”) = 1 + L(“AGGTA”, “GXTXAY”)
 So length of LCS can be written as:
 L(“ABCDGH”, “AEDFHR”) = MAX ( L(“ABCDG”, “AEDFHR”), L(“ABCDGH”, “AEDFH”) )
 
+
+Considering the above implementation, following is a partial recursion tree for input strings “AXYT” and “AYZX”
+
+                         lcs("AXYT", "AYZX")
+                       /                 \
+         lcs("AXY", "AYZX")            lcs("AXYT", "AYZ")
+         /            \                  /               \
+lcs("AX", "AYZX") lcs("AXY", "AYZ")   lcs("AXY", "AYZ") lcs("AXYT", "AY")
+In the above partial recursion tree, lcs(“AXY”, “AYZ”) is being solved twice. If we draw the complete recursion tree,
+then we can see that there are many subproblems which are solved again and again
+
 So the LCS problem has optimal substructure property as the main problem can be solved using solutions to subproblems.
 
 https://www.youtube.com/watch?v=P-mMvhfJhu8
