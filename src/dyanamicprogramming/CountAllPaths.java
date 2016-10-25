@@ -15,17 +15,17 @@ public class CountAllPaths {
     public static void main(String[] args) {
 
         int[][] matrix = new int[][]{{1, 2, 3}, {4, 5, 6}};
-        System.out.println(recursive(matrix, matrix.length, matrix[0].length));
+        System.out.println(recursive(matrix.length-1, matrix[0].length-1));
         DPMethod(matrix, matrix.length, matrix[0].length);
     }
 
-    private static int recursive(int[][] matrix, int row, int col) {
+    private static int recursive( int row, int col) {
 
-        if (row == 1 || col == 1) {
+        if (row == 0 || col == 0) {
             return 1;
         }
 
-        return recursive(matrix, row - 1, col) + recursive(matrix, row, col - 1);
+        return recursive(row - 1, col) + recursive(row, col - 1);
 
     }
 
