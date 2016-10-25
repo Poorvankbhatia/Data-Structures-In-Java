@@ -49,8 +49,8 @@ public class CountPathsWithTurns {
             }
         }
 
-        return  countPathsUtil(m,n-1,count,1) // Moving along column
-                +countPathsUtil(m-1,n,count,0); // Moving along row
+        return  countPathsUtil(m,n-1,count,0) // Moving along column
+                +countPathsUtil(m-1,n,count,1); // Moving along row
 
     }
 
@@ -87,7 +87,7 @@ public class CountPathsWithTurns {
         // 2) We reach here through previous column, so number of
         //    turns k reduce by 1.
         if(d==0) {
-            return (countPathsUtil(i-1,j,count-1,1)+ countPathsUtil(i,j-1,count-1,0));
+            return (countPathsUtil(i-1,j,count-1,1)+ countPathsUtil(i,j-1,count,0));
         } else {
             return (countPathsUtil(i-1,j,count,1)+ countPathsUtil(i,j-1,count-1,0));
         }
