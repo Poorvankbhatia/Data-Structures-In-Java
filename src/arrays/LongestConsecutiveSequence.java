@@ -20,7 +20,7 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{100, 4, 200, 1, 3, 2};
+        int[] arr = new int[]{-1,1,2,0};
 
         HashSet<Integer> hashSet = new HashSet<>();
 

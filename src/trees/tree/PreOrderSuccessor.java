@@ -25,7 +25,7 @@ public class PreOrderSuccessor {
     private static Node findSuccessorPreOrder(int key, Node root) {
 
         if (root == null) {
-            return root;
+            return null;
         }
 
         if (root.info == key) {
@@ -49,7 +49,7 @@ public class PreOrderSuccessor {
                 return successor;
             }
 
-            if (find && successor == null) {
+            if (find) {
                 return root.right;
             } else if (!find) {
                 return findSuccessorPreOrder(key, root.right);
