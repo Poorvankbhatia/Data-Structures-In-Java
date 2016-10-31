@@ -1,12 +1,13 @@
-package trees.tree;/*
+/*
 
 Print encoding for an Array.
-    Rules: consider BST made from given array. Let say number x is present in the BST and to reach x, 
+    Rules: consider BST made from given array. Let say number x is present in the BST and to reach x,
     If you go right print 1, if left then 0.
     Now you are given an index i in the array A (so x = A[i]) and print the encoding without constructing BST to reach x
     and without space with least time complexity.
 
  */
+package trees.tree;
 
 /**
  * Created by poorvank on 6/6/15.
@@ -20,16 +21,16 @@ public class PrintArrayEncoding {
         int min = Integer.MIN_VALUE;
         int max = Integer.MAX_VALUE;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int anArray : array) {
 
-            if (array[i] < max && array[i] > min) {
+            if (anArray < max && anArray > min) {
 
-                if (array[i] < searchNumber) {
+                if (anArray < searchNumber) {
                     System.out.print(1 + " ");
-                    min = array[i];
-                } else if (array[i] > searchNumber) {
+                    min = anArray;
+                } else if (anArray > searchNumber) {
                     System.out.print(0 + " ");
-                    max = array[i];
+                    max = anArray;
                 } else {
                     break;
                 }

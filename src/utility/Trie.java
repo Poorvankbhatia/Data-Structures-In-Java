@@ -262,8 +262,8 @@ structures that we have considered so far, the tree that we construct depends bo
 the set of keys and on the order in which we insert those keys.
 
 Worst-case time bound for search and insert. How long does it take to find the value
-associated with a key? For BSTs, hashing, and other methods in Chapter 4, we needed
-mathematical analysis to study this question, but for tries it is very easy to answer:
+associated with a key?
+
 Proposition G. The number of array accesses when searching in a trie or inserting
 a key into a trie is at most 1 plus the length of the key.
 Proof: Immediate from the code. The recursive get() and put() implementations
