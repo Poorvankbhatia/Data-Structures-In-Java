@@ -1,5 +1,7 @@
 /*
 
+STAR
+
 You are given a String S that consists of characters '0' and '1' only.Return the smallest positive integer
  K such that it is possible to cut S into K pieces, each of them being a power of 5. If there is no such K, 
  return -1 instead. 
