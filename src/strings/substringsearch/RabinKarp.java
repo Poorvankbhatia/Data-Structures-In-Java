@@ -34,7 +34,7 @@ public class RabinKarp {
 
     The constructor computes a hash
 value patHash for the pattern; it also computes
-the value of RM1mod Q in the variable RM.
+the value of RM1mod Q(largePrime) in the variable RM.
 
      */
     public RabinKarp(String pattern) {
@@ -129,12 +129,12 @@ operation is that if we take the remainder when divided by Q after each arithmet
 operation, then we get the same answer as if we were to perform all of the arithmetic
 operations, then take the remainder
 when divided by Q.
-
+//See Images
 
 The Monte Carlo version of Rabin-Karp substring search is linear-time
 and extremely likely to be correct, and the Las Vegas version of Rabin-Karp substring
 search is correct and extremely likely to be linear-time.
-Discussion: The use of the very large value of Q, made possible by the fact that we
+Discussion: The use of the very large value of Q(largePrime), made possible by the fact that we
 need not maintain an actual hash table, makes it extremely unlikely that a collision
 will occur. Rabin and Karp showed that when Q is properly chosen, we get a hash
 collision for random strings with probability 1/Q, which implies that, for practical
