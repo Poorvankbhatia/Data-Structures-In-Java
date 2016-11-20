@@ -47,6 +47,7 @@ public class RearrangePosNegOrder {
 
                     rightRotateArray(array, index, outPlace);
 
+                    //Because after rotation the next two elements will be of the same sign , so outofPlace +2 would be at wrong index
                     if (index - outPlace > 2) {
                         outPlace = outPlace + 2;
                     } else {

@@ -62,4 +62,6 @@ The idea is to do inorder traversal of the binary tree.
 While doing inorder traversal, keep track of the previously visited node 
 in a variable say prev. For every visited node, make it next of prev and previous of this node as prev.
 
+The above program does a simple inorder traversal, so time complexity is O(n) where n is the number of nodes in given binary tree.
+
  */
