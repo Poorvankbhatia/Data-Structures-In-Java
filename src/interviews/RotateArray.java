@@ -16,8 +16,8 @@ public class RotateArray {
     public static void main(String[] args) {
 
         int[][] array = new int[][]{{1, 2, 3, 4},
-                {5, 6, 7, 8},
-                {9, 10, 11, 12}};
+                                    {5, 6, 7, 8},
+                                    {9, 10, 11, 12}};
 
         int row = array.length;
         int col = array[0].length;
@@ -42,14 +42,11 @@ public class RotateArray {
 
     private static void rotateArray(int[][] array, int row, int col) {
 
-        int r = col;
-        int c = row;
+        int[][] destinationArray = new int[col][row];
 
-        int[][] destinationArray = new int[r][c];
-
-        for (int i = 0; i < r; i++) {
-            int k = c;
-            for (int j = 0; j < c; j++) {
+        for (int i = 0; i < col; i++) {
+            int k = row;
+            for (int j = 0; j < row; j++) {
                 System.out.println("i,j = " + i + "," + j + " && k-1,j= " + (k - 1) + "," + j);
                 destinationArray[i][j] = array[k - 1][i];
                 k--;
