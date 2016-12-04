@@ -16,7 +16,7 @@ Output: 4
 The longest path is 6-7-8-9.
 
  */
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank on 23/10/16.

@@ -17,7 +17,7 @@ The longest tower is length 6 and includes from top to bottom:
 
  */
 
-package dyanamicprogramming;
+package dyanamicprogramming.lis;
 
 import java.util.Arrays;
 

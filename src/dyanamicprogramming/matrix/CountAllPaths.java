@@ -5,7 +5,7 @@ The problem is to count all the possible paths from top left to bottom right of 
 with the constraints that from each cell you can either move only to right or down
 
  */
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank on 5/28/15.

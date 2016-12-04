@@ -17,7 +17,7 @@ There are two paths with 12 coins
 1 -> 2 -> 3 -> 5 -> 1
 
  */
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank.b on 23/10/16.

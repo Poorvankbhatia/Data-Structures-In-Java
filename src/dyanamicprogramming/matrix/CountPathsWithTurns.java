@@ -25,7 +25,7 @@ Input:  m = 3, n = 3, k = 1
 Output: 2
 
  */
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank on 23/10/16.

@@ -1,4 +1,4 @@
-package dyanamicprogramming;
+package dyanamicprogramming.lcs;
 
 import java.util.Arrays;
 

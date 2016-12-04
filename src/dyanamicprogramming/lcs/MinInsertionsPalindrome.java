@@ -1,4 +1,4 @@
-package dyanamicprogramming;
+package dyanamicprogramming.lcs;
 
 /**
  * Created by poorvank on 5/28/15.

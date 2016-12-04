@@ -6,7 +6,7 @@ For example, length of LIS for { 10, 22, 9, 33, 21, 50, 41, 60, 80 } is 6 and LI
 
  */
 
-package dyanamicprogramming;
+package dyanamicprogramming.lis;
 
 /**
  * Created by poorvank on 5/20/15.
