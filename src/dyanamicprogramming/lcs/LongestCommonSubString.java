@@ -52,6 +52,19 @@ public class LongestCommonSubString {
 
 /*
 
+Entire Sequence suffix of the string  thar overlaps a  Sequence prefix of the reversed string if the two are palindromes.
+
+
+        a	b	d	c
+
+    a	1	1	1	1
+
+    b 	1	2	2	2
+
+    c   1	2	2	3
+
+    d	1	2	3	3
+
 Dynamic Programming can be used to find the longest common substring in O(m*n) time. 
 The idea is to find length of the longest common suffix for all substrings of both strings and 
 store these lengths in a table.

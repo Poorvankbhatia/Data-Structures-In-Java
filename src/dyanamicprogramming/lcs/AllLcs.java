@@ -48,25 +48,25 @@ public class AllLcs {
 
     private Set<String> getAllLcsUtil(String s1,String s2,int[][] dp,int i,int j) {
 
-        Set<String> lcss = new HashSet<>();
+        Set<String> set = new HashSet<>();
 
         if (i == 0 || j == 0) {
-            lcss.add("");
+            set.add("");
         } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
             Set<String> temp = getAllLcsUtil(s1, s2,dp, i - 1, j - 1);
             for (String lcs : temp) {
-                lcss.add(lcs + s1.charAt(i - 1));
+                set.add(lcs + s1.charAt(i - 1));
             }
         } else {
             if (dp[i - 1][j] >= dp[i][j - 1]) {
-                lcss.addAll(getAllLcsUtil(s1,s2,dp, i - 1, j));
+                set.addAll(getAllLcsUtil(s1,s2,dp, i - 1, j));
             }
 
             if (dp[i][j - 1] >= dp[i - 1][j]) {
-                lcss.addAll(getAllLcsUtil(s1,s2,dp, i, j - 1));
+                set.addAll(getAllLcsUtil(s1,s2,dp, i, j - 1));
             }
         }
-        return lcss;
+        return set;
 
     }
 

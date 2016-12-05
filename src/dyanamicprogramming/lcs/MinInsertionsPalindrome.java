@@ -1,3 +1,15 @@
+/*
+
+Given a string, find the minimum number of characters to be inserted to convert it to palindrome.
+
+Before we go further, let us understand with few examples:
+    ab: Number of insertions required is 1. bab
+    aa: Number of insertions required is 0. aa
+    abcd: Number of insertions required is 3. dcbabcd
+    abcda: Number of insertions required is 2. adcbcda which is same as number of insertions in the substring bcd(Why?).
+    abcde: Number of insertions required is 4. edcbabcde
+
+ */
 package dyanamicprogramming.lcs;
 
 /**
@@ -56,5 +68,17 @@ If we find out LCS of string and its reverse, we know how many maximum character
 We need insert remaining characters. Following are the steps.
 1) Find the length of LCS of input string and its reverse. Let the length be ‘l’.
 2) The minimum number insertions needed is length of input string minus ‘l’
+
+
+take a sequence
+
+eg ABCD
+reverse it
+now it is
+DBCA
+
+find lcs of them
+Lcs is 1 because they have max 1 length of matching sequence between them. so except lcs you can add all the elements to make a palindrome
+because lcs is already there for u
 
  */
