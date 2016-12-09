@@ -1,22 +1,3 @@
-/*
-
-Given an input string and a dictionary of words, find out if the input string can be segmented into a space-separated
-sequence of dictionary words. See following examples for more details.
-
-Consider the following dictionary
-{ i, like, sam, sung, samsung, mobile, ice,
-  cream, icecream, man, go, mango}
-
-Input:  ilike
-Output: Yes
-The string can be segmented as "i like".
-
-Input:  ilikesamsung
-Output: Yes
-The string can be segmented as "i like samsung" or "i like sam sung".
-
- */
-
 package dyanamicprogramming;
 
 /**
@@ -83,5 +64,10 @@ The key to solve this problem by using dynamic programming approach:
 
 Define an array t[] such that t[i]==true => 0-(i-1) can be segmented using dictionary
 Initial state t[0] == true
+
+
+Complexity : Time: O(N*M) N - string size M - dict size
+
+Memory: O(N)
 
  */
