@@ -69,11 +69,7 @@ public class SubTree2 {
         System.out.println(inOrderRoot.toString() + " " + inOrderSubRoot.toString());
         System.out.println(preOrderRoot.toString() + " " + preOrderSubRoot.toString());
 
-        if (listToString(inOrderRoot).contains(listToString(inOrderSubRoot)) && listToString(preOrderRoot).contains(listToString(preOrderSubRoot))) {
-            return true;
-        }
-
-        return false;
+        return listToString(inOrderRoot).contains(listToString(inOrderSubRoot)) && listToString(preOrderRoot).contains(listToString(preOrderSubRoot));
 
     }
 

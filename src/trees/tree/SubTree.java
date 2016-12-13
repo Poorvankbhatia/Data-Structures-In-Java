@@ -54,11 +54,7 @@ public class SubTree {
             return false;
         }
 
-        if (isIdentical(root, subRoot)) {
-            return true;
-        }
-
-        return (isIdentical(root.left, subRoot) || isIdentical(root.right, subRoot));
+        return isIdentical(root, subRoot) || (isSubTree(root.left, subRoot) || isSubTree(root.right, subRoot));
 
 
     }
