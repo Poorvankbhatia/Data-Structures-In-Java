@@ -13,7 +13,7 @@ Each cell of the matrix represents a cost to traverse through that cell. Total c
                                    {1, 5, 3}};
 
  */
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank on 8/10/15.

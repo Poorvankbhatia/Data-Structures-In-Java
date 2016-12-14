@@ -22,7 +22,7 @@ from 0. Then from station 1 to station 3.
 
  */
 
-package dyanamicprogramming;
+package dyanamicprogramming.matrix;
 
 /**
  * Created by poorvank on 7/18/15.
