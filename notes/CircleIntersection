@@ -1,0 +1,20 @@
+Given 'n' circles (each defined by center and radius)
+
+Write an algorithm to detect if circles intersect with any other circle in the same plane
+
+Better than O(n^2) complexity
+
+
+Two circles intersect if, and only if, the distance between their centers is between the sum
+and the difference of their radii. Given two circles (x0,y0,R0) and (x1,y1,R1), the formula is as follows:
+
+ABS(R0-R1) <= SQRT((x0-x1)^2+(y0-y1)^2) <= (R0+R1)
+Squaring both sides lets you avoid the slow SQRT, and stay with ints if your inputs are integer:
+
+(R0-R1)^2 <= (x0-x1)^2+(y0-y1)^2 <= (R0+R1)^2
+Since you need only a yes/no test, this check is faster than calculating the exact intersection points
+
+
+NlogN solution
+Sort the co-ordinates in x/y axis and binary search for first point on left and right where sum of radius is > distance between centers.
+all on left from left point and on right from right point will be the set of co-ordinates with non-intersecting circles.
