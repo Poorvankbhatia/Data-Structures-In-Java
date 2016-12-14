@@ -101,7 +101,6 @@ public class DataStructureDesign {
         ds.add(50);
         ds.search(50);
         ds.getRandom();
-
     }
 
 }

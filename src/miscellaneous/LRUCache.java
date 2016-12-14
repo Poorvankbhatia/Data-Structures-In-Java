@@ -26,12 +26,14 @@ public class LRUCache {
 
     private static class DLLNode {
 
-        public int info;
+        public int key;
+        public int value;
         public DLLNode next;
         public DLLNode prev;
 
-        public DLLNode(int info, DLLNode next, DLLNode prev) {
-            this.info = info;
+        public DLLNode(int key,int value, DLLNode next, DLLNode prev) {
+            this.key = key;
+            this.value = value;
             this.next = next;
             this.prev = prev;
         }
@@ -55,7 +57,7 @@ public class LRUCache {
                 DLLNode node = map.get(key);
                 remove(node);
                 setHead(node);
-                return node.info;
+                return node.value;
             }
 
             return -1;
@@ -97,13 +99,13 @@ public class LRUCache {
 
             if (map.containsKey(key)) {
                 DLLNode old = map.get(key);
-                old.info = value;
+                old.value = value;
                 remove(old);
                 setHead(old);
             } else {
-                DLLNode created = new DLLNode(value, null, null);
+                DLLNode created = new DLLNode(key,value, null, null);
                 if (map.size() >= capacity) {
-                    map.remove(end.info);
+                    map.remove(end.key);
                     remove(end);
                     setHead(created);
                 } else {
@@ -127,7 +129,7 @@ public class LRUCache {
 
 
         cache.get(3);
-        System.out.println(cache.head.info);
+        System.out.println(cache.head.value);
     }
 
 }

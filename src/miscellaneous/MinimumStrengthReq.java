@@ -20,7 +20,7 @@ public class MinimumStrengthReq {
     public static void main(String[] args) {
 
         int[][] arr = new int[][]{{1, -3, 0},
-                {-2, 1, -1}};
+                                  {-2, 1, -1}};
 
         int row = arr.length;
         int col = arr[0].length;
