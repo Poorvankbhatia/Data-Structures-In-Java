@@ -36,29 +36,31 @@ public class RemoveExtraSpaces {
         int n = text.length();
         boolean spaceFound = false;
 
-        int i=0,j=-1;
+        int firstPointer=0,secondPointer=0;
 
         //Handle leading spaces
-        while (j++<n && array[j]==' ');
+        while (secondPointer<n && array[secondPointer]==' ') {
+            secondPointer++;
+        }
 
 
-        while (j<n) {
+        while (secondPointer<n) {
 
-            if(array[j]!=' ') {
+            if(array[secondPointer]!=' ') {
 
-                if((array[j]=='?' || array[j]=='.' || array[j]=='?') && i-1>=0 && array[i-1]==' ') {
-                    array[i-1] = array[j++];
+                if((array[secondPointer]=='?' || array[secondPointer]=='.' || array[secondPointer]=='?') && firstPointer-1>=0 && array[firstPointer-1]==' ') {
+                    array[firstPointer-1] = array[secondPointer++];
                 } else {
-                    array[i++] = array[j++];
+                    array[firstPointer++] = array[secondPointer++];
                 }
 
                 spaceFound = false;
 
-            } else  if(array[j++]==' '){
+            } else  if(array[secondPointer++]==' '){
 
                 if (!spaceFound)
                 {
-                    array[i++] = ' ';
+                    array[firstPointer++] = ' ';
                     spaceFound = true;
                 }
 
@@ -67,7 +69,7 @@ public class RemoveExtraSpaces {
         }
 
         text = new String(array);
-        text = text.substring(0,i);
+        text = text.substring(0,firstPointer);
 
         System.out.println(text);
 
@@ -88,8 +90,6 @@ public class RemoveExtraSpaces {
 /*
 
 This problem is an extension of Remove spaces from a given string
-
-We strongly recommend you to minimize your browser and try this yourself first.
 
 The idea is to maintain 2 pointers. Initially both point to the beginning of the array.
 
