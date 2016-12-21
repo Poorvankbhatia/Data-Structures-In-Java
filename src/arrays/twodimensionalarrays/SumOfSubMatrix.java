@@ -15,11 +15,11 @@ public class SumOfSubMatrix {
 
     public static void main(String[] args) {
 
-        int[][] arr = new int[][]{{1, 2, 3, 4, 5, 6},
-                {7, 8, 9, 10, 11, 12},
-                {13, 14, 15, 16, 17, 18},
-                {19, 20, 21, 22, 23, 24},
-                {25, 26, 27, 28, 29, 30}};
+        int[][] arr = new int[][]{{1,   2,  3,  4,  5,  6},
+                                  {7,   8,  9, 10, 11, 12},
+                                  {13, 14, 15, 16, 17, 18},
+                                  {19, 20, 21, 22, 23, 24},
+                                  {25, 26, 27, 28, 29, 30}};
 
         int maxCol = 2;
         int maxRow = 1;
@@ -39,9 +39,9 @@ public class SumOfSubMatrix {
         if (minRow - 1 >= 0 && minCol - 1 >= 0) {
             sum = sumMatrix[maxRow][maxCol] - sumMatrix[minRow - 1][maxCol] - sumMatrix[maxRow][minCol - 1] + sumMatrix[minRow - 1][minCol - 1];
         } else if (minRow - 1 < 0) {
-            sum = sumMatrix[maxRow][maxCol] - sumMatrix[0][maxCol];
+            sum = sumMatrix[maxRow][maxCol] - sumMatrix[maxRow][minCol-1];
         } else if (minCol - 1 < 0) {
-            sum = sumMatrix[maxRow][maxCol] - sumMatrix[maxRow][0];
+            sum = sumMatrix[maxRow][maxCol] - sumMatrix[minRow-1][maxCol];
         } else {
             sum = sumMatrix[maxRow][maxCol];
         }

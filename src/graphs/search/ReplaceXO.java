@@ -9,19 +9,31 @@ Given a matrix where every element is either ‘O’ or ‘X’, replace ‘O’
 
 package graphs.search;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by poorvank on 6/8/15.
  */
 public class ReplaceXO {
 
+    private static class Cell {
+        int x,y,value;
+
+        public Cell(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     public static void main(String[] args) {
 
-        char[][] matrix = new char[][]{{'X', 'O', 'X', 'X', 'X', 'X'},
-                                       {'X', 'O', 'X', 'X', 'O', 'X'},
-                                       {'X', 'X', 'O', 'O', 'O', 'X'},
-                                       {'O', 'X', 'X', 'X', 'X', 'X'},
-                                       {'X', 'X', 'X', 'O', 'X', 'O'},
-                                       {'O', 'O', 'X', 'O', 'O', 'O'}};
+        char[][] matrix = new char[][]{{'O', 'X', 'X', 'O', 'X'},
+                                       {'X', 'O', 'O', 'X', 'O'},
+                                       {'X', 'O', 'X', 'O', 'X'},
+                                       {'O', 'X', 'O', 'O', 'O'},
+                                       {'X', 'X', 'O', 'X', 'O'}
+        };
 
 
         int row = matrix.length;
@@ -40,7 +52,10 @@ public class ReplaceXO {
         }
 
         algorithm(matrix, row, col);
+        printMatrix(matrix);
+    }
 
+    private static void printMatrix(char[][] matrix) {
         for (char[] aMatrix : matrix) {
             for (int j = 0; j < matrix[0].length; j++)
                 System.out.print(aMatrix[j] + " ");
@@ -55,16 +70,16 @@ public class ReplaceXO {
                 floodFill(matrix, 'O', '-', i, 0);
         }
         for (int i = 0; i < row; i++) {
-            if (matrix[i][row - 1] == '-')
-                floodFill(matrix, 'O', '-', i, row - 1);
+            if (matrix[i][col - 1] == '-')
+                floodFill(matrix, 'O', '-', i, col - 1);
         }
         for (int i = 0; i < col; i++) {
             if (matrix[0][i] == '-')
                 floodFill(matrix, 'O', '-', 0, i);
         }
         for (int i = 0; i < col; i++) {
-            if (matrix[col - 1][i] == '-')
-                floodFill(matrix, 'O', '-', col - 1, i);
+            if (matrix[row - 1][i] == '-')
+                floodFill(matrix, 'O', '-', row - 1, i);
         }
 
         for (int i = 0; i < row; i++)
@@ -79,22 +94,37 @@ public class ReplaceXO {
 
         int row = screen.length;
         int col = screen[0].length;
+        Queue<Cell> queue = new LinkedList<>();
 
-        if (x < 0 || x >= row || y < 0 || y >= col) {
-            return;
+        Cell c = new Cell(x,y);
+        queue.add(c);
+
+        while (!queue.isEmpty()) {
+
+            Cell pop = queue.remove();
+            screen[pop.x][pop.y]=newC;
+            x = pop.x;
+            y = pop.y;
+
+            if(isValid(prevC,x+1,y,screen,row,col)) {
+                queue.add(new Cell(x+1,y));
+            }
+            if(isValid(prevC,x-1,y,screen,row,col)) {
+                queue.add(new Cell(x-1,y));
+            }
+            if(isValid(prevC,x,y+1,screen,row,col)) {
+                queue.add(new Cell(x,y+1));
+            }
+            if(isValid(prevC,x,y-1,screen,row,col)) {
+                queue.add(new Cell(x,y-1));
+            }
+
         }
-        if (screen[x][y] != prevC) {
-            return;
-        }
 
+    }
 
-        screen[x][y] = newC;
-
-        floodFill(screen, newC, prevC, x + 1, y);
-        floodFill(screen, newC, prevC, x - 1, y);
-        floodFill(screen, newC, prevC, x, y + 1);
-        floodFill(screen, newC, prevC, x, y - 1);
-
+    private static boolean isValid(char prevC,int x,int y,char[][] screen,int row,int col) {
+        return (x>0 && x<row && y>0 && y<col && screen[x][y]==prevC);
     }
 
 }

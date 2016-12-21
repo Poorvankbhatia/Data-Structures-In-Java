@@ -25,7 +25,7 @@ public class BinaryStrings {
 
     public static void main(String[] args) {
 
-        int n = 2;
+        int n = 3;
         System.out.print(count(n));
 
     }
@@ -39,11 +39,11 @@ public class BinaryStrings {
             return 2;
         }
 
-        int[] a = new int[n + 1];
-        int[] b = new int[n + 1];
+        int[] a = new int[n + 1]; // Binary strings ending with 0
+        int[] b = new int[n + 1]; // Binary strings ending with 1
 
-        a[2] = 1;
-        b[2] = 1;
+        a[2] = 2; //00 and 10
+        b[2] = 1; //01
 
         for (int i = 3; i <= n; i++) {
             a[i] = a[i - 1] + b[i - 1];
