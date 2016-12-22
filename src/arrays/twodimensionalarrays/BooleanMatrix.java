@@ -42,8 +42,8 @@ public class BooleanMatrix {
     public static void main(String[] args) {
 
         int[][] a = new int[][]{{1, 0, 0, 1},
-                {0, 0, 1, 0},
-                {0, 0, 0, 0}};
+                                {0, 0, 1, 0},
+                                {0, 0, 0, 0}};
 
 
         int row = a.length;
@@ -88,10 +88,10 @@ check the values of row[i] and col[j]. If any of the two values (row[i] or col[j
 
         System.out.println("Matrix is : ");
 
-        for (int i = 0; i < row; i++) {
+        for (int[] anA : a) {
             for (int j = 0; j < col; j++) {
 
-                System.out.print(a[i][j] + " ");
+                System.out.print(anA[j] + " ");
 
             }
             System.out.println();

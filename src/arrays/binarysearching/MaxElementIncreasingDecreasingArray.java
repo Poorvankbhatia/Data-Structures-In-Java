@@ -47,8 +47,8 @@ public class MaxElementIncreasingDecreasingArray {
 
             int mid = low + (high - low) / 2;
 
-            if (array[mid] > array[mid + 1] && array[mid] > array[mid - 1]) {
-                return mid;
+            if ((mid == 0 || array[mid] >= array[mid - 1]) && (mid == array.length - 1 || array[mid] >= array[mid + 1])) {
+                return array[mid];
             } else if (array[mid] > array[mid + 1] && array[mid] < array[mid - 1]) {
                 return maxIndex(array, low, mid - 1);
             } else {

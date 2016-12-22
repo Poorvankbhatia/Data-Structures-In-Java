@@ -16,9 +16,9 @@ public class Search2DSorted {
     public static void main(String[] args) {
 
         int mat[][] = new int[][]{{10, 20, 30, 40},
-                {15, 25, 35, 45},
-                {27, 29, 37, 48},
-                {32, 33, 39, 50}};
+                                  {15, 25, 35, 45},
+                                  {27, 29, 37, 48},
+                                  {32, 33, 39, 50}};
 
 
         findNo(mat, 39, 4);

@@ -88,7 +88,8 @@ public class FindKClosestElements {
 
 /*
 
-An Optimized Solution is to find k elements in O(Logn + k) time. The idea is to use Binary Search to find the crossover point. 
+An Optimized Solution is to find k elements in O(Logn + k) time. The idea is to use Binary Search to find the crossover point.
+The point before which elements are smaller than or equal to X and after which elements are greater
 Once we find index of crossover point, we can print k closest elements in O(k) time.
 
  */
