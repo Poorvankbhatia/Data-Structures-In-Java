@@ -63,7 +63,7 @@ public class ElementAppearingOddTimes {
     if (mid % 2 == 0) {
 
       System.out.println(mid);
-      if (arr[mid] == arr[mid + 1]) {
+      if (mid+1<=high && arr[mid] == arr[mid + 1]) {
         return oddOccurringIndex(arr, mid + 2, high);
       } else {
         return oddOccurringIndex(arr, low, mid);
@@ -71,7 +71,7 @@ public class ElementAppearingOddTimes {
 
     } else {
 
-      if (arr[mid] == arr[mid - 1]) {
+      if (mid-1 >=low && arr[mid] == arr[mid - 1]) {
         return oddOccurringIndex(arr, mid + 1, high);
       } else {
         return oddOccurringIndex(arr, low, mid - 1);

@@ -16,7 +16,7 @@ The array cannot be partitioned into equal sum sets.
 package dyanamicprogramming;
 
 /**
- * Created by poorvank.b on 12/12/16.
+ * Created by poorvank on 12/12/16.
  */
 public class PartitionEqualSubsetSum {
 
