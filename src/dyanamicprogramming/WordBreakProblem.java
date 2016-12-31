@@ -24,8 +24,7 @@ package dyanamicprogramming;
 
 class Dictionary {
 
-    public static String[] dictionary = new String[]{"mobile", "samsung", "sam", "sung", "man", "mango",
-            "icecream", "and", "go", "i", "like", "ice", "cream"};
+    public static String[] dictionary = new String[]{"ma","m","ango"};
 
 
     public static boolean contains(String word) {
@@ -47,7 +46,7 @@ public class WordBreakProblem {
 
     public static void main(String[] args) {
 
-        String str = "samsungandmango";
+        String str = "mango";
 
         System.out.println(wordBreak(str));
 
@@ -64,7 +63,7 @@ public class WordBreakProblem {
             return true;
         }
 
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= size/* if i<size is used then in the last word then till substring 0..i-1 will be checked */; i++) {
 
             String newStr = str.substring(i, size);
 

@@ -7,7 +7,7 @@ public class WordBreakDP {
 
     public static void main(String[] args) {
 
-        String str = "samsungandmango";
+        String str = "man";
         System.out.println(wordBreak(str));
 
     }
@@ -23,35 +23,19 @@ public class WordBreakDP {
 
         for (int i = 0; i <= size; i++) {
 
-            //should continue from match position
-            if (!validWord[i]) {
-                continue;
-            }
+            for (int j=0;j<i;j++) {
 
-            for (String string : Dictionary.dictionary) {
-
-                int wordSize = string.length();
-                int end = wordSize + i;
-
-                if (end > str.length()) {
+                if(!validWord[j]) {
                     continue;
                 }
-
-                if (validWord[end]) {
-                    continue;
-                }
-
-                if (str.substring(i, end).equals(string)) {
-                    validWord[end] = true;
+                String check = str.substring(j, i);
+                if (Dictionary.contains(check)) {
+                    validWord[i] = true;
                     break;
                 }
 
             }
-
-
         }
-
-
         return validWord[size];
 
     }
@@ -60,10 +44,10 @@ public class WordBreakDP {
 
 /*
 
-The key to solve this problem by using dynamic programming approach:
+The key to solve this problem by using DP approach:
 
-Define an array t[] such that t[i]==true => 0-(i-1) can be segmented using dictionary
-Initial state t[0] == true
+Define an array validWord[] such that validWord[i]==true => 0-(i-1) can be segmented using dictionary
+Initial state validWord[0] == true
 
 
 Complexity : Time: O(N*M) N - string size M - dict size
