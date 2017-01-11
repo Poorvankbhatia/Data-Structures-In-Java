@@ -1,5 +1,7 @@
 package utility;
 
+import trees.tree.Node;
+
 /**
  * Created by poorvank on 25/06/16.
  */
@@ -69,8 +71,71 @@ public class Trie<Item> {
         return get(x.childArray[c],key,d+1);
     }
 
+
+    /*
+           This method is only added for Shortest Unique Prefix implementation
+    */
+    public String getEntirePrefixWithValue(String key,Item item) {
+        StringBuilder sb = new StringBuilder();
+        getEntirePrefixWithValue(root,key,item,sb,0);
+        return sb.toString();
+    }
+
+    private void getEntirePrefixWithValue(Node x,String key,Item item,StringBuilder sb,int d) {
+
+        if(x==null) {
+            return;
+        } else {
+            if(x.value==item) {
+                return;
+            }
+        }
+        char c = key.charAt(d);
+        sb.append(c);
+        getEntirePrefixWithValue(x.childArray[c],key,item,sb,d+1);
+
+    }
+
+
     public boolean contains(String key) {
         return get(key)!=null;
+    }
+
+    /*
+            This method is only added for Shortest Unique Prefix implementation
+            Here every node will have a default count of 1, initially.
+     */
+
+    public void putWithFrequency(String key,Item item) {
+        if(item==null) {
+            delete(key);
+        } else {
+            root = putWithFrequency(root,key,0,item);
+        }
+    }
+
+    private Node putWithFrequency(Node x,String key,int d,Item item) {
+        boolean wasPresent = true;
+        if(x==null) {
+            wasPresent = false;
+            x=new Node();
+            x.value = 1;
+        } else if(x!=root) {
+            Integer value = (Integer) x.value;
+            value++;
+            x.value = value;
+        }
+        if(d==key.length()) {
+            if(!wasPresent) {
+                size++;
+            }
+            x.value = item;
+            return x;
+        }
+        char c = key.charAt(d);
+        x.childArray[c] = putWithFrequency(x.childArray[c],key,d+1,item);
+        return x;
+
     }
 
     public void put(String key,Item item) {
