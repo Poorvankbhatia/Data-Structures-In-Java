@@ -29,6 +29,7 @@ public class MinimumNumberOfJumps {
 
     }
 
+    // O(n square) method
     private static int minimumJumps(int[] arr) {
 
         int n = arr.length;
@@ -56,6 +57,23 @@ public class MinimumNumberOfJumps {
         }
 
         return jumps[n - 1];
+    }
+
+    //O(n) method
+    private static int minJumps(int[] arr) {
+
+        int currentEnd =0,jumps=0,currentFarthest =0;
+
+        for (int i=0;i<arr.length-1;i++) {
+            currentFarthest = Math.max(currentFarthest,i+arr[i]);
+            if(i==currentEnd) {
+                jumps++;
+                currentEnd = currentFarthest;
+            }
+        }
+
+        return jumps;
+
     }
 
 }
