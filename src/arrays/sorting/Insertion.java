@@ -2,7 +2,7 @@ package arrays.sorting;
 import utility.SortFunctions;
 
 /**
- * Created by poorvank.b on 16/07/16.
+ * Created by poorvank on 16/07/16.
  */
 public class Insertion {
 

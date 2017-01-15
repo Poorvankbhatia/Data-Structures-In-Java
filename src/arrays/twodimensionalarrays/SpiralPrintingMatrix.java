@@ -63,7 +63,7 @@ public class SpiralPrintingMatrix {
             System.out.print(matrix[i][y2] + " ");
         }
 
-        if (x2 - x1 != 0) {
+        if (y2-y1!=0 && x2-x1!=0) {
             printBottomLeft(matrix, x1 + 1, y1, x2, y2 - 1);
         }
 
@@ -79,7 +79,7 @@ public class SpiralPrintingMatrix {
             System.out.print(matrix[j][y1] + " ");
         }
 
-        if (x2 - x1 != 0) {
+        if (y2-y1!=0 && x2-x1!=0) {
             printTopRight(matrix, x1, y1 + 1, x2 - 1, y2);
         }
 

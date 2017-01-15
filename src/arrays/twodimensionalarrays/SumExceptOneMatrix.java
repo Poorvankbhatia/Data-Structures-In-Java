@@ -20,38 +20,41 @@ package arrays.twodimensionalarrays;
  * Created by poorvank on 7/30/15.
  */
 
-class MatrixCell {
-
-    int row;
-    int col;
-
-    public MatrixCell(int row, int col) {
-        this.row = row;
-        this.col = col;
-    }
-}
-
 public class SumExceptOneMatrix {
+
+
+    private static class MatrixCell {
+
+        int row;
+        int col;
+
+        MatrixCell(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+    }
 
     public static void main(String[] args) {
 
         int[][] matrix = new int[][]{{1, 1, 2},
-                {3, 4, 6},
-                {5, 3, 2}};
+                                     {3, 4, 6},
+                                     {5, 3, 2}};
 
         MatrixCell[] arr = new MatrixCell[]{new MatrixCell(0, 0), new MatrixCell(1, 1), new MatrixCell(0, 1)};
 
         int sum = 0;
-        int[] r = new int[3];
-        int[] c = new int[3];
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[] r = new int[rows];
+        int[] c = new int[cols];
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < rows; i++) {
 
-            for (int j = 0; j < matrix[0].length; j++) {
+            for (int j = 0; j < cols; j++) {
 
-                sum += matrix[i][j];
+                sum  += matrix[i][j];
                 r[i] += matrix[i][j];
-                c[i] += matrix[j][i];
+                c[j] += matrix[i][j];
 
             }
 

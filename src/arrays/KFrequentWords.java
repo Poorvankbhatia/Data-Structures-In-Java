@@ -56,7 +56,7 @@ public class KFrequentWords {
             lists.get(entry.getValue()).add(entry.getKey());
         }
 
-        for (int i = 1; i < lists.size(); i++) {
+        for (int i = lists.size()-1; i >= 1; i--) {
             if (lists.get(i) != null && lists.get(i).size() > 0)
                 System.out.println(lists.get(i).toString() + " occurs " + i + " times ");
         }
