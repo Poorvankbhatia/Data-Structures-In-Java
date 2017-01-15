@@ -39,43 +39,27 @@ public class PrintInterLeavings {
         String str1 = "ab";
         String str2 = "12";
 
-        System.out.println(print(str1, str2).toString());
+        print(str1,str2,"");
 
     }
 
-    private static List<String> print(String str1, String str2) {
 
-        if (str1.length() == 0) {
-            List<String> list = new ArrayList<>();
-            list.add(str2);
-            return list;
-        } else if (str2.length() == 0) {
-            List<String> list = new ArrayList<>();
-            list.add(str1);
-            return list;
-        } else {
+    private static void print(String s1,String s2,String output) {
 
-            char c1 = str1.charAt(0);
-            List<String> list1 = multiply(c1, print(str1.substring(1), str2));
-            char c2 = str2.charAt(0);
-            List<String> list2 = multiply(c2, print(str1, str2.substring(1)));
-            list1.addAll(list2);
-            return list1;
+        if(s1.length()==0) {
+            output += s2;
+            System.out.println(output);
+            return;
         }
 
-
-    }
-
-    private static List<String> multiply(char c, List<String> list) {
-
-        List<String> result = new ArrayList<>();
-
-        for (String s : list) {
-            String res = Character.toString(c) + s;
-            result.add(res);
+        if(s2.length()==0) {
+            output += s1;
+            System.out.println(output);
+            return;
         }
 
-        return result;
+        print(s1.substring(1),s2,output + (s1.charAt(0)));
+        print(s1,s2.substring(1),output + (s2.charAt(0)));
 
     }
 

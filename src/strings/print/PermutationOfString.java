@@ -1,13 +1,18 @@
 package strings.print;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by poorvank on 7/21/15.
  */
 public class PermutationOfString {
 
+    static Set<String> set = new HashSet<>();
+
     public static void main(String[] args) {
 
-        String str = "123";
+        String str = "ABCA";
         printPermutation("", str);
 
     }
@@ -16,7 +21,13 @@ public class PermutationOfString {
 
         int n = str.length();
         if (n == 0) {
-            System.out.println(prefix);
+            /*
+             To Handle Duplicates
+             */
+            if(!set.contains(prefix)) {
+                System.out.println(prefix);
+                set.add(prefix);
+            }
         } else {
             for (int i = 0; i < n; i++) {
                 
