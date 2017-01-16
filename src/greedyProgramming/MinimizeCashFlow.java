@@ -43,24 +43,11 @@ public class MinimizeCashFlow {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter number of friends");
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[][] cashGraph = new int[n][n];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.println("Enter amount " + i + " has to pay " + j);
-                int amount = scanner.nextInt();
-                cashGraph[i][j] = amount;
-            }
-        }
-
-//        int[][] cashGraph = new int[][]{
-//                { 0, 617, 1867},
-//                { 0, 0, 317},
-//                { 0, 0, 0},
-//        };
+        int[][] cashGraph = new int[][]{
+                { 0, 617, 1867},
+                { 0, 0, 317},
+                { 0, 0, 0},
+        };
 
         netAmountPaid(cashGraph);
 
@@ -73,7 +60,9 @@ public class MinimizeCashFlow {
 
         for (int i = 0; i < amount.length; i++) {
             for (int p = 0; p < amount.length; p++) {
-                amount[p] += cashGraph[i][p] - cashGraph[p][i];
+                if(i!=p) {
+                    amount[p] += cashGraph[i][p] - cashGraph[p][i];
+                }
             }
         }
 
