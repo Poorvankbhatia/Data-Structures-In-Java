@@ -13,7 +13,7 @@ public class IntersectingLines {
 
     private boolean coincides(Point p,Point r,Point q) {
 
-        return  (r.x<=Math.max(p.x,q.x) && r.x<=Math.min(p.y,q.y) && r.y>=Math.max(p.y,q.y) && r.y<=Math.min(p.y,q.y));
+        return  (r.x<=Math.max(p.x,q.x) && r.x>=Math.min(p.x,q.x) && r.y<=Math.max(p.y,q.y) && r.y>=Math.min(p.y,q.y));
 
     }
 

@@ -21,19 +21,15 @@ import java.util.*;
  */
 public class MaxPointsInALine {
 
-    private static class Point {
-        int x, y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     public int maxPoints(Point[] points) {
         Double d = Double.MAX_VALUE;
-        if (points.length <= 1) return points.length;
+
+        if (points.length <= 1) {
+            return points.length;
+        }
+
         List<Map<Double, Set<Point>>> mapList = new ArrayList<>(points.length);
+
         for (int i = 0; i < points.length; i++) {
             Map<Double, Set<Point>> map = new HashMap<>();
             for (int j = i + 1; j < points.length; j++) {
@@ -52,6 +48,7 @@ public class MaxPointsInALine {
             }
             mapList.add(i, map);
         }
+
         int max = 0;
         for (Map<Double, Set<Point>> map : mapList) {
             for (Set<Point> set : map.values()) {
@@ -68,13 +65,13 @@ public class MaxPointsInALine {
 
     public static void main(String[] args) {
 
-        Point p1 = new Point(0,2);
-        Point p2 = new Point(0,3);
+        Point p1 = new Point(0, 2);
+        Point p2 = new Point(0, 3);
 
-        Point p3 = new Point(2,9);
-        Point p4 = new Point(2,4);
+        Point p3 = new Point(2, 9);
+        Point p4 = new Point(2, 4);
 
-        Point[] arr = new Point[]{p1,p2,p3,p4};
+        Point[] arr = new Point[]{p1, p2, p3, p4};
 
         System.out.print(new MaxPointsInALine().maxPoints(arr));
 
