@@ -20,7 +20,7 @@ Output: 7
 package dyanamicprogramming;
 
 /**
- * Created by poorvank.b on 23/10/16.
+ * Created by poorvank on 23/10/16.
  */
 public class NumberOfWays {
 

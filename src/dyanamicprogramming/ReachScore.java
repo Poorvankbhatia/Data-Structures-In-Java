@@ -23,14 +23,16 @@ public class ReachScore {
 
         arr[0] = 1;
 
-        for (int i = 3; i <= n; i++) {
-            arr[i] = arr[i] + arr[i - 3];
-        }
-        for (int i = 5; i <= n; i++) {
-            arr[i] = arr[i] + arr[i - 5];
-        }
-        for (int i = 10; i <= n; i++) {
-            arr[i] = arr[i] + arr[i - 10];
+        for (int i=1;i<=n;i++) {
+            if(i>=3) {
+                arr[i] += arr[i-3];
+            }
+            if(i>=5) {
+                arr[i] += arr[i-5];
+            }
+            if(i>=10) {
+                arr[i] += arr[i-10];
+            }
         }
 
         System.out.println(Arrays.toString(arr) + " \nNo of ways  - " + arr[n]);

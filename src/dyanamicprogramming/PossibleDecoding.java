@@ -38,7 +38,7 @@ public class PossibleDecoding {
 
 
         if (n == 0 || n == 1) {
-            return 1;
+            return sequence.charAt(0)=='0'?0:1;
         }
 
         int count = 0;
@@ -62,8 +62,8 @@ public class PossibleDecoding {
         //count indicates number of possible decodings for the ith character of the string
         int[] count = new int[sequence.length() + 1];
 
-        count[0] = 1;
-        count[1] = 1;
+        count[0] = sequence.charAt(0)=='0'?0:1;
+        count[1] = count[0];
 
         for (int i = 2; i <= sequence.length(); i++) {
 
@@ -76,7 +76,7 @@ public class PossibleDecoding {
 
             System.out.println(sequence.charAt(i - 2));
             //Dependent on previous input if the conditions apply
-            if (sequence.charAt(i - 2) < '2' || (sequence.charAt(i - 2) == '2' && sequence.charAt(i - 1) < '7')) {
+            if ((sequence.charAt(i-2)<'2' && sequence.charAt(i-2)>'0') || (sequence.charAt(i-2)=='2' && sequence.charAt(i-1)<'7')) {
                 count[i] += count[i - 2];
             }
 
