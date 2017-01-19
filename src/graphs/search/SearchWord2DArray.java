@@ -33,7 +33,7 @@ Output: pattern found at 0, 2
 package graphs.search;
 
 /**
- * Created by poorvank.b on 20/07/16.
+ * Created by poorvank on 20/07/16.
  */
 public class SearchWord2DArray {
 

@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileReader;
 
 /**
- * Created by poorvank.b on 22/05/16.
+ * Created by poorvank on 22/05/16.
  */
 public class AcyclicLP {
 

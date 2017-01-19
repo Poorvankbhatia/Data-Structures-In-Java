@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 /**
- * Created by poorvank.b on 16/05/16.
+ * Created by poorvank on 16/05/16.
  */
 public class LazyPrimMST {
 
