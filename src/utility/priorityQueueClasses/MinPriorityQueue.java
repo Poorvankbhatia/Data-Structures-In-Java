@@ -1,5 +1,6 @@
 package utility.priorityQueueClasses;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -13,6 +14,7 @@ public class MinPriorityQueue<Item extends Comparable<? super Item>> implements 
 
     private Item[] pq;
     private int size;
+    private Comparator<Item> itemComparator;
 
 
     public MinPriorityQueue(Item[] items) {
@@ -39,6 +41,12 @@ public class MinPriorityQueue<Item extends Comparable<? super Item>> implements 
 
     public MinPriorityQueue() {
         this(1);
+    }
+
+    public MinPriorityQueue(int initCapacity, Comparator<Item> comparator) {
+        itemComparator = comparator;
+        pq = (Item[]) new Object[initCapacity + 1];
+        size = 0;
     }
 
     public int getSize() {

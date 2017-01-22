@@ -42,14 +42,17 @@ public class CheckArrayHeap {
         int n = arr.length;
         boolean isHeap = true;
 
-        for (int i=0;i>=(n-2)/2;i++) {
+        for (int i=0;i<=(n-2)/2;i++) {
 
-            if(arr[i] < arr[(2*i)+1]) {
+            int left = (2*i)+1;
+            int right = (2*i)+2;
+
+            if(left<n && arr[i] < arr[left]) {
                 isHeap = false;
                 break;
             }
 
-            if(arr[i] < arr[(2*i)+2]) {
+            if(right<n && arr[i] < arr[right]) {
                 isHeap = false;
                 break;
             }

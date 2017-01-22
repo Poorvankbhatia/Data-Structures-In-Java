@@ -41,32 +41,32 @@ public class StreamMedian {
         return median;
     }
 
-    public void calculateMedian(int element) {
-        int sizeDifference = maxPriorityQueue.getSize() - minPriorityQueue.getSize();
-        if(sizeDifference==1) { //Maxheap has more number of elements
-            if(element>median) {
-                minPriorityQueue.insert(element);
+    public void calculateMedian(int num) {
+        int sizeDiff = maxPriorityQueue.getSize()-minPriorityQueue.getSize();
+        if(sizeDiff==1) {
+            if(num>median) {
+                minPriorityQueue.insert(num);
             } else {
                 minPriorityQueue.insert(maxPriorityQueue.delMax());
-                maxPriorityQueue.insert(element);
+                maxPriorityQueue.insert(num);
             }
-            median = (minPriorityQueue.getMinimumElement() + minPriorityQueue.getMinimumElement()) / 2;
-        } else if(sizeDifference==0) { //Equal number of elements
-            if(element>median) {
-                minPriorityQueue.insert(element);
+            median =  (maxPriorityQueue.getMaximumElement()+minPriorityQueue.getMinimumElement())/2;
+        } else if(sizeDiff==0) {
+            if(num>median) {
+                minPriorityQueue.insert(num);
                 median = minPriorityQueue.getMinimumElement();
             } else {
-                maxPriorityQueue.insert(element);
+                maxPriorityQueue.insert(num);
                 median = maxPriorityQueue.getMaximumElement();
             }
-        } else  if(sizeDifference==-1) { //Min heap has more number of elements
-            if(element>median) {
+        } else if(sizeDiff==-1) {
+            if(num>median) {
                 maxPriorityQueue.insert(minPriorityQueue.delMin());
-                minPriorityQueue.insert(element);
+                minPriorityQueue.insert(num);
             } else {
-                minPriorityQueue.insert(element);
+                maxPriorityQueue.insert(num);
             }
-            median = (minPriorityQueue.getMinimumElement() + maxPriorityQueue.getMaximumElement()) / 2;
+            median =  (maxPriorityQueue.getMaximumElement()+minPriorityQueue.getMinimumElement())/2;
         }
     }
 

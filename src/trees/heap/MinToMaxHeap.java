@@ -3,7 +3,7 @@ package trees.heap;
 import utility.priorityQueueClasses.MaxPriorityQueue;
 
 /**
- * Created by poorvank.b on 11/06/16.
+ * Created by poorvank on 11/06/16.
  */
 public class MinToMaxHeap {
 
