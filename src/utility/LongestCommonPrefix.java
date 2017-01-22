@@ -1,7 +1,7 @@
 package utility;
 
 /**
- * Created by poorvank.b on 14/07/16.
+ * Created by poorvank on 14/07/16.
  */
 public class LongestCommonPrefix {
 

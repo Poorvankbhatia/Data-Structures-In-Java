@@ -1,7 +1,5 @@
 package utility;
 
-import trees.tree.Node;
-
 /**
  * Created by poorvank on 25/06/16.
  */
@@ -119,7 +117,7 @@ public class Trie<Item> {
         if(x==null) {
             wasPresent = false;
             x=new Node();
-            x.value = 1;
+            x.value = item;
         } else if(x!=root) {
             Integer value = (Integer) x.value;
             value++;

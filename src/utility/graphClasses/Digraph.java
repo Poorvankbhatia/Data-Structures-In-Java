@@ -3,7 +3,7 @@ package utility.graphClasses;
 import utility.Bag;
 
 /**
- * Created by poorvank.b on 09/05/16.
+ * Created by poorvank on 09/05/16.
  */
 public class Digraph {
 
