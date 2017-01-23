@@ -26,3 +26,75 @@ and each might move down by 1 level. At the 3rd level from the bottom there are 
 and each might move down by 2 levels.
 
 As you can see not all heapify operations are O(logn), this is why you are getting O(n).
+
+http://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity
+
+
+
+"This is a great explanation...but why is it then that the heap-sort runs in O(n log n). Why doesn't the same reasoning apply to heap-sort?"
+An answer was given in the comments that suggests that the difference lies in siftDown vs. siftUp that I think somewhat misses the point
+ (or is just too brief to make it obvious). Indeed, you don't need to use siftUp at all when implementing a heap sort
+ (although it is required for a priority queue, for example, to implement the insert operation).
+
+EDIT: I've modified my answer to describe how a max heap works. This is the type of heap typically used for heap sort or for a
+priority queue where higher values indicate higher priority. A min heap is also useful; for example, when retrieving items with integer
+ keys in ascending order or strings in alphabetical order. The principles are exactly the same, you just need to switch the sort order.
+
+Remember that the heap property specifies that each node must be at least as large as both of its children. In particular, this implies
+ that the largest item in the heap is at the root. Sifting down and sifting up are essentially the same operation in opposite directions:
+  move an offending node until it satisfies the heap property:
+
+siftDown swaps a node that is too small with its largest child (thereby moving it down) until it is at least as large as both nodes below it.
+siftUp swaps a node that is too large with its parent (thereby moving it up) until it is no larger than the node above it.
+The number of operations required for each operation is proportional to the distance the node may have to move. For siftDown, it is the
+distance from the bottom of the tree, so siftDown is expensive for nodes at the top of the tree. With siftUp, the work is proportional to
+the distance from the top of the tree, so siftUp is expensive for nodes at the bottom of the tree. Although both operations are O(log n)
+ in the worst case, in a heap, only one node is at the top whereas half the nodes lie in the bottom layer. So it shouldn't be too surprising
+ that if we have to apply an operation to every node, we would prefer siftDown over siftUp.
+
+The buildHeap function takes an array of unsorted items and moves them until it they all satisfy the heap property. There are two approaches
+ one might take for buildHeap. One is to start at the top of the heap (the beginning of the array) and call siftUp on each item. At each step,
+ the previously sifted items (the items before the current item in the array) form a valid heap, and sifting the next item up places it into a
+  valid position in the heap. After sifting up each node, all items satisfy the heap property. The second approach goes in the opposite direction:
+   start at the end of the array and move backwards towards the front. At each iteration, you sift an item down until it is in the correct location.
+
+Both of these solutions will produce a valid heap. The question is: which implementation for buildHeap is more efficient? Unsurprisingly,
+ it is the second operation that uses siftDown. If h = log n is the height, then the work required for the siftDown approach is given by the sum
+
+(0 * n/2) + (1 * n/4) + (2 * n/8) + ... + (h * 1).
+Each term in the sum has the maximum distance a node at the given height will have to move (zero for the bottom layer, h for the root) multiplied
+ by the number of nodes at that height. In contrast, the sum for calling siftUp on each node is
+
+(h * n/2) + ((h-1) * n/4) + ((h-2)*n/8) + ... + (0 * 1).
+It should be clear that the second sum is larger. The first term alone is hn/2 = 1/2 n log n, so this approach has complexity at best O(n log n).
+ However, the sum for the siftDown approach can be bounded by extending it to a Taylor series to show that it is indeed O(n). If there is
+ interest, I can edit my answer to include the details. Obviously, O(n) is the best you could hope for.
+
+The next question is: if it is possible to run buildHeap in linear time, why does heap sort require O(n log n) time? Well, heap sort consists of
+ two stages. First, we call buildHeap on the array, which requires O(n) time if implemented optimally. The next stage is to repeatedly delete the
+  largest item in the heap and put it at the end of the array. Because we delete an item from the heap, there is always an open spot just after the
+   end of the heap where we can store the item. So heap sort achieves a sorted order by successively removing the next largest item and putting it
+    into the array starting at the last position and moving towards the front. It is the complexity of this last part that dominates in heap sort.
+     The loop looks likes this:
+
+for (i = n - 1; i > 0; i--) {
+    arr[i] = deleteMax();
+}
+Clearly, the loop runs O(n) times (n - 1 to be precise, the last item is already in place). The complexity of deleteMax
+for a heap is O(log n). It is typically implemented by removing the root (the largest item left in the heap) and replacing
+it with the last item in the heap, which is a leaf, and therefore one of the smallest items. This new root will almost certainly
+violate the heap property, so you have to call siftDown until you move it back into an acceptable position. This also has the effect
+of moving the next largest item up to the root. Notice that, in contrast to buildHeap where for most of the nodes we are calling siftDown
+ from the bottom of the tree, we are now calling siftDown from the top of the tree on each iteration! Although the tree is shrinking,
+ it doesn't shrink fast enough: The height of the tree stays constant until you have removed the first half of the nodes
+  (when you clear out the bottom layer completely). Then for the next quarter, the height is h - 1. So the total work for this second stage is
+
+h*n/2 + (h-1)*n/4 + ... + 0 * 1.
+Notice the switch: now the zero work case corresponds to a single node and the h work case corresponds to half the nodes.
+ This sum is O(n log n) just like the inefficient version of buildHeap that is implemented using siftUp. But in this case, we have no
+  choice since we are trying to sort and we require the next largest item be removed next.
+
+In summary, the work for heap sort is the sum of the two stages: O(n) time for buildHeap and O(n log n) to remove each node in order,
+so the complexity is O(n log n). You can prove (using some ideas from information theory) that for a comparison-based sort, O(n log n)
+is the best you could hope for anyway, so there's no reason to be disappointed by this or expect heap sort to achieve the O(n)
+time bound that buildHeap does.
