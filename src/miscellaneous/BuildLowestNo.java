@@ -24,19 +24,18 @@ package miscellaneous;
  */
 
 
-class DecreasingResult {
-
-    public int firstDecreasing;
-    public int nextStart;
-
-    public DecreasingResult(int firstDecreasing, int nextStart) {
-        this.firstDecreasing = firstDecreasing;
-        this.nextStart = nextStart;
-    }
-}
-
 public class BuildLowestNo {
 
+    private static class DecreasingResult {
+
+        public int firstDecreasing;
+        public int nextStart;
+
+        public DecreasingResult(int firstDecreasing, int nextStart) {
+            this.firstDecreasing = firstDecreasing;
+            this.nextStart = nextStart;
+        }
+    }
 
     public static void main(String[] args) {
 
