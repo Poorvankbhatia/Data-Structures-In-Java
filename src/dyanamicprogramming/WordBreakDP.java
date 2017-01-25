@@ -50,7 +50,7 @@ Define an array validWord[] such that validWord[i]==true => 0-(i-1) can be segme
 Initial state validWord[0] == true
 
 
-Complexity : Time: O(N*M) N - string size M - dict size
+Complexity : Time: O(n square)
 
 Memory: O(N)
 

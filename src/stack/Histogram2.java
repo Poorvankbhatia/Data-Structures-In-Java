@@ -101,7 +101,7 @@ To count the number of consecutive same-height-or-higher bars on the immediate l
  the closest bar on the left that is shorter than the bar[i], because all the bars between this bar and bar[i] will
   be consecutive same-height-or-higher bars.
 
-We use a stack to dynamicly keep track of all the left bars that are shorter than a certain bar. 
+We use a stack to dynamicly keep track of all the left bars that are shorter than a certain bar.
 In other words, if we iterate from the first bar to bar[i], when we just arrive at the bar[i] 
 and haven't updated the stack, the stack should store all the bars that are no higher than bar[i-1],
  including bar[i-1] itself. We compare bar[i]'s height with every bar in the stack until we find one that

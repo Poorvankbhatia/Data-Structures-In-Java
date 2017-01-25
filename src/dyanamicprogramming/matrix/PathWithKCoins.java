@@ -20,7 +20,7 @@ There are two paths with 12 coins
 package dyanamicprogramming.matrix;
 
 /**
- * Created by poorvank.b on 23/10/16.
+ * Created by poorvank on 23/10/16.
  */
 public class PathWithKCoins {
 

@@ -60,7 +60,7 @@ This method makes sure that newly entered element is always at the top of stack 
  operation just pops from stack1. To put the element at top of stack1, stack2 is used.
 
 enQueue(q, x)
-  1) While stack1 is not empty, push everything from satck1 to stack2.
+  1) While stack1 is not empty, push everything from stack1 to stack2.
   2) Push x to stack1 (assuming size of stacks is unlimited).
   3) Push everything back to stack1.
 
@@ -77,7 +77,7 @@ enQueue(q,  x)
 deQueue(q)
   1) If both stacks are empty then error.
   2) If stack2 is empty
-       While stack1 is not empty, push everything from satck1 to stack2.
+       While stack1 is not empty, push everything from stack1 to stack2.
   3) Pop the element from stack2 and return it.
 Method 2 is definitely better than method 1. Method 1 moves all the elements twice in enQueue operation, 
 while method 2 (in deQueue operation) moves the elements once and moves elements only if stack2 empty.
