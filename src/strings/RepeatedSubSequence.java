@@ -40,11 +40,14 @@ public class RepeatedSubSequence {
             return false;
         }
 
-        char[] count = new char[15];
+        char[] count = new char[26];
         char[] stringArr = s.toCharArray();
 
         for (char c : stringArr) {
             count[c-'A']++;
+            if(count[c-'A']>3) {
+                return true;
+            }
         }
 
 
@@ -59,7 +62,7 @@ public class RepeatedSubSequence {
 
             if((k&1)==1) {
                 int mid = k/2;
-                return stringArr[mid-1]==stringArr[mid] && stringArr[mid]==stringArr[mid+1];
+                return stringArr[mid-1]==stringArr[mid];
             }
 
             return false;
@@ -83,7 +86,7 @@ public class RepeatedSubSequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(new RepeatedSubSequence().hasRepeatedSubSequence("ABCABD"));
+        System.out.println(new RepeatedSubSequence().hasRepeatedSubSequence("ZZZZ"));
     }
 
 }
