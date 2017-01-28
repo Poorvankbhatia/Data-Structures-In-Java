@@ -39,6 +39,10 @@ public class AllWaysToAddParenthesis {
 
     private List<Integer> fillMap(String input) {
 
+        if(map.containsKey(input)) {
+            return map.get(input);
+        }
+
         List<Integer> result = new ArrayList<>();
 
         for (int i=0;i<input.length();i++) {

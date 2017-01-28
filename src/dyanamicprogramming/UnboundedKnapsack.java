@@ -51,9 +51,9 @@ public class UnboundedKnapsack {
     }
 
     public static void main(String[] args) {
-        int[] val = new int[]{10, 40, 50, 70};
-        int[] wt = new int[]{1, 3, 4, 5};
-        int weight = 8;
+        int[] wt = new int[]{1, 50};
+        int[] val = new int[]{1, 30};
+        int weight = 100;
 
         System.out.println(new UnboundedKnapsack().maxValue(wt,val,weight));
     }

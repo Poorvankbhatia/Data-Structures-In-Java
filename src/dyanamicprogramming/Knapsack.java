@@ -15,9 +15,9 @@ public class Knapsack {
 
     public static void main(String[] args) {
 
-        int[] wt = new int[]{1,3,4,7};
-        int[] val = new int[]{1,4,5,7};
-        int maxWeight = 7;
+        int[] wt = new int[]{1, 50};
+        int[] val = new int[]{1, 30};
+        int maxWeight = 100;
         int n = wt.length;
 
         System.out.println(maxvalueDP(val,wt,n,maxWeight));
