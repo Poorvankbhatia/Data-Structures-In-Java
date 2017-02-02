@@ -21,8 +21,8 @@ public class KthSmallestElement {
         root.right = new Node(35);
         root.right.right = new Node(46);
 
-        int k = 4;
-        System.out.print(smallestElement(root, 2));
+        int k = 2;
+        System.out.print(smallestElement(root, k));
 
     }
 
@@ -41,7 +41,7 @@ public class KthSmallestElement {
             if (k - 1 == 0) {
                 break;
             } else {
-                k = k - 1;
+                k--;
             }
 
             if (crawl.right != null) {
@@ -57,7 +57,7 @@ public class KthSmallestElement {
 
         }
 
-        return crawl.info;
+        return crawl!=null?crawl.info:-1;
 
     }
 

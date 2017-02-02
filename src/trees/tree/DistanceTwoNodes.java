@@ -32,14 +32,14 @@ public class DistanceTwoNodes {
             System.out.println(distance);
         }
 
-        // If n1 is ancestor of n2, consider n1 as root and find level
-        // of n2 in subtree rooted with n1
-        else if (d1 == -1) {
-            System.out.println(findLevel(lca, k1, 0));
-        }
 
         // If n2 is ancestor of n1, consider n2 as root and find level
         // of n1 in subtree rooted with n2
+        else if (d1 == -1) {
+            System.out.println(findLevel(lca, k1, 0));
+        }
+        // If n1 is ancestor of n2, consider n1 as root and find level
+        // of n2 in subtree rooted with n1
         else if (d2 == -1) {
             System.out.println(findLevel(lca, k2, 0));
         } else {
