@@ -1,6 +1,7 @@
 /*
 
-Given an array of words, find all shortest unique prefixes to represent each word in the given array. Assume that no word is prefix of another.
+Given an array of words, find all shortest unique prefixes to represent each word in the given array.
+Assume that no word is prefix of another.
 
 Examples:
 
