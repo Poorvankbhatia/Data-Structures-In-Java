@@ -6,7 +6,7 @@ Find the largest rectangular area possible in a given histogram where the larges
 rectangle can be made of a number of contiguous bars. For simplicity,
 assume that all bars have same width and the width is 1 unit.
 
-For example, consider the following histogram with 7 bars of heights {6, 2, 5, 4, 5, 2, 6}.
+consider the following histogram with 7 bars of heights {6, 2, 5, 4, 5, 2, 6}.
 The largest possible rectangle possible is 12
  */
 
@@ -48,7 +48,7 @@ public class Histogram2 {
             if (leftStack.isEmpty()) {
                 width[i] += i;
             } else {
-                width[i] += i - leftStack.peek() - 1;
+                width[i] += i - leftStack.peek() - 1;//-1 is done since width[i] is initialised as 1
             }
 
             leftStack.push(i);
@@ -101,7 +101,7 @@ To count the number of consecutive same-height-or-higher bars on the immediate l
  the closest bar on the left that is shorter than the bar[i], because all the bars between this bar and bar[i] will
   be consecutive same-height-or-higher bars.
 
-We use a stack to dynamicly keep track of all the left bars that are shorter than a certain bar.
+We use a stack to dynamically keep track of all the left bars that are shorter than a certain bar.
 In other words, if we iterate from the first bar to bar[i], when we just arrive at the bar[i] 
 and haven't updated the stack, the stack should store all the bars that are no higher than bar[i-1],
  including bar[i-1] itself. We compare bar[i]'s height with every bar in the stack until we find one that
