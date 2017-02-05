@@ -75,6 +75,10 @@ public class PaintersProblem {
 
 /**
 
+ Given an array of non-negative integers A and a positive integer k, we want to:
+ Divide A into k or fewer partitions,
+ such that the maximum sum over all the partitions is minimized.
+
  Solution:
 
  Assume that you are assigning continuous section of board to each painter such that its total length must not exceed a predefined maximum,

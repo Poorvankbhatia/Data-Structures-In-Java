@@ -50,11 +50,13 @@ public class CountDistinctPalindrome {
 
         }
 
+        System.out.print(set);
+
         return set.size();
     }
 
     public static void main(String[] args) {
-        System.out.print(new CountDistinctPalindrome().count("aaa"));
+        System.out.print(new CountDistinctPalindrome().count("aabaa"));
     }
 
 }
