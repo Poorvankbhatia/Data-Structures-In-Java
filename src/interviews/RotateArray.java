@@ -6,8 +6,6 @@ You have to rotate an n*n array right by 90 degree.
 
 package interviews;
 
-import java.util.Arrays;
-
 /**
  * Created by poorvank on 5/7/15.
  */
@@ -47,13 +45,13 @@ public class RotateArray {
         for (int i = 0; i < col; i++) {
             int k = row;
             for (int j = 0; j < row; j++) {
-                System.out.println("i,j = " + i + "," + j + " && k-1,j= " + (k - 1) + "," + j);
+                //System.out.println("i,j = " + i + "," + j + " && k-1,j= " + (k - 1) + "," + j);
                 destinationArray[i][j] = array[k - 1][i];
                 k--;
             }
         }
 
-        System.out.println("destination Array " + Arrays.toString(destinationArray[0]));
+        System.out.println("Destination Array");
         printArray(destinationArray, col, row);
 
     }
