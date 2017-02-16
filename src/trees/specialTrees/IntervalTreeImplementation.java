@@ -6,7 +6,7 @@ b) max: Maximum high value in subtree rooted with this node.
 
  */
 
-package trees.specialtrees;
+package trees.specialTrees;
 
 /**
  * Created by poorvank on 3/31/15.
@@ -76,11 +76,7 @@ class IntervalTree {
 
     private boolean doOverlap(Interval i1, Interval i2) {
 
-        if (i1.low <= i2.high && i1.high >= i2.low) {
-            return true;
-        }
-
-        return false;
+        return i1.low <= i2.high && i1.high >= i2.low;
 
     }
 
