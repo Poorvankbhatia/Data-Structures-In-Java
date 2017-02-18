@@ -1,5 +1,6 @@
 package utility.priorityQueueClasses;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -7,10 +8,11 @@ import java.util.NoSuchElementException;
  * Created by poorvank on 4/21/15.
  */
 @SuppressWarnings("unchecked")
-public class MaxPriorityQueue<Item extends Comparable<? super Item>> implements Iterable<Item> {
+public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
     private Item[] pq;
     private int size;
+    private Comparator<Item> comparator;
 
 
     public MaxPriorityQueue(int capacity) {
@@ -18,8 +20,18 @@ public class MaxPriorityQueue<Item extends Comparable<? super Item>> implements 
         size = 0;
     }
 
+    public MaxPriorityQueue(int initCapacity, Comparator<Item> comparator) {
+        this.comparator = comparator;
+        pq = (Item[]) new Object[initCapacity + 1];
+        size = 0;
+    }
+
     public MaxPriorityQueue() {
         this(1);
+    }
+
+    public MaxPriorityQueue(Comparator<Item> comparator) {
+        this(1, comparator);
     }
 
     public MaxPriorityQueue(Item[] items) {
@@ -51,7 +63,11 @@ public class MaxPriorityQueue<Item extends Comparable<? super Item>> implements 
     }
 
     private boolean isSmall(int i,int j) {
-        return (pq[i]).compareTo(pq[j]) < 0;
+
+        if(null!=comparator) {
+            return comparator.compare(pq[i],pq[j])<0;
+        }
+        return ((Comparable<Item>) pq[i]).compareTo(pq[j]) < 0;
     }
 
     /*
