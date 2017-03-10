@@ -25,7 +25,7 @@ import java.util.HashMap;
 /**
  * Created by poorvank on 7/5/15.
  */
-public class SubArrayZeroSum {
+public class LargestSubArrayZeroSum {
 
     public static void main(String[] args) {
 
