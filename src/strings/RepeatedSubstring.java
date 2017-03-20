@@ -36,6 +36,7 @@ public class RepeatedSubstring {
 
     }
 
+    // same as kmp table building
     private int largestSuffixPrefix(String s) {
 
         int i=1,j=0;

@@ -19,7 +19,7 @@ public class PowerOfTwo {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
-        if ((n & (n - 1)) == 0) {
+        if (n==0 || ((n & (n - 1)) == 0)) {
             System.out.println("Yes");
         } else {
             System.out.println("Nope");

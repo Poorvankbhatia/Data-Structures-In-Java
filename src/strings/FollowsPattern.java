@@ -34,7 +34,7 @@ package strings;
 import java.util.HashMap;
 
 /**
- * Created by poorvank.b on 14/08/16.
+ * Created by poorvank on 14/08/16.
  */
 public class FollowsPattern {
 

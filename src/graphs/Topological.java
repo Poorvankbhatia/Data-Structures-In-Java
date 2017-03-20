@@ -116,6 +116,8 @@ public class Topological {
 
 /*
 
+ The first vertex in topological sorting is always a vertex with in-degree as 0 (a vertex with no in-coming edges).Not dependent on anyone.
+
 In topological sorting, we use a temporary stack. We don’t print the vertexToConsider immediately, we first recursively call
 topological sorting for all its adjacent vertices, then push it to a stack.
 Finally, print contents of stack. Note that a vertexToConsider is pushed to stack only
