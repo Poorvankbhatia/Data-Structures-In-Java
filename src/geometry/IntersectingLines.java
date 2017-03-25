@@ -45,6 +45,14 @@ public class IntersectingLines {
 
     }
 
+    public static void main(String[] args) {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(0,2);
+        Point q1 = new Point(2,-1);
+        Point q2 = new Point(0,-1);
+        System.out.print(new IntersectingLines().areIntersecting(p1,p2,q1,q2));
+    }
+
 }
 
 
