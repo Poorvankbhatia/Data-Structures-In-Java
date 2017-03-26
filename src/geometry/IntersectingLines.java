@@ -17,12 +17,22 @@ public class IntersectingLines {
 
     }
 
+    private int orientation(Point p, Point q, Point r)
+    {
+        int val = (q.y - p.y) * (r.x - q.x) -
+                (q.x - p.x) * (r.y - q.y);
+
+        if (val == 0) return 0;  // colinear
+
+        return (val > 0)? 1: 2; // clock or counterclock wise
+    }
+
     public boolean areIntersecting(Point p1,Point q1,Point p2,Point q2) {
 
-        int o1 = Orientation.findOrientation(p1,q1,p2);
-        int o2 = Orientation.findOrientation(p1,q1,q2);
-        int o3 = Orientation.findOrientation(p2,q2,p1);
-        int o4 = Orientation.findOrientation(p2,q2,q1);
+        int o1 = orientation(p1,q1,p2);
+        int o2 = orientation(p1,q1,q2);
+        int o3 = orientation(p2,q2,p1);
+        int o4 = orientation(p2,q2,q1);
 
         if(o1!=o2 && o3!=o4) {
             return true;
@@ -47,10 +57,10 @@ public class IntersectingLines {
 
     public static void main(String[] args) {
         Point p1 = new Point(0,0);
-        Point p2 = new Point(0,2);
-        Point q1 = new Point(2,-1);
-        Point q2 = new Point(0,-1);
-        System.out.print(new IntersectingLines().areIntersecting(p1,p2,q1,q2));
+        Point q1 = new Point(0,1);
+        Point p2 = new Point(-2,-2);
+        Point q2 = new Point(2,-2);
+        System.out.print(new IntersectingLines().areIntersecting(p1,q1,p2,q2));
     }
 
 }

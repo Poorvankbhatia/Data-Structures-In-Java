@@ -29,8 +29,9 @@ package geometry;
  */
 public class Orientation {
 
-    public static int findOrientation(Point p1,Point p2,Point p3) {
-        return ((p2.y-p1.y)*(p3.x-p2.x) - (p3.y-p2.y)*(p2.x-p1.x));
+    public static int findOrientation(Point p,Point q,Point r) {
+        return ((q.y - p.y) * (r.x - q.x) -
+                (q.x - p.x) * (r.y - q.y));
     }
 
     public static void main(String[] args) {
