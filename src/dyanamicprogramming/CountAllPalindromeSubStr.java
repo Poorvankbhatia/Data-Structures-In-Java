@@ -35,11 +35,11 @@ public class CountAllPalindromeSubStr {
             }
         }
 
-        for (int gap=2;gap<n;gap++) {
+        for (int gap=3;gap<=n;gap++) {
 
-            for (int i=0;i<n-gap;i++) {
+            for (int i=0;i<n-gap+1;i++) {
 
-                int j = i+gap;
+                int j = i+gap-1;
 
                 //Checking palindrome by solving overlapping sub problems
                 if(isPalindrome[i+1][j-1] && s.charAt(i)==s.charAt(j)) {

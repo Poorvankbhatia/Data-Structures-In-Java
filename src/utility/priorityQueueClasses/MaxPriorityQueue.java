@@ -22,7 +22,7 @@ public class MaxPriorityQueue<Item> implements Iterable<Item> {
 
     public MaxPriorityQueue(int initCapacity, Comparator<Item> comparator) {
         this.comparator = comparator;
-        pq = (Item[]) new Object[initCapacity + 1];
+        pq = (Item[]) new Comparable[initCapacity + 1];
         size = 0;
     }
 
