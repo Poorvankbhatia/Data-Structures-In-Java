@@ -37,7 +37,7 @@ public class CountAllPalindromeSubStr {
 
         for (int gap=3;gap<=n;gap++) {
 
-            for (int i=0;i<n-gap+1;i++) {
+            for (int i=0;i<=n-gap;i++) {
 
                 int j = i+gap-1;
 
