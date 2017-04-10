@@ -1,4 +1,5 @@
 package trees.tree;
+import utility.Stack;
 
 public class NonRecursiveTraversal {
 
@@ -20,7 +21,7 @@ public class NonRecursiveTraversal {
         if (root == null) {
             return;
         }
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
 
         stack.push(root);
 
@@ -47,7 +48,7 @@ public class NonRecursiveTraversal {
             return;
         }
 
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
 
         boolean flag = true;
 
@@ -83,7 +84,7 @@ public class NonRecursiveTraversal {
             return;
         }
 
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
 
         boolean flag = true;
         Node q = null;

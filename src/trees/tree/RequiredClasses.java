@@ -96,59 +96,6 @@ class Input {
 
 }
 
-class Stack {
-
-    public int top = -1;
-    int MAX = 100;
-    public Node[] stack = new Node[MAX];
-
-    public Node peek() {
-
-        return stack[top];
-
-    }
-
-    public void push(Node a) {
-
-        top++;
-        if (isFull()) {
-            System.out.println("Stack OverFlow");
-        }
-        stack[top] = a;
-
-    }
-
-    public boolean isFull() {
-
-        if (top == MAX - 1) {
-            return true;
-        }
-        return false;
-
-    }
-
-    public boolean isEmpty() {
-
-        if (top == -1) {
-            return true;
-        }
-        return false;
-    }
-
-    public Node pop() {
-
-        if (!isEmpty()) {
-            Node a = stack[top];
-            top--;
-            return a;
-        }
-        System.out.println("Stack Underflow");
-        return null;
-
-    }
-
-}
-
 public class RequiredClasses {
 
     public static void main(String[] args) {

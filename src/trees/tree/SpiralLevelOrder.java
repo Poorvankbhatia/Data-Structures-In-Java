@@ -1,4 +1,5 @@
 package trees.tree;
+import utility.Stack;
 
 public class SpiralLevelOrder {
 
@@ -57,8 +58,8 @@ public class SpiralLevelOrder {
             return;
         }
 
-        Stack stack1 = new Stack();
-        Stack stack2 = new Stack();
+        Stack<Node> stack1 = new Stack<>();
+        Stack<Node> stack2 = new Stack<>();
 
         stack1.push(root);
 

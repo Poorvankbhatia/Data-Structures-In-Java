@@ -7,9 +7,9 @@ Given a Binary Search Tree (BST),
            /      \
          30        70
         /   \      /  \
-      20    40    60   80 
+      20    40    60   80
 
-The above tree should be modified to following 
+The above tree should be modified to following
 
               260
            /      \
@@ -54,8 +54,8 @@ public class AddGreaterValues {
 
 /*
 
-We can do it using a single traversal. The idea is to use following BST property. 
-If we do reverse Inorder traversal of BST, we get all nodes in decreasing order. 
+We can do it using a single traversal. The idea is to use following BST property.
+If we do reverse Inorder traversal of BST, we get all nodes in decreasing order.
 We do reverse Inorder traversal and keep track of the sum of all nodes visited so far, we add this sum to every node.
 
  */

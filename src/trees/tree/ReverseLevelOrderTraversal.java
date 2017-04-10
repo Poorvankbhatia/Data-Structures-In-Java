@@ -2,6 +2,7 @@ package trees.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import utility.Stack;
 
 /**
  * Created by poorvank on 6/22/15.
@@ -23,7 +24,7 @@ public class ReverseLevelOrderTraversal {
 
     private static void printReverseLevelOrder(Node root) {
 
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
         Queue<Node> queue = new LinkedList<>();
 
         queue.add(root);

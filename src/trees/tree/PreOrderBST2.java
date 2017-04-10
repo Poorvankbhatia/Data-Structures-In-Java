@@ -13,6 +13,7 @@ For example, if the given traversal is {10, 5, 1, 7, 40, 50}, then the output sh
  */
 
 package trees.tree;
+import utility.Stack;
 
 /**
  * Created by poorvank on 6/13/15.
@@ -30,7 +31,7 @@ public class PreOrderBST2 {
 
         Node root = new Node(pre[0]);
 
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
 
         stack.push(root);
 

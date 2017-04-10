@@ -2,7 +2,7 @@
 
 Inorder Successor in Binary Search Tree
 In Binary Tree, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree.
- Inorder Successor is NULL for the last node in Inoorder traversal.
+ Inorder Successor is NULL for the last node in Inorder traversal.
 In Binary Search Tree, Inorder Successor of an input node can also be defined as the node with the 
 smallest key greater than the key of input node. So, it is sometimes important to find next node in sorted order.
 
@@ -89,7 +89,7 @@ output: succ // succ is Inorder successor of node.
 
 1) If right subtree of node is not NULL, then succ lies in right subtree. Do following.
 Go to right subtree and return the node with minimum key value in right subtree.
-2) If right sbtree of node is NULL, then start from root and us search like technique. Do following.
+2) If right sbtree of node is NULL, then start from root and use search like technique. Do following.
 Travel down the tree, if a node’s data is greater than root’s data then go right side, otherwise go to left side.
 
 

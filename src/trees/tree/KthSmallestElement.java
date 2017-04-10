@@ -7,6 +7,7 @@ Given root of binary search tree and K as input, find K-th smallest element in B
 
  */
 package trees.tree;
+import utility.Stack;
 
 /**
  * Created by poorvank on 6/22/15.
@@ -28,7 +29,7 @@ public class KthSmallestElement {
 
     private static int smallestElement(Node root, int k) {
 
-        Stack stack = new Stack();
+        Stack<Node> stack = new Stack<>();
         Node crawl = root;
 
         while (crawl != null) {

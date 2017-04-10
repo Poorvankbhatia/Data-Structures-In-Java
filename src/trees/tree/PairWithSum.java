@@ -8,6 +8,7 @@ Any modification to Binary Search Tree is not allowed. Note that height of a Bal
  */
 
 package trees.tree;
+import utility.Stack;
 
 /**
  * Created by poorvank on 4/28/15.
@@ -27,8 +28,8 @@ public class PairWithSum {
         Node current1 = root, current2 = root;
         int val1 = 0, val2 = 0;
 
-        Stack stack1 = new Stack();
-        Stack stack2 = new Stack();
+        Stack<Node> stack1 = new Stack<>();
+        Stack<Node> stack2 = new Stack<>();
 
         while (true) {
 
