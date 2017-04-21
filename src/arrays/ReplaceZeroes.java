@@ -74,8 +74,8 @@ public class ReplaceZeroes {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 1, 0, 0};
-        int m=2;
+        int[] arr = new int[]{1, 1, 0, 0, 0,1,1,1};
+        int m=1;
         System.out.println(new ReplaceZeroes().findReplaceIndex(arr,m));
 
     }

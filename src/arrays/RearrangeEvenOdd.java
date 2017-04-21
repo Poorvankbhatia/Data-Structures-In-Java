@@ -7,20 +7,29 @@ import java.util.Arrays;
  */
 public class RearrangeEvenOdd {
 
+    private static int count = 0;
+
     public static void main(String[] args) {
 
-        int[] array = new int[]{4, 2, 5, 7, 3, 6, 9};
+        int[] array = new int[]{13,10,21,20};
 
         int i = -1, n = array.length;
+
 
         for (int j = 0; j < n; j++) {
 
             if (array[j] % 2 == 0) {
                 i++;
-                swap(i, j, array);
+                if(array[i]!=array[j]) {
+                    count++;
+                    swap(i,j,array);
+                }
+
             }
 
         }
+
+        System.out.println(Arrays.toString(array));
 
         int odd = i + 1;
         int even = 0;
@@ -34,7 +43,7 @@ public class RearrangeEvenOdd {
 
         }
 
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array) + " " + count);
 
     }
 

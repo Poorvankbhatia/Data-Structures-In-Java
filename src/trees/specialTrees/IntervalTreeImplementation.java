@@ -156,6 +156,8 @@ b) There is no overlap in either subtree: This is the most important part. We ne
 …. From above two facts, we can say all intervals in right subtree have low value greater than x.low. 
 So x cannot overlap with any interval in right subtree.
 
+Total complexity would be O(NlogN)
+
 Do see robert Sedwick intervel trees
 
 
