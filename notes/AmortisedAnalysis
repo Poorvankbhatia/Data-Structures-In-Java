@@ -23,6 +23,11 @@ for example when table size increases from 4 -> 8, cost = 4 (to copy 4 elements)
 
 If the table has space available, we simply insert new item in available space.
 
+n + (j=0..to floor(log(n-1))) 2^j
+Geometric series so bounded by its largest term so it becomes atmost n <= 3n
+
+https://youtu.be/b733mo4CxAQ?t=14m8s
+
 If we use simple analysis, the worst case cost of an insertion is O(n). 
 Therefore, worst case cost of n inserts is n * O(n) which is O(n2).
 This analysis gives an upper bound, but not a tight upper bound for n insertions as all insertions don’t take Θ(n) time.

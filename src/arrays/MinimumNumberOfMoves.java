@@ -1,8 +1,9 @@
-package arrays;/*
+/*
 
 Minimum Moves so that all the the even elements are in front.
 
  */
+package arrays;
 
 /**
  * Created by poorvank.b on 21/02/17.

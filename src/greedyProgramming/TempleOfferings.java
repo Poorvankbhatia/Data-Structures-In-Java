@@ -21,7 +21,7 @@ same height, so we do not need to modify the
 offerings. Offerings given are therefore: 1, 2,
 1 giving a total of 4.
 
-Input  : 6
+Input  : 6x
          1 4 3 6 2 1
 Output : 10
 We can distribute the offerings in the following
