@@ -7,7 +7,7 @@ public class NextBiggerPalindrome {
 
     public static void main(String[] args) {
 
-        int[] num = new int[]{9, 4, 1, 8, 7, 9, 7, 8, 3, 2, 2};
+        int[] num = new int[]{1,2,3};
 
         int n = num.length;
 
