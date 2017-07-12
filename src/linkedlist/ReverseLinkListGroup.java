@@ -7,7 +7,7 @@ package linkedlist;
 class RGLLNode {
 
     Integer info;
-    RGLLNode link;
+    RGLLNode nextLink;
 
     public RGLLNode(int n) {
 
@@ -17,7 +17,7 @@ class RGLLNode {
     public RGLLNode(int n, RGLLNode node) {
 
         info = n;
-        link = node;
+        nextLink = node;
 
     }
 
@@ -29,15 +29,15 @@ public class ReverseLinkListGroup {
     public static void main(String[] args) {
 
         RGLLNode head = new RGLLNode(1);
-        head.link = new RGLLNode(2);
-        head.link.link = new RGLLNode(3);
-        head.link.link.link = new RGLLNode(4);
-        head.link.link.link.link = new RGLLNode(5);
-        head.link.link.link.link.link = new RGLLNode(6);
+        head.nextLink = new RGLLNode(2);
+        head.nextLink.nextLink = new RGLLNode(3);
+        head.nextLink.nextLink.nextLink = new RGLLNode(4);
+        head.nextLink.nextLink.nextLink.nextLink = new RGLLNode(5);
+        head.nextLink.nextLink.nextLink.nextLink.nextLink = new RGLLNode(6);
 
         printList(head);
 
-        head = reverseGroups(head, 2);
+        head = reverseGroups(head, 4);
 
         printList(head);
 
@@ -57,7 +57,7 @@ public class ReverseLinkListGroup {
         }
 
         RGLLNode first = head;
-        RGLLNode rest = head.link;
+        RGLLNode rest = head.nextLink;
 
         if (rest == null) {
             return first;
@@ -65,9 +65,9 @@ public class ReverseLinkListGroup {
 
         rest = reverseUsingRecursion(rest);
 
-        first.link.link = first;
+        first.nextLink.nextLink = first;
 
-        first.link = null;
+        first.nextLink = null;
 
         return rest;
 
@@ -81,8 +81,8 @@ public class ReverseLinkListGroup {
 
         while (current != null && count < k) {
 
-            next = current.link;
-            current.link = previous;
+            next = current.nextLink;
+            current.nextLink = previous;
             previous = current;
             current = next;
             count++;
@@ -90,7 +90,7 @@ public class ReverseLinkListGroup {
         }
 
         if (next != null) {
-            head.link = reverseGroups(next, k);
+            head.nextLink = reverseGroups(next, k);
         }
 
         return previous;
@@ -102,7 +102,7 @@ public class ReverseLinkListGroup {
 
         while (temp != null) {
             System.out.print(temp.info + " ");
-            temp = temp.link;
+            temp = temp.nextLink;
         }
 
         System.out.println();
