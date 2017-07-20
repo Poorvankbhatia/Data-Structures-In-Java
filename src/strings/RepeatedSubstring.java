@@ -72,6 +72,9 @@ public class RepeatedSubstring {
 
 /*
 
+
+https://www.youtube.com/watch?v=tWDUjkMv6Lc
+
 There can be many solutions to this problem. The challenging part is to solve the problem in O(n) time. Below is a O(n) algorithm.
 
 Let the given string be ‘str’ and length of given string be ‘n’.
