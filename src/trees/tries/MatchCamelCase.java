@@ -59,10 +59,11 @@ public class MatchCamelCase {
                 if(Character.isUpperCase(c)) {
                     //Append Uppercase character & insert them as a string key in trie
                     trieKey.append(c);
-                    if(trie.contains(trieKey.toString())) {
-                        trie.get(trieKey.toString()).add(dictionaryWord);
+                    List<String> list = trie.get(trieKey.toString());
+                    if(list!=null) {
+                        list.add(dictionaryWord);
                     } else {
-                        List<String> list = new ArrayList<>();
+                        list = new ArrayList<>();
                         list.add(dictionaryWord);
                         trie.put(trieKey.toString(),list);
                     }
