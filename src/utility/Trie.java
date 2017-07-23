@@ -104,20 +104,16 @@ public class Trie<Item> {
             Here every node will have a default count of 1, initially.
      */
 
-    public void putWithFrequency(String key,Item item) {
-        if(item==null) {
-            delete(key);
-        } else {
-            root = putWithFrequency(root,key,0,item);
-        }
+    public void putWithFrequency(String key) {
+        root = putWithFrequency(root,key,0);
     }
 
-    private Node putWithFrequency(Node x,String key,int d,Item item) {
+    private Node putWithFrequency(Node x,String key,int d) {
         boolean wasPresent = true;
         if(x==null) {
             wasPresent = false;
             x=new Node();
-            x.value = item;
+            x.value = 1;
         } else if(x!=root) {
             Integer value = (Integer) x.value;
             value++;
@@ -127,11 +123,10 @@ public class Trie<Item> {
             if(!wasPresent) {
                 size++;
             }
-            x.value = item;
             return x;
         }
         char c = key.charAt(d);
-        x.childArray[c] = putWithFrequency(x.childArray[c],key,d+1,item);
+        x.childArray[c] = putWithFrequency(x.childArray[c],key,d+1);
         return x;
 
     }
@@ -194,6 +189,13 @@ public class Trie<Item> {
         }
     }
 
+    /*
+
+     returns the length of the longest string key in the subtrie
+     rooted at x that is a prefix of the query string,
+
+     */
+
     public String longestPrefixOf(String key) {
         int length = longestPrefixOf(root,key,0,-1);
         if(length==-1) {
@@ -202,8 +204,6 @@ public class Trie<Item> {
         return key.substring(0,length);
     }
 
-    // returns the length of the longest string key in the subtrie
-    // rooted at x that is a prefix of the query string,
     private int longestPrefixOf(Node x,String query,int d,int length) {
         if(x==null) {
             return length;

@@ -35,7 +35,7 @@ public class ShortestUniquePrefix {
     public void printShortestPrefixes(String[] arr) {
 
         for (String s : arr) {
-            trie.putWithFrequency(s,1);
+            trie.putWithFrequency(s);
         }
 
         for (String s : arr) {
