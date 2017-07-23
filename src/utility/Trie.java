@@ -76,7 +76,7 @@ public class Trie<Item> {
     public String getEntirePrefixWithValue(String key,Item item) {
         StringBuilder sb = new StringBuilder();
         getEntirePrefixWithValue(root,key,item,sb,0);
-        return sb.toString();
+        return sb.toString().equals(key)?"":sb.toString();
     }
 
     private void getEntirePrefixWithValue(Node x,String key,Item item,StringBuilder sb,int d) {
@@ -87,6 +87,13 @@ public class Trie<Item> {
             if(x.value==item) {
                 return;
             }
+        }
+        /*
+           In case a string is added 2 times in an array, So unique prefix won't be possible.
+           And d would exceed the length of the key, without finding an item with frequency 1.
+         */
+        if(d>=key.length()) {
+            return;
         }
         char c = key.charAt(d);
         sb.append(c);
