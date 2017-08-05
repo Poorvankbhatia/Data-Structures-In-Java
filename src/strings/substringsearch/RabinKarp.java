@@ -80,9 +80,12 @@ the value of RM1mod Q(largePrime) in the variable RM.
         // check for hash match; if hash match, check for exact match
         for (int i = M; i < N; i++) {
             // Remove leading digit, add trailing digit, check for match.
-            textHash = (textHash + largePrime - RM*text.charAt(i-M) % largePrime) % largePrime;
+            textHash = (textHash - RM*text.charAt(i-M) % largePrime) % largePrime;
             textHash = (textHash*R + text.charAt(i)) % largePrime;
 
+            if(textHash<0) {
+                textHash+=largePrime;
+            }
             // match
             int offset = i - M + 1;
             if ((patternHash == textHash) && check(text, offset))
