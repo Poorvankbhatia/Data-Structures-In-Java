@@ -176,6 +176,11 @@ and add diff to all nodes which have given index in their range.
 If a node does not have given index in its range, we don’t make any changes to that node.
 
 
+Time Complexity for tree construction is O(n). There are total 2n-1 nodes, and value of every node is calculated only once in tree construction.
+Time complexity to query is O(Logn). To query a sum, we process at most four nodes at every level and number of levels is O(Logn).
+The time complexity of update is also O(Logn). To update a leaf value, we process one node at every level and number of levels is O(Logn).
+
+
 https://stackoverflow.com/questions/28470692/how-is-the-memory-of-the-array-of-segment-tree-2-2-ceillogn-1
 
 if you have an array of n elements, then the segment tree will have a leaf node for each of these n entries. Thus, we have (n)
