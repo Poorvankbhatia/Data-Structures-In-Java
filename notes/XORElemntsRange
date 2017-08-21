@@ -1,0 +1,87 @@
+How to find XOR of all the elements in given range?
+
+Let us denote f(n)=1⊕2⊕3⊕⋯⊕n, where ⊕ denotes XOR operation
+then XOR of all numbers between A and B can be represented by f(B)⊕f(A−1), because x⊕x=0
+
+Now we can find out easily that,
+f(n)=n,n mod 4 = 0
+     1,n mod 4 = 1
+     n+1,n mod 4 = 2n
+     0,n mod 4 = 3
+
+Time Complexity - O(1)
+
+
+private static int getXORRange(int a,int b) {
+        int v =  (calF(b)^calF(a-1));
+        return v;
+    }
+
+    private static int calF(int n) {
+        if(n%4==0) {
+            return n;
+        } else if(n%4==1) {
+            return 1;
+        } else if(n%4==2) {
+            return n+1;
+        } else {
+            return 0;
+        }
+    }
+
+the line return f(b)^f(a-1); could be explained better. In short, it's because XOR has these wonderful properties:
+    It's associative - Place brackets wherever you want
+    It's commutative - that means you can move the operators around (they can "commute")
+Here's both in action:
+(a ^ b ^ c) ^ (d ^ e ^ f) = (f ^ e) ^ (d ^ a ^ b) ^ c
+    It reverses itself
+Like this:
+a ^ b = c
+c ^ a = b
+Add and multiply are two examples of other associative/ commutative operators, but they don't reverse themselves.
+Ok, so, why are these properties important? Well, a simple route is to expand it out into what it really is,
+and then you can see these properties at work.
+First, let's define what we want and call it n:
+n      = (a ^ a+1 ^ a+2 .. ^ b)
+If it helps, think of XOR (^) as if it was an add.
+Let's also define the function:\
+f(b)   = 0 ^ 1 ^ 2 ^ 3 ^ 4 .. ^ b
+b is greater than a, so just by safely dropping in a few extra brackets (which we can because it's associative), we can also say this:
+f(b)   = ( 0 ^ 1 ^ 2 ^ 3 ^ 4 .. ^ (a-1) ) ^ (a ^ a+1 ^ a+2 .. ^ b)
+Which simplifies to:
+f(b)   = f(a-1) ^ (a ^ a+1 ^ a+2 .. ^ b)
+f(b)   = f(a-1) ^ n
+Next, we use that reversal property and commutivity to give us the magic line:
+n      = f(b) ^ f(a-1)
+If you've been thinking of XOR like an add, you would've dropped in a subtract there. XOR is to XOR what add is to subtract!
+
+
+
+
+it exploits the fact that there is a pattern of results in the running XORs.
+The f() function calculates the XOR total run from [0, a]. Take a look at this table for 4-bit numbers:
+
+0000 <- 0  [a]
+0001 <- 1  [1]
+0010 <- 3  [a+1]
+0011 <- 0  [0]
+0100 <- 4  [a]
+0101 <- 1  [1]
+0110 <- 7  [a+1]
+0111 <- 0  [0]
+1000 <- 8  [a]
+1001 <- 1  [1]
+1010 <- 11 [a+1]
+1011 <- 0  [0]
+1100 <- 12 [a]
+1101 <- 1  [1]
+1110 <- 15 [a+1]
+1111 <- 0  [0]
+
+Where the first column is the binary representation and then the decimal result and its relation to its index (a)
+into the XOR list. This happens because all the upper bits cancel and the lowest two bits cycle every 4.
+So, that's how to arrive at that little lookup table.
+
+Now, consider for a general range of [a,b]. We can use f() to find the XOR for [0,a-1] and [0,b].
+Since any value XOR'd with itself is zero, the f(a-1) just cancels out all the values in the XOR run less than a,
+leaving you with the XOR of the range [a,b].
