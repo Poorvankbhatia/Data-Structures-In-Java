@@ -188,6 +188,16 @@ leaf nodes, and also (n-1) internal nodes.
 
 Total number of nodes= n + (n-1) = 2n-1 Now, we know its a full binary tree and thus the height is: ceil(Log2(n)) +1
 
+HEIGHT OF A COMPLETE BT WITH N NODES - CEIL(log2(n+1))-1
+1 node gives log2(2) = 1
+3 nodes gives log2(4) = 2
+7 nodes gives log2(8) = 3
+15 nodes gives log2(16) = 4
+...
+EDIT: According to wikipedia, the root node (rather un-intuitively?) does not count in the height, so the formula would be CEIL(log2(n+1))-1.
+
+
+
 Total no. of nodes = 2^0 + 2^1 + 2^2 + … + 2^ceil(Log2(n)) // which is a geometric progression where 2^i denotes, the number of nodes at level i.
 
 Formula of summation G.P. = a * (r^size - 1)/(r-1) where a=2^0
