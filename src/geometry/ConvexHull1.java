@@ -46,8 +46,8 @@ public class ConvexHull1 {
     }
 
     public static void main(String[] args) {
-        Point points[] = {new Point(0, 3), new Point(2, 2), new Point(1,1), new Point(2, 1),
-                new Point(3,0), new Point(0,0), new Point(3, 3)};
+        Point points[] = {new Point(0,3), new Point(2,2),
+                new Point(6,5), new Point(8,4), new Point(3,0)};
 
         new ConvexHull1().printHull(points);
     }
