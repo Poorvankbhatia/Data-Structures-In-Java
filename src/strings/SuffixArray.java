@@ -147,5 +147,7 @@ public class SuffixArray {
  only a few characters.
 
 
+ https://discuss.leetcode.com/topic/215/special-subsequence/2
+
 
  */
