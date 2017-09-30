@@ -168,4 +168,11 @@ If polor angle of two points is same, then put the nearest point first.
          4.2) Push points[i] to S
 
 5) Print contents of S
+
+
+Let n be the number of input points. The algorithm takes O(nLogn) time if we use a O(nLogn) sorting algorithm.
+The first step (finding the bottom-most point) takes O(n) time. The second step (sorting points) takes O(nLogn) time.
+Third step takes O(n) time. In third step, every element is pushed and popped at most one time. So the sixth step to
+process points one by one takes O(n) time, assuming that the stack operations take O(1) time. Overall complexity is
+ O(n) + O(nLogn) + O(n) + O(n) which is O(nLogn)
  */
