@@ -47,6 +47,7 @@ public class Trie<Item> {
         size = 0;
     }
 
+    @SuppressWarnings("unchecked")
     public Item get(String key) {
         Node x = get(root,key,0);
         if(x!=null) {
@@ -69,73 +70,8 @@ public class Trie<Item> {
         return get(x.childArray[c],key,d+1);
     }
 
-
-    /*
-           This method is only added for Shortest Unique Prefix implementation
-    */
-    public String getEntirePrefixWithValue(String key,Item item) {
-        StringBuilder sb = new StringBuilder();
-        getEntirePrefixWithValue(root,key,item,sb,0);
-        return sb.toString().equals(key)?"":sb.toString();
-    }
-
-    private void getEntirePrefixWithValue(Node x,String key,Item item,StringBuilder sb,int d) {
-
-        if(x==null) {
-            return;
-        } else {
-            if(x.value==item) {
-                return;
-            }
-        }
-        /*
-           In case a string is added 2 times in an array, So unique prefix won't be possible.
-           And d would exceed the length of the key, without finding an item with frequency 1.
-         */
-        if(d>=key.length()) {
-            return;
-        }
-        char c = key.charAt(d);
-        sb.append(c);
-        getEntirePrefixWithValue(x.childArray[c],key,item,sb,d+1);
-
-    }
-
-
     public boolean contains(String key) {
         return get(key)!=null;
-    }
-
-    /*
-            This method is only added for Shortest Unique Prefix implementation
-            Here every node will have a default count of 1, initially.
-     */
-
-    public void putWithFrequency(String key) {
-        root = putWithFrequency(root,key,0);
-    }
-
-    private Node putWithFrequency(Node x,String key,int d) {
-        boolean wasPresent = true;
-        if(x==null) {
-            wasPresent = false;
-            x=new Node();
-            x.value = 1;
-        } else if(x!=root) {
-            Integer value = (Integer) x.value;
-            value++;
-            x.value = value;
-        }
-        if(d==key.length()) {
-            if(!wasPresent) {
-                size++;
-            }
-            return x;
-        }
-        char c = key.charAt(d);
-        x.childArray[c] = putWithFrequency(x.childArray[c],key,d+1);
-        return x;
-
     }
 
     public void put(String key,Item item) {
@@ -161,6 +97,38 @@ public class Trie<Item> {
         char c = key.charAt(d);
         x.childArray[c] = put(x.childArray[c],key,d+1,item);
         return x;
+    }
+
+    public void delete(String key) {
+        root = delete(root,key,0);
+    }
+
+    private Node delete(Node x,String key,int d) {
+        if(x==null) {
+            return null;
+        }
+        if(d==key.length()) {
+            if(x.value!=null) {
+                size--;
+            }
+            x.value = null;
+        } else {
+            char c = key.charAt(d);
+            x.childArray[c] = delete(x.childArray[c],key,d+1);
+        }
+
+        //Remove subtree rooted at x , iff entire subtree is empty
+        if(x.value!=null) {
+            return x;
+        }
+        for (int c=0;c<R;c++) {
+            if(x.childArray[c]!=null) {
+                return x;
+            }
+        }
+
+        return null;
+
     }
 
     public int getSize() {
@@ -254,35 +222,66 @@ public class Trie<Item> {
     }
 
 
-    public void delete(String key) {
-        root = delete(root,key,0);
+    /*
+           This method is only added for Shortest Unique Prefix implementation
+    */
+    public String getEntirePrefixWithValue(String key,Item item) {
+        StringBuilder sb = new StringBuilder();
+        getEntirePrefixWithValue(root,key,item,sb,0);
+        return sb.toString().equals(key)?"":sb.toString();
     }
 
-    private Node delete(Node x,String key,int d) {
+    private void getEntirePrefixWithValue(Node x,String key,Item item,StringBuilder sb,int d) {
+
         if(x==null) {
-            return null;
+            return;
+        } else {
+            if(x.value==item) {
+                return;
+            }
+        }
+        /*
+           In case a string is added 2 times in an array, So unique prefix won't be possible.
+           And d would exceed the length of the key, without finding an item with frequency 1.
+         */
+        if(d>=key.length()) {
+            return;
+        }
+        char c = key.charAt(d);
+        sb.append(c);
+        getEntirePrefixWithValue(x.childArray[c],key,item,sb,d+1);
+
+    }
+
+    /*
+            This method is only added for Shortest Unique Prefix implementation
+            Here every node will have a default count of 1, initially.
+     */
+
+    public void putWithFrequency(String key) {
+        root = putWithFrequency(root,key,0);
+    }
+
+    private Node putWithFrequency(Node x,String key,int d) {
+        boolean wasPresent = true;
+        if(x==null) {
+            wasPresent = false;
+            x=new Node();
+            x.value = 1;
+        } else if(x!=root) {
+            Integer value = (Integer) x.value;
+            value++;
+            x.value = value;
         }
         if(d==key.length()) {
-            if(x.value!=null) {
-                size--;
+            if(!wasPresent) {
+                size++;
             }
-            x.value = null;
-        } else {
-            char c = key.charAt(d);
-            x.childArray[c] = delete(x.childArray[c],key,d+1);
-        }
-
-        //Remove subtree rooted at x , iff entire subtree is empty
-        if(x.value!=null) {
             return x;
         }
-        for (int c=0;c<R;c++) {
-            if(x.childArray[c]!=null) {
-                return x;
-            }
-        }
-
-        return null;
+        char c = key.charAt(d);
+        x.childArray[c] = putWithFrequency(x.childArray[c],key,d+1);
+        return x;
 
     }
 
