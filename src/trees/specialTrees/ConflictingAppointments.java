@@ -109,7 +109,7 @@ class AppointmentTree {
         // greater than or equal to given interval, then i may
         // overlap with an interval is left subtree
 
-        else if (node.left != null && i.high <= node.left.max) {
+        else if (node.left != null && i.low <= node.left.max) {
             return search(node.left, i);
         } else {
             return search(node.right, i);
@@ -143,8 +143,7 @@ public class ConflictingAppointments {
 
     public static void main(String[] args) {
 
-        Appointment intervals[] = new Appointment[]{new Appointment(1, 5), new Appointment(3, 7), new Appointment(2, 6), new Appointment(10, 15),
-                new Appointment(5, 6), new Appointment(4, 100)};
+        Appointment intervals[] = new Appointment[]{new Appointment(47,50), new Appointment(33,41), new Appointment(39,45)};
 
         AppointmentTree tree = new AppointmentTree();
 
