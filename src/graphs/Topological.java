@@ -92,6 +92,7 @@ public class Topological {
 
 
         Digraph digraph = new Digraph(6);
+        //0 is dependent on 5
         digraph.addEdge(5,0);
         digraph.addEdge(5,2);
         digraph.addEdge(4,0);
@@ -115,6 +116,12 @@ public class Topological {
 
 
 /*
+
+       2<-5->0<-4
+       |        |
+       v        v
+       3------->1
+
 
  The first vertex in topological sorting is always a vertex with in-degree as 0 (a vertex with no in-coming edges).Not dependent on anyone.
 

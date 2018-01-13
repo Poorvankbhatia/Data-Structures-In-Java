@@ -8,8 +8,10 @@ v in the ordering. Topological Sorting for a graph is not possible if the graph 
 package graphs;
 
 import utility.Queue;
-import utility.Stack;
 import utility.graphClasses.Digraph;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by poorvank.b on 12/03/17.
@@ -31,7 +33,7 @@ public class KahnsAlgo {
         }
 
         int visitCount = 0;
-        Stack<Integer> stack = new Stack<>();
+        List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
             int current = queue.dequeue();
             for (Integer next : G.getAdj(current)) {
@@ -39,16 +41,14 @@ public class KahnsAlgo {
                     queue.enqueue(next);
                 }
             }
-            stack.push(current);
+            list.add(current);
             visitCount++;
         }
 
         if(visitCount!=G.getVertexCount()) {
             System.out.println("No Topological order present");
         } else {
-            while (!stack.isEmpty()) {
-                System.out.print(stack.pop() +" ");
-            }
+           System.out.println(list.toString());
         }
 
     }
@@ -56,13 +56,13 @@ public class KahnsAlgo {
     public static void main(String[] args) {
 
         Digraph digraph = new Digraph(6);
-        //0 is dependent on 5
-        digraph.addEdge(0,5);
-        digraph.addEdge(2,5);
-        digraph.addEdge(0,4);
-        digraph.addEdge(1,4);
-        digraph.addEdge(3,2);
-        digraph.addEdge(1,3);
+        //5 is dependent on 0
+        digraph.addEdge(5,0);
+        digraph.addEdge(5,2);
+        digraph.addEdge(4,0);
+        digraph.addEdge(4,1);
+        digraph.addEdge(2,3);
+        digraph.addEdge(3,1);
 
         new KahnsAlgo().printTopSort(digraph);
 

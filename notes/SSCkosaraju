@@ -25,7 +25,8 @@ we get a tree as output. And if we start from 3 or 4, we get a forest. To find a
 
    However, if we do a DFS of graph and store
   vertices according to their finish times, we make sure that the finish time of a vertex that connects to other SCCs 
-  (other that its own SCC), will always be greater than finish time of vertices in the other SCC (See this for proof).
+  (other that its own SCC), will always be greater than finish time of vertices in the other SCC.
+
    For example, in DFS of above example graph, finish time of 0 is always greater than 3 and 4 (irrespective of the 
    sequence of vertices considered for DFS). And finish time of 3 is always greater than 4. DFS doesn’t guarantee about
    other vertices, for example finish times of 1 and 2 may be smaller or greater than 3 and 4 depending upon the sequence 
