@@ -87,6 +87,7 @@ public class ReverseLinkedListWithRandomPointers {
     private static void reverseRandom(SpecialNode head) {
 
         SpecialNode current = head;
+        //This stops us from re-reversing a list
         SpecialNode prev = new SpecialNode(Integer.MAX_VALUE);
         SpecialNode next;
         while (current!=null) {
