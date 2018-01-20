@@ -120,9 +120,7 @@ class AppointmentTree {
 
     public void printConflicting(Appointment[] appointments) {
 
-        AppointmentNode node = null;
-
-        node = insert(node, appointments[0]);
+        AppointmentNode node = insert(null, appointments[0]);
 
         for (int i = 1; i < appointments.length; i++) {
 

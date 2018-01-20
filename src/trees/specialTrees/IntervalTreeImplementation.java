@@ -94,7 +94,7 @@ class IntervalTree {
         // greater than or equal to given interval, then i may
         // overlap with an interval is left subtree
 
-        else if (node.left != null && i.high <= node.left.max) {
+        else if (node.left != null && i.low <= node.left.max) {
             return search(node.left, i);
         } else {
             return search(node.right, i);
