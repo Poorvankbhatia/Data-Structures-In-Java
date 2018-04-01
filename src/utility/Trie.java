@@ -15,6 +15,7 @@ public class Trie<Item> {
     /*
             Static class does not have reference to outer class
             Follow: http://stackoverflow.com/questions/27415693/why-do-i-need-to-declare-a-private-class-static-to-avoid-the-generic-array-crea
+            If Node was made a non-static nested class. That means it is an inner class, and it is within the scope of the type parameter <Item>
      */
     private static class Node {
         private Object value;
