@@ -29,11 +29,11 @@ public class SortedArrayFrequency {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{1, 1, 2, 2, 2, 2, 3, 3};
+        int[] arr = new int[]{3,3,4,4,4,9,10};
 
         int n = arr.length;
 
-        int x = 2;
+        int x = 15;
 
         int first = firstIndex(arr, x, 0, n - 1);
         int last = lastIndex(arr, x, 0, n - 1);

@@ -22,49 +22,49 @@ package arrays.binarysearching;
  */
 public class BestFitBox {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    int[] boxes = new int[] {2, 7, 9, 11, 13, 16};
-    int n = 6;
-    int box = 12;
+        int[] boxes = new int[]{2, 7, 9, 11, 13, 16};
+        int n = 6;
+        int box = 12;
 
-    System.out.println(aptBox(boxes, 0, n - 1, box));
+        System.out.println(aptBox(boxes, 0, n - 1, box));
 
-
-  }
-
-  private static int aptBox(int[] arr, int low, int high, int box) {
-
-    if (box <= arr[low]) {
-      return arr[low];
-    }
-
-    if (box > arr[high]) {
-      return -1;
-    }
-
-    int mid = low + (high - low) / 2;
-
-    if (box == arr[mid]) {
-      return arr[mid];
-    } else if (arr[mid] < box) {
-
-      if (mid + 1 <= high && box <= arr[mid + 1]) {
-        return arr[mid + 1];
-      } else {
-        return aptBox(arr, mid + 1, high, box);
-      }
-
-    } else { // arr[mid]>box
-
-      if (mid - 1 >= low && box > arr[mid - 1]) {
-        return arr[mid];
-      } else {
-        return aptBox(arr, low, mid - 1, box);
-      }
 
     }
 
-  }
+    private static int aptBox(int[] arr, int low, int high, int box) {
+
+        if (box <= arr[low]) {
+            return arr[low];
+        }
+
+        if (box > arr[high]) {
+            return -1;
+        }
+
+        int mid = low + (high - low) / 2;
+
+        if (box == arr[mid]) {
+            return arr[mid];
+        } else if (arr[mid] < box) {
+
+            if (mid + 1 <= high && box <= arr[mid + 1]) {
+                return arr[mid + 1];
+            } else {
+                return aptBox(arr, mid + 1, high, box);
+            }
+
+        } else { // arr[mid]>box
+
+            if (mid - 1 >= low && box > arr[mid - 1]) {
+                return arr[mid];
+            } else {
+                return aptBox(arr, low, mid - 1, box);
+            }
+
+        }
+
+    }
 
 }
